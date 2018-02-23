@@ -1,0 +1,80 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div *ngIf="esUser">    
+    <header>
+        <div class="container-fluid brand-container">
+            <div >
+                <a href="http://www.javeriana.edu.co"> <img src="assets/images/header/tiara.png" alt="Pontificia Universidad Javeriana"></a>            
+                <img class="pull-right content-to-hide" src="assets/images/header/SIEEJ.png" alt="MAX">
+        </div>       
+        </div>
+        
+        <div class="container-fluid navtopdiv"></div>
+        <ul class="topnav">
+            <li><a class="active" href="#">Home</a></li>
+            <li><a (click)="openTabs('usuario')">Usuarios</a></li> <!-- [routerLink]="['/usuario']" -->
+            <li><a (click)="openTabs('empresa')">Empresas</a></li>
+            <li><a (click)="openTabs('evento')">Eventos</a></li>
+            <li><a (click)="openTabs('directorio')">Directorio</a></li>
+            <li class="right"><a (click)="logout()">Salir</a></li>
+            <li class="right"><a class="disabled">Bienvenido {{currentUser}}</a></li>            
+        </ul>
+
+    </header>
+    <!-- <nav>
+        <app-menu></app-menu>
+    </nav> -->
+    
+    <br><br>
+    <app-tabs>
+        <app-tab [tabTitle]="'Principal Emprendimiento'">
+            <div *ngIf="getStaticMostrarEtiquetas()">
+                <br><br>
+                <app-etiquetas-inicio></app-etiquetas-inicio>  
+            </div>
+            <div *ngIf="!getStaticMostrarEtiquetas()">
+                <br><br>
+                <router-outlet></router-outlet>
+            </div> 
+            <br><br>
+            <button class="btn btn-default" (click)="openTabs('about')"><i class="glyphicon glyphicon-question-sign"></i> Información </button>         
+        </app-tab>
+    </app-tabs>
+
+    <ng-template #about>
+        <br><br>    
+        <p>
+            Bienvenido al Sistema de Emprendimiento Javeriano
+        </p>    
+    </ng-template>
+
+    <ng-template #usuarioTab>
+        <app-usuario></app-usuario>
+    </ng-template>
+    
+    <ng-template #empresaTab>
+        <app-empresa></app-empresa>
+    </ng-template>
+    
+    <ng-template #eventoTab>
+        <app-evento></app-evento>
+    </ng-template>
+    
+    <ng-template #directorioTab>
+        <app-directorio></app-directorio>
+    </ng-template>
+
+    <ng-template #universidadTab>
+        <app-universidad></app-universidad>
+    </ng-template>
+
+</div>
+
+
+<span *ngIf="!esUser">
+  <router-outlet></router-outlet>
+</span>
+
+     
+     
+      

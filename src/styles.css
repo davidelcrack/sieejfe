@@ -1,0 +1,193 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.bodyLogin {
+    overflow:auto;
+    margin:0 auto;
+    -webkit-font-smoothing:antialiased;
+    height:900px;
+    box-sizing: border-box;   
+    display:block;
+    position:relative;
+    float: left;
+    width: 100%;
+}
+.bodyLogin .imageLogin {
+    width:100%;
+    height:100% ;
+    
+    background-size:cover;
+    background-position:center;
+    box-sizing:border-box;   
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-2;
+    outline: 5px solid #000066;
+    border: 5px solid #FFCC00;
+}
+@media (max-width:1750px) { 
+    .bodyLogin .imageLogin {
+        height:calc(100% - 185px);
+    }   
+}
+@media (max-height:400px) {    
+    .bodyLogin .imageLogin {
+        height:100%;
+    }
+}
+
+
+/* DIVISION COLUMNAS PARA QUEDE BONITO*/
+
+/*GRID*/
+.contGrid, .contGridFluid {
+    float:left;
+    width:100%;
+  }
+  .contGrid div, .contGridFluid div {
+    float:left;
+  }
+  .contGrid .colGrid1, .contGridFluid .colGrid1 {
+    width:100%;
+  }
+  .contGrid .colGrid2, .contGridFluid .colGrid2 {
+    width:50%;
+  }
+  .contGrid .colGrid3, .contGridFluid .colGrid3 {
+    width:33.33%;
+  }
+  .contGrid .colGrid4, .contGridFluid .colGrid4 {
+    width:25%;
+  }
+  .contGrid .colGrid5, .contGridFluid .colGrid5 {
+    width:20%;
+  }
+  .contGrid .colGrid6, .contGridFluid .colGrid6 {
+    width:16.66%;
+  }
+  .contGrid .colGrid7, .contGridFluid .colGrid7 {
+    float:left;
+    width:14.28%;
+  }
+  .contGrid .colGrid8, .contGridFluid .colGrid8 {
+    float:left;
+    width:12.5%;
+  }
+  .contGrid .colGrid9, .contGridFluid .colGrid9 {
+    width:11.11%;
+  }
+  .contGrid .colGrid10, .contGridFluid .colGrid10 {
+    width:10%;
+  }
+  .contGrid .colGrid11, .contGridFluid .colGrid11 {
+    float:left;
+    width:9.09%;
+  }
+  .contGrid .colGrid12, .contGridFluid .colGrid12 {
+    width:8.33%;
+  }
+  .contGrid .colGrid-3, .contGridFluid .colGrid-4 {
+    width:75%;
+  }
+  /*GRID RESPONSIVE*/
+  @media (max-width:1440px) {
+    .contGridFluid .colGrid9, .contGridFluid .colGrid10 {
+      width:20%;
+    }
+    .contGridFluid .colGrid9:nth-of-type(6), .contGridFluid .colGrid9:nth-of-type(7), .contGridFluid .colGrid9:nth-of-type(8), .contGridFluid .colGrid9:nth-of-type(9) {
+      width:25%;
+    }
+    .contGridFluid .colGrid11, .contGridFluid .colGrid12 {
+      width:16.66%;
+    }
+    .contGridFluid .colGrid11:nth-of-type(7), .contGridFluid .colGrid11:nth-of-type(8), .contGridFluid .colGrid11:nth-of-type(9), .contGridFluid .colGrid11:nth-of-type(10), .contGridFluid .colGrid11:nth-of-type(11) {
+      width:20%;
+    }
+  }
+  @media (max-width:1360px) {
+    .contGridFluid .colGrid6 {
+      width:33.33%;
+    }
+    .contGridFluid .colGrid7, .contGridFluid .colGrid8 {
+      width:25%;
+    }
+    .contGridFluid .colGrid7:nth-of-type(5), .contGridFluid .colGrid7:nth-of-type(6), .contGridFluid .colGrid7:nth-of-type(7) {
+      width:33.33%;
+    }
+  }
+   @media (max-width:1280px) {
+    .contGridFluid .colGrid5, .contGridFluid .colGrid7, .contGridFluid .colGrid9, .contGridFluid .colGrid9:nth-of-type(6), .contGridFluid .colGrid9:nth-of-type(7), .contGridFluid .colGrid9:nth-of-type(8), .contGridFluid .colGrid9:nth-of-type(9) {
+      width:33.33%;
+    }
+    .contGridFluid .colGrid5:nth-of-type(4), .contGridFluid .colGrid5:nth-of-type(5) {
+      width:50%;
+    }
+    .contGridFluid .colGrid7:nth-of-type(7) {
+      width:100%;
+    }
+    .contGridFluid .colGrid11, .contGridFluid .colGrid11:nth-of-type(7), .contGridFluid .colGrid11:nth-of-type(8), .contGridFluid .colGrid12 {
+      width:25%;
+    }
+    .contGridFluid .colGrid11:nth-of-type(9), .contGridFluid .colGrid11:nth-of-type(10), .contGridFluid .colGrid11:nth-of-type(11) {
+      width:33.33%;
+    }
+  }
+  @media (max-width:1110px) {
+    .contGridFluid .colGrid-4 {
+      width: 65%;
+    }
+    .contGrid .colGrid4, .contGridFluid .colGrid4 {
+      width: 35%;
+    }
+  }
+  @media (max-width:1024px) {
+    .contGridFluid .colGrid4, .contGridFluid .colGrid5, .contGridFluid .colGrid8, .contGridFluid .colGrid10 {
+      width:50%;
+    }
+    .contGridFluid .colGrid5:nth-of-type(5) {
+      width:100%;
+    }
+    .contGridFluid .colGrid11, .contGridFluid .colGrid11:nth-of-type(7), .contGridFluid .colGrid11:nth-of-type(8), .contGridFluid .colGrid11:nth-of-type(9), .contGridFluid .colGrid12 {
+      width:33.33%;
+    }
+    .contGridFluid .colGrid11:nth-of-type(10), .contGridFluid .colGrid11:nth-of-type(11) {
+      width:50%;
+    }
+    .contGridFluid .colGrid-4 {
+      width:50%;
+  }
+  }
+  @media (max-width:860px) {
+    .contGridFluid .colGrid-4 {
+      width: 100%;
+    }
+    .contGrid .colGrid4, .contGridFluid .colGrid4 {
+      width: 100%;
+    }
+  }
+  @media (max-width:800px) {
+    .contGridFluid .colGrid3, .contGridFluid .colGrid6, .contGridFluid .colGrid7, .contGridFluid .colGrid7:nth-of-type(5), .contGridFluid .colGrid7:nth-of-type(6), .contGridFluid .colGrid9, .contGridFluid .colGrid9:nth-of-type(6), .contGridFluid .colGrid9:nth-of-type(7), .contGridFluid .colGrid9:nth-of-type(8), .contGridFluid .colGrid11, .contGridFluid .colGrid11:nth-of-type(7), .contGridFluid .colGrid11:nth-of-type(8), .contGridFluid .colGrid11:nth-of-type(9), .contGridFluid .colGrid11:nth-of-type(10), .contGridFluid .colGrid12 {
+      width:50%;
+    }
+    .contGridFluid .colGrid3:nth-of-type(3), .contGridFluid .colGrid9:nth-of-type(9), .contGridFluid .colGrid11:nth-of-type(11) {
+      width:100%;
+    }
+  }
+  @media (max-width:600px) {
+    .contGridFluid .colGrid1,
+    .contGridFluid .colGrid2,
+    .contGridFluid .colGrid3,
+    .contGridFluid .colGrid4,
+    .contGridFluid .colGrid5,
+    .contGridFluid .colGrid6,
+    .contGridFluid .colGrid7,
+    .contGridFluid .colGrid8,
+    .contGridFluid .colGrid9,
+    .contGridFluid .colGrid10,
+    .contGridFluid .colGrid11,
+    .contGridFluid .colGrid12 {
+      width:100%;
+    }
+  }

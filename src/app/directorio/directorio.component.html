@@ -1,0 +1,19 @@
+<ul class="nav nav-pills">
+  <li class="{{pill1}}" (click)="cambiarActive('pill1')"><a href="#">Interno</a></li>
+  <li class="{{pill2}}" (click)="cambiarActive('pill2')"><a href="#">Externo</a></li>
+</ul>
+
+<div *ngIf="pill1=='active'">
+  <br><br>
+  <button type="button" class="btn btn-info btn-lg" (click)="abrirEdicion()">Editar Contenido</button>
+  <br><br>
+  <div class="contGridFluid">
+    <div  *ngFor="let u of directorioUniversidades; let i = index" class="colGrid3" style="text-align:center">
+      <ng-container>
+        <img id="botonSIIEJ{{u.id}}" src="{{u.imagen}}" (click)="abrirLink(u)" height="200" width="200">  
+        <label for="botonSIIEJ{{u.id}}">{{u.nombreUniversidad}}</label>
+      </ng-container>
+    </div>  
+  </div>
+</div>
+

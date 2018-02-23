@@ -1,0 +1,51 @@
+
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: rgb(60, 182, 55);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+
+.btn-outline-primary:hover {
+    background-color: rgb(60, 182, 55);
+    border-color: #ffffff;
+    color : #ffffff
+
+}
+
+.btn-outline-primary {
+    border-color: rgb(60, 182, 55);
+    color : #000066
+}
+
+button {
+    height: 120px;
+    width: 90%;
+}
+
+.botonGrande{
+    height: 50px !important;
+    width: 95% !important;
+    background-color: #000066;
+    color: #ffffff !important;
+}
+/*
+label {
+    display: none;
+}
+    
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+input:hover + label {
+    display: block;
+    animation-duration: 4s;
+    animation-direction: reverse;
+}*/

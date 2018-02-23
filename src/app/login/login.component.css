@@ -1,0 +1,22 @@
+.logForm{
+    width: 20%;
+    align-content: left;
+    text-align: center;
+    margin: auto;
+    background: #FFF;
+    border-radius: 25px;
+}
+
+span{
+   
+    text-align: right !important;
+    font-family: "Georgia";
+  
+} 
+
+input {    
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: "Georgia";
+}
