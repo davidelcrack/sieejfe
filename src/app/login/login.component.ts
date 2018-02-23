@@ -42,24 +42,24 @@ export class LoginComponent implements OnInit {
     console.log(this.datosLogin);
     if(this.datosLogin.username!="" && this.datosLogin.contrasena!=""){   
         
-      this.servicioLogin.login(this.datosLogin.username, this.datosLogin.contrasena).subscribe(//no local
-        response => {//no local
-          console.log("USER",response);  //no local           
-          if(response===200){ //no local
+      //this.servicioLogin.login(this.datosLogin.username, this.datosLogin.contrasena).subscribe(//no local
+        //response => {//no local
+          //console.log("USER",response);  //no local           
+          //if(response===200){ //no local
             localStorage.setItem('TRADUJO', 'es-co');     
             localStorage.setItem('USER', this.datosLogin.username);    
-            this.usuarioRegistrado(this.datosLogin.username, this.datosLogin.contrasena); //no local
-            //localStorage.setItem('LOGGEADO', JSON.stringify(this.usuarioLog)); //si local
-          } //no local
+            //this.usuarioRegistrado(this.datosLogin.username, this.datosLogin.contrasena); //no local
+            localStorage.setItem('LOGGEADO', JSON.stringify(this.usuarioLog)); //si local
+          //} //no local
           console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++');
           this.appComponent.esUser=true;
           this.router.navigate(['board']);
           
-        }, error => { //no local
+        //}, error => { //no local
        
-          console.log("**LOGIN***"+error); //no local
-        }  //no local
-      ); //no local
+          //console.log("**LOGIN***"+error); //no local
+        //}  //no local
+      //); //no local
      
     }
   }

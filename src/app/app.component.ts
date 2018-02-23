@@ -69,8 +69,8 @@ export class AppComponent {
     //localStorage.setItem('USER', null);//this.currentUser = JSON.parse(localStorage.getItem('USER'))   
     this.currentUser = localStorage.getItem('USER');
     console.log(JSON.parse(localStorage.getItem('LOGGEADO')))  ;
-    this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
-    //this.estado='NUEVO'; // sí local
+    //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
+    this.estado='NUEVO'; // sí local
     console.log(this.estado);
     console.log(this.currentUser);
     if (this.currentUser != null) {
@@ -159,7 +159,7 @@ export class AppComponent {
 
   comprobarEstado(){
     this.currentUser = localStorage.getItem('USER');
-    this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
+    //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
     if(this.estado==='NUEVO'){
       AppComponent.mostrarEtiquetas=true;
     }else{

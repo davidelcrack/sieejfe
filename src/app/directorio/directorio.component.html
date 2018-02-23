@@ -3,10 +3,7 @@
   <li class="{{pill2}}" (click)="cambiarActive('pill2')"><a href="#">Externo</a></li>
 </ul>
 
-<div *ngIf="pill1=='active'">
-  <br><br>
-  <button type="button" class="btn btn-info btn-lg" (click)="abrirEdicion()">Editar Contenido</button>
-  <br><br>
+<div *ngIf="pill1=='active'">  
   <div class="contGridFluid">
     <div  *ngFor="let u of directorioUniversidades; let i = index" class="colGrid3" style="text-align:center">
       <ng-container>
@@ -16,4 +13,55 @@
     </div>  
   </div>
 </div>
+
+<br><br>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+      <h4 class="panel-title">
+        <a>Universidades</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <br>
+        Acá van a ir las UNIVERSIDADES
+        <br><br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+      <h4 class="panel-title">
+        <a>Empresas</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+          <br>
+          Acá van a ir las EMPRESAS
+          <br><br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+      <h4 class="panel-title">
+        <a>Entidades Públicas</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+          <br>
+          Acá van a ir las ENTIDADES PÚBLICAS
+          <br><br>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<br><br>
+<button type="button" class="btn btn-info btn-lg" (click)="abrirEdicion()">Editar Contenido</button>
+<br><br>
 
