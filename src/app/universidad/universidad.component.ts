@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { DirectorioService } from '../servicios/directorio/directorio.service';
-import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-universidad',
@@ -16,8 +15,6 @@ export class UniversidadComponent implements OnInit {
   ) {
     this.dataSource = new MatTableDataSource(this.universidades);
    }
-
-  @ViewChild('myModal') myModal:ElementRef;
 
   ngOnInit(
   ) {
@@ -70,7 +67,6 @@ export class UniversidadComponent implements OnInit {
   
   displayedColumns = ['id', 'URL', 'activo', 'nombre' , 'editar'];
   dataSource: MatTableDataSource<any>;
-  universidadEditada : any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -95,10 +91,12 @@ export class UniversidadComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  universidadMostrarNombre;
   abrirEditarU(row : any){
-    console.log("++++++++++++++++++++++++++++++++++");
-    this.universidadEditada=row.nombreUniversidad;
-    console.log(this.universidadEditada.id);
+    /*this.universidadMostrar=this.universidades.find(function(element) {
+      return element.id == row.id;
+    });*/
+    this.universidadMostrarNombre=row.nombreUniversidad;
     let el: any;
     el = document.getElementById("overlay");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
