@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { DirectorioService } from '../servicios/directorio/directorio.service';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-universidad',
@@ -10,10 +11,13 @@ import { DirectorioService } from '../servicios/directorio/directorio.service';
 export class UniversidadComponent implements OnInit {
 
   constructor(
-    private directorioService : DirectorioService
+    private directorioService : DirectorioService,
+    private elementRef: ElementRef
   ) {
     this.dataSource = new MatTableDataSource(this.universidades);
    }
+
+  @ViewChild('myModal') myModal:ElementRef;
 
   ngOnInit(
   ) {
@@ -74,7 +78,10 @@ export class UniversidadComponent implements OnInit {
   universidades = new Array();
 
   cerrarPopUp(){
-	  console.log('cerrarPopUp : entro a cerrarPopUp');
+    console.log('cerrarPopUp : entro a cerrarPopUp');
+    let el : any;
+    el = document.getElementById("overlay");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
   ngAfterViewInit() {
@@ -90,8 +97,12 @@ export class UniversidadComponent implements OnInit {
 
   abrirEditarU(row : any){
     console.log("++++++++++++++++++++++++++++++++++");
-    this.universidadEditada=row;
-    console.log(row)
+    this.universidadEditada=row.nombreUniversidad;
+    console.log(this.universidadEditada.id);
+    let el: any;
+    el = document.getElementById("overlay");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    //$(‘#overlay’).css(‘position’, ‘fixed’);
   }
 
 }
