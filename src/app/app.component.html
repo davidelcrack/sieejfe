@@ -11,14 +11,27 @@
         
         <div class="container-fluid navtopdiv"></div>
         <ul class="topnav">
-            <li><a class="active" href="#">Home</a></li>
-            <li><a (click)="openTabs('usuario')">Usuarios</a></li> <!-- [routerLink]="['/usuario']" -->
-            <li><a (click)="openTabs('empresa')">Empresas</a></li>
-            <li><a (click)="openTabs('evento')">Eventos</a></li>
-            <li><a (click)="openTabs('directorio')">Directorio</a></li>
-            <li class="right"><a (click)="logout()">Salir</a></li>
-            <li class="right"><a class="disabled">Bienvenido {{currentUser}}</a></li>            
+            <li><a class="active" href="#">{{'ENTORNO.HOME'| translate}}</a></li>
+            <li><a (click)="openTabs('usuario')">{{'ENTORNO.USUARIOS'| translate}}</a></li> <!-- [routerLink]="['/usuario']" -->
+            <li><a (click)="openTabs('empresa')">{{'ENTORNO.EMPRESAS'| translate}}</a></li>
+            <li><a (click)="openTabs('evento')">{{'ENTORNO.EVENTOS'| translate}}</a></li>
+            <li><a (click)="openTabs('directorio')">{{'ENTORNO.DIRECTORIO'| translate}}</a></li>
+            <li class="right"><a (click)="logout()">{{'ENTORNO.SALIR'| translate}}</a></li>
+            <li class="right"><a class="disabled">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            
         </ul>
+
+        <div> <!--  *ngIf="aparecen[0].muestra" -->
+            <div class="dropMenu" style="right:102px;">
+                <!--borrar style-->
+                <div class="infoLanguage">
+        
+                    <select #langSelect (change)="translate.use(langSelect.value)" class="form-control" (change)="cerrarAlSeleccionar()" [(ngModel)]="langActual">
+                        <option class="optSelect" *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{'ENTORNO.'+lang | translate}}</option>
+                    </select>
+        
+                </div>
+            </div>
+        </div>
 
     </header>
     <!-- <nav>

@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 //import { EmbedVideo } from 'ngx-embed-video';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app.routing';
 import { AuthenticationGuard } from './authentication.guard';
@@ -60,6 +60,11 @@ import { UsuarioService } from './servicios/usuario.service';
 import { DirectorioComponent } from './directorio/directorio.component';
 import { UniversidadComponent } from './universidad/universidad.component';
 import { DirectorioService } from './servicios/directorio/directorio.service';
+import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-translate';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -79,6 +84,11 @@ import { DirectorioService } from './servicios/directorio/directorio.service';
     UniversidadComponent
   ],
   imports: [
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+      }),
     BrowserModule,
     HttpModule,
     AppRoutingModule,

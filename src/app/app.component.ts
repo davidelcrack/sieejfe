@@ -3,6 +3,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LogoutService } from './servicios/logout.service';
 import { TabsComponent } from './tabs/tabs.component';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ import { TabsComponent } from './tabs/tabs.component';
   },
 })
 export class AppComponent {  
+
+  langActual: any = 'es-co'//localStorage.getItem('TRADUJO');
 
   @ViewChild(TabsComponent) tabsComponent;
 
@@ -59,9 +62,14 @@ export class AppComponent {
     private route: ActivatedRoute,
     private router: Router,
     private eref: ElementRef,
-    private logoutService : LogoutService
+    private logoutService : LogoutService,
+    private translate: TranslateService
     ) {
-      
+    translate.addLangs(["en", "es-co"]);
+    translate.setDefaultLang('es-co');
+
+    let browserLang = translate.getBrowserLang(); let idioma = localStorage.getItem('TRADUJO');
+    translate.use(browserLang.match(/en|es-co/) ? browserLang : idioma);
     }
 
   ngOnInit() {
@@ -141,22 +149,6 @@ export class AppComponent {
     })
   }
 
-  mostrarIdiomasUsuario() {
-    console.log("mostrarIdiomasUsuario: Entro a mostrarIdiomasUsuario");
-    this.aparecen.forEach(element => {
-      if (element.nombre === "idiomas") {
-        if (element.muestra) {
-          element.muestra = false;
-        }
-        else {
-          element.muestra = true;
-        }
-      } else {
-        element.muestra = false;
-      }
-    })
-  }
-
   comprobarEstado(){
     this.currentUser = localStorage.getItem('USER');
     //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
@@ -204,5 +196,20 @@ export class AppComponent {
     }    
   }
   
+  mostrarIdiomasUsuario() {
+    console.log("mostrarIdiomasUsuario: Entro a mostrarIdiomasUsuario");
+    this.aparecen.forEach(element => {
+      if (element.nombre === "idiomas") {
+        if (element.muestra) {
+          element.muestra = false;
+        }
+        else {
+          element.muestra = true;
+        }
+      } else {
+        element.muestra = false;
+      }
+    })
+  }
   
 }

@@ -1,0 +1,30 @@
+{
+  "ENTORNO": {
+    "CERRARSESION": "Log Out",
+    "CUENTA": "ACCOUNT",
+    "en": "English",
+    "es-co": "Spanish",
+    "ANTERIOR": "Previous",
+    "NEXT": "Next",
+    "MOSTRAR": "Show",
+    "BIENVENIDO" : "Welcome",
+    "SALIR" : "Log Out",
+    "DIRECTORIO" : "Directory",
+    "EVENTOS" : "Events",
+    "EMPRESAS" : "Enterprises",
+    "USUARIOS" : "Users",
+    "HOME" : "Home"
+  },
+  "BOARD": {
+    "EMPRENDEDOR": "Welcome Entrepreneur"
+  },
+  "TABS" : {
+    "Principal Emprendimiento" : "Dash Board",
+    "Información" : "Information",
+    "Usuarios" : "User" ,
+    "Empresa"  : "Company",
+    "Evento"  : "Events",
+    "Directorio"  : "Directory",
+    "Universidad" : "University"
+  }
+}
