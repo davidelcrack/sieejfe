@@ -18,6 +18,7 @@ export class UniversidadComponent implements OnInit {
   ngOnInit(
   ) {
 
+    /*
     this.directorioService.obtenerDirectorio().subscribe(
       response => {
         console.log(response);
@@ -41,17 +42,36 @@ export class UniversidadComponent implements OnInit {
         console.log("no se puede obtener tipos identificacion tercero")
       }
     );  
-    
+
+    */
+
+    let data : any;
+    data ={
+      id : 1,
+      url : 'element.url',
+      activo : true,
+      nombreUniversidad : 'element.nombreUniversidad',
+      editaUniversidad : '---'
+    };
+    this.universidades.push(data);
+    data ={
+      id : 2,
+      url : 'url',
+      activo : true,
+      nombreUniversidad : 'element',
+      editaUniversidad : '+++'
+    };
+    this.universidades.push(data);    
   }
   
-  displayedColumns = ['id', 'url', 'activo', 'nombreUniversidad' , 'editaUniversidad'];
+  displayedColumns = ['id', 'URL', 'activo', 'nombre' , 'editar'];
   dataSource: MatTableDataSource<any>;
+  universidadEditada : any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   universidades = new Array();
-  universidadEditada : any;
 
   cerrarPopUp(){
 	  console.log('cerrarPopUp : entro a cerrarPopUp');
