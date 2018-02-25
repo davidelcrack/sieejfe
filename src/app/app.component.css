@@ -25,7 +25,10 @@ ul.topnav li a {
     text-decoration: none;
 }
 
-ul.topnav li a:hover:not(.active) {background-color:#153086;}
+ul.topnav li a:hover:not(.active) {
+    background-color:#153086;
+    cursor: pointer;
+}
 
 ul.topnav li a.active {background-color: rgb(17, 26, 66);}
 

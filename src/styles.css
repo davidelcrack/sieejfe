@@ -12,10 +12,9 @@
     float: left;
     width: 100%;
 }
-.bodyLogin .imageLogin {
+.imageLogin {
     width:100%;
-    height:100% ;
-    
+    height:100% ;    
     background-size:cover;
     background-position:center;
     box-sizing:border-box;   
@@ -24,8 +23,8 @@
     top:0;
     left:0;
     z-index:-2;
-    outline: 5px solid #000066;
-    border: 5px solid #FFCC00;
+    /*outline: 5px solid #000066;
+    border: 5px solid #FFCC00;*/
 }
 @media (max-width:1750px) { 
     .bodyLogin .imageLogin {
@@ -190,4 +189,13 @@
     .contGridFluid .colGrid12 {
       width:100%;
     }
+  }
+
+  html {
+    height: 100%;
+  }
+  
+  body {    
+    font-family: 'Georgia';
+    font-weight: 300;
   }

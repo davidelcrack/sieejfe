@@ -1,27 +1,61 @@
-<div class="bodyLogin"  >  
-  <div class="imageLogin"></div>
-  <div style="text-align:center">
- 
-    <img width="400" src="..\assets\images\JaverianaLogo.png">
-    <br>
-      <!-- <img src="http://www.paellacreativa.com.ar/wp-content/uploads/2014/09/dragon_ball_z_gifs_animados.gif" alt="This will display an animated GIF" /> -->
+<div class="contGridFluid imageLogin">
+  <div class="colGrid2">
+
+    <div class="bodyLogin">               
+      <img width="400" src="..\assets\images\JaverianaLogo.png" >
+      <br><br><br><br><br>      
+
+      <div class="contGridFluid logForm">
+          <div class="colGrid1">
+            <br><br>
+            <span>Nombre:</span> <br>
+            <input id="name" #name="ngModel" name="name" type="text" placeholder="Nombre de Usuario" [(ngModel)]="datosLogin.username" required/>   
+            <br><br>
+          </div>
+
+          <div class="colGrid1">
+            <span>Contraseña:</span> <br>
+            <input id="psw" name="psw" type="password" placeholder="Contraseña" [(ngModel)]="datosLogin.contrasena" required/>
+            <br><br>
+          </div>
+
+          <div class="colGrid1">
+            <button type="button" class="btn btn-info btn-lg" (click)="login()">Log In</button>
+            <br><br>
+        </div>
+
+      </div>           
+        
+
+    </div>
   </div>
-  <br><br><br><br>
-
-  <div class="logForm">
-    
-        <br><br>
-        <span>Nombre:</span> <br>
-        <input id="name" #name="ngModel" name="name" type="text" placeholder="Nombre de Usuario" [(ngModel)]="datosLogin.username" required/>   
-        <br><br>
-
-      
-        <span>Contraseña:</span> <br>
-        <input id="psw" name="psw" type="password" placeholder="Contraseña" [(ngModel)]="datosLogin.contrasena" required/>
-        <br><br>
-
-        <div align="center" ><input name="" type="button" value="Ingresar" (click)="login()"/></div>
-        <br><br>
-    
+  <div class="colGrid2">
+    <div class="bodyLogin">   
+    <div class="masthead">
+      <div class = "masthead-bg"> </div>
+        Hola
+    </div>
+    </div>
   </div>
+
+  <div class="social-icons">
+      <ul class="list-unstyled text-center mb-0">
+        <li class="list-unstyled-item">
+          <a target="_blank" href="https://twitter.com/unijaveriana?lang=es">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a target="_blank" href="https://www.youtube.com/user/UniJaveriana">
+            <i class="fa fa-youtube"></i>
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a target="_blank" href="https://www.facebook.com/unijaveriana">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
 </div>
