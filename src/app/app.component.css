@@ -2,7 +2,6 @@
 
 .disabled {
     pointer-events: none;
-    cursor: default;
  }
 
 body {margin: 0;}
@@ -34,7 +33,6 @@ ul.topnav li a.active {background-color: rgb(17, 26, 66);}
 
 ul.topnav li.right {
     float: right;
-    cursor:pointer;
 }
 
 @media screen and (max-width: 600px){
@@ -196,12 +194,11 @@ img {
     /*style="color: black;" */
 }
 
-ul.dropMioJaja li a:hover:not(.active) {
-    background-color:#000066 !important;
+ul.dropMioJaja li a:hover{
+    background-color:#153086 !important;
     color:#FFFFFF !important;
     cursor: pointer;
     display: block !important;
-    color: rgb(0, 0, 0) !important;
     text-align: left !important;
     padding: 6px 10px !important;
     text-decoration: none !important;
@@ -251,7 +248,8 @@ ul.dropMioJaja li a{
     height: 30px;
     background-color:#153086;
     color:#FFFFFF;
-    border-color: #153086
+    border-color: #153086;
+    cursor: pointer;
 }
 
 .infoLanguage select option{
@@ -260,6 +258,8 @@ ul.dropMioJaja li a{
     color: black;
     border-color: #FFFFFF;
     font-size: 14px;
+    cursor: pointer !important;
+    -webkit-appearance: none;
 }
 
 .fa-home{
