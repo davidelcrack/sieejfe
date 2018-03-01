@@ -1,10 +1,10 @@
 <br><br> 
 <ul class="nav nav-pills">
-  <li class="{{pill1}}" (click)="cambiarActive('pill1')"><a href="#">Interno</a></li>
-  <li class="{{pill2}}" (click)="cambiarActive('pill2')"><a href="#">Externo</a></li>
+  <li class="{{pill1}}" (click)="cambiarActive('pill1')"><a href="#">{{'ACORDEON.INTERNO'| translate}}</a></li>
+  <li class="{{pill2}}" (click)="cambiarActive('pill2')"><a href="#">{{'ACORDEON.EXTERNO'| translate}}</a></li>
 </ul>
 
-<div *ngIf="pill1=='active'">  
+<!--<div *ngIf="pill1=='active'">  
   <div class="contGridFluid">
     <div  *ngFor="let u of directorioUniversidades; let i = index" class="colGrid3" style="text-align:center">
       <ng-container>
@@ -13,7 +13,7 @@
       </ng-container>
     </div>  
   </div>
-</div>
+</div>-->
 
 <br><br>
 
@@ -21,13 +21,21 @@
   <div class="panel panel-default">
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
       <h4 class="panel-title">
-        <a>Universidades</a>
+        <a>{{'ACORDEON.UNIVERSIDAD'| translate}}</a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse in">
+    <!-- <div id="collapse1" class="panel-collapse collapse in"> -->
+    <div id="collapse1" class="panel-collapse collapse">
       <div class="panel-body">
         <br>
-        Acá van a ir las UNIVERSIDADES
+        <div class="contGridFluid">
+          <div  *ngFor="let u of directorioUniversidades; let i = index" class="colGrid3" style="text-align:center">
+            <ng-container>
+              <img id="botonSIIEJ{{u.id}}" src="{{u.imagen}}" (click)="abrirLink(u)" height="200" width="200">  
+              <label for="botonSIIEJ{{u.id}}">{{u.nombreUniversidad}}</label>
+            </ng-container>
+          </div>  
+        </div>
         <br><br>
       </div>
     </div>
@@ -35,7 +43,7 @@
   <div class="panel panel-default">
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
       <h4 class="panel-title">
-        <a>Empresas</a>
+        <a>{{'ACORDEON.EMPRESA'| translate}}</a>
       </h4>
     </div>
     <div id="collapse2" class="panel-collapse collapse">
@@ -49,7 +57,7 @@
   <div class="panel panel-default">
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
       <h4 class="panel-title">
-        <a>Entidades Públicas</a>
+        <a>{{'ACORDEON.PUBLICA'| translate}}</a>
       </h4>
     </div>
     <div id="collapse3" class="panel-collapse collapse">

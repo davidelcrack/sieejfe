@@ -13,7 +13,9 @@
     "EVENTOS" : "Eventos",
     "EMPRESAS" : "Empresas",
     "USUARIOS" : "Usuarios",
-    "HOME" : "Inicio"
+    "HOME" : "Inicio",
+    "ACTORES" : "Actores",
+    "IDIOMA" : "Cambiar Idioma"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -26,6 +28,14 @@
     "Evento"  : "Evento",
     "Directorio"  : "Directorio",
     "Universidad" : "Universidad"
+  },
+  "ACORDEON" : {
+    "UNIVERSIDAD" : "Universidades",
+    "EMPRESA" : "Empresas",
+    "PUBLICA" : "Entidades Públcas",
+    "INTERNO" : "Nacional",
+    "EXTERNO" : "Internacional"
   }
+
 
 }

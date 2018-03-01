@@ -13,7 +13,9 @@
     "EVENTOS" : "Events",
     "EMPRESAS" : "Enterprises",
     "USUARIOS" : "Users",
-    "HOME" : "Home"
+    "HOME" : "Home",
+    "ACTORES" : "Stakeholders",
+    "IDIOMA" : "Change Language"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -26,5 +28,12 @@
     "Evento"  : "Events",
     "Directorio"  : "Directory",
     "Universidad" : "University"
+  },
+  "ACORDEON" : {
+    "UNIVERSIDAD" : "University",
+    "EMPRESA" : "Enterprises",
+    "PUBLICA" : "Public Entities",
+    "INTERNO" : "National",
+    "EXTERNO" : "International"
   }
 }
