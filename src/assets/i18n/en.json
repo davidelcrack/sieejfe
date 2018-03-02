@@ -15,7 +15,10 @@
     "USUARIOS" : "Users",
     "HOME" : "Home",
     "ACTORES" : "Stakeholders",
-    "IDIOMA" : "Change Language"
+    "IDIOMA" : "Change Language",
+    "SERVICIOS" : "Services",
+    "RELACIONAMIENTO" : "Relationship",
+    "ADMINISTRACION" : "Administration"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -34,6 +37,21 @@
     "EMPRESA" : "Enterprises",
     "PUBLICA" : "Public Entities",
     "INTERNO" : "National",
-    "EXTERNO" : "International"
+    "EXTERNO" : "International",
+    "GOBIERNO" : "Government",
+    "REGULADORES" : "Regulatory Agents",
+    "INVESTIGACION" : "Research Institutions",
+    "ONG" : "ONGs",
+    "INDUSTRIA" : "Industry",
+    "SPONSOR" : "Sponsor",
+    "MENTORES" : "Mentor Network",
+    "FINANCIADORES" : "Funding Network",
+    "INCUBADORES" : "Incubator Network",
+    "ACELERADORES" : "Network of Accelerators",
+    "CIENTIFICA" : "Scientific Associations",
+    "LABORATORIO" : "Research Laboratories",
+    "INSTITUCIONES" : "Universities and institutions",
+    "REDES" : "Networks",
+    "TECNOLOGICOS" : "Technological"
   }
 }

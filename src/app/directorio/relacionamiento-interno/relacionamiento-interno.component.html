@@ -1,0 +1,188 @@
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1" (click)="getDominios('UNIVERSIDAD')">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.UNIVERSIDAD'| translate}}</a>
+    </h4>
+  </div>
+  <!-- <div id="collapse1" class="panel-collapse collapse in"> -->
+  <div id="collapse1" class="panel-collapse collapse">
+    <div class="panel-body">
+      <br>
+      <ul>
+        <li *ngFor="let universidad of dominiosNacionales" (click)="seleccion(universidad)">
+          <div class="input-group">
+            {{ universidad.nombre }}
+            <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+            <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+            <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+          </div>
+        </li>
+      </ul>
+      <br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2" (click)="getDominios('GOBIERNO')">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.GOBIERNO'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapse2" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        <ul>
+          <li *ngFor="let gobierno of dominiosNacionales" (click)="seleccion(gobierno)">
+              <div class="input-group">
+                {{ gobierno.nombre }}
+                <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+                <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+                <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+              </div>
+          </li>
+        </ul>
+        <br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.REGULADORES'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapse3" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        Acá van a ir las REGULADORES
+        <br><br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.INVESTIGACION'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapse4" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        Acá van a ir las INVESTIGACION
+        <br><br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.ONG'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapse5" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        Acá van a ir las ONG
+        <br><br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.INDUSTRIA'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapse6" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        Acá van a ir las INDUSTRIA
+        <br><br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.SPONSOR'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapse7" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        Acá van a ir las SPONSOR
+        <br><br>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+      <h4 class="panel-title">
+        <a>{{'ACORDEON.MENTORES'| translate}}</a>
+      </h4>
+    </div>
+    <div id="collapse8" class="panel-collapse collapse">
+      <div class="panel-body">
+          <br>
+          Acá van a ir las MENTORES
+          <br><br>
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+      <h4 class="panel-title">
+        <a>{{'ACORDEON.FINANCIADORES'| translate}}</a>
+      </h4>
+    </div>
+    <div id="collapse9" class="panel-collapse collapse">
+      <div class="panel-body">
+          <br>
+          Acá van a ir las FINANCIADORES
+          <br><br>
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+      <h4 class="panel-title">
+        <a>{{'ACORDEON.INCUBADORES'| translate}}</a>
+      </h4>
+    </div>
+    <div id="collapse10" class="panel-collapse collapse">
+      <div class="panel-body">
+          <br>
+          Acá van a ir las INCUBADORES
+          <br><br>
+      </div>
+    </div>
+  </div>
+<div class="panel panel-default">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+      <h4 class="panel-title">
+        <a>{{'ACORDEON.ACELERADORES'| translate}}</a>
+      </h4>
+    </div>
+    <div id="collapse11" class="panel-collapse collapse">
+      <div class="panel-body">
+          <br>
+          Acá van a ir las ACELERADORES
+          <br><br>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<!--
+  <div class="contGridFluid">
+        <div  *ngFor="let u of directorioUniversidades; let i = index" class="colGrid3" style="text-align:center">
+          <ng-container>
+            <img id="botonSIIEJ{{u.id}}" src="{{u.imagen}}" (click)="abrirLink(u)" height="200" width="200">  
+            <label for="botonSIIEJ{{u.id}}">{{u.nombreUniversidad}}</label>
+          </ng-container>
+        </div>  
+      </div>
+
+    -->

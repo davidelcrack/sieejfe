@@ -15,7 +15,10 @@
     "USUARIOS" : "Usuarios",
     "HOME" : "Inicio",
     "ACTORES" : "Actores",
-    "IDIOMA" : "Cambiar Idioma"
+    "IDIOMA" : "Cambiar Idioma",
+    "SERVICIOS" : "Servicios",
+    "RELACIONAMIENTO" : "Relacionamiento",
+    "ADMINISTRACION" : "Administración"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -34,7 +37,22 @@
     "EMPRESA" : "Empresas",
     "PUBLICA" : "Entidades Públcas",
     "INTERNO" : "Nacional",
-    "EXTERNO" : "Internacional"
+    "EXTERNO" : "Internacional",
+    "GOBIERNO" : "Gobierno",
+    "REGULADORES" : "Agentes Reguladores",
+    "INVESTIGACION" : "Instituciones de Investigación",
+    "ONG" : "ONGs",
+    "INDUSTRIA" : "Industria",
+    "SPONSOR" : "Sponsor",
+    "MENTORES" : "Red de Mentores",
+    "FINANCIADORES" : "Red de Financiadores",
+    "INCUBADORES" : "Red de Incubadores",
+    "ACELERADORES" : "Red de Aceleradores",
+    "CIENTIFICA" : "Asociaciones Científicas",
+    "LABORATORIO" : "Laboratorios de Investigación",
+    "INSTITUCIONES" : "Universidades e intituciones",
+    "REDES" : "Redes",
+    "TECNOLOGICOS" : "Tecnológicos"
   }
 
 

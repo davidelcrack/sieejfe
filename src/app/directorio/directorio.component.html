@@ -16,58 +16,12 @@
 </div>-->
 
 <br><br>
+<div *ngIf="pill1=='active'">
+  <app-relacionamiento-interno></app-relacionamiento-interno>
+</div> 
 
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-      <h4 class="panel-title">
-        <a>{{'ACORDEON.UNIVERSIDAD'| translate}}</a>
-      </h4>
-    </div>
-    <!-- <div id="collapse1" class="panel-collapse collapse in"> -->
-    <div id="collapse1" class="panel-collapse collapse">
-      <div class="panel-body">
-        <br>
-        <div class="contGridFluid">
-          <div  *ngFor="let u of directorioUniversidades; let i = index" class="colGrid3" style="text-align:center">
-            <ng-container>
-              <img id="botonSIIEJ{{u.id}}" src="{{u.imagen}}" (click)="abrirLink(u)" height="200" width="200">  
-              <label for="botonSIIEJ{{u.id}}">{{u.nombreUniversidad}}</label>
-            </ng-container>
-          </div>  
-        </div>
-        <br><br>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-      <h4 class="panel-title">
-        <a>{{'ACORDEON.EMPRESA'| translate}}</a>
-      </h4>
-    </div>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">
-          <br>
-          Acá van a ir las EMPRESAS
-          <br><br>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-      <h4 class="panel-title">
-        <a>{{'ACORDEON.PUBLICA'| translate}}</a>
-      </h4>
-    </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">
-          <br>
-          Acá van a ir las ENTIDADES PÚBLICAS
-          <br><br>
-      </div>
-    </div>
-  </div>
+<div *ngIf="pill2=='active'">
+  <app-relacionamiento-externo></app-relacionamiento-externo>
 </div> 
 
 <br><br>

@@ -17,4 +17,9 @@ export class DirectorioService {
     .map((res: Response) => res.json());
   }
 
+  listarDominiosNacionales(tipo : any){
+    return this.http.post(this.backendUrl + "listarDominiosNacionales", tipo, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

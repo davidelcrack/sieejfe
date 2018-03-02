@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { UsuarioService } from '../servicios/usuario.service';
 import { DirectorioService } from '../servicios/directorio/directorio.service';
+import { RelacionamientoInternoComponent } from './relacionamiento-interno/relacionamiento-interno.component';
+import { RelacionamientoExternoComponent } from './relacionamiento-externo/relacionamiento-externo.component';
 
 @Component({
   selector: 'app-directorio',
@@ -10,11 +12,14 @@ import { DirectorioService } from '../servicios/directorio/directorio.service';
 })
 export class DirectorioComponent implements OnInit {
 
+  @ViewChild(RelacionamientoInternoComponent) interno: RelacionamientoInternoComponent;
+
+  @ViewChild(RelacionamientoExternoComponent) externo: RelacionamientoExternoComponent
+
   pill1;
   pill2;
   constructor(
-    private appComponent : AppComponent,
-    private directorioService : DirectorioService
+    private appComponent : AppComponent
   ) { }
 
   ngOnInit() {
@@ -24,27 +29,13 @@ export class DirectorioComponent implements OnInit {
     datos={ id: 1 , nombre: 'Universidad Javeriana', link: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" }; this.valorEtiquetas.push(datos);
     datos={ id: 2 , nombre: 'Universidad Andes', link: "http://uniandes.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/University_of_Los_Andes_logo.svg/1000px-University_of_Los_Andes_logo.svg.png" }; this.valorEtiquetas.push(datos);
     datos={ id: 3 , nombre: 'Universidad Rosario', link: "http://www.google.com" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" }; this.valorEtiquetas.push(datos);
-    datos={ id: 4 , nombre: 'Universidad Nacional', link: "http://www.google.com" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" }; this.valorEtiquetas.push(datos);
+    datos={ id: 4 , nombre: 'Universidad Nacional', link: "http://www.google.com" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" }; this.valorEtiquetas.push(datos);    
     
     
-    this.directorioService.obtenerDirectorio().subscribe(
-      response => {
-        this.directorioUniversidades = response;
-        console.log(this.directorioUniversidades);
-      },
-      error => {
-        console.log("no se puede obtener tipos identificacion tercero")
-      }
-    );
   }
 
   valorEtiquetas = new  Array ();
-  directorioUniversidades = new  Array ();
   
-  abrirLink(u : any){
-    window.open(u.url,'_blank'); 
-  }
-
   cambiarActive(a : any){
     console.log(a);
     if(a==="pill1"){
