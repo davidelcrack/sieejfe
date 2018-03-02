@@ -29,7 +29,7 @@ export class RelacionamientoInternoComponent implements OnInit {
   dominiosNacionales = new  Array ();
   
   abrirLink(u : any){
-    window.open(u.url,'_blank'); 
+    window.open(u,'_blank'); 
   }
 
   getDominios(tipo : any){

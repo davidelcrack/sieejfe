@@ -13,9 +13,7 @@
         <li *ngFor="let universidad of dominiosNacionales" (click)="seleccion(universidad)">
           <div class="input-group">
             {{ universidad.nombre }}
-            <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
-            <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
-            <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+            <a class="fa fa-external-link acordeonButton" (click)="abrirLink(universidad.url)" ></a>
           </div>
         </li>
       </ul>
@@ -36,9 +34,7 @@
           <li *ngFor="let gobierno of dominiosNacionales" (click)="seleccion(gobierno)">
               <div class="input-group">
                 {{ gobierno.nombre }}
-                <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
-                <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
-                <button type="button" class="btn btn-info btn-lg acordeonButton"></button>
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(gobierno.url)"></a>
               </div>
           </li>
         </ul>
