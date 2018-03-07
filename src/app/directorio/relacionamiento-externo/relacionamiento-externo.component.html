@@ -43,7 +43,7 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseD">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseD" (click)="getDominiosInternacionales('RED_ACELERADORAS')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.REDES'| translate}}</a>
     </h4>
@@ -51,8 +51,15 @@
   <div id="collapseD" class="panel-collapse collapse">
     <div class="panel-body">
         <br>
-        Acá van a ir las REDES
-        <br><br>
+        <ul>
+          <li *ngFor="let acelerador of dominiosInternacionales" (click)="seleccion(acelerador)">
+              <div class="input-group">
+                {{ acelerador.nombre }}
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+              </div>
+          </li>
+        </ul>
+        <br>
     </div>
   </div>
 </div>

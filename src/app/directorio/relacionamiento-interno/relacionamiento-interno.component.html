@@ -52,7 +52,7 @@
     <div class="panel-body">
         <br>
         Acá van a ir las REGULADORES
-        <br><br>
+        <br>
     </div>
   </div>
 </div>
@@ -66,7 +66,7 @@
     <div class="panel-body">
         <br>
         Acá van a ir las INVESTIGACION
-        <br><br>
+        <br>
     </div>
   </div>
 </div>
@@ -80,7 +80,7 @@
     <div class="panel-body">
         <br>
         Acá van a ir las ONG
-        <br><br>
+        <br>
     </div>
   </div>
 </div>
@@ -94,7 +94,7 @@
     <div class="panel-body">
         <br>
         Acá van a ir las INDUSTRIA
-        <br><br>
+        <br>
     </div>
   </div>
 </div>
@@ -108,12 +108,12 @@
     <div class="panel-body">
         <br>
         Acá van a ir las SPONSOR
-        <br><br>
+        <br>
     </div>
   </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8" (click)="getDominios('RED_MENTORES')">
       <h4 class="panel-title">
         <a>{{'ACORDEON.MENTORES'| translate}}</a>
       </h4>
@@ -121,13 +121,20 @@
     <div id="collapse8" class="panel-collapse collapse">
       <div class="panel-body">
           <br>
-          Acá van a ir las MENTORES
-          <br><br>
+          <ul>
+            <li *ngFor="let mentores of dominiosNacionales" (click)="seleccion(mentores)">
+                <div class="input-group">
+                  {{ mentores.nombre }}
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(mentores.url)"></a>
+                </div>
+            </li>
+          </ul>
+          <br>
       </div>
     </div>
   </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9" (click)="getDominios('RED_FINANCIADORES')">
       <h4 class="panel-title">
         <a>{{'ACORDEON.FINANCIADORES'| translate}}</a>
       </h4>
@@ -135,8 +142,15 @@
     <div id="collapse9" class="panel-collapse collapse">
       <div class="panel-body">
           <br>
-          Acá van a ir las FINANCIADORES
-          <br><br>
+          <ul>
+            <li *ngFor="let financiador of dominiosNacionales" (click)="seleccion(financiador)">
+                <div class="input-group">
+                  {{ financiador.nombre }}
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(financiador.url)"></a>
+                </div>
+            </li>
+          </ul>
+          <br>
       </div>
     </div>
   </div>
@@ -150,12 +164,12 @@
       <div class="panel-body">
           <br>
           Acá van a ir las INCUBADORES
-          <br><br>
+          <br>
       </div>
     </div>
   </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11" (click)="getDominios('RED_ACELERADORAS')">
       <h4 class="panel-title">
         <a>{{'ACORDEON.ACELERADORES'| translate}}</a>
       </h4>
@@ -163,8 +177,15 @@
     <div id="collapse11" class="panel-collapse collapse">
       <div class="panel-body">
           <br>
-          Acá van a ir las ACELERADORES
-          <br><br>
+          <ul>
+            <li *ngFor="let acelerador of dominiosNacionales" (click)="seleccion(acelerador)">
+                <div class="input-group">
+                  {{ acelerador.nombre }}
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+                </div>
+            </li>
+          </ul>
+          <br>
       </div>
     </div>
   </div>

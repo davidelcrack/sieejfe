@@ -22,4 +22,9 @@ export class DirectorioService {
     .map((res: Response) => res.json());
   }
 
+  listarDominiosInternacionales(tipo : any){
+    return this.http.post(this.backendUrl + "listarDominiosInternacionales", tipo, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }
