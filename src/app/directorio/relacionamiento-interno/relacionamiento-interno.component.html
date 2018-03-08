@@ -1,3 +1,7 @@
+
+<button type="button" class="btn btn-info btn-lg" (click)="abrirEdicion()">Agregar Categoria Interna</button>
+<br><br><br>
+
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
   <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1" (click)="getDominios('UNIVERSIDAD')">
@@ -71,7 +75,7 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5" (click)="getDominios('ONG')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.ONG'| translate}}</a>
     </h4>
@@ -79,7 +83,14 @@
   <div id="collapse5" class="panel-collapse collapse">
     <div class="panel-body">
         <br>
-        Acá van a ir las ONG
+        <ul>
+          <li *ngFor="let ong of dominiosNacionales" (click)="seleccion(ong)">
+              <div class="input-group">
+                {{ ong.nombre }}
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ong.url)"></a>
+              </div>
+          </li>
+        </ul>
         <br>
     </div>
   </div>
@@ -190,7 +201,8 @@
     </div>
   </div>
 </div>
-  
+
+ 
 
 <!--
   <div class="contGridFluid">

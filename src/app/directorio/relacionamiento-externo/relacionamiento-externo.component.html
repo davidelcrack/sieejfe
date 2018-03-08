@@ -10,7 +10,7 @@
     <div class="panel-body">
       <br>
       Aca van a ir CIENTIFICA
-      <br><br>
+      <br>
     </div>
   </div>
 </div>
@@ -24,12 +24,12 @@
     <div class="panel-body">
         <br>
         Acá van a ir las LABORATORIO
-        <br><br>
+        <br>
     </div>
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseC">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseC" (click)="getDominiosInternacionales('UNIVERSIDAD')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.INSTITUCIONES'| translate}}</a>
     </h4>
@@ -37,8 +37,15 @@
   <div id="collapseC" class="panel-collapse collapse">
     <div class="panel-body">
         <br>
-        Acá van a ir las INSTITUCIONES
-        <br><br>
+        <ul>
+          <li *ngFor="let institucion of dominiosInternacionales" (click)="seleccion(institucion)">
+              <div class="input-group">
+                {{ institucion.nombre }}
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
+              </div>
+          </li>
+        </ul>
+        <br>
     </div>
   </div>
 </div>
@@ -78,4 +85,8 @@
   </div>
 </div>
 </div>
+
+<br><br>
+<button type="button" class="btn btn-info btn-lg" (click)="abrirEdicion()">Agregar Categoria Externa</button>
+<br><br>
       
