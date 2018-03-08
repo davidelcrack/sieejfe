@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DirectorioService } from '../../servicios/directorio/directorio.service';
+import { DominioPopUpComponent } from '../dominio-pop-up/dominio-pop-up.component';
 
 @Component({
   selector: 'app-relacionamiento-externo',
@@ -7,6 +8,9 @@ import { DirectorioService } from '../../servicios/directorio/directorio.service
   styleUrls: ['./relacionamiento-externo.component.css']
 })
 export class RelacionamientoExternoComponent implements OnInit {
+
+  @ViewChild(DominioPopUpComponent) 
+  dominioPopUp: DominioPopUpComponent;
 
   constructor(
     private directorioService : DirectorioService
@@ -38,6 +42,16 @@ export class RelacionamientoExternoComponent implements OnInit {
 
   seleccion(seleccion){
     console.log('seleccion : entro a seleccion', seleccion)
+  }
+
+  editarDominioInternacional(dominio : any){
+    console.log('editarDominioInternacional : entro a editarDominioInternacional');
+    
+    let datos;
+    datos={ id: 1 , nombre: 'Universidad Distrital', link: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    
+    this.dominioPopUp.mostrarEdicionDominio=true;
+    this.dominioPopUp.abrirEditarDominio(datos);
   }
 
 }

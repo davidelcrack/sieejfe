@@ -55,9 +55,14 @@ export class RelacionamientoInternoComponent implements OnInit {
     console.log('seleccion : entro a seleccion', seleccion)
   }
 
-  editarDominioNacional(){
+  editarDominioNacional(dominio : any){
     console.log('editarDominioNacional : entro a editarDominioNacional');
-    this.dominioPopUp.abrirEditarDominio('hola');
+    
+    let datos;
+    datos={ id: 1 , nombre: 'Universidad Javeriana', link: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    
+    this.dominioPopUp.mostrarEdicionDominio=true;
+    this.dominioPopUp.abrirEditarDominio(datos);
   }
 
 }

@@ -1,9 +1,10 @@
 <div id="overlayDominio">
   
-  <div class="modalShow">      
+  <div *ngIf="mostrarEdicionDominio" class="modalShow">      
       <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
       
-      <h3>Edición Dominio</h3>     
+      <h3>Edición Dominio</h3>   
+      {{dominio.nombre}}  
       <form class="form-horizontal">
         <div class="form-group">
           <label class="control-label col-sm-2" for="email">Nombre</label>

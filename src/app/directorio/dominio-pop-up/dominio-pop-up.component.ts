@@ -12,14 +12,19 @@ export class DominioPopUpComponent implements OnInit {
   ngOnInit() {
   }
 
+  mostrarEdicionDominio=false;
+
   cerrarPopUp(){
     console.log('cerrarPopUp : entro a cerrarPopUp');
+    this.mostrarEdicionDominio=false;
     let el : any;
     el = document.getElementById("overlayDominio");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
+  dominio:any;
   abrirEditarDominio(row : any){
+    this.dominio=row;
     let el: any;
     el = document.getElementById("overlayDominio");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
