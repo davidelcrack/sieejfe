@@ -64,6 +64,7 @@ import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-trans
 import { RelacionamientoExternoComponent } from './directorio/relacionamiento-externo/relacionamiento-externo.component';
 import { RelacionamientoInternoComponent } from './directorio/relacionamiento-interno/relacionamiento-interno.component';
 import { DominioPopUpComponent } from './directorio/dominio-pop-up/dominio-pop-up.component';
+import { AdicionarDominioPopUpComponent } from './directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -87,7 +88,8 @@ export function createTranslateLoader(http: Http) {
     UniversidadComponent,
     RelacionamientoExternoComponent,
     RelacionamientoInternoComponent,
-    DominioPopUpComponent
+    DominioPopUpComponent,
+    AdicionarDominioPopUpComponent
   ],
   imports: [
     TranslateModule.forRoot({
