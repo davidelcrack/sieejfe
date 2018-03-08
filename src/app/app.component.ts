@@ -151,7 +151,7 @@ export class AppComponent {
 
   comprobarEstado(){
     this.currentUser = localStorage.getItem('USER');
-    this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
+    //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
     if(this.estado==='NUEVO'){
       AppComponent.mostrarEtiquetas=true;
     }else{

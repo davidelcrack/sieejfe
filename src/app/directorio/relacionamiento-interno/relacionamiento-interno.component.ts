@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DirectorioService } from '../../servicios/directorio/directorio.service';
+import { DominioPopUpComponent } from '../dominio-pop-up/dominio-pop-up.component';
 
 @Component({
   selector: 'app-relacionamiento-interno',
@@ -7,6 +8,9 @@ import { DirectorioService } from '../../servicios/directorio/directorio.service
   styleUrls: ['./relacionamiento-interno.component.css']
 })
 export class RelacionamientoInternoComponent implements OnInit {
+
+  @ViewChild(DominioPopUpComponent) 
+  dominioPopUp: DominioPopUpComponent;
 
   constructor(
     private directorioService : DirectorioService
@@ -49,6 +53,11 @@ export class RelacionamientoInternoComponent implements OnInit {
 
   seleccion(seleccion){
     console.log('seleccion : entro a seleccion', seleccion)
+  }
+
+  editarDominioNacional(){
+    console.log('editarDominioNacional : entro a editarDominioNacional');
+    this.dominioPopUp.abrirEditarDominio('hola');
   }
 
 }

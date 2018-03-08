@@ -22,6 +22,10 @@ button:active
   border-color: #000066;  
 }
 
+button {
+  float:right;
+}
+
 .panel-heading{
     cursor:pointer !important;
 }

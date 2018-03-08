@@ -63,6 +63,7 @@ import { DirectorioService } from './servicios/directorio/directorio.service';
 import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-translate';
 import { RelacionamientoExternoComponent } from './directorio/relacionamiento-externo/relacionamiento-externo.component';
 import { RelacionamientoInternoComponent } from './directorio/relacionamiento-interno/relacionamiento-interno.component';
+import { DominioPopUpComponent } from './directorio/dominio-pop-up/dominio-pop-up.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -85,7 +86,8 @@ export function createTranslateLoader(http: Http) {
     DirectorioComponent,
     UniversidadComponent,
     RelacionamientoExternoComponent,
-    RelacionamientoInternoComponent
+    RelacionamientoInternoComponent,
+    DominioPopUpComponent
   ],
   imports: [
     TranslateModule.forRoot({
