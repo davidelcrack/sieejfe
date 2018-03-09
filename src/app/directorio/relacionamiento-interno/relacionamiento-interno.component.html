@@ -19,6 +19,7 @@
             {{ universidad.nombre }}
             <a class="fa fa-external-link acordeonButton" (click)="abrirLink(universidad.url)" ></a>
             <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(universidad)" ></a>
+            <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional()" ></a>      
           </div>
         </li>
       </ul>
@@ -205,9 +206,13 @@
 
 <button type="button" class="btn btn-info btn-lg" (click)="editarDominioNacional()">Editar Prueba</button>
 
+<button type="button" class="btn btn-info btn-lg" (click)="editarImagenDominioNacional()">Imagen Prueba</button>
+
 <app-dominio-pop-up></app-dominio-pop-up>
 
 <app-adicionar-dominio-pop-up></app-adicionar-dominio-pop-up>
+
+<app-imagen-pop-up></app-imagen-pop-up>
 
  
 

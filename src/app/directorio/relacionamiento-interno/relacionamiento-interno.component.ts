@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DirectorioService } from '../../servicios/directorio/directorio.service';
 import { DominioPopUpComponent } from '../dominio-pop-up/dominio-pop-up.component';
 import { AdicionarDominioPopUpComponent } from '../adicionar-dominio-pop-up/adicionar-dominio-pop-up.component';
+import { ImagenPopUpComponent } from '../imagen-pop-up/imagen-pop-up.component';
 
 @Component({
   selector: 'app-relacionamiento-interno',
@@ -15,6 +16,10 @@ export class RelacionamientoInternoComponent implements OnInit {
 
   @ViewChild(AdicionarDominioPopUpComponent) 
   adicionarPopUp: AdicionarDominioPopUpComponent;
+
+  @ViewChild(ImagenPopUpComponent) 
+  imagenDominio: ImagenPopUpComponent;
+
 
   constructor(
     private directorioService : DirectorioService
@@ -67,6 +72,12 @@ export class RelacionamientoInternoComponent implements OnInit {
     
     this.dominioPopUp.mostrarEdicionDominio=true;
     this.dominioPopUp.abrirEditarDominio(datos);
+  }
+
+  editarImagenDominioNacional(){
+    console.log('editarImagenDominioNacional : entro a editarImagenDominioNacional');
+    this.imagenDominio.mostrarImagenDominio=true;
+    this.imagenDominio.abrirImagenDominio();
   }
 
   abrirEdicion(){

@@ -1,0 +1,25 @@
+<div id="overlayImagen">   
+  <div *ngIf="mostrarImagenDominio" class="modalShow">      
+      <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+      
+      <h3>Agregar Imagen</h3>         
+      <form class="form-horizontal">
+        
+      <div *ngIf="!cargo">
+        <img id="imagenPreviewPrincipal" src="data:image/png;base64,{{data.imagen}}" />
+      </div>
+
+      
+      <img class="img-thumbnail" />
+      
+
+      <br><br>
+      <input id="file-upload" accept="image/*" (change)="changeListener($event)" type="file" title="Seleccionar imagen" />
+      <label for="file-upload" class="custom-file-upload">
+          <i class="fa fa-cloud-upload"></i> Seleccionar
+      </label>
+
+      </form>
+      <br><br>
+  </div>  
+</div>
