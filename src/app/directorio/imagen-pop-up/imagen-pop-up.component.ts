@@ -15,6 +15,7 @@ export class ImagenPopUpComponent implements OnInit {
   ) { }
 
   data: any;
+  idAsociado: any;
   ngOnInit() { 
     this.data = {
       id:0,
@@ -79,6 +80,7 @@ export class ImagenPopUpComponent implements OnInit {
     formData.append('file',this.uploadedImage);
     console.log(this.uploadedImage);
     console.log(formData.append);
+    console.log(this.idAsociado);
     /*this.inventarioService.upload(formData, this.idAsociado)
         .subscribe(response => {
             console.log(response);
@@ -131,9 +133,9 @@ export class ImagenPopUpComponent implements OnInit {
   } 
 */
 
-abrirImagenDominio(){
+abrirImagenDominio(id : any){
   console.log('abrirImagenDominio : entro a abrirImagenDominio');
-
+  this.idAsociado=id;
   let el: any;
   el = document.getElementById("overlayImagen");
   el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";

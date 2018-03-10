@@ -19,7 +19,7 @@
             {{ universidad.nombre }}
             <a class="fa fa-external-link acordeonButton" (click)="abrirLink(universidad.url)" ></a>
             <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(universidad)" ></a>
-            <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional()" ></a>      
+            <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(universidad.id)" ></a>      
           </div>
         </li>
       </ul>
@@ -41,6 +41,8 @@
               <div class="input-group">
                 {{ gobierno.nombre }}
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(gobierno.url)"></a>
+                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(gobierno)" ></a>
+                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(gobierno.id)" ></a> 
               </div>
           </li>
         </ul>
@@ -90,6 +92,8 @@
               <div class="input-group">
                 {{ ong.nombre }}
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ong.url)"></a>
+                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(ong)" ></a>
+                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(ong.id)" ></a> 
               </div>
           </li>
         </ul>
@@ -139,6 +143,8 @@
                 <div class="input-group">
                   {{ mentores.nombre }}
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(mentores.url)"></a>
+                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(mentores)" ></a>
+                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(mentores.id)" ></a> 
                 </div>
             </li>
           </ul>
@@ -160,6 +166,8 @@
                 <div class="input-group">
                   {{ financiador.nombre }}
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(financiador.url)"></a>
+                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(financiador)" ></a>
+                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(financiador.id)" ></a> 
                 </div>
             </li>
           </ul>
@@ -195,6 +203,8 @@
                 <div class="input-group">
                   {{ acelerador.nombre }}
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(acelerador)" ></a>
+                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(acelerador.id)" ></a> 
                 </div>
             </li>
           </ul>
@@ -204,9 +214,9 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-info btn-lg" (click)="editarDominioNacional()">Editar Prueba</button>
+<button type="button" class="btn btn-info btn-lg" (click)="editarDominioNacional(datos)">Editar Prueba</button>
 
-<button type="button" class="btn btn-info btn-lg" (click)="editarImagenDominioNacional()">Imagen Prueba</button>
+<button type="button" class="btn btn-info btn-lg" (click)="editarImagenDominioNacional(datos.id)">Imagen Prueba</button>
 
 <app-dominio-pop-up></app-dominio-pop-up>
 

@@ -24,7 +24,13 @@ export class RelacionamientoExternoComponent implements OnInit {
     private directorioService : DirectorioService
   ) { }
 
+  datos : any;
+
   ngOnInit() {
+    let datos;
+    datos={ id: 2 , nombre: 'Universidad Distrital', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+
+    this.datos=datos;
   }
 
   dominiosInternacionales = new  Array ();
@@ -55,17 +61,15 @@ export class RelacionamientoExternoComponent implements OnInit {
   editarDominioInternacional(dominio : any){
     console.log('editarDominioInternacional : entro a editarDominioInternacional');
     
-    let datos;
-    datos={ id: 1 , nombre: 'Universidad Distrital', link: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    
     this.dominioPopUp.mostrarEdicionDominio=true;
-    this.dominioPopUp.abrirEditarDominio(datos);
+    this.dominioPopUp.abrirEditarDominio(dominio);
   }
 
-  editarImagenDominioInternacional(){
+  editarImagenDominioInternacional(idAsociado : any){
     console.log('editarImagenDominioNacional : entro a editarImagenDominioNacional');
+
     this.imagenDominio.mostrarImagenDominio=true;
-    this.imagenDominio.abrirImagenDominio();
+    this.imagenDominio.abrirImagenDominio(idAsociado);
   }
 
   abrirEdicion(){

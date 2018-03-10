@@ -45,6 +45,8 @@
               <div class="input-group">
                 {{ institucion.nombre }}
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
+                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
+                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
               </div>
           </li>
         </ul>
@@ -66,6 +68,8 @@
               <div class="input-group">
                 {{ acelerador.nombre }}
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
+                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
               </div>
           </li>
         </ul>
@@ -89,9 +93,9 @@
 </div>
 </div>
 
-<button type="button" class="btn btn-info btn-lg" (click)="editarDominioInternacional()">Editar Prueba Int</button>
+<button type="button" class="btn btn-info btn-lg" (click)="editarDominioInternacional(datos)">Editar Prueba Int</button>
 
-<button type="button" class="btn btn-info btn-lg" (click)="editarImagenDominioInternacional()">Imagen Prueba</button>
+<button type="button" class="btn btn-info btn-lg" (click)="editarImagenDominioInternacional(datos.id)">Imagen Prueba</button>
 
 <app-dominio-pop-up></app-dominio-pop-up>
 

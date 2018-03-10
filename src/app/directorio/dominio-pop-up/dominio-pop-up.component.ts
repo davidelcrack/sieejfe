@@ -30,4 +30,9 @@ export class DominioPopUpComponent implements OnInit {
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
+  cambio(atributo : any , valor : any){
+    console.log('cambio : entro a cambio');
+    console.log(atributo, valor);
+  }
+
 }

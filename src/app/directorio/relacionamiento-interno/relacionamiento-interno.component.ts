@@ -20,6 +20,7 @@ export class RelacionamientoInternoComponent implements OnInit {
   @ViewChild(ImagenPopUpComponent) 
   imagenDominio: ImagenPopUpComponent;
 
+  datos : any;
 
   constructor(
     private directorioService : DirectorioService
@@ -37,6 +38,10 @@ export class RelacionamientoInternoComponent implements OnInit {
         console.log("no se puede obtener tipos identificacion tercero")
       }
     );*/
+    let datos;
+    datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+
+    this.datos=datos;
   }
 
   dominiosNacionales = new  Array ();
@@ -67,17 +72,14 @@ export class RelacionamientoInternoComponent implements OnInit {
   editarDominioNacional(dominio : any){
     console.log('editarDominioNacional : entro a editarDominioNacional');
     
-    let datos;
-    datos={ id: 1 , nombre: 'Universidad Javeriana', link: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    
     this.dominioPopUp.mostrarEdicionDominio=true;
-    this.dominioPopUp.abrirEditarDominio(datos);
+    this.dominioPopUp.abrirEditarDominio(dominio);
   }
 
-  editarImagenDominioNacional(){
+  editarImagenDominioNacional(idAsociado : any){
     console.log('editarImagenDominioNacional : entro a editarImagenDominioNacional');
     this.imagenDominio.mostrarImagenDominio=true;
-    this.imagenDominio.abrirImagenDominio();
+    this.imagenDominio.abrirImagenDominio(idAsociado);
   }
 
   abrirEdicion(){
