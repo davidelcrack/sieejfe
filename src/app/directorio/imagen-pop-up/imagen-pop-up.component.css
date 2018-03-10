@@ -73,3 +73,8 @@ input[type="file"] {
   color : #000066;
   border: 1px solid #000066;
 }
+
+img{
+    width:100%;
+    max-width:260px;
+}
