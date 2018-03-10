@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
+import { DirectorioService } from '../../servicios/directorio/directorio.service';
 
 @Component({
   selector: 'app-imagen-pop-up',
@@ -11,7 +12,8 @@ export class ImagenPopUpComponent implements OnInit {
   cargo=false;
   
   constructor(
-    private element: ElementRef
+    private element: ElementRef,
+    private directorioService : DirectorioService
   ) { }
 
   data: any;
@@ -81,7 +83,7 @@ export class ImagenPopUpComponent implements OnInit {
     console.log(this.uploadedImage);
     console.log(formData.append);
     console.log(this.idAsociado);
-    /*this.inventarioService.upload(formData, this.idAsociado)
+    /*this.directorioService.upload(formData, this.idAsociado)
         .subscribe(response => {
             console.log(response);
           
@@ -91,7 +93,7 @@ export class ImagenPopUpComponent implements OnInit {
             },error => {
                 
             }
-        );   */     
+        );  */ 
   }
 
   @Output() notify : EventEmitter<any> = new EventEmitter <any>();  

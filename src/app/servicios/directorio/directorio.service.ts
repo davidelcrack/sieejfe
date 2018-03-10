@@ -27,4 +27,19 @@ export class DirectorioService {
     .map((res: Response) => res.json());
   }
 
+  upload(formData,id) {    
+    console.log(JSON.stringify(formData));
+    
+    return this.http.post(this.backendUrl + "inventario/imagen/upload/" +  id, formData , { withCredentials: true })
+    .map((res:Response) => {    
+      if (res.status ==200) 
+        return 'ok';    
+        throw Error('Error: ' + res.status);    
+    }).catch((err:Response) => {    
+      if (err.status ==401)    
+      throw new Error(err.status.toString());    
+      throw Error(err.toString());    
+    });    
+  }
+
 }

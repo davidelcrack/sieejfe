@@ -10,14 +10,14 @@
           <label class="control-label col-sm-2" for="email">Nombre</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="nombreUDirectorio" placeholder="Ingrese nombre" name="nombreUDirectorio"
-              [(ngModel)]="dominio.nombre" (ngModelChange)="cambio('nombre',dominio.nombre)">
+              [(ngModel)]="dominio.nombre" (ngModelChange)="cambio('nombre',dominio.nombre, 'STRING')">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="pwd">URL</label>
           <div class="col-sm-10">          
             <input type="text" class="form-control" id="urlUDirectorio" placeholder="Ingrese url" name="urlUDirectorio"
-              [(ngModel)]="dominio.url" (ngModelChange)="cambio('url',dominio.url)">
+              [(ngModel)]="dominio.url" (ngModelChange)="cambio('url',dominio.url,'STRING')">
           </div>
         </div>
       </form>
