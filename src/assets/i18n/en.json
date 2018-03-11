@@ -29,7 +29,7 @@
     "Usuarios" : "User" ,
     "Empresa"  : "Company",
     "Evento"  : "Events",
-    "Directorio"  : "Directory",
+    "Directorio"  : "Relationship",
     "Universidad" : "University"
   },
   "ACORDEON" : {
