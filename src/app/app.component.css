@@ -116,6 +116,10 @@ img {
     margin-top: 2rem;
     width: 100%;
     text-align: center;
+    position:fixed;
+    bottom:0px;
+    margin-left: -60px !important;
+    margin-bottom: 40px !important;
   }
   
   .social-icons ul > li {
@@ -133,6 +137,13 @@ img {
     line-height: 4rem;
     height: 4rem;
     width: 4rem;
+    opacity: 0.15;
+    /*height: 30px !important;
+    width: 30px !important;*/
+  }
+
+  .social-icons ul:hover > li > a {    
+    opacity: 1;
     /*height: 30px !important;
     width: 30px !important;*/
   }
