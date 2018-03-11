@@ -5,8 +5,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
   CalendarEventAction,
-  CalendarEventTimesChangedEvent
+  CalendarEventTimesChangedEvent,
+  CalendarDateFormatter
 } from 'angular-calendar';
+
 
 import {
   startOfDay,
@@ -18,6 +20,8 @@ import {
   isSameMonth,
   addHours
 } from 'date-fns';
+import { CustomDateFormatter } from '../pickers/custom-date-formatter.provider';
+
 
 const colors: any = {
   red: {
@@ -39,7 +43,13 @@ const colors: any = {
   selector: 'mwl-demo-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './evento.component.html',
-  styleUrls: ['./evento.component.css']
+  styleUrls: ['./evento.component.css'],
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter
+    }
+  ]
 })
 export class EventoComponent implements OnInit {
 
@@ -51,6 +61,8 @@ export class EventoComponent implements OnInit {
   view: string = 'month';
 
   viewDate: Date = new Date();
+
+  locale: string = 'es-CO';
 
   modalData: {
     action: string;
@@ -79,26 +91,26 @@ export class EventoComponent implements OnInit {
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
-      title: 'A 3 day event',
+      title: 'Evento de 3 días',
       color: colors.red,
       actions: this.actions
     },
     {
       start: startOfDay(new Date()),
-      title: 'An event with no end date',
+      title: 'Evento sin fecha de finalización',
       color: colors.yellow,
       actions: this.actions
     },
     {
       start: subDays(endOfMonth(new Date()), 3),
       end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
+      title: 'Evento que dura 2 meses',
       color: colors.blue
     },
     {
       start: addHours(startOfDay(new Date()), 2),
       end: new Date(),
-      title: 'A draggable and resizable event',
+      title: 'Evento draggable y de tamaño variable',
       color: colors.yellow,
       actions: this.actions,
       resizable: {
@@ -114,6 +126,8 @@ export class EventoComponent implements OnInit {
   constructor(private modal: NgbModal) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    console.log('dayClicked : entro a dayClicked')
+
     if (isSameMonth(date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||

@@ -68,13 +68,15 @@ import { RelacionamientoInternoComponent } from './directorio/relacionamiento-in
 import { DominioPopUpComponent } from './directorio/dominio-pop-up/dominio-pop-up.component';
 import { AdicionarDominioPopUpComponent } from './directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component';
 import { ImagenPopUpComponent } from './directorio/imagen-pop-up/imagen-pop-up.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { DateTimePickerComponent } from './pickers/date-time-picker.component';
-
+import localeEsCo from '@angular/common/locales/es-CO';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
+
+registerLocaleData(localeEsCo);
 
 @NgModule({
   declarations: [

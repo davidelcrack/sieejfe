@@ -30,13 +30,13 @@
         [view]="view"
         [(viewDate)]="viewDate"
         (viewDateChange)="activeDayIsOpen = false">
-        Previous
+        Anterior
       </div>
       <div
         class="btn btn-outline-secondary"
         mwlCalendarToday
         [(viewDate)]="viewDate">
-        Today
+        Hoy
       </div>
       <div
         class="btn btn-primary"
@@ -44,12 +44,12 @@
         [view]="view"
         [(viewDate)]="viewDate"
         (viewDateChange)="activeDayIsOpen = false">
-        Next
+        Siguiente
       </div>
     </div>
   </div>
   <div class="col-md-4">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'es-CO' }}</h3>
   </div>
   <div class="col-md-4">
     <div class="btn-group">
@@ -57,29 +57,32 @@
         class="btn btn-primary"
         (click)="view = 'month'"
         [class.active]="view === 'month'">
-        Month
+        Mes
       </div>
       <div
         class="btn btn-primary"
         (click)="view = 'week'"
         [class.active]="view === 'week'">
-        Week
+        Semana
       </div>
       <div
         class="btn btn-primary"
         (click)="view = 'day'"
         [class.active]="view === 'day'">
-        Day
+        Día
       </div>
     </div>
   </div>
 </div>
 <br>
+
+
 <div [ngSwitch]="view">
   <mwl-calendar-month-view
     *ngSwitchCase="'month'"
     [viewDate]="viewDate"
     [events]="events"
+    [locale]="locale"
     [refresh]="refresh"
     [activeDayIsOpen]="activeDayIsOpen"
     (dayClicked)="dayClicked($event.day)"
@@ -90,6 +93,7 @@
     *ngSwitchCase="'week'"
     [viewDate]="viewDate"
     [events]="events"
+    [locale]="locale"
     [refresh]="refresh"
     (eventClicked)="handleEvent('Clicked', $event.event)"
     (eventTimesChanged)="eventTimesChanged($event)">
@@ -98,6 +102,7 @@
     *ngSwitchCase="'day'"
     [viewDate]="viewDate"
     [events]="events"
+    [locale]="locale"
     [refresh]="refresh"
     (eventClicked)="handleEvent('Clicked', $event.event)"
     (eventTimesChanged)="eventTimesChanged($event)">
@@ -107,11 +112,11 @@
 <br><br><br>
 
 <h3>
-  Edit events
+  Editar Eventos
   <button
     class="btn btn-primary pull-right"
     (click)="addEvent()">
-    Add new
+    Agregar
   </button>
   <div class="clearfix"></div>
 </h3>
@@ -120,12 +125,12 @@
 
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Primary color</th>
-      <th>Secondary color</th>
-      <th>Starts at</th>
-      <th>Ends at</th>
-      <th>Remove</th>
+      <th>Nombre</th>
+      <th>Color</th>
+      <th>Color Auxiliar</th>
+      <th>Comienza</th>
+      <th>Termina</th>
+      <th>Eliminar</th>
     </tr>
   </thead>
 
@@ -168,7 +173,7 @@
         <button
           class="btn btn-danger"
           (click)="events.splice(index, 1); refresh.next()">
-          Delete
+          x
         </button>
       </td>
     </tr>
