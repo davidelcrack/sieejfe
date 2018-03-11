@@ -27,7 +27,7 @@
 
             <li class="dropdown right">                
                 <div class="infoLanguage">        
-                    <select #langSelect (change)="translate.use(langSelect.value)" class="form-control" (change)="cerrarAlSeleccionar()" [(ngModel)]="langActual">
+                    <select #langSelect (change)="translate.use(langSelect.value)" class="form-control" [(ngModel)]="langActual"> <!-- (change)="cerrarAlSeleccionar()" -->
                         <option class="optSelect" *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{'ENTORNO.'+lang | translate}}</option>
                     </select>            
                 </div>                
@@ -88,7 +88,7 @@
     </ng-template>
     
     <ng-template #eventoTab>
-        <app-evento></app-evento>
+        <mwl-demo-component></mwl-demo-component>
     </ng-template>
     
     <ng-template #directorioTab>

@@ -21,6 +21,8 @@ import { EmpresaComponent } from './empresa/empresa.component';
 import { ColaService } from './servicios/cola/cola.service';
 import { ColaRestService } from './servicios/cola/cola-rest.service';
 import {CdkTableModule} from '@angular/cdk/table';
+import { CalendarModule } from 'angular-calendar';
+import {NgbModule, NgbModalModule,NgbDatepickerModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -66,6 +68,9 @@ import { RelacionamientoInternoComponent } from './directorio/relacionamiento-in
 import { DominioPopUpComponent } from './directorio/dominio-pop-up/dominio-pop-up.component';
 import { AdicionarDominioPopUpComponent } from './directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component';
 import { ImagenPopUpComponent } from './directorio/imagen-pop-up/imagen-pop-up.component';
+import { CommonModule } from '@angular/common';
+import { DateTimePickerComponent } from './pickers/date-time-picker.component';
+
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -74,6 +79,7 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
+    DateTimePickerComponent,
     LoginComponent,
     BoardComponent,
     UsuarioComponent,
@@ -94,6 +100,10 @@ export function createTranslateLoader(http: Http) {
     ImagenPopUpComponent
   ],
   imports: [
+    CommonModule,
+    NgbModule.forRoot(),
+    NgbModalModule.forRoot(),
+    CalendarModule.forRoot(),
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
@@ -150,6 +160,7 @@ export function createTranslateLoader(http: Http) {
     DirectorioService
   ],
   bootstrap: [AppComponent],
+  exports : [DateTimePickerComponent],
   entryComponents: [ TabComponent ]
 })
 export class AppModule { }

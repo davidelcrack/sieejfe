@@ -6,3 +6,6 @@ span:hover{
     color:brown;
     cursor: pointer;
 }
+a{
+    color:black !important;
+}
