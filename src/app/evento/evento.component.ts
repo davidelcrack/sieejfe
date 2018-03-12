@@ -171,5 +171,24 @@ export class EventoComponent implements OnInit {
     });
     this.refresh.next();
   }
+
+  mostrarEventos=false;
+
+  cerrarPopUp(){
+    console.log('cerrarPopUp : entro a cerrarPopUp');
+    this.mostrarEventos=false;
+
+    let el : any;
+    el = document.getElementById("overlayEvento");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  tipo:any;
+  abrirEdicionEvento(){
+    console.log('abrirEdicionEvento : entro a abrirEdicionEvento');
+    let el: any;
+    el = document.getElementById("overlayEvento");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
   
 }
