@@ -62,3 +62,13 @@ body {
     border: 1px solid #888;
     width: 100%; /* Could be more or less, depending on screen size */
 }
+
+::ng-deep span.cal-day-badge.ng-star-inserted{
+    background-color : #000066 !important;
+}
+
+::ng-deep div.pane{
+    margin-left: 40px;
+    margin-right:40px;
+}
+

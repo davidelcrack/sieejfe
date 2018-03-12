@@ -24,16 +24,16 @@ import { CustomDateFormatter } from '../pickers/custom-date-formatter.provider';
 
 
 const colors: any = {
-  red: {
-    primary: '#ad2121',
+  blueJaverina: {
+    primary: '#000066',
     secondary: '#FAE3E3'
   },
   blue: {
     primary: '#1e90ff',
     secondary: '#D1E8FF'
   },
-  yellow: {
-    primary: '#e3bc08',
+  yellowJaveriana: {
+    primary: '#FFCC00',
     secondary: '#FDF1BA'
   }
 };
@@ -92,13 +92,13 @@ export class EventoComponent implements OnInit {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
       title: 'Evento de 3 días',
-      color: colors.red,
+      color: colors.blueJaverina,
       actions: this.actions
     },
     {
       start: startOfDay(new Date()),
       title: 'Evento sin fecha de finalización',
-      color: colors.yellow,
+      color: colors.yellowJaveriana,
       actions: this.actions
     },
     {
@@ -111,7 +111,7 @@ export class EventoComponent implements OnInit {
       start: addHours(startOfDay(new Date()), 2),
       end: new Date(),
       title: 'Evento draggable y de tamaño variable',
-      color: colors.yellow,
+      color: colors.yellowJaveriana,
       actions: this.actions,
       resizable: {
         beforeStart: true,
@@ -162,7 +162,7 @@ export class EventoComponent implements OnInit {
       title: 'New event',
       start: startOfDay(new Date()),
       end: endOfDay(new Date()),
-      color: colors.red,
+      color: colors.blueJaverina,
       draggable: true,
       resizable: {
         beforeStart: true,
