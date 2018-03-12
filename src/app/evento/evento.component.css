@@ -72,3 +72,19 @@ body {
     margin-right:40px;
 }
 
+::ng-deep div.btn.btn-primary{
+    background-color : #000066;
+    border-color: #000066;
+}
+
+::ng-deep div.btn.btn-primary:hover{
+    background-color : #FFCC00;
+    border-color: #FFCC00;
+    color: black;
+}
+
+::ng-deep div.btn.btn-primary.active{
+    background-color : #153086 !important;
+    border-color : #153086 !important;
+}
+
