@@ -54,6 +54,47 @@ const colors: any = {
 export class EventoComponent implements OnInit {
 
   ngOnInit() {
+    let data: CalendarEvent;
+    
+    data = {
+      id: 1,
+      start: subDays(startOfDay(new Date()), 1),
+      end: addDays(new Date(), 1),
+      title: 'Evento crack de 3 días',
+      color: colors.blueJaverina,
+      actions: this.actions
+    };
+    this.events.push(data);
+
+    data={
+      id: 2,
+      start: startOfDay(new Date()),
+      title: 'Evento sin fecha de finalización',
+      color: colors.yellowJaveriana,
+      actions: this.actions
+    };
+    this.events.push(data);
+    
+    data={
+      id: 3,
+      start: subDays(endOfMonth(new Date()), 3),
+      end: addDays(endOfMonth(new Date()), 3),
+      title: 'Evento que dura 2 meses',
+      color: colors.blue,
+      actions: this.actions
+    };
+    this.events.push(data);
+
+    data={
+      id: 4,
+      start: addHours(startOfDay(new Date()), 2),
+      end: new Date(),
+      title: 'Evento de los cracks',
+      color: colors.yellowJaveriana,
+      actions: this.actions      
+    };
+    this.events.push(data);
+
   }
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -73,53 +114,23 @@ export class EventoComponent implements OnInit {
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
+        console.log(event);
+        //this.handleEvent('Edited', event);
+        this.abrirEdicionEvento(event.id);
       }
-    },
+    }/*,
     {
       label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.events = this.events.filter(iEvent => iEvent !== event);
         this.handleEvent('Deleted', event);
       }
-    }
+    }*/
   ];
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'Evento de 3 días',
-      color: colors.blueJaverina,
-      actions: this.actions
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'Evento sin fecha de finalización',
-      color: colors.yellowJaveriana,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'Evento que dura 2 meses',
-      color: colors.blue
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'Evento draggable y de tamaño variable',
-      color: colors.yellowJaveriana,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];
+  events: CalendarEvent[] = [];
 
   activeDayIsOpen: boolean = true;
 
@@ -178,14 +189,56 @@ export class EventoComponent implements OnInit {
     console.log('cerrarPopUp : entro a cerrarPopUp');
     this.mostrarEventos=false;
 
+    if(!this.accion){
+      this.events.push(this.eventsEditar[0]);
+      this.refresh.next();
+    }else{
+      this.events[this.idEditado]=this.eventsEditar[0];
+    }
+    
+    console.log(this.events);
+
     let el : any;
     el = document.getElementById("overlayEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
-  tipo:any;
-  abrirEdicionEvento(){
+  
+  eventsEditar: CalendarEvent[];
+  accion=undefined;
+  idEditado=-1;
+
+  abrirEdicionEvento(id : any){
+    this.accion=true;
     console.log('abrirEdicionEvento : entro a abrirEdicionEvento');
+    console.log(this.events);
+    let escogido = this.events.indexOf(this.events.find(function(element) {
+      return element.id == id;
+    }));
+    this.eventsEditar=[];
+    this.eventsEditar.push(this.events[escogido]);
+    this.idEditado=escogido;
+
+    let el: any;
+    el = document.getElementById("overlayEvento");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+   
+  abrirAdicionEvento(){
+    console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
+    this.accion=false;
+    this.eventsEditar=[];
+
+    this.eventsEditar.push({
+      title: 'New event',
+      start: startOfDay(new Date()),
+      end: endOfDay(new Date()),
+      color: colors.blueJaverina,
+      actions: this.actions      
+    });
+    //this.refresh.next();
+    
     let el: any;
     el = document.getElementById("overlayEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
