@@ -148,7 +148,7 @@
             <!-- <th>Color Auxiliar</th> -->
             <th>Comienza</th>
             <th>Termina</th>
-            <th>Eliminar</th>
+            <!-- <th>Eliminar</th> -->
           </tr>
         </thead>
 
@@ -189,16 +189,31 @@
                 placeholder="Not set">
               </mwl-demo-utils-date-time-picker>
             </td>
+            <!--
             <td>
               <button
                 class="btn btn-danger"
-                (click)="events.splice(index, 1); refresh.next()">
+                (click)="eliminar(event.id)">
                 x
               </button>
             </td>
+            -->
           </tr>
         </tbody>
 
       </table>
+
+
+      
+        <br><br>
+        <div *ngIf="!accion">
+          <div class="input-group centered">
+            <button  class="btn btn-info btn-lg guardar" type="button" (click)="guardarCambios()">Guardar</button>       
+            <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUp()">Cancelar</button>
+          </div>
+        </div>
+
+
+
     </div>
 </div>

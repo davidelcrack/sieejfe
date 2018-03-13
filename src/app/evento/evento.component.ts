@@ -118,14 +118,15 @@ export class EventoComponent implements OnInit {
         //this.handleEvent('Edited', event);
         this.abrirEdicionEvento(event.id);
       }
-    }/*,
+    },
     {
       label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent('Deleted', event);
+        /*this.events = this.events.filter(iEvent => iEvent !== event);
+        this.handleEvent('Deleted', event);*/
+        this.eliminar(event.id);
       }
-    }*/
+    }
   ];
 
   refresh: Subject<any> = new Subject();
@@ -188,16 +189,7 @@ export class EventoComponent implements OnInit {
   cerrarPopUp(){
     console.log('cerrarPopUp : entro a cerrarPopUp');
     this.mostrarEventos=false;
-
-    if(!this.accion){
-      this.events.push(this.eventsEditar[0]);
-      this.refresh.next();
-    }else{
-      this.events[this.idEditado]=this.eventsEditar[0];
-    }
     
-    console.log(this.events);
-
     let el : any;
     el = document.getElementById("overlayEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
@@ -242,6 +234,32 @@ export class EventoComponent implements OnInit {
     let el: any;
     el = document.getElementById("overlayEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  guardarCambios(){
+    console.log('guardarCambios : entro a guardarCambios')
+
+    this.cerrarPopUp();
+
+    if(!this.accion){
+      this.events.push(this.eventsEditar[0]);
+      this.refresh.next();
+    }else{
+      this.events[this.idEditado]=this.eventsEditar[0];
+    }
+    
+    console.log(this.events);
+
+  }
+  
+  eliminar(id : any){
+
+    let eliminado = this.events.indexOf(this.events.find(function(element) {
+      return element.id == id;
+    }));
+
+    this.events.splice(eliminado, 1); 
+    this.refresh.next()
   }
   
 }

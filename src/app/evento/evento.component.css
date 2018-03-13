@@ -88,3 +88,43 @@ body {
     border-color : #153086 !important;
 }
 
+::ng-deep a.cal-event-action.ng-star-inserted .fa.fa-fw.fa-times{
+    color :rgb(233, 30, 30);
+}
+
+::ng-deep a.cal-event-action.ng-star-inserted .fa.fa-fw.fa-times:hover{
+    color :darkred;
+}
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .centered button,
+  .centered button:focus
+  {
+    background-color: #000066;
+    color : #ffffff;
+    border-color: #ffffff;  
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .centered button:hover.guardar,
+  .centered button:visited,
+  .centered button:active
+  {
+    background-color: green ;
+    color : #ffffff;
+    border-color: #ffffff;  
+  }
+
+  .centered button:hover.cancelar,
+  .centered button:visited,
+  .centered button:active
+  {
+    background-color:  red ;
+    color : #ffffff;
+    border-color: #ffffff;  
+  }
