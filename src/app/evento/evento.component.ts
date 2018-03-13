@@ -216,16 +216,17 @@ export class EventoComponent implements OnInit {
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
-   
+  cont=100;   
   abrirAdicionEvento(){
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
     this.accion=false;
     this.eventsEditar=[];
 
     this.eventsEditar.push({
-      title: 'New event',
+      id: this.cont+=1,
       start: startOfDay(new Date()),
       end: endOfDay(new Date()),
+      title: 'New event',
       color: colors.blueJaverina,
       actions: this.actions      
     });
