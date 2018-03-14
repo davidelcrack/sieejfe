@@ -91,6 +91,29 @@
     </div>
   </div>
 </div>
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseF" (click)="getDominiosInternacionales('AUSJAL')">
+    <h4 class="panel-title">
+      <a>{{'ACORDEON.AUSJAL'| translate}}</a>
+    </h4>
+  </div>
+  <div id="collapseF" class="panel-collapse collapse">
+    <div class="panel-body">
+        <br>
+        <ul>
+          <li *ngFor="let ausjal of dominiosInternacionales" (click)="seleccion(ausjal)">
+              <div class="input-group">
+                {{ ausjal.nombre }}
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ausjal.url)"></a>
+                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(ausjal)" ></a>
+                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(ausjal.id)" ></a> 
+              </div>
+          </li>
+        </ul>
+        <br>
+    </div>
+  </div>
+</div>
 </div>
 
 <button type="button" class="btn btn-info btn-lg" (click)="editarDominioInternacional(datos)">Editar Prueba Int</button>

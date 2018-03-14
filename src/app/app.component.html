@@ -19,6 +19,7 @@
                 </ul>
             </li>
             <li><a (click)="openTabs('evento')">{{'ENTORNO.EVENTOS'| translate}}</a></li>
+            <li><a (click)="openTabs('servicioEmprendimiento')">{{'ENTORNO.SERVICIOS'| translate}}</a></li>
             <li><a (click)="openTabs('directorio')">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
            
 
@@ -89,6 +90,10 @@
     
     <ng-template #eventoTab>
         <mwl-demo-component></mwl-demo-component>
+    </ng-template>
+
+    <ng-template #serviciosTab>
+        <app-servicios-emprendimiento></app-servicios-emprendimiento>
     </ng-template>
     
     <ng-template #directorioTab>

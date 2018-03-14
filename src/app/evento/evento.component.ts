@@ -226,7 +226,7 @@ export class EventoComponent implements OnInit {
       id: this.cont+=1,
       start: startOfDay(new Date()),
       end: endOfDay(new Date()),
-      title: 'New event',
+      title: 'Nuevo Evento',
       color: colors.blueJaverina,
       actions: this.actions      
     });

@@ -57,7 +57,6 @@ import {
   MatStepperModule,
 } from '@angular/material';
 import { EventoComponent } from './evento/evento.component';
-import { ExternoComponent } from './externos/externo/externo.component';
 import { UsuarioService } from './servicios/usuario.service';
 import { DirectorioComponent } from './directorio/directorio.component';
 import { UniversidadComponent } from './universidad/universidad.component';
@@ -71,6 +70,7 @@ import { ImagenPopUpComponent } from './directorio/imagen-pop-up/imagen-pop-up.c
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { DateTimePickerComponent } from './pickers/date-time-picker.component';
 import localeEsCo from '@angular/common/locales/es-CO';
+import { ServiciosEmprendimientoComponent } from './servicios-emprendimiento/servicios-emprendimiento.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -92,14 +92,14 @@ registerLocaleData(localeEsCo);
     DynamicTabsDirective,
     EmpresaComponent,
     EventoComponent,
-    ExternoComponent,
     DirectorioComponent,
     UniversidadComponent,
     RelacionamientoExternoComponent,
     RelacionamientoInternoComponent,
     DominioPopUpComponent,
     AdicionarDominioPopUpComponent,
-    ImagenPopUpComponent
+    ImagenPopUpComponent,
+    ServiciosEmprendimientoComponent
   ],
   imports: [
     CommonModule,

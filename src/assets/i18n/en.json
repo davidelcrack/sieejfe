@@ -30,7 +30,8 @@
     "Empresa"  : "Company",
     "Evento"  : "Events",
     "Directorio"  : "Relationship",
-    "Universidad" : "University"
+    "Universidad" : "University",
+    "Servicios" : "Services"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",
@@ -52,6 +53,7 @@
     "LABORATORIO" : "Research Laboratories",
     "INSTITUCIONES" : "Universities and institutions",
     "REDES" : "Networks",
-    "TECNOLOGICOS" : "Technological"
+    "TECNOLOGICOS" : "Technological",
+    "AUSJAL" : "Association of Universities Entrusted to the Society of Jesus"
   }
 }
