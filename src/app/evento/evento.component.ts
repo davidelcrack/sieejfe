@@ -133,7 +133,7 @@ export class EventoComponent implements OnInit {
 
   events: CalendarEvent[] = [];
 
-  activeDayIsOpen: boolean = false;
+  activeDayIsOpen: boolean = true;
 
   constructor(private modal: NgbModal) {}
 
