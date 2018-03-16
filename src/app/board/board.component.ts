@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-board',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private appComponent : AppComponent
+  ) { }
 
   ngOnInit() {
     this.llamarServicio();
@@ -15,6 +18,11 @@ export class BoardComponent implements OnInit {
 
   llamarServicio(){
     console.log('llamarServicio : entro a llamarServicio');
+  }
+
+  clickImagen(nombre : any){
+    console.log("clickImagen : entro a clickImagen");
+    this.appComponent.openTabs(nombre);
   }
 
 }

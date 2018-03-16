@@ -3,3 +3,46 @@
     font-style: normal;
     font-weight: 400;
 }
+
+img{
+    margin: auto;
+    width: 100% !important;
+    padding: 10px;
+    max-height: 400px;
+}
+
+div{
+    background-color: black;
+    opacity: 0.5;
+}
+
+::ng-deep ol.carousel-indicators{
+    margin: auto;
+    width: 100% !important;
+    padding: 10px;
+    max-height: 400px;
+}
+
+::ng-deep ol.carousel-indicators .active{
+    border-color: white;
+    background-color: black;
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+}
+
+/* Para quitar border azul en click */
+.carousel.slide{
+    outline: none !important;
+}
+
+/* Eñl del icono next */
+/* ::ng-deep span.carousel-control-next-icon{
+    
+} */

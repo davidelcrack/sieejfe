@@ -1,21 +1,4 @@
-/* img{
-    width:100%;
-    max-width:600px;
-    position: absolute;
-    left: 50%;
-    margin-left: -300px
-}
-
-.imgHolder {
-    position: relative;
-    vertical-align:middle;
-}
-
-.imgHolder label{
-    margin-right:400px;
- } */
-
- img{
+img{
     width:100%;
     max-width:600px;
 }
