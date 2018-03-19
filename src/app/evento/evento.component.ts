@@ -201,7 +201,7 @@ export class EventoComponent implements OnInit {
   idEditado=-1;
 
   abrirEdicionEvento(id : any){
-    this.accion=true;
+    this.accion=1;
     console.log('abrirEdicionEvento : entro a abrirEdicionEvento');
     console.log(this.events);
     let escogido = this.events.indexOf(this.events.find(function(element) {
@@ -219,7 +219,7 @@ export class EventoComponent implements OnInit {
   cont=100;   
   abrirAdicionEvento(){
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
-    this.accion=false;
+    this.accion=2;
     this.eventsEditar=[];
 
     this.eventsEditar.push({
@@ -237,16 +237,37 @@ export class EventoComponent implements OnInit {
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
+  abrirTodosEventos(){
+    console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
+    this.accion=3;
+    this.eventsEditar=[];
+
+    this.eventsEditar=this.events;
+    
+    //this.refresh.next();
+    
+    let el: any;
+    el = document.getElementById("overlayEvento");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
   guardarCambios(){
     console.log('guardarCambios : entro a guardarCambios')
 
     this.cerrarPopUp();
 
-    if(!this.accion){
+    if(this.accion==2){
+      console.log('Adición : cerro Adición')
       this.events.push(this.eventsEditar[0]);
       this.refresh.next();
-    }else{
+    }
+    if(this.accion==1){
+      console.log('Edición : cerro Edición')
       this.events[this.idEditado]=this.eventsEditar[0];
+    }
+    if(this.accion==3){
+      console.log('Listar : cerro Listar')
+      this.events=this.eventsEditar;
     }
     
     console.log(this.events);

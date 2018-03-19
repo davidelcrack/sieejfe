@@ -1,5 +1,8 @@
 <br>
-<button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirAdicionEvento() ; mostrarEventos=true;">Agregar Evento</button>
+<div class="input-group" style="float:right;">
+  <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirAdicionEvento() ; mostrarEventos=true;">Agregar Evento</button>
+  <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirTodosEventos() ; mostrarEventos=true;">Mostrar Eventos</button>
+</div>
 
 <br><br><br>
 <ng-template #modalContent let-close="close">
@@ -119,14 +122,14 @@
   <div class="modalShow">      
       <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
 
-      <div *ngIf="accion">
+      <div *ngIf="accion==1">
         <h3>
           Editar Eventos
           <div class="clearfix"></div>
         </h3>
       </div>
 
-      <div *ngIf="!accion">
+      <div *ngIf="accion==2">
         <h3>
           Crear Eventos
           <div class="clearfix"></div>
@@ -206,12 +209,12 @@
 
       
         <br><br>
-        <div *ngIf="!accion">
+        <!-- <div *ngIf="accion==2"> -->
           <div class="input-group centered">
             <button  class="btn btn-info btn-lg guardar" type="button" (click)="guardarCambios()">Guardar</button>       
             <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUp()">Cancelar</button>
           </div>
-        </div>
+        <!-- </div> -->
 
 
 
