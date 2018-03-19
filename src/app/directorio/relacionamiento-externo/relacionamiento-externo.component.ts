@@ -67,7 +67,8 @@ export class RelacionamientoExternoComponent implements OnInit {
 
   editarImagenDominioInternacional(idAsociado : any){
     console.log('editarImagenDominioNacional : entro a editarImagenDominioNacional');
-
+    //Para que cargue imagen defecto
+    this.imagenDominio.cargo=false;
     this.imagenDominio.mostrarImagenDominio=true;
     this.imagenDominio.abrirImagenDominio(idAsociado);
   }
