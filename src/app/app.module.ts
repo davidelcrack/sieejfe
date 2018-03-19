@@ -71,6 +71,7 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { DateTimePickerComponent } from './pickers/date-time-picker.component';
 import localeEsCo from '@angular/common/locales/es-CO';
 import { ServiciosEmprendimientoComponent } from './servicios-emprendimiento/servicios-emprendimiento.component';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -99,7 +100,8 @@ registerLocaleData(localeEsCo);
     DominioPopUpComponent,
     AdicionarDominioPopUpComponent,
     ImagenPopUpComponent,
-    ServiciosEmprendimientoComponent
+    ServiciosEmprendimientoComponent,
+    QuienesSomosComponent
   ],
   imports: [
     CommonModule,

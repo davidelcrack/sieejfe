@@ -15,6 +15,7 @@
             <li class="dropdown dropdownNav"><a class="dropA">{{'ENTORNO.ADMINISTRACION'| translate}}</a>
                 <ul class="dropMioJaja">
                     <li><a (click)="openTabs('usuario')" >{{'ENTORNO.USUARIOS'| translate}}</a></li>
+                    <li><a (click)="openTabs('universidad')" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>
                     <li><a (click)="openTabs('empresa')" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>
                 </ul>
             </li>
@@ -60,16 +61,16 @@
     <br>
     <app-tabs>
         <app-tab [tabTitle]="'Principal Emprendimiento'">
-            <div *ngIf="getStaticMostrarEtiquetas()">
+            <!-- <div *ngIf="getStaticMostrarEtiquetas()">
                 <br><br>
                 <app-etiquetas-inicio></app-etiquetas-inicio>  
             </div>
-            <div *ngIf="!getStaticMostrarEtiquetas()">
-                <br><br>
-                <router-outlet></router-outlet>
-            </div> 
+            <div *ngIf="!getStaticMostrarEtiquetas()"> -->
+                
+                <app-board></app-board>
+            <!-- </div> 
             <br><br>
-            <button class="btn btn-default" (click)="openTabs('about')"><i class="glyphicon glyphicon-question-sign"></i> Información </button>         
+            <button class="btn btn-default" (click)="openTabs('about')"><i class="glyphicon glyphicon-question-sign"></i> Información </button>          -->
         </app-tab>
     </app-tabs>
 

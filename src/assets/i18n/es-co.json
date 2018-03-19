@@ -18,13 +18,14 @@
     "IDIOMA" : "Cambiar Idioma",
     "SERVICIOS" : "Servicios",
     "RELACIONAMIENTO" : "Relacionamiento",
-    "ADMINISTRACION" : "Administración"
+    "ADMINISTRACION" : "Administración",
+    "UNIVERSIDAD" : "Universidad"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
   },
   "TABS" : {
-    "Principal Emprendimiento" : "Principal Emprendimiento",
+    "Principal Emprendimiento" : "Board",
     "Información" : "Información",
     "Usuarios" : "Usuarios" ,
     "Empresa"  : "Empresa",
