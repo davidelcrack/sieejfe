@@ -42,6 +42,25 @@ div{
     outline: none !important;
 }
 
+::ng-deep a.carousel-control-prev:hover,
+::ng-deep a.carousel-control-next:hover{
+    background-color: black;
+    opacity: 0.1;
+    
+}
+
+::ng-deep a.carousel-control-prev{
+    margin-left: -40px;
+}
+
+::ng-deep a.carousel-control-next{
+    margin-right: -40px;
+}
+
+::ng-deep div.carousel-caption{
+    border-radius: 10px;
+}
+
 /* Eñl del icono next */
 /* ::ng-deep span.carousel-control-next-icon{
     

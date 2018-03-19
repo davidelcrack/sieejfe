@@ -55,5 +55,23 @@
     "REDES" : "Networks",
     "TECNOLOGICOS" : "Technological",
     "AUSJAL" : "Association of Universities Entrusted to the Society of Jesus"
+  },
+  "EVENTOS" : {
+    "ADD" : "Add Event",
+    "SHOW" : "Show Events",
+    "PREV" : "Previous",
+    "HOY" : "Today",
+    "NEXT" : "Next",
+    "MES" : "Month",
+    "WEEK" : "Week",
+    "DAY" : "Day",
+    "EDIT" : "Edit Events",
+    "CREATE" : "Create Events",
+    "NAME" : "Name",
+    "COLOR" : "Color",
+    "BEGIN" : "Starts",
+    "END" : "Ends",
+    "SAVE" : "Save",
+    "CANCEL" : "Cancel"
   }
 }

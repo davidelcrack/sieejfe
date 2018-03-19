@@ -55,7 +55,23 @@
     "REDES" : "Redes",
     "TECNOLOGICOS" : "Tecnológicos",
     "AUSJAL" : "Asociación de Universidades Confiadas a la Compañía de Jesús"
+  },
+  "EVENTOS" : {
+    "ADD" : "Agregar Evento",
+    "SHOW" : "Mostrar Eventos",
+    "PREV" : "Anterior",
+    "HOY" : "Hoy",
+    "NEXT" : "Siguiente",
+    "MES" : "Mes",
+    "WEEK" : "Semana",
+    "DAY" : "Día",
+    "EDIT" : "Editar Eventos",
+    "CREATE" : "Crear Eventos",
+    "NAME" : "Nombre",
+    "COLOR" : "Color",
+    "BEGIN" : "Comienza",
+    "END" : "Termina",
+    "SAVE" : "Guardar",
+    "CANCEL" : "Cancelar"
   }
-
-
 }
