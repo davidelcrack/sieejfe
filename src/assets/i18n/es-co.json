@@ -75,6 +75,8 @@
     "BEGIN" : "Comienza",
     "END" : "Termina",
     "SAVE" : "Guardar",
-    "CANCEL" : "Cancelar"
+    "CANCEL" : "Cancelar",
+    "DETAIL" : "DETALLE EVENTO",
+    "LIST" : "LISTA DE EVENTOS"
   }
 }

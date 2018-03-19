@@ -135,6 +135,13 @@
           <div class="clearfix"></div>
         </h3>
       </div>
+
+      <div *ngIf="accion==3">
+        <h3>
+          {{'EVENTOS.LIST'| translate}}
+          <div class="clearfix"></div>
+        </h3>
+      </div>
         <!-- <button
           class="btn btn-primary pull-right"
           (click)="addEvent()">
@@ -217,6 +224,26 @@
         <!-- </div> -->
 
 
+
+    </div>
+</div>
+
+
+<br><br>
+
+<div id="overlayInformacionEvento">
+  
+  <div class="modalShow">      
+      <span class="close" (click)="cerrarPopUpDetalle()">&times;</span><br><br>
+
+      <h3>
+        {{'EVENTOS.DETAIL'| translate}} : {{detalleEvento}}
+        <div class="clearfix"></div>
+      </h3>
+
+        <p>
+          Hola bebés
+        </p>
 
     </div>
 </div>

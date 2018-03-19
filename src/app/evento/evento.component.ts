@@ -126,6 +126,14 @@ export class EventoComponent implements OnInit {
         this.handleEvent('Deleted', event);*/
         this.eliminar(event.id);
       }
+    },
+    {
+      label: '<i class="fa fa-plus-square"></i>',
+      onClick: ({ event }: { event: CalendarEvent }): void => {
+        console.log(event);
+        //this.handleEvent('Edited', event);
+        this.abrirDetalleEventos(event.id);
+      }
     }
   ];
 
@@ -165,8 +173,10 @@ export class EventoComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
+    console.log('handleEvent : entro a handleEvent', action , event);
+    // this.modalData = { event, action };
+    // this.modal.open(this.modalContent, { size: 'lg' });
+    this.abrirDetalleEventos(event.id);
   }
 
   addEvent(): void {
@@ -282,6 +292,28 @@ export class EventoComponent implements OnInit {
 
     this.events.splice(eliminado, 1); 
     this.refresh.next()
+  }
+
+  detalleEvento : any;
+  abrirDetalleEventos(idEvento: any){
+    console.log('abrirDetalleEventos : entro a abrirDetalleEventos',idEvento);
+    
+    let detallado = this.events.indexOf(this.events.find(function(element) {
+      return element.id == idEvento;
+    }));
+    this.detalleEvento=this.events[detallado].title;
+
+    let el: any;
+    el = document.getElementById("overlayInformacionEvento");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  cerrarPopUpDetalle(){
+    console.log('cerrarPopUpDetalle : entro a cerrarPopUpDetalle');
+    
+    let el : any;
+    el = document.getElementById("overlayInformacionEvento");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
   
 }
