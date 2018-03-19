@@ -1,0 +1,45 @@
+h2 {
+	color: #000066;
+}
+
+button,
+button:focus
+{
+  background-color: #000066;
+  color : #ffffff;
+  border-color: #ffffff;  
+}
+
+button:hover,
+button:visited,
+button:active
+{
+  background-color: #ffffff ;
+  color : #000066;
+  border-color: #000066;  
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+mat-row.mat-row.ng-star-inserted{
+  cursor: pointer;
+}

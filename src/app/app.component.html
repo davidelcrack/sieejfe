@@ -12,6 +12,7 @@
         <div class="container-fluid navtopdiv"></div>
         <ul class="topnav">
             <li><a class="active dropA fa fa-home" href="#"></a></li>            
+            <li><a (click)="openTabs('aboutus')">{{'ENTORNO.QUIENES'| translate}}</a></li>
             <li class="dropdown dropdownNav"><a class="dropA">{{'ENTORNO.ADMINISTRACION'| translate}}</a>
                 <ul class="dropMioJaja">
                     <li><a (click)="openTabs('usuario')" >{{'ENTORNO.USUARIOS'| translate}}</a></li>
@@ -103,6 +104,10 @@
 
     <ng-template #universidadTab>
         <app-universidad></app-universidad>
+    </ng-template>
+
+    <ng-template #aboutUsTab>
+        <app-quienes-somos></app-quienes-somos>
     </ng-template>
 
     <div class="social-icons">
