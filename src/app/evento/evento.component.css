@@ -8,6 +8,17 @@ h3 {
     padding: 15px;
   }
 
+  a.fa.fa-list-ul,
+  a.fa.fa-plus-circle{
+    float:right; 
+    border-color : #FFCC00;
+    font-size: 40px;
+    color: #FFCC00;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
   #overlayInformacionEvento,
   #overlayEvento {
     visibility: hidden;

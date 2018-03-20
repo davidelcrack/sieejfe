@@ -1,7 +1,10 @@
 <br>
 <div class="input-group" style="float:right;">
-  <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirAdicionEvento() ; mostrarEventos=true;">{{'EVENTOS.ADD'| translate}}</button>
-  <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirTodosEventos() ; mostrarEventos=true;">{{'EVENTOS.SHOW'| translate}}</button>
+  <!-- <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirAdicionEvento() ; mostrarEventos=true;">{{'EVENTOS.ADD'| translate}}</button> -->
+  <!-- <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirTodosEventos() ; mostrarEventos=true;">{{'EVENTOS.SHOW'| translate}}</button> -->
+  <a class="fa fa-plus-circle" (click)="abrirAdicionEvento() ; mostrarEventos=true;" ></a>
+  <a class="fa fa-list-ul" (click)="abrirTodosEventos() ; mostrarEventos=true;" ></a>
+  
 </div>
 
 <br><br><br>
