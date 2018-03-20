@@ -1,6 +1,7 @@
 <div class="contGridFluid imageLogin">
   <div class="colGrid2">
 
+    <form (keydown)="keyDownFunction($event)">
     <div class="bodyLogin">               
       <img width="400" src="..\assets\images\JaverianaLogo.png" >
       <br><br><br><br><br>      
@@ -23,11 +24,9 @@
             <button type="button" class="btn btn-info btn-lg" (click)="login()">Log In</button>
             <br><br>
         </div>
-
-      </div>           
-        
-
+      </div>               
     </div>
+    </form>
   </div>
   <div class="colGrid2">
     <div class="bodyLogin">   

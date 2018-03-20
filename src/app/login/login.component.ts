@@ -81,4 +81,13 @@ export class LoginComponent implements OnInit {
     );     
   }
 
+  keyDownFunction(e:any){
+    if(e.which == 13) {
+      console.log('Enter!');
+      if(this.datosLogin.username!="" && this.datosLogin.contrasena!=""){
+        this.login();
+      }
+    }
+  }
+
 }
