@@ -38,6 +38,10 @@ export class UniversidadComponent implements OnInit {
         //this.dataSource._updateChangeSubscription();
         //this.dataSource.connect();
 
+        // updateValues(myArray: any[]) {
+        //   this.dataSource.next(myArray)
+        // }
+
       },
       error => {
         console.log("no se puede obtener tipos identificacion tercero")
@@ -101,6 +105,22 @@ export class UniversidadComponent implements OnInit {
     el = document.getElementById("overlay");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
     //$(‘#overlay’).css(‘position’, ‘fixed’);
+  }
+
+  agregarUniversidad(){
+    console.log('agregarUniversidad : entro a agregarUniversidad');
+    let data : any;
+    data ={
+      id : 3,
+      url : 'agrega',
+      activo : true,
+      nombreUniversidad : 'estamos agregando',
+      editaUniversidad : 'Siii'
+    };
+    this.universidades.push(data);
+    this.dataSource._updateChangeSubscription();
+
+
   }
 
 }

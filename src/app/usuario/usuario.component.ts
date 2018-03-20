@@ -38,7 +38,7 @@ export class UsuarioComponent implements OnInit {
     this.usuarios.push(data);
   }
   
-  displayedColumns = ['id', 'Nombre', 'CaraCteristica', 'Color'];
+  displayedColumns = ['id', 'Nombre', 'Caracteristica', 'Color'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -64,6 +64,19 @@ export class UsuarioComponent implements OnInit {
   prueba(row : any){
     console.log("++++++++++++++++++++++++++++++++++");
     console.log(row)
+  }
+
+  agregarUsuario(){
+    console.log('agregarUniversidad : entro a agregarUniversidad');
+    let data : any;
+    data ={
+      id : 4,
+      name : 'Efrain',
+      progress : 'El sensei',
+      color : 'Dorado'
+    };
+    this.usuarios.push(data);
+    this.dataSource._updateChangeSubscription();
   }
 
 }

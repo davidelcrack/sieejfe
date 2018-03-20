@@ -1,12 +1,15 @@
+<br>
 <h2>Usuarios</h2>
 
 <br><br>
+
+<a class="fa fa-plus-circle" (click)="agregarUsuario()" ></a>
 
 <div class="mat-app-background basic-container">
 
   <div class="example-header">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
     </mat-form-field>
   </div>
 
@@ -27,7 +30,7 @@
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="CaraCteristica">
+      <ng-container matColumnDef="Caracteristica">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
       </ng-container>
@@ -43,32 +46,9 @@
       </mat-row>
     </mat-table>
 
-    <mat-paginator [pageSizeOptions]="[1, 10, 25, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[2, 10, 25, 100]"></mat-paginator>
   </div>
 
 </div>
 
 <br><br>
-
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Crear Usuario</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-<div class="modal-dialog">
-
-  <!-- Modal content-->
-  <div class="modal-content"> 
-	<div class="modal-header">
-	  <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-	  <h4 class="modal-title">Crear Usuario</h4>
-	</div>
-	<div class="modal-body">
-	  <p>A continuación podrá crear un nuevo usuario</p>
-	</div>
-	<div class="modal-footer">
-	  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cerrarPopUp()">Cerrar</button>
-	</div>
-  </div>
-  
-</div>
-</div>
