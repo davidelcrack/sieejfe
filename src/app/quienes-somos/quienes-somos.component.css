@@ -40,8 +40,19 @@ button:active
   max-height: 500px;
 }
 
-mat-row.mat-row.ng-star-inserted{
-  cursor: pointer;
+mat-cell.mat-cell.cdk-column-Nombre.mat-column-Nombre.ng-star-inserted{
+  cursor: pointer;  
+}
+
+.mat-column-Editar{
+  flex: 0 0 150px;
+}
+
+mat-cell.mat-cell.cdk-column-Editar.mat-column-Editar.ng-star-inserted:before  { 
+  font-family: FontAwesome; 
+  font-size: 30px; 
+  display: inline-block; 
+  content: '\1F589';
 }
 
 a.fa.fa-plus-circle{

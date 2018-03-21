@@ -18,25 +18,25 @@ export class QuienesSomosComponent implements OnInit {
     let data : Enlace;
     data ={
       id : 1,
-      name : 'Principal',
+      name : 'Página Principal',
       link : 'www.javeriana.edu.co'
     };
     this.enlaces.push(data);
     data ={
       id : 2,
-      name : 'Telefono',
-      link : 'www.javeriana.edu.co'
+      name : 'Carreras Pregrado',
+      link : 'www.javeriana.edu.co/programas/carreras'
     };
     this.enlaces.push(data);
     data ={
       id : 3,
-      name : 'Direccion',
-      link : 'www.javeriana.edu.co'
+      name : 'Posgrado',
+      link : 'www.javeriana.edu.co/programas/posgrados'
     }
     this.enlaces.push(data);
   }
   
-  displayedColumns = ['Nombre'];
+  displayedColumns = ['Nombre' , 'Editar'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -62,12 +62,14 @@ export class QuienesSomosComponent implements OnInit {
   }
 
   enlace=new Enlace();
-  
+  edita=0;
   agregarEnlace(enlacePantalla : Enlace){       
     if(enlacePantalla==undefined){
       this.enlace=new Enlace();
+      this.edita=0;
     }else{
       this.enlace=enlacePantalla;
+      this.edita=1;
     }
     
     let el: any;
