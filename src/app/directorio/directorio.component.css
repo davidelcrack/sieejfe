@@ -14,3 +14,8 @@ button:active
   color : #000066;
   border-color: #000066;  
 }
+
+::ng-deep div.dominiosMargen{
+  margin-left: 40px;
+  margin-right:40px;
+}

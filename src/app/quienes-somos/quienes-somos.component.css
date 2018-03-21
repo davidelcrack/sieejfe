@@ -124,3 +124,8 @@ a.fa.fa-plus-circle{
     color : #ffffff;
     border-color: #ffffff;  
   }
+
+  ::ng-deep div.quienesMargen{
+    margin-left: 40px;
+    margin-right:40px;
+  }

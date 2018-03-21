@@ -49,3 +49,8 @@ a.fa.fa-plus-circle{
   margin-right: 30px;
   cursor: pointer;
 }
+
+::ng-deep div.tablaMargen{
+  margin-left: 40px;
+  margin-right:40px;
+}

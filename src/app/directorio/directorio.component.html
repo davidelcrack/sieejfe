@@ -1,4 +1,5 @@
 <br><br> 
+<div class="dominiosMargen">
 <ul class="nav nav-pills">
   <li class="{{pill1}}" (click)="cambiarActive('pill1')"><a href="#">{{'ACORDEON.INTERNO'| translate}}</a></li>
   <li class="{{pill2}}" (click)="cambiarActive('pill2')"><a href="#">{{'ACORDEON.EXTERNO'| translate}}</a></li>
@@ -23,6 +24,7 @@
 <div *ngIf="pill2=='active'">
   <app-relacionamiento-externo></app-relacionamiento-externo>
 </div> 
+</div>
 
 <!-- <br><br>
 <button type="button" class="btn btn-info btn-lg" (click)="abrirEdicion()">Editar Contenido</button>
