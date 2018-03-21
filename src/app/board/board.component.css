@@ -11,7 +11,7 @@ img{
     max-height: 400px;
 }
 
-div{
+div.carousel-caption{
     background-color: black;
     opacity: 0.5;
 }
@@ -61,7 +61,90 @@ div{
     border-radius: 10px;
 }
 
-/* Eñl del icono next */
+/* Cuerpo del board */
+
+img.inicioPanel{
+    border-radius: 30%;
+    padding: 5px 80px;
+}
+
+p.labelPanel{
+    padding: 0px 90px !important;
+}
+
+.recuadro{
+    background-color:rgb(231, 208, 114);
+    text-align: center!important;
+    padding: 3rem!important;
+    border-radius: .25rem!important;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.textoRecuadro{
+    text-transform: uppercase;
+    margin-bottom: 1.5rem!important;
+    font-family: Lora;
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+.section-heading .section-heading-upper {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.section-heading-lower {
+    display: block;
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+
+
+a.btn {
+    box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
+    text-align:center !important;
+    display:block !important;    
+  }
+
+  div.botonRecuadro{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align:center;
+    display:block;
+  }
+  
+  .btn-primary {
+    background-color: #e6a756;
+    border-color: #e6a756;
+  }
+  
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #FFCC00;
+    border-color: #FFCC00;
+  }
+  
+  .font-weight-light {
+    font-weight: 100 !important;
+  }
+
+/* El del icono next */
 /* ::ng-deep span.carousel-control-next-icon{
     
 } */

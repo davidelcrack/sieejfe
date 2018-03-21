@@ -25,4 +25,8 @@ export class BoardComponent implements OnInit {
     this.appComponent.openTabs(nombre);
   }
 
+  aprende(){
+    this.appComponent.openTabs('aboutus');
+  }
+
 }

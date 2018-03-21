@@ -118,7 +118,7 @@ body {
 }
 
 ::ng-deep div.cal-open-day-events.ng-tns-c12-3.ng-trigger.ng-trigger-collapse.ng-star-inserted{
-    background-color: #332a2a;
+    background-color: #332a2a !important;
 }
 
 .centered {
