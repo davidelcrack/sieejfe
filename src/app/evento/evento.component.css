@@ -80,7 +80,7 @@ body {
     background-color : #000066 !important;
 }
 
-::ng-deep div.pane{
+::ng-deep div.calendarioMargen{
     margin-left: 40px;
     margin-right:40px;
 }
