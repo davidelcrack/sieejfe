@@ -144,6 +144,33 @@ a.btn {
     font-weight: 100 !important;
   }
 
+  .acordeonButton{
+    /* margin: auto;
+    width: 20%;
+    padding: 10px; */
+    display: table;  /* Instead of display:block */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .input-group{
+    padding: 0px 140px !important
+  }
+
+  a.fa.fa-external-link,
+  a.fa.fa-pencil-square-o,
+  a.fa.fa-cloud-upload{
+    border-color : #FFCC00;
+    font-size: 40px;
+    color: #FFCC00;
+    cursor: pointer;
+  }
+
+  .labelAcordeon{
+    font-size: 1rem;
+    font-weight: 800;   
+  }
+
 /* El del icono next */
 /* ::ng-deep span.carousel-control-next-icon{
     
