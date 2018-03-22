@@ -42,6 +42,12 @@ button:active
 
 mat-cell.mat-cell.cdk-column-Nombre.mat-column-Nombre.ng-star-inserted{
   cursor: pointer;  
+  color: blue;
+  text-decoration: underline;
+}
+
+mat-cell.mat-cell.cdk-column-Nombre.mat-column-Nombre.ng-star-inserted:hover {
+  color: darkblue;
 }
 
 .mat-column-Editar{
