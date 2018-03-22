@@ -154,7 +154,8 @@ a.btn {
   }
 
   .input-group{
-    padding: 0px 140px !important
+    padding: 0px 140px !important; 
+    /* padding: 0px 180px !important;  */
   }
 
   a.fa.fa-external-link,
@@ -169,6 +170,14 @@ a.btn {
   .labelAcordeon{
     font-size: 1rem;
     font-weight: 800;   
+  }
+
+  .imagenAcordeon{
+    cursor: pointer;
+    border-radius: 30%;
+    padding: 5px 80px;
+    height: 200px;
+    max-width: 450px;
   }
 
 /* El del icono next */
