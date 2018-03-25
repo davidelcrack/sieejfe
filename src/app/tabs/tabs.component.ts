@@ -9,6 +9,74 @@ import { DynamicTabsDirective } from '../dynamic-tabs.directive';
 })
 export class TabsComponent implements AfterContentInit {
 
+
+  contextmenu = false;
+  contextmenuX = 0;
+  contextmenuY = 0;
+  tabContextMenu = undefined;
+
+  //activates the menu with the coordinates
+  onrightClick(event,tab){
+    console.log('onrightClick : entro a onrightClick');
+      this.contextmenuX=event.clientX
+      this.contextmenuY=event.clientY
+      this.contextmenu=true;
+      this.tabContextMenu=tab;
+  }
+  //disables the menu
+  disableContextMenu(){
+      this.contextmenu= false;
+  }
+
+  onCerrarNotify(e){
+    console.log('onCerrarNotify : entro a onCerrarNotify', e);
+    this.closeTab(e);
+  }
+
+  onCerrarTodasNotify(e){
+    console.log('onCerrarTodasNotify : entro a onCerrarTodasNotify', e);
+    this.closeAllTabs();
+  }
+
+  closeAllTabs(){
+    console.log(this.dynamicTabs);
+    let dynamicLenght=this.dynamicTabs.length;
+    this.dynamicTabs=[];    
+    for(let i=0; i<dynamicLenght;i++) {             
+        // destroy our dynamically created component again
+        let viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
+        // let viewContainerRef = this.dynamicTabPlaceholder;
+        viewContainerRef.remove(i);                
+    }
+    this.selectTab(this.tabs.first);     
+  }
+
+  onCerrarDemasNotify(e){
+    console.log('onCerrarDemasNotify : entro a onCerrarDemasNotify', e);
+    this.cerrarDemas(e);
+  }
+
+  cerrarDemas(tab){
+    let tam=this.dynamicTabs.length-1;
+    for(let i=0; i<tam;i++) {
+      
+        let eliminado =this.dynamicTabs.indexOf(this.dynamicTabs.find(function(element){
+          return element != tab;
+        }));
+        // remove the tab from our array
+        this.dynamicTabs.splice(eliminado,1);
+        
+        // destroy our dynamically created component again
+        let viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
+        // let viewContainerRef = this.dynamicTabPlaceholder;
+        viewContainerRef.remove(eliminado);
+        
+        // set tab index to 1st one
+        this.selectTab(this.tabs.first);
+      
+    }
+  }
+
   dynamicTabs: TabComponent[] = [];
   
   @ContentChildren(TabComponent) 
@@ -66,6 +134,7 @@ export class TabsComponent implements AfterContentInit {
   }
   
   selectTab(tab: TabComponent){
+    console.log('SelectTab : entro a selectTab' , this.dynamicTabs);
     // deactivate all tabs
     this.tabs.toArray().forEach(tab => tab.active = false);
     this.dynamicTabs.forEach(tab => tab.active = false);

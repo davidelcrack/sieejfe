@@ -1,11 +1,18 @@
-<ul class="nav nav-tabs">
-  <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
-    <a href="#">{{'TABS.'+ tab.title| translate}}</a>
-  </li>
-  <!-- dynamic tabs -->
-  <li *ngFor="let tab of dynamicTabs" (click)="selectTab(tab)" [class.active]="tab.active">
-    <a href="#">{{'TABS.'+ tab.title| translate}}<span class="tab-close" *ngIf="tab.isCloseable" (click)="closeTab(tab)"> x</span></a>
-  </li>
-</ul>
-<ng-content></ng-content>
-<ng-template dynamic-tabs #container></ng-template>
+<div (click)="disableContextMenu()" oncontextmenu="return false;">
+  <ul class="nav nav-tabs">
+    <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+      <a href="#">{{'TABS.'+ tab.title| translate}}</a>
+    </li>
+    <!-- dynamic tabs -->
+    <li *ngFor="let tab of dynamicTabs" (contextmenu)="onrightClick($event,tab)" (click)="selectTab(tab)" [class.active]="tab.active">
+      <a href="#">{{'TABS.'+ tab.title| translate}}<span class="tab-close" *ngIf="tab.isCloseable" (click)="closeTab(tab)"> x</span></a>
+    </li>
+  </ul>
+  <ng-content></ng-content>
+  <ng-template dynamic-tabs #container></ng-template>
+
+  <div *ngIf="contextmenu==true">
+    <app-context-menu  [x]="contextmenuX" [y]="contextmenuY" [tab]="tabContextMenu" (cerrarNotify)="onCerrarNotify($event)" (cerrarTodasNotify)="onCerrarTodasNotify($event)" (cerrarDemasNotify)="onCerrarDemasNotify($event)"></app-context-menu>
+  </div>
+
+</div>

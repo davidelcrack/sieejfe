@@ -26,6 +26,11 @@
     "EMPRENDEDOR": "Bienvenido Emprendedor"
   },
   "TABS" : {
+    "CONTEXT" : {
+      "CERRAR" : "Cerrar",
+      "CERRARTODAS" : "Cerrar Todas",
+      "DEMAS" : "Cerrar Otras"
+    },
     "Principal Emprendimiento" : "Board",
     "Información" : "Información",
     "Usuarios" : "Usuarios" ,

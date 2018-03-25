@@ -1,0 +1,45 @@
+.contextmenu{
+    position: absolute;
+}
+
+.dropMioJaja{
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 130px;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
+    padding: 12px 0px 12px 0px;
+    z-index: 1;   
+    /*style="color: black;" */
+}
+
+ul.dropMioJaja li a:hover{
+    background-color: gray !important;
+    color:#FFFFFF !important;
+    cursor: pointer;
+    display: block !important;
+    text-align: left !important;
+    padding: 6px 10px !important;
+    text-decoration: none !important;
+}
+
+ul.dropMioJaja li {
+    list-style:none !important;
+}
+
+
+ul.dropMioJaja li {
+    float:inherit ;
+}
+
+ul.dropMioJaja li a{
+    height: 30px;
+    display: block !important;
+    color: rgb(0, 0, 0) !important;
+    text-align: left !important;
+    padding: 6px 10px !important;
+    text-decoration: none !important;
+}
+
+.dropdown:hover .dropMioJaja {
+    display: block;
+}
