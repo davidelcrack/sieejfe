@@ -4,7 +4,7 @@
 
 <br><br>
 
-<a class="fa fa-plus-circle" (click)="agregarUniversidad()" ></a>
+<a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="agregarUniversidad()" ></a>
 
 <div class="mat-app-background basic-container">
 

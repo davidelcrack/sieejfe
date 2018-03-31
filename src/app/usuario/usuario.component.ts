@@ -12,8 +12,12 @@ export class UsuarioComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.usuarios);
    }
 
+  esAdmin : boolean = false;
+
   ngOnInit(
   ) {
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+
     let data : any;
     data ={
       id : 1,

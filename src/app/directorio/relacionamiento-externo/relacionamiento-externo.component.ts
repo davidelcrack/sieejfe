@@ -25,8 +25,11 @@ export class RelacionamientoExternoComponent implements OnInit {
   ) { }
 
   datos : any;
+  esAdmin : boolean = false;
 
   ngOnInit() {
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+
     let datos;
     datos={ id: 2 , nombre: 'Universidad Distrital', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
 

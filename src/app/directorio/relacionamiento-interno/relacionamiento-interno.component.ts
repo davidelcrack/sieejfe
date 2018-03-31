@@ -21,6 +21,7 @@ export class RelacionamientoInternoComponent implements OnInit {
   imagenDominio: ImagenPopUpComponent;
 
   datos : any;
+  esAdmin : boolean = false;
 
   constructor(
     private directorioService : DirectorioService
@@ -28,7 +29,7 @@ export class RelacionamientoInternoComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
     /*this.directorioService.obtenerDirectorio().subscribe(
       response => {
         this.directorioUniversidades = response;

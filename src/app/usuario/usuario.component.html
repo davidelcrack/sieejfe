@@ -4,7 +4,7 @@
 
 <br><br>
 
-<a class="fa fa-plus-circle" (click)="agregarUsuario()" ></a>
+<a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="agregarUsuario()" ></a>
 
 <div class="mat-app-background basic-container">
 

@@ -16,8 +16,12 @@ export class UniversidadComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.universidades);
    }
 
+  esAdmin : boolean = false;
+
+
   ngOnInit(
   ) {
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
 
     /*
     this.directorioService.obtenerDirectorio().subscribe(
