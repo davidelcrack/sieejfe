@@ -17,7 +17,10 @@ export class SuscriptoresComponent implements OnInit {
 
   idUsuario:any;
   idEvento: any;
-  cargarDetalles(idUsuario , idEvento){
+  suscrito: boolean;
+
+  cargarDetalles(idUsuario , idEvento , suscrito){
+    this.suscrito=suscrito;
     this.idUsuario=idUsuario;
     this.idEvento=idEvento;
     let data : any;
@@ -81,14 +84,12 @@ export class SuscriptoresComponent implements OnInit {
 
   suscribirse(){
     console.log('suscribirse : entro a suscribirse');
-    let data : any;
-    data ={
-      id : 4,
-      nombre : 'Efrain',
-      estado : 'El sensei'
-    };
-    this.suscriptores.push(data);
-    this.dataSource._updateChangeSubscription();
+   this.suscrito=true;
+  }
+
+  desuscribirse(){
+    console.log('desuscribirse : entro a desuscribirse');
+   this.suscrito=false;
   }
 
 }

@@ -7,7 +7,8 @@ evento : {{idEvento}}
 
 <br><br>
 
-<a class="fa fa-plus-circle" (click)="suscribirse()" ></a>
+<a *ngIf="!suscrito" class="fa fa-bell" (click)="suscribirse()" >Suscribirse</a>
+<a *ngIf="suscrito" class="fa fa-check" (click)="desuscribirse()" >Suscrito</a>
 
 <div class="mat-app-background basic-container">
 

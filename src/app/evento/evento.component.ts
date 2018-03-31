@@ -298,6 +298,7 @@ export class EventoComponent implements OnInit {
   detalleEvento : any;
   evento : any;
   usuario : any;
+  suscrito : boolean =false;
 
   @ViewChild(SuscriptoresComponent) inscripciones: SuscriptoresComponent;
 
@@ -312,7 +313,7 @@ export class EventoComponent implements OnInit {
     this.evento=this.events[detallado].id;
     this.usuario=90;
 
-    this.inscripciones.cargarDetalles(this.usuario, this.evento);
+    this.inscripciones.cargarDetalles(this.usuario, this.evento , this.suscrito);
 
     let el: any;
     el = document.getElementById("overlayInformacionEvento");
