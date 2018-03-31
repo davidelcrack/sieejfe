@@ -10,7 +10,7 @@
 <h2>Enlaces</h2>
 <br>
 
-<a class="fa fa-plus-circle" (click)="agregarEnlace(undefined)" ></a>
+<a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="agregarEnlace(undefined)" ></a>
 
 <div class="mat-app-background basic-container">
 

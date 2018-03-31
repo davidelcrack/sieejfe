@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('USER', this.datosLogin.username);    
             //this.usuarioRegistrado(this.datosLogin.username, this.datosLogin.contrasena); //no local
             localStorage.setItem('LOGGEADO', JSON.stringify(this.usuarioLog)); //si local
+            //localStorage.setItem('ADMIN', JSON.stringify(true)); //NO local
+            localStorage.setItem('ADMIN', JSON.stringify(true)); //si local
           //} //no local
           console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++');
           this.appComponent.esUser=true;

@@ -54,7 +54,15 @@ const colors: any = {
 })
 export class EventoComponent implements OnInit {
 
+  esAdmin : boolean = false;
   ngOnInit() {
+
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+
+    if(!this.esAdmin){
+      this.actions=[];
+    }
+
     let data: CalendarEvent;
     
     data = {

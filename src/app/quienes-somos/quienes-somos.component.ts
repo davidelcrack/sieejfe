@@ -13,8 +13,10 @@ export class QuienesSomosComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.enlaces);
    }
 
+  esAdmin : boolean = false;
   ngOnInit(
   ) {
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
     let data : Enlace;
     data ={
       id : 1,
