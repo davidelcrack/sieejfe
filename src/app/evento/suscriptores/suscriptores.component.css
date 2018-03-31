@@ -1,0 +1,56 @@
+h2 {
+	color: #000066;
+}
+
+button,
+button:focus
+{
+  background-color: #000066;
+  color : #ffffff;
+  border-color: #ffffff;  
+}
+
+button:hover,
+button:visited,
+button:active
+{
+  background-color: #ffffff ;
+  color : #000066;
+  border-color: #000066;  
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+a.fa.fa-plus-circle{
+  float:right; 
+  border-color : #FFCC00;
+  font-size: 45px;
+  color: #FFCC00;
+  margin-left: 30px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+::ng-deep div.tablaMargen{
+  margin-left: 40px;
+  margin-right:40px;
+}

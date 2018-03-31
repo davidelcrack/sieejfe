@@ -1,0 +1,53 @@
+<br>
+<div class="tablaMargen">
+<h2>Inscritos</h2>
+
+usuario : {{idUsuario}}
+evento : {{idEvento}}
+
+<br><br>
+
+<a class="fa fa-plus-circle" (click)="suscribirse()" ></a>
+
+<div class="mat-app-background basic-container">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+    </mat-form-field>
+  </div>
+
+  <div class="example-container mat-elevation-z8" >
+
+    <mat-table #tableSuscriptores [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="Nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Estado">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.estado}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[2, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>
+</div>
+
+<br><br>

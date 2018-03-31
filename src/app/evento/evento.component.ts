@@ -21,6 +21,7 @@ import {
   addHours
 } from 'date-fns';
 import { CustomDateFormatter } from '../pickers/custom-date-formatter.provider';
+import { SuscriptoresComponent } from './suscriptores/suscriptores.component';
 
 
 const colors: any = {
@@ -295,6 +296,11 @@ export class EventoComponent implements OnInit {
   }
 
   detalleEvento : any;
+  evento : any;
+  usuario : any;
+
+  @ViewChild(SuscriptoresComponent) inscripciones: SuscriptoresComponent;
+
   abrirDetalleEventos(idEvento: any){
     console.log('abrirDetalleEventos : entro a abrirDetalleEventos',idEvento);
     
@@ -303,9 +309,15 @@ export class EventoComponent implements OnInit {
     }));
     this.detalleEvento=this.events[detallado].title;
 
+    this.evento=this.events[detallado].id;
+    this.usuario=90;
+
+    this.inscripciones.cargarDetalles(this.usuario, this.evento);
+
     let el: any;
     el = document.getElementById("overlayInformacionEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+
   }
 
   cerrarPopUpDetalle(){
