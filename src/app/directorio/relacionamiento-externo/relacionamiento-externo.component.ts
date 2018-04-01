@@ -26,6 +26,7 @@ export class RelacionamientoExternoComponent implements OnInit {
 
   datos : any;
   esAdmin : boolean = false;
+  // valorEtiquetas = new  Array ();
 
   ngOnInit() {
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
@@ -34,6 +35,25 @@ export class RelacionamientoExternoComponent implements OnInit {
     datos={ id: 2 , nombre: 'Universidad Distrital', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
 
     this.datos=datos;
+    // this.valorEtiquetas.push(datos);
+
+    // datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    // this.valorEtiquetas.push(datos);
+
+    // datos={ id: 4 , nombre: 'Universidad Nacional Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    // this.valorEtiquetas.push(datos);
+
+    // datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    // this.valorEtiquetas.push(datos);
+
+    // datos={ id: 4 , nombre: 'Universidad Nacional Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    // this.valorEtiquetas.push(datos);
+
+    // datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    // this.valorEtiquetas.push(datos);
+
+    // datos={ id: 4 , nombre: 'Universidad Nacional Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
+    // this.valorEtiquetas.push(datos);
   }
 
   dominiosInternacionales = new  Array ();

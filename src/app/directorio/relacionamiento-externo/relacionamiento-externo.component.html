@@ -42,13 +42,29 @@
     <div class="panel-body">
         <br>
         <ul>
-          <li *ngFor="let institucion of dominiosInternacionales" (click)="seleccion(institucion)">
-              <div class="input-group">
+          <li class="colGrid3" style="text-align:center" *ngFor="let institucion of dominiosInternacionales" (click)="seleccion(institucion)">
+              <!-- <div class="input-group">
                 {{ institucion.nombre }}
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
                 <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
                 <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
-              </div>
+              </div> -->
+
+              <ng-container>
+                <img class="imagenAcordeon" src="../../../assets/images/banner/javebanner1.jpg" (click)="abrirLink(institucion.url)">  
+                <br><br>
+                <div class="input-group">
+                  <a class="acordeonButton labelAcordeon">{{ institucion.nombre }}</a>
+                </div>
+                <br><br>
+                <div class="input-group">
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
+                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
+                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
+                </div>        
+              </ng-container>
+
+
           </li>
         </ul>
         <br>
@@ -63,18 +79,33 @@
   </div>
   <div id="collapseD" class="panel-collapse collapse">
     <div class="panel-body">
-        <br>
-        <ul>
-          <li *ngFor="let acelerador of dominiosInternacionales" (click)="seleccion(acelerador)">
-              <div class="input-group">
-                {{ acelerador.nombre }}
-                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
-                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
-                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
-              </div>
-          </li>
-        </ul>
-        <br>
+      <br>
+      <div class="contGridFluid">
+        <div *ngFor="let acelerador of dominiosInternacionales" (click)="seleccion(acelerador)" class="colGrid3" style="text-align:center">
+            <!-- <div class="input-group">
+              {{ acelerador.nombre }}
+              <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+              <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
+              <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
+            </div> -->
+
+          <ng-container>
+            <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(acelerador.url)">  
+            <br><br>
+            <div class="input-group">
+              <a class="acordeonButton labelAcordeon">{{ acelerador.nombre }}</a>
+            </div>
+            <br><br>
+            <div class="input-group">
+              <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+              <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
+              <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
+            </div>        
+          </ng-container>
+        </div>
+      </div>
+      
+      <br>
     </div>
   </div>
 </div>
