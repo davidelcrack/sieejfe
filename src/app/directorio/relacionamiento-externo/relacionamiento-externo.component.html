@@ -72,7 +72,7 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseD" (click)="getDominiosInternacionales('RED_ACELERADORAS')">
+  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseD" (click)="getDominiosInternacionales('RED_ACELERADORAS')"> 
     <h4 class="panel-title">
       <a>{{'ACORDEON.REDES'| translate}}</a>
     </h4>
@@ -82,12 +82,6 @@
       <br>
       <div class="contGridFluid">
         <div *ngFor="let acelerador of dominiosInternacionales" (click)="seleccion(acelerador)" class="colGrid3" style="text-align:center">
-            <!-- <div class="input-group">
-              {{ acelerador.nombre }}
-              <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
-              <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
-              <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
-            </div> -->
 
           <ng-container>
             <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(acelerador.url)">  
@@ -95,12 +89,13 @@
             <div class="input-group">
               <a class="acordeonButton labelAcordeon">{{ acelerador.nombre }}</a>
             </div>
-            <br><br>
+            <br>
             <div class="input-group">
               <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
               <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
               <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
-            </div>        
+            </div>       
+            <br><br><br> 
           </ng-container>
         </div>
       </div>
@@ -157,3 +152,10 @@
 <app-adicionar-dominio-pop-up></app-adicionar-dominio-pop-up>
 
 <app-imagen-pop-up></app-imagen-pop-up>
+
+            <!-- <div class="input-group">
+              {{ acelerador.nombre }}
+              <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+              <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
+              <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
+            </div> -->
