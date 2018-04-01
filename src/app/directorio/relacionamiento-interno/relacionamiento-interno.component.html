@@ -12,16 +12,26 @@
   <div id="collapse1" class="panel-collapse collapse">
     <div class="panel-body">
       <br>
-      <ul>
-        <li *ngFor="let universidad of dominiosNacionales" (click)="seleccion(universidad)">
-          <div class="input-group">
-            {{ universidad.nombre }}
-            <a class="fa fa-external-link acordeonButton" (click)="abrirLink(universidad.url)" ></a>
-            <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(universidad)" ></a>
-            <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(universidad.id)" ></a>      
-          </div>
-        </li>
-      </ul>
+      <div class="contGridFluid">
+          <div *ngFor="let universidad of dominiosNacionales" (click)="seleccion(universidad)" class="colGrid3" style="text-align:center">
+          
+            <ng-container>
+              <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(universidad.url)">  
+              <br><br>
+              <div class="input-group">
+                <a class="acordeonButton labelAcordeon">{{ universidad.nombre }}</a>
+              </div>
+              <br>
+              <div class="input-group">
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(universidad.url)"></a>
+                <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(universidad)" ></a>
+                <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(universidad.id)" ></a> 
+              </div>       
+              <br><br><br> 
+            </ng-container>
+
+        </div>
+      </div>
       <br>
     </div>
   </div>
@@ -35,16 +45,26 @@
   <div id="collapse2" class="panel-collapse collapse">
     <div class="panel-body">
         <br>
-        <ul>
-          <li *ngFor="let gobierno of dominiosNacionales" (click)="seleccion(gobierno)">
-              <div class="input-group">
-                {{ gobierno.nombre }}
-                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(gobierno.url)"></a>
-                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(gobierno)" ></a>
-                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(gobierno.id)" ></a> 
-              </div>
-          </li>
-        </ul>
+        <div class="contGridFluid">
+            <div *ngFor="let gobierno of dominiosNacionales" (click)="seleccion(gobierno)" class="colGrid3" style="text-align:center">
+              
+              <ng-container>
+                <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(gobierno.url)">  
+                <br><br>
+                <div class="input-group">
+                  <a class="acordeonButton labelAcordeon">{{ gobierno.nombre }}</a>
+                </div>
+                <br>
+                <div class="input-group">
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(gobierno.url)"></a>
+                  <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(gobierno)" ></a>
+                  <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(gobierno.id)" ></a> 
+                </div>       
+                <br><br><br> 
+              </ng-container>
+
+          </div>
+        </div>
         <br>
     </div>
   </div>
@@ -86,16 +106,26 @@
   <div id="collapse5" class="panel-collapse collapse">
     <div class="panel-body">
         <br>
-        <ul>
-          <li *ngFor="let ong of dominiosNacionales" (click)="seleccion(ong)">
+        <div class="contGridFluid">
+          <div *ngFor="let ong of dominiosNacionales" (click)="seleccion(ong)" class="colGrid3" style="text-align:center">
+              
+            <ng-container>
+              <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(ong.url)">  
+              <br><br>
               <div class="input-group">
-                {{ ong.nombre }}
-                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ong.url)"></a>
-                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(ong)" ></a>
-                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(ong.id)" ></a> 
+                <a class="acordeonButton labelAcordeon">{{ ong.nombre }}</a>
               </div>
-          </li>
-        </ul>
+              <br>
+              <div class="input-group">
+                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ong.url)"></a>
+                <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(ong)" ></a>
+                <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(ong.id)" ></a> 
+              </div>       
+              <br><br><br> 
+            </ng-container>  
+
+          </div>
+        </div>
         <br>
     </div>
   </div>
@@ -137,16 +167,26 @@
     <div id="collapse8" class="panel-collapse collapse">
       <div class="panel-body">
           <br>
-          <ul>
-            <li *ngFor="let mentores of dominiosNacionales" (click)="seleccion(mentores)">
+          <div class="contGridFluid">
+            <div *ngFor="let mentores of dominiosNacionales" (click)="seleccion(mentores)" class="colGrid3" style="text-align:center">
+                
+              <ng-container>
+                <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(mentores.url)">  
+                <br><br>
                 <div class="input-group">
-                  {{ mentores.nombre }}
-                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(mentores.url)"></a>
-                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(mentores)" ></a>
-                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(mentores.id)" ></a> 
+                  <a class="acordeonButton labelAcordeon">{{ mentores.nombre }}</a>
                 </div>
-            </li>
-          </ul>
+                <br>
+                <div class="input-group">
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(mentores.url)"></a>
+                  <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(mentores)" ></a>
+                  <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(mentores.id)" ></a> 
+                </div>       
+                <br><br><br> 
+              </ng-container>
+
+            </div>
+          </div>
           <br>
       </div>
     </div>
@@ -160,16 +200,26 @@
     <div id="collapse9" class="panel-collapse collapse">
       <div class="panel-body">
           <br>
-          <ul>
-            <li *ngFor="let financiador of dominiosNacionales" (click)="seleccion(financiador)">
+          <div class="contGridFluid">
+            <div *ngFor="let financiador of dominiosNacionales" (click)="seleccion(financiador)" class="colGrid3" style="text-align:center">
+                
+              <ng-container>
+                <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(financiador.url)">  
+                <br><br>
                 <div class="input-group">
-                  {{ financiador.nombre }}
-                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(financiador.url)"></a>
-                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(financiador)" ></a>
-                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(financiador.id)" ></a> 
+                  <a class="acordeonButton labelAcordeon">{{ financiador.nombre }}</a>
                 </div>
-            </li>
-          </ul>
+                <br>
+                <div class="input-group">
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(financiador.url)"></a>
+                  <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(financiador)" ></a>
+                  <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(financiador.id)" ></a> 
+                </div>       
+                <br><br><br> 
+              </ng-container>
+
+            </div>
+          </div>
           <br>
       </div>
     </div>
@@ -197,16 +247,26 @@
     <div id="collapse11" class="panel-collapse collapse">
       <div class="panel-body">
           <br>
-          <ul>
-            <li *ngFor="let acelerador of dominiosNacionales" (click)="seleccion(acelerador)">
+          <div class="contGridFluid">
+            <div *ngFor="let acelerador of dominiosNacionales" (click)="seleccion(acelerador)" class="colGrid3" style="text-align:center">
+                
+              <ng-container>
+                <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(acelerador.url)">  
+                <br><br>
                 <div class="input-group">
-                  {{ acelerador.nombre }}
-                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
-                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(acelerador)" ></a>
-                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(acelerador.id)" ></a> 
+                  <a class="acordeonButton labelAcordeon">{{ acelerador.nombre }}</a>
                 </div>
-            </li>
-          </ul>
+                <br>
+                <div class="input-group">
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+                  <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(acelerador)" ></a>
+                  <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(acelerador.id)" ></a> 
+                </div>       
+                <br><br><br> 
+              </ng-container>
+
+            </div>
+          </div>
           <br>
       </div>
     </div>
