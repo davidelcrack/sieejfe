@@ -97,6 +97,7 @@
             </div>       
             <br><br><br> 
           </ng-container>
+
         </div>
       </div>
       
@@ -127,16 +128,26 @@
   <div id="collapseF" class="panel-collapse collapse">
     <div class="panel-body">
         <br>
-        <ul>
-          <li *ngFor="let ausjal of dominiosInternacionales" (click)="seleccion(ausjal)">
-              <div class="input-group">
-                {{ ausjal.nombre }}
-                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ausjal.url)"></a>
-                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(ausjal)" ></a>
-                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(ausjal.id)" ></a> 
-              </div>
-          </li>
-        </ul>
+        <div class="contGridFluid">
+          <div *ngFor="let ausjal of dominiosInternacionales" (click)="seleccion(ausjal)" class="colGrid3" style="text-align:center">
+                        
+              <ng-container>
+                <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(ausjal.url)">  
+                <br><br>
+                <div class="input-group">
+                  <a class="acordeonButton labelAcordeon">{{ ausjal.nombre }}</a>
+                </div>
+                <br>
+                <div class="input-group">
+                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ausjal.url)"></a>
+                  <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(ausjal)" ></a>
+                  <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(ausjal.id)" ></a> 
+                </div>       
+                <br><br><br> 
+              </ng-container>
+
+          </div>
+        </div>
         <br>
     </div>
   </div>
