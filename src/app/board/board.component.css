@@ -184,3 +184,8 @@ a.btn {
 /* ::ng-deep span.carousel-control-next-icon{
     
 } */
+
+p a{
+    color: blue;
+    text-shadow: 0 0 12px rgba(230,160,55,0.6);
+}

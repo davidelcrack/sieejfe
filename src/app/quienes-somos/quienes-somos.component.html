@@ -31,7 +31,7 @@
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container matColumnDef="Editar">
+      <ng-container *ngIf="esAdmin" matColumnDef="Editar">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
         <mat-cell *matCellDef="let row" (click)="agregarEnlace(row)"></mat-cell>
       </ng-container>

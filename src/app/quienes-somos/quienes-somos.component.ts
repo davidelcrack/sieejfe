@@ -17,6 +17,11 @@ export class QuienesSomosComponent implements OnInit {
   ngOnInit(
   ) {
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+
+    if(!this.esAdmin){
+      this.displayedColumns = ['Nombre'];
+    }
+
     let data : Enlace;
     data ={
       id : 1,
