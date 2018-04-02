@@ -248,6 +248,10 @@ ul.dropMioJaja li a{
     border-top: 10px solid #FFFFFF;
 }
 
+.dropdownNav{
+    cursor: context-menu;
+}
+
 .dropLenguage{
     display: none;
     position: fixed;
@@ -287,6 +291,7 @@ ul.dropMioJaja li a{
 
 .fa-home{
     font-size: 20px !important;
+    cursor: pointer;
 }
 
 .fa-sign-out{

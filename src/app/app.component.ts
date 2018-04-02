@@ -203,6 +203,10 @@ export class AppComponent {
       this.tabsComponent.openTab('aboutus',this.aboutUsTemplate,{},true);
     }    
   }
+
+  irAHome(){
+    this.tabsComponent.selectHome();
+  }
   
   mostrarIdiomasUsuario() {
     console.log("mostrarIdiomasUsuario: Entro a mostrarIdiomasUsuario");

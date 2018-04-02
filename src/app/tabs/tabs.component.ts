@@ -169,4 +169,8 @@ export class TabsComponent implements AfterContentInit {
     }
   }
 
+  selectHome(){
+    this.selectTab(this.tabs.first);
+  }
+
 }
