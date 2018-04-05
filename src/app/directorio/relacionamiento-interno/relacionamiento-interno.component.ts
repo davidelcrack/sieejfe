@@ -23,12 +23,27 @@ export class RelacionamientoInternoComponent implements OnInit {
   datos : any;
   esAdmin : boolean = false;
 
+  map = new Map();
+
   constructor(
     private directorioService : DirectorioService
   ) { }
 
 
   ngOnInit() {
+
+    this.map.set("UNIVERSIDAD",false);
+    this.map.set("GOBIERNO",false);
+    this.map.set("REGULADORES",false);
+    this.map.set("INVESTIGACION",false);
+    this.map.set("ONG",false);
+    this.map.set("INDUSTRIA",false);
+    this.map.set("SPONSOR",false);
+    this.map.set("RED_MENTORES",false);
+    this.map.set("RED_FINANCIADORES",false);
+    this.map.set("INCUBADORES",false);
+    this.map.set("RED_ACELERADORAS",false);
+
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
     /*this.directorioService.obtenerDirectorio().subscribe(
       response => {
@@ -54,7 +69,10 @@ export class RelacionamientoInternoComponent implements OnInit {
   getDominios(tipo : any){
     console.log('getDominios : entro a getDominios', tipo)
     this.dominiosNacionales=[];
-    
+
+    console.log(this.map.get(tipo));
+    this.actualizarChecks(tipo);
+
     this.directorioService.listarDominiosNacionales(tipo).subscribe(
       response => {
         this.dominiosNacionales = response;
@@ -64,6 +82,13 @@ export class RelacionamientoInternoComponent implements OnInit {
         console.log("Error en dominios")
       }
     );
+  }
+
+  actualizarChecks(tipo : any){
+  //   for ( let value of this.map.entries()) {
+  //     console.log(value);
+  // }
+  
   }
 
   seleccion(seleccion){

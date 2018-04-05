@@ -22,6 +22,8 @@ import {
 } from 'date-fns';
 import { CustomDateFormatter } from '../pickers/custom-date-formatter.provider';
 import { SuscriptoresComponent } from './suscriptores/suscriptores.component';
+import { EventosService } from '../servicios/eventos/eventos.service';
+import { concat } from 'rxjs/operator/concat';
 
 
 const colors: any = {
@@ -57,52 +59,75 @@ export class EventoComponent implements OnInit {
   esAdmin : boolean = false;
   ngOnInit() {
 
+    let data: CalendarEvent;
+
+    this.eventosService.obtenerEventos().subscribe(
+      response => {         
+        console.log(response);        
+        
+        response.forEach(element => {          
+          console.log('comienza : '+new Date(element.inicio))
+          console.log('termina : '+new Date(element.fin))
+          data = {
+            id: element.id,
+            start: new Date(element.inicio),
+            end: new Date(element.fin),
+            title: element.titulo,
+            color: colors.blueJaverina,
+            actions: this.actions
+          };  
+          this.events.push(data);
+        });
+        this.refresh.next();
+      }, error => {
+        console.log("**obtenerEventos***"+error);
+      }      
+    ); 
+
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
 
     if(!this.esAdmin){
       this.actions=[];
-    }
-
-    let data: CalendarEvent;
+    }   
     
-    data = {
-      id: 1,
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'Evento crack de 3 días',
-      color: colors.blueJaverina,
-      actions: this.actions
-    };
-    this.events.push(data);
+    // data = {
+    //   id: 1,
+    //   start: subDays(startOfDay(new Date()), 1),
+    //   end: addDays(new Date(), 1),
+    //   title: 'Evento crack de 3 días',
+    //   color: colors.blueJaverina,
+    //   actions: this.actions
+    // };
+    // this.events.push(data);
 
-    data={
-      id: 2,
-      start: startOfDay(new Date()),
-      title: 'Evento sin fecha de finalización',
-      color: colors.yellowJaveriana,
-      actions: this.actions
-    };
-    this.events.push(data);
+    // data={
+    //   id: 2,
+    //   start: startOfDay(new Date()),
+    //   title: 'Evento sin fecha de finalización',
+    //   color: colors.yellowJaveriana,
+    //   actions: this.actions
+    // };
+    // this.events.push(data);
     
-    data={
-      id: 3,
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'Evento que dura 2 meses',
-      color: colors.blue,
-      actions: this.actions
-    };
-    this.events.push(data);
+    // data={
+    //   id: 3,
+    //   start: subDays(endOfMonth(new Date()), 3),
+    //   end: addDays(endOfMonth(new Date()), 3),
+    //   title: 'Evento que dura 2 meses',
+    //   color: colors.blue,
+    //   actions: this.actions
+    // };
+    // this.events.push(data);
 
-    data={
-      id: 4,
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'Evento de los cracks',
-      color: colors.yellowJaveriana,
-      actions: this.actions      
-    };
-    this.events.push(data);
+    // data={
+    //   id: 4,
+    //   start: addHours(startOfDay(new Date()), 2),
+    //   end: new Date(),
+    //   title: 'Evento de los cracks',
+    //   color: colors.yellowJaveriana,
+    //   actions: this.actions      
+    // };
+    // this.events.push(data);
 
   }
 
@@ -152,7 +177,10 @@ export class EventoComponent implements OnInit {
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {}
+  constructor(
+    private modal: NgbModal,
+    private eventosService : EventosService
+  ) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     console.log('dayClicked : entro a dayClicked')
@@ -330,8 +358,7 @@ export class EventoComponent implements OnInit {
   }
 
   cerrarPopUpDetalle(){
-    console.log('cerrarPopUpDetalle : entro a cerrarPopUpDetalle');
-    
+    console.log('cerrarPopUpDetalle : entro a cerrarPopUpDetalle');    
     let el : any;
     el = document.getElementById("overlayInformacionEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";

@@ -3,13 +3,13 @@
 <br>
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1" (click)="getDominios('UNIVERSIDAD')">
+  <div class="panel-heading" (click)="getDominios('UNIVERSIDAD')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.UNIVERSIDAD'| translate}}</a>
     </h4>
   </div>
   <!-- <div id="collapse1" class="panel-collapse collapse in"> -->
-  <div id="collapse1" class="panel-collapse collapse">
+  <div id="collapse1" *ngIf="map.get('UNIVERSIDAD')">
     <div class="panel-body">
       <br>
       <div class="contGridFluid">
@@ -37,12 +37,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2" (click)="getDominios('GOBIERNO')">
+  <div class="panel-heading" (click)="getDominios('GOBIERNO')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.GOBIERNO'| translate}}</a>
     </h4>
   </div>
-  <div id="collapse2" class="panel-collapse collapse">
+  <div id="collapse2" *ngIf="mostrar_2">
     <div class="panel-body">
         <br>
         <div class="contGridFluid">

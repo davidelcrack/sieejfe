@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { EventosService } from '../../servicios/eventos/eventos.service';
 
 @Component({
   selector: 'app-suscriptores',
@@ -8,12 +9,15 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 })
 export class SuscriptoresComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private eventosService : EventosService
+  ) {
     this.dataSource = new MatTableDataSource(this.suscriptores);
    }
 
   ngOnInit(
-  ) {}
+  ) {
+  }
 
   idUsuario:any;
   idEvento: any;
@@ -25,32 +29,52 @@ export class SuscriptoresComponent implements OnInit {
     this.idEvento=idEvento;
     let data : any;
     console.log(idUsuario,idEvento);
+    this.suscriptores=[];
+    this.dataSource = new MatTableDataSource(this.suscriptores);
+   
+    this.eventosService.obtenerSuscritos(idEvento).subscribe(
+      response => {         
+        console.log(response);        
+        response.forEach(element => {          
+          data ={
+            id : element.apellidos,
+            nombre : element.nombre,
+            estado : element.username
+          };
+          this.suscriptores.push(data);          
+        });
+        console.log(this.suscriptores);
+        this.dataSource._updateChangeSubscription();
+      }, error => {
+        console.log("**obtenerSuscritos***"+error);
+      }      
+    ); 
 
-    if(idUsuario==90){
+    // if(idUsuario==90){
     
-      data ={
-        id : 1,
-        nombre : 'David',
-        estado : 'Aprobado'
-      };
-      this.suscriptores.push(data);
+    //   data ={
+    //     id : 1,
+    //     nombre : 'David',
+    //     estado : 'Aprobado'
+    //   };
+    //   this.suscriptores.push(data);
 
-    }else{
-      data ={
-        id : 2,
-        nombre : 'Brayan',
-        estado : 'En espera por seguridad'
-      };
-      this.suscriptores.push(data);
-      data ={
-        id : 3,
-        nombre : 'Daniel',
-        estado : 'Aprobado'
-      }
-      this.suscriptores.push(data);
-    }
+    // }else{
+    //   data ={
+    //     id : 2,
+    //     nombre : 'Brayan',
+    //     estado : 'En espera por seguridad'
+    //   };
+    //   this.suscriptores.push(data);
+    //   data ={
+    //     id : 3,
+    //     nombre : 'Daniel',
+    //     estado : 'Aprobado'
+    //   }
+    //   this.suscriptores.push(data);
+    // }
 
-    this.dataSource._updateChangeSubscription();
+    // this.dataSource._updateChangeSubscription();
 
   }
   

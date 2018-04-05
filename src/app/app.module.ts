@@ -75,6 +75,7 @@ import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
 import { SuscriptoresComponent } from './evento/suscriptores/suscriptores.component';
 import { PymesComponent } from './empresa/pymes/pymes.component';
+import { EventosService } from './servicios/eventos/eventos.service';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -167,7 +168,8 @@ registerLocaleData(localeEsCo);
     ColaService,
     ColaRestService,
     UsuarioService,
-    DirectorioService
+    DirectorioService,
+    EventosService
   ],
   bootstrap: [AppComponent],
   exports : [DateTimePickerComponent],

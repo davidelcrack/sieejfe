@@ -75,3 +75,7 @@ a.fa.fa-check{
   margin-left: 40px;
   margin-right:40px;
 }
+
+a{
+  float:left;
+}

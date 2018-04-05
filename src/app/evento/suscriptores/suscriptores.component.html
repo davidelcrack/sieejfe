@@ -2,8 +2,8 @@
 <div class="tablaMargen">
 <h2>Inscritos</h2>
 
-usuario : {{idUsuario}}
-evento : {{idEvento}}
+<!-- usuario : {{idUsuario}}
+evento : {{idEvento}} -->
 
 <br><br>
 
@@ -25,19 +25,19 @@ evento : {{idEvento}}
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+        <mat-cell *matCellDef="let row"> <a> {{row.id}} </a> </mat-cell>
       </ng-container>
 
       <!-- Progress Column -->
       <ng-container matColumnDef="Nombre">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+        <mat-cell *matCellDef="let row"> <a> {{row.nombre}} </a> </mat-cell>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="Estado">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.estado}} </mat-cell>
+        <mat-cell *matCellDef="let row"> <a> {{row.estado}} </a> </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
