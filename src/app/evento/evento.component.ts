@@ -260,6 +260,7 @@ export class EventoComponent implements OnInit {
     let escogido = this.events.indexOf(this.events.find(function(element) {
       return element.id == id;
     }));
+    this.idActual=this.events[escogido].id;
     this.eventsEditar=[];
     this.eventsEditar.push(this.events[escogido]);
     this.idEditado=escogido;
@@ -270,6 +271,7 @@ export class EventoComponent implements OnInit {
   }
 
   cont=100;   
+  idActual:any=-1;
   abrirAdicionEvento(){
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
     this.accion=2;
@@ -283,7 +285,8 @@ export class EventoComponent implements OnInit {
     if (observable) {
       observable.subscribe(response => {
         console.log(response)            
-
+        this.idActual=response[0].id;
+        console.log(this.idActual);
       },
         error => {
           console.log("Error al crear evento");
@@ -291,10 +294,10 @@ export class EventoComponent implements OnInit {
     } 
 
     this.eventsEditar.push({
-      id: this.cont+=1,
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
-      title: 'Nuevo Evento',
+      id: 0,
+      start: new Date(),
+      end: new Date(),
+      title: '',
       color: colors.blueJaverina,
       actions: this.actions      
     });
@@ -326,6 +329,7 @@ export class EventoComponent implements OnInit {
 
     if(this.accion==2){
       console.log('Adición : cerro Adición')
+      this.eventsEditar[0].id=this.idActual;
       this.events.push(this.eventsEditar[0]);
       this.refresh.next();
     }
@@ -403,6 +407,29 @@ export class EventoComponent implements OnInit {
     console.log('desuscribirse : entro a desuscribirse');
    this.suscrito=false;
   }
+
+  cambio(atributo : any , valor : any , tipo : any){
+    console.log('cambio : entro a cambio');
+    console.log(atributo, valor);
+
+    let mensaje = { id: this.idActual  , accion: 'editarEvento' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
+    
+    console.log(mensaje);
+
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+
+      },
+        error => {
+          console.log("Error al editar descripcion imagen");
+        });
+    } 
+
+  }
+
 
 
   

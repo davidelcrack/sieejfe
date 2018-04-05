@@ -175,6 +175,7 @@
                 type="text"
                 class="form-control"
                 [(ngModel)]="event.title"
+                (ngModelChange)="cambio('titulo',event.title, 'STRING')"
                 (keyup)="refresh.next()">
             </td>
             <!-- <td>
@@ -194,14 +195,14 @@
             <td>
               <mwl-demo-utils-date-time-picker
                 [(ngModel)]="event.start"
-                (ngModelChange)="refresh.next()"
+                (ngModelChange)="refresh.next(); cambio('inicio',event.start, 'FECHA')"
                 placeholder="Not set">
               </mwl-demo-utils-date-time-picker>
             </td>
             <td>
               <mwl-demo-utils-date-time-picker
                 [(ngModel)]="event.end"
-                (ngModelChange)="refresh.next()"
+                (ngModelChange)="refresh.next(); cambio('fin',event.end, 'FECHA')"
                 placeholder="Not set">
               </mwl-demo-utils-date-time-picker>
             </td>
