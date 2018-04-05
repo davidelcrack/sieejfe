@@ -42,7 +42,7 @@
       <a>{{'ACORDEON.GOBIERNO'| translate}}</a>
     </h4>
   </div>
-  <div id="collapse2" *ngIf="mostrar_2">
+  <div id="collapse2" *ngIf="map.get('GOBIERNO')">
     <div class="panel-body">
         <br>
         <div class="contGridFluid">
@@ -70,12 +70,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+  <div class="panel-heading">
     <h4 class="panel-title">
       <a>{{'ACORDEON.REGULADORES'| translate}}</a>
     </h4>
   </div>
-  <div id="collapse3" class="panel-collapse collapse">
+  <div id="collapse3" *ngIf="map.get('REGULADORES')">
     <div class="panel-body">
         <br>
         Acá van a ir las REGULADORES
@@ -98,12 +98,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5" (click)="getDominios('ONG')">
+  <div class="panel-heading" (click)="getDominios('ONG')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.ONG'| translate}}</a>
     </h4>
   </div>
-  <div id="collapse5" class="panel-collapse collapse">
+  <div id="collapse5" *ngIf="map.get('ONG')">
     <div class="panel-body">
         <br>
         <div class="contGridFluid">
@@ -131,12 +131,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+  <div class="panel-heading">
     <h4 class="panel-title">
       <a>{{'ACORDEON.INDUSTRIA'| translate}}</a>
     </h4>
   </div>
-  <div id="collapse6" class="panel-collapse collapse">
+  <div id="collapse6" *ngIf="map.get('INDUSTRIA')">
     <div class="panel-body">
         <br>
         Acá van a ir las INDUSTRIA
@@ -145,12 +145,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+  <div class="panel-heading">
     <h4 class="panel-title">
       <a>{{'ACORDEON.SPONSOR'| translate}}</a>
     </h4>
   </div>
-  <div id="collapse7" class="panel-collapse collapse">
+  <div id="collapse7" *ngIf="map.get('SPONSOR')">
     <div class="panel-body">
         <br>
         Acá van a ir las SPONSOR
@@ -159,12 +159,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8" (click)="getDominios('RED_MENTORES')">
+    <div class="panel-heading" (click)="getDominios('RED_MENTORES')">
       <h4 class="panel-title">
         <a>{{'ACORDEON.MENTORES'| translate}}</a>
       </h4>
     </div>
-    <div id="collapse8" class="panel-collapse collapse">
+    <div id="collapse8" *ngIf="map.get('RED_MENTORES')">
       <div class="panel-body">
           <br>
           <div class="contGridFluid">
@@ -192,12 +192,12 @@
     </div>
   </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9" (click)="getDominios('RED_FINANCIADORES')">
+    <div class="panel-heading" (click)="getDominios('RED_FINANCIADORES')">
       <h4 class="panel-title">
         <a>{{'ACORDEON.FINANCIADORES'| translate}}</a>
       </h4>
     </div>
-    <div id="collapse9" class="panel-collapse collapse">
+    <div id="collapse9" *ngIf="map.get('RED_FINANCIADORES')">
       <div class="panel-body">
           <br>
           <div class="contGridFluid">
@@ -225,12 +225,12 @@
     </div>
   </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+    <div class="panel-heading">
       <h4 class="panel-title">
         <a>{{'ACORDEON.INCUBADORES'| translate}}</a>
       </h4>
     </div>
-    <div id="collapse10" class="panel-collapse collapse">
+    <div id="collapse10" *ngIf="map.get('INCUBADORES')">
       <div class="panel-body">
           <br>
           Acá van a ir las INCUBADORES
@@ -239,12 +239,12 @@
     </div>
   </div>
 <div class="panel panel-default">
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11" (click)="getDominios('RED_ACELERADORAS')">
+    <div class="panel-heading" (click)="getDominios('RED_ACELERADORAS')">
       <h4 class="panel-title">
         <a>{{'ACORDEON.ACELERADORES'| translate}}</a>
       </h4>
     </div>
-    <div id="collapse11" class="panel-collapse collapse">
+    <div id="collapse11" *ngIf="map.get('RED_ACELERADORAS')">
       <div class="panel-body">
           <br>
           <div class="contGridFluid">

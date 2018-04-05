@@ -72,7 +72,7 @@ export class RelacionamientoInternoComponent implements OnInit {
 
     console.log(this.map.get(tipo));
     this.actualizarChecks(tipo);
-
+    console.log(this.map.get(tipo));
     this.directorioService.listarDominiosNacionales(tipo).subscribe(
       response => {
         this.dominiosNacionales = response;
@@ -85,10 +85,23 @@ export class RelacionamientoInternoComponent implements OnInit {
   }
 
   actualizarChecks(tipo : any){
-  //   for ( let value of this.map.entries()) {
-  //     console.log(value);
-  // }
-  
+    
+    Array.from(this.map.entries(), (value: any) => {
+      if(value[0] != tipo){
+        value[1]=false;
+      }else{
+        console.log(value[0], value[1])
+        value[1]=true;
+        console.log(value[1])
+      }
+    });
+
+    Array.from(this.map.entries(), (value: any) => {
+      console.log(value[0], value[1])
+    });
+
+    console.log(this.map.get(tipo));
+   
   }
 
   seleccion(seleccion){

@@ -27,4 +27,10 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
+  suscribirse(id:any){
+    console.log(id);
+    return this.http.get(this.backendUrl + "inscribirse/"+id , { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

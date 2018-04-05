@@ -393,7 +393,7 @@ export class EventoComponent implements OnInit {
 
   abrirDetalleEventos(idEvento: any){
     console.log('abrirDetalleEventos : entro a abrirDetalleEventos',idEvento);
-    
+    this.idActual=idEvento;  
     let detallado = this.events.indexOf(this.events.find(function(element) {
       return element.id == idEvento;
     }));
@@ -427,9 +427,21 @@ export class EventoComponent implements OnInit {
 
   suscribirse(){
     console.log('suscribirse : entro a suscribirse');
-   this.suscrito=true;
-  }
+    
+    this.eventosService.suscribirse(this.idActual).subscribe(
+      response => {         
+        console.log(response); 
+        if(response){
+          console.log('++++++++++++');
+          this.suscrito=true;
+        }        
+      }, error => {
+        console.log("**suscribirse***"+error);
+      }      
+    );
 
+  }
+ 
   desuscribirse(){
     console.log('desuscribirse : entro a desuscribirse');
    this.suscrito=false;
