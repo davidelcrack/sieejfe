@@ -42,6 +42,7 @@ const colors: any = {
 };
 
 
+
 @Component({
   selector: 'mwl-demo-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -64,7 +65,7 @@ export class EventoComponent implements OnInit {
     this.eventosService.obtenerEventos().subscribe(
       response => {         
         console.log(response);        
-        
+        this.eventosTodos=response;
         response.forEach(element => {          
           console.log('comienza : '+new Date(element.inicio))
           console.log('termina : '+new Date(element.fin))
@@ -138,6 +139,9 @@ export class EventoComponent implements OnInit {
   viewDate: Date = new Date();
 
   locale: string = 'es-CO';
+
+  eventosTodos = new Array();
+  requisitosEvento : any;
 
   modalData: {
     action: string;
@@ -332,6 +336,7 @@ export class EventoComponent implements OnInit {
   }
 
   detalleEvento : any;
+  descripcionEvento : any;
   evento : any;
   usuario : any;
   suscrito : boolean =false;
@@ -345,6 +350,13 @@ export class EventoComponent implements OnInit {
       return element.id == idEvento;
     }));
     this.detalleEvento=this.events[detallado].title;
+    
+    let indice = this.eventosTodos.indexOf( this.eventosTodos.find(function(element) {
+      return element.id == idEvento;
+    }));
+    console.log(this.eventosTodos);
+    this.descripcionEvento=this.eventosTodos[indice].descripcion;
+    this.requisitosEvento=this.eventosTodos[indice].requisitos;
 
     this.evento=this.events[detallado].id;
     this.usuario=90;

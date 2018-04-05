@@ -242,12 +242,24 @@
   <div class="modalShow">      
       <span class="close" (click)="cerrarPopUpDetalle()">&times;</span><br><br>
 
-      <h3>
-        {{'EVENTOS.DETAIL'| translate}} : {{detalleEvento}}
-        <div class="clearfix"></div>
-      </h3>       
-
-        <app-suscriptores></app-suscriptores>
+      
+      <h1>
+        {{detalleEvento}}
+      </h1>  
+      <br><br>
+      <h2>Descripcion</h2>
+      <br><br>
+      <h4>          
+        {{descripcionEvento}}        
+      </h4>  
+      <br><br>
+      <h2>Requisitos</h2>
+      <br><br>
+      <h5>          
+        {{requisitosEvento}}
+      </h5>
+      <br><br>
+      <app-suscriptores></app-suscriptores>
 
     </div>
 </div>

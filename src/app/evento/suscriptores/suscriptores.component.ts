@@ -45,6 +45,7 @@ export class SuscriptoresComponent implements OnInit {
         });
         console.log(this.suscriptores);
         this.dataSource._updateChangeSubscription();
+        this.paginator._changePageSize(1);
       }, error => {
         console.log("**obtenerSuscritos***"+error);
       }      
