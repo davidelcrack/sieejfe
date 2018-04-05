@@ -329,9 +329,6 @@ export class EventoComponent implements OnInit {
 
     if(this.accion==2){
       console.log('Adición : cerro Adición')
-      this.eventsEditar[0].id=this.idActual;
-      this.events.push(this.eventsEditar[0]);
-      this.refresh.next();
       this.agregarEvento();
     }
     if(this.accion==1){
@@ -351,9 +348,25 @@ export class EventoComponent implements OnInit {
     console.log('agregarEvento : entro a agregarEvento');
     let evento=this.eventsEditar[0];
     console.log(evento);
-    this.eventosService.crearEvento(evento).subscribe(
+
+    let data;
+    let eventoEnviar = new Array();
+    data = {
+      id:0,
+      inicio: evento.start,
+      fin: evento.end,
+      titulo: evento.title,
+      requisitos: null,
+      descripcion: null,
+    };
+
+    eventoEnviar.push(data);
+    this.eventosService.crearEvento(data).subscribe(
       response => {         
         console.log(response); 
+        this.eventsEditar[0].id=response.id;
+        this.events.push(this.eventsEditar[0]);
+        this.refresh.next();
       }, error => {
         console.log("**obtenerEventos***"+error);
       }      
