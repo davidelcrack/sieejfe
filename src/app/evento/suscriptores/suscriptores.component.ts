@@ -17,14 +17,14 @@ export class SuscriptoresComponent implements OnInit {
 
   ngOnInit(
   ) {
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
   }
 
   idUsuario:any;
   idEvento: any;
-  suscrito: boolean;
+  esAdmin : boolean = false;
 
-  cargarDetalles(idUsuario , idEvento , suscrito){
-    this.suscrito=suscrito;
+  cargarDetalles(idUsuario , idEvento){
     this.idUsuario=idUsuario;
     this.idEvento=idEvento;
     let data : any;
@@ -106,15 +106,5 @@ export class SuscriptoresComponent implements OnInit {
     console.log("++++++++++++++++++++++++++++++++++");
     console.log(row)
   }
-
-  suscribirse(){
-    console.log('suscribirse : entro a suscribirse');
-   this.suscrito=true;
-  }
-
-  desuscribirse(){
-    console.log('desuscribirse : entro a desuscribirse');
-   this.suscrito=false;
-  }
-
+  
 }

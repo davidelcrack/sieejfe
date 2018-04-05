@@ -160,7 +160,7 @@
         <thead>
           <tr>
             <th>{{'EVENTOS.NAME'| translate}}</th>
-            <th>{{'EVENTOS.COLOR'| translate}}</th>
+            <!-- <th>{{'EVENTOS.COLOR'| translate}}</th> -->
             <!-- <th>Color Auxiliar</th> -->
             <th>{{'EVENTOS.BEGIN'| translate}}</th>
             <th>{{'EVENTOS.END'| translate}}</th>
@@ -177,12 +177,12 @@
                 [(ngModel)]="event.title"
                 (keyup)="refresh.next()">
             </td>
-            <td>
+            <!-- <td>
               <input
                 type="color"
                 [(ngModel)]="event.color.primary"
                 (change)="refresh.next()">
-            </td>
+            </td> -->
             <!--
             <td>
               <input
@@ -246,6 +246,10 @@
       <h4>
         {{detalleEvento}}
       </h4>  
+
+      <a *ngIf="!suscrito" class="fa fa-bell" (click)="suscribirse()" >Suscribirse</a>
+      <a *ngIf="suscrito" class="fa fa-check" (click)="desuscribirse()" >Suscrito</a>
+
       <br><br>
       <h5>Descripcion</h5>
       <br><br>
@@ -260,7 +264,7 @@
       </h6>
       <br><br>
     
-      <app-suscriptores></app-suscriptores>
+      <app-suscriptores></app-suscriptores>      
 
     </div>
 </div>

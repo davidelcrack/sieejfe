@@ -169,3 +169,37 @@ body {
   .input-group{
       display:block !important;
   }
+
+  /* BOTON SUSCRIPCION */
+
+  a.fa.fa-bell{
+    float:right; 
+    border-color : #FFCC00;
+    font-size: 20px;
+    color: #FFCC00;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5px;
+    min-width: 125px;
+  }
+  
+  a.fa.fa-check{
+    float:right; 
+    border-color : #ffffff;
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5px;
+    background-color: #FFCC00;
+    min-width: 125px;
+  }
+  

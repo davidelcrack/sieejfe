@@ -24,6 +24,7 @@ import { CustomDateFormatter } from '../pickers/custom-date-formatter.provider';
 import { SuscriptoresComponent } from './suscriptores/suscriptores.component';
 import { EventosService } from '../servicios/eventos/eventos.service';
 import { concat } from 'rxjs/operator/concat';
+import { ColaService } from '../servicios/cola/cola.service';
 
 
 const colors: any = {
@@ -132,6 +133,12 @@ export class EventoComponent implements OnInit {
 
   }
 
+  constructor(
+    private modal: NgbModal,
+    private eventosService : EventosService,
+    private colaService : ColaService
+  ) {}
+
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: string = 'month';
@@ -180,11 +187,6 @@ export class EventoComponent implements OnInit {
   events: CalendarEvent[] = [];
 
   activeDayIsOpen: boolean = true;
-
-  constructor(
-    private modal: NgbModal,
-    private eventosService : EventosService
-  ) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     console.log('dayClicked : entro a dayClicked')
@@ -272,6 +274,21 @@ export class EventoComponent implements OnInit {
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
     this.accion=2;
     this.eventsEditar=[];
+
+    let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
+    console.log(mensaje);
+
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+
+      },
+        error => {
+          console.log("Error al crear evento");
+        });
+    } 
 
     this.eventsEditar.push({
       id: this.cont+=1,
@@ -361,7 +378,7 @@ export class EventoComponent implements OnInit {
     this.evento=this.events[detallado].id;
     this.usuario=90;
 
-    this.inscripciones.cargarDetalles(this.usuario, this.evento , this.suscrito);
+    this.inscripciones.cargarDetalles(this.usuario, this.evento);
 
     let el: any;
     el = document.getElementById("overlayInformacionEvento");
@@ -375,5 +392,18 @@ export class EventoComponent implements OnInit {
     el = document.getElementById("overlayInformacionEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
+
+
+  suscribirse(){
+    console.log('suscribirse : entro a suscribirse');
+   this.suscrito=true;
+  }
+
+  desuscribirse(){
+    console.log('desuscribirse : entro a desuscribirse');
+   this.suscrito=false;
+  }
+
+
   
 }

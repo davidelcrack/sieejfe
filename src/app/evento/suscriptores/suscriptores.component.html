@@ -1,14 +1,11 @@
 <br>
-<div class="tablaMargen">
+<div *ngIf="esAdmin" class="tablaMargen">
 <h2>Inscritos</h2>
 
 <!-- usuario : {{idUsuario}}
 evento : {{idEvento}} -->
 
 <br><br>
-
-<a *ngIf="!suscrito" class="fa fa-bell" (click)="suscribirse()" >Suscribirse</a>
-<a *ngIf="suscrito" class="fa fa-check" (click)="desuscribirse()" >Suscrito</a>
 
 <div class="mat-app-background basic-container">
 
