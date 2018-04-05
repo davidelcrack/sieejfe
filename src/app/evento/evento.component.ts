@@ -277,21 +277,21 @@ export class EventoComponent implements OnInit {
     this.accion=2;
     this.eventsEditar=[];
 
-    let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
-    console.log(mensaje);
+    // let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
+    // console.log(mensaje);
 
-    let observable = this.colaService.agregarACola(mensaje);
+    // let observable = this.colaService.agregarACola(mensaje);
 
-    if (observable) {
-      observable.subscribe(response => {
-        console.log(response)            
-        this.idActual=response[0].id;
-        console.log(this.idActual);
-      },
-        error => {
-          console.log("Error al crear evento");
-        });
-    } 
+    // if (observable) {
+    //   observable.subscribe(response => {
+    //     console.log(response)            
+    //     this.idActual=response[0].id;
+    //     console.log(this.idActual);
+    //   },
+    //     error => {
+    //       console.log("Error al crear evento");
+    //     });
+    // } 
 
     this.eventsEditar.push({
       id: 0,
@@ -332,6 +332,7 @@ export class EventoComponent implements OnInit {
       this.eventsEditar[0].id=this.idActual;
       this.events.push(this.eventsEditar[0]);
       this.refresh.next();
+      this.agregarEvento();
     }
     if(this.accion==1){
       console.log('Edición : cerro Edición')
@@ -344,6 +345,19 @@ export class EventoComponent implements OnInit {
     
     console.log(this.events);
 
+  }
+
+  agregarEvento(){
+    console.log('agregarEvento : entro a agregarEvento');
+    let evento=this.eventsEditar[0];
+    console.log(evento);
+    this.eventosService.crearEvento(evento).subscribe(
+      response => {         
+        console.log(response); 
+      }, error => {
+        console.log("**obtenerEventos***"+error);
+      }      
+    ); 
   }
   
   eliminar(id : any){
@@ -412,21 +426,23 @@ export class EventoComponent implements OnInit {
     console.log('cambio : entro a cambio');
     console.log(atributo, valor);
 
-    let mensaje = { id: this.idActual  , accion: 'editarEvento' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
-    
-    console.log(mensaje);
+    if(this.accion==1){
+      let mensaje = { id: this.idActual  , accion: 'editarEvento' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
+      
+      console.log(mensaje);
 
-    let observable = this.colaService.agregarACola(mensaje);
+      let observable = this.colaService.agregarACola(mensaje);
 
-    if (observable) {
-      observable.subscribe(response => {
-        console.log(response)            
+      if (observable) {
+        observable.subscribe(response => {
+          console.log(response)            
 
-      },
-        error => {
-          console.log("Error al editar descripcion imagen");
-        });
-    } 
+        },
+          error => {
+            console.log("Error al editar descripcion imagen");
+          });
+      } 
+    }
 
   }
 

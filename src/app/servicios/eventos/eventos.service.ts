@@ -22,4 +22,9 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
+  crearEvento(evento : any){      
+    return this.http.post(this.backendUrl + "crearEvento/", evento, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }
