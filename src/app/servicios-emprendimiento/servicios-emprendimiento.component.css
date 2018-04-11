@@ -1,24 +1,123 @@
-img{
+h2 {
+	color: #000066;
+}
+
+#overlayServiciosEmprendimiento {
+    visibility: hidden;
+    /*position: absolute;*/
+    left: 0px;
+    top: 0px;
     width:100%;
-    max-width:600px;
+    height:100%;
+    text-align:center;        
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+  }
+  
+  #overlayServiciosEmprendimiento div.modalShow {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border: 2px solid #000066;
+    border-radius: 8px;
+  }
+
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .centered button,
+    .centered button:focus
+    {
+      background-color: #000066;
+      color : #ffffff;
+      border-color: #ffffff;  
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    
+    .centered button:hover.guardar,
+    .centered button:visited,
+    .centered button:active
+    {
+      background-color: green ;
+      color : #ffffff;
+      border-color: #ffffff;  
+    }
+  
+    .centered button:hover.cancelar,
+    .centered button:visited,
+    .centered button:active
+    {
+      background-color:  red ;
+      color : #ffffff;
+      border-color: #ffffff;  
+    }
+
+    ::ng-deep div.ServMargen{
+        margin-left: 40px;
+        margin-right:40px;
+      }
+  
+
+body {
+    height:100%;
+    margin:0;
+    padding:0;
 }
 
-
- div {
-    display:flex;
-    align-items:center;
-    /* margin-left: 40px;
-    margin-right: 20px; */
-    /*Dejar centrado*/
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-span{
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+a.fa.fa-plus-circle{
+    float:right; 
+    border-color : #FFCC00;
+    font-size: 45px;
+    color: #FFCC00;
     margin-left: 30px;
-    font-family: 'Lobster';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 60px
-}
+    margin-right: 30px;
+    cursor: pointer;
+  }
+
+  mat-cell.mat-cell.cdk-column-editar.mat-column-editar.ng-star-inserted:before  { 
+    font-family: FontAwesome; 
+    font-size: 30px; 
+    display: inline-block; 
+    content: '\1F589';
+    cursor: pointer;
+  }
+  
+  mat-cell.mat-cell.cdk-column-informacion.mat-column-informacion.ng-star-inserted:before  { 
+    font-family: FontAwesome; 
+    font-size: 30px; 
+    display: inline-block; 
+    content: '\1F50D';
+    cursor: pointer;
+  }

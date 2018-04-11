@@ -21,7 +21,12 @@
                 </ul>
             </li>
             <li><a (click)="openTabs('evento')">{{'ENTORNO.EVENTOS'| translate}}</a></li>
-            <li><a (click)="openTabs('servicioEmprendimiento')">{{'ENTORNO.SERVICIOS'| translate}}</a></li>
+            <li class="dropdown dropdownNav"><a  class="dropA">{{'ENTORNO.SERVICIOS'| translate}}</a>
+                <ul class="dropMioJaja">
+                    <li><a (click)="openTabs('servicioEmprendimiento')" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>
+                    <li><a (click)="openTabs('solicitarServicio')" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>
+                </ul>
+            </li>
             <li><a (click)="openTabs('directorio')">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
            
 
@@ -108,6 +113,10 @@
 
     <ng-template #aboutUsTab>
         <app-quienes-somos></app-quienes-somos>
+    </ng-template>
+
+    <ng-template #solicitarServicioTab>
+        <app-solicitar-servicio></app-solicitar-servicio>
     </ng-template>
 
     <div class="social-icons">

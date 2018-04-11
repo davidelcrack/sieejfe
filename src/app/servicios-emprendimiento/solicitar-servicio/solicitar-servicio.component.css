@@ -1,0 +1,24 @@
+img{
+    width:100%;
+    max-width:600px;
+}
+
+
+ div {
+    display:flex;
+    align-items:center;
+    /* margin-left: 40px;
+    margin-right: 20px; */
+    /*Dejar centrado*/
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+span{
+    margin-left: 30px;
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px
+}

@@ -176,6 +176,7 @@ export class AppComponent {
   @ViewChild('universidadTab') universidadTemplate;
   @ViewChild('serviciosTab') serviciosTemplate;
   @ViewChild('aboutUsTab') aboutUsTemplate;
+  @ViewChild('solicitarServicioTab') solicitarServicioTemplate;
 
   openTabs(nombre : any){
     if(nombre=='about'){
@@ -201,6 +202,9 @@ export class AppComponent {
     }    
     if(nombre=='aboutus'){
       this.tabsComponent.openTab('aboutus',this.aboutUsTemplate,{},true);
+    }    
+    if(nombre=='solicitarServicio'){
+      this.tabsComponent.openTab('solicitarServicio',this.solicitarServicioTemplate,{},true);
     }    
   }
 

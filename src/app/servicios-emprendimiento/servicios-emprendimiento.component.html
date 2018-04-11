@@ -1,11 +1,97 @@
-<br><br>
-<!-- <div class="imgHolder">
-  <img id="imagenPreviewPrincipal" src="assets/images/IMG_7779.jpg" />
-  <label style="line-height:600px;" for="imagenPreviewPrincipal">Estamos en Construcción</label>
-</div> -->
+<br>
+<div class="ServMargen">
+<h2>Servicios</h2>
 
-<div>
-    <img src="assets/images/IMG_7779.jpg" alt="Google+">
-    <span>Estamos en Construcción</span>
+<br><br>
+
+<a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="editarServicio(undefined)" ></a>
+
+<div class="mat-app-background basic-container">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+    </mat-form-field>
+  </div>
+
+  <div class="example-container mat-elevation-z8" >
+
+    <mat-table #tableServiciosEmp [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+      </ng-container>
+      
+      <!-- Info Column -->
+      <ng-container *ngIf="esAdmin" matColumnDef="informacion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row"  (click)="abrirInformacion(row)"></mat-cell>
+      </ng-container>
+
+      <!-- Editar Column -->
+      <ng-container *ngIf="esAdmin" matColumnDef="editar">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row"  (click)="editarServicio(row)"></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[1, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>
+
+<!-- EDICION POP UP -->
+
+<div id="overlayServiciosEmprendimiento">
+  
+    <div class="modalShow">      
+        <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+        
+        <div *ngIf="edita==0">
+          <h3>Adición Servicio</h3>   
+        </div>
+        <div *ngIf="edita==1">
+          <h3>Edición Servicio : {{servicio.nombre}}</h3>   
+        </div>
+        
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nombreServicio" placeholder="Ingrese nombre" name="nombreServicio"
+                [(ngModel)]="servicio.nombre" (ngModelChange)="cambio('nombre',servicio.nombre, 'STRING')">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Link</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="urlEnlaceSer" placeholder="Ingrese link" name="urlEnlaceSer"
+                [(ngModel)]="servicio.link" (ngModelChange)="cambio('link',servicio.link,'STRING')">
+            </div>
+          </div>
+        </form>
+  
+        <div *ngIf="edita==0" class="input-group centered">
+          <button  class="btn btn-info btn-lg guardar" type="button" (click)="guardarCambios()">{{'EVENTOS.SAVE'| translate}}</button>       
+          <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUp()">{{'EVENTOS.CANCEL'| translate}}</button>
+        </div>
+  
+        <br><br>
+    </div>
+  
+    
+  </div>
 
 </div>

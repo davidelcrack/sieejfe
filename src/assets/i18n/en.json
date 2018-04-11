@@ -20,7 +20,9 @@
     "RELACIONAMIENTO" : "Relationship",
     "ADMINISTRACION" : "Administration",
     "UNIVERSIDAD" : "College",
-    "QUIENES" : "About Us?"
+    "QUIENES" : "About Us?",
+    "OFERTASERVICIOS" : "Services Offered",
+    "SOLICITARSERVICIO" : "Request Services"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -39,7 +41,8 @@
     "Directorio"  : "Relationship",
     "Universidad" : "University",
     "Servicios" : "Services",
-    "aboutus" : "About Us?"
+    "aboutus" : "About Us?",
+    "solicitarServicio" : "Request Service"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",
