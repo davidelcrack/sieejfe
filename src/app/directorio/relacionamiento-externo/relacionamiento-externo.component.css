@@ -4,6 +4,9 @@
     width: 70px;
     margin-right : 700px;
 } */
+.acordeonButton{
+  float: right;
+}
 
 button,
 button:focus

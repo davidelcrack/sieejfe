@@ -4,13 +4,13 @@
 
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseA">
+  <div class="panel-heading" (click)="getDominiosInternacionales('CIENTIFICA')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.CIENTIFICA'| translate}}</a>
     </h4>
   </div>
   <!-- <div id="collapse1" class="panel-collapse collapse in"> -->
-  <div id="collapseA" class="panel-collapse collapse">
+  <div id="collapseA"  *ngIf="map.get('CIENTIFICA')">
     <div class="panel-body">
       <br>
       Aca van a ir CIENTIFICA
@@ -19,12 +19,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseB">
+  <div class="panel-heading" (click)="getDominiosInternacionales('LABORATORIO')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.LABORATORIO'| translate}}</a>
     </h4>
   </div>
-  <div id="collapseB" class="panel-collapse collapse">
+  <div id="collapseB"  *ngIf="map.get('LABORATORIO')">
     <div class="panel-body">
         <br>
         Acá van a ir las LABORATORIO
@@ -33,55 +33,46 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseC" (click)="getDominiosInternacionales('UNIVERSIDAD')">
+  <div class="panel-heading" (click)="getDominiosInternacionales('UNIVERSIDAD')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.INSTITUCIONES'| translate}}</a>
     </h4>
   </div>
-  <div id="collapseC" class="panel-collapse collapse">
+  <div id="collapseC"  *ngIf="map.get('UNIVERSIDAD')">
     <div class="panel-body">
         <br>
-        <ul>
-          <li class="colGrid3" style="text-align:center" *ngFor="let institucion of dominiosInternacionales" (click)="seleccion(institucion)">
-              <!-- <div class="input-group">
-                {{ institucion.nombre }}
-                <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
-                <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
-                <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
-              </div> -->
-
+        <div class="contGridFluid">
+          <div *ngFor="let institucion of dominiosInternacionales" (click)="seleccion(institucion)" class="colGrid5" style="text-align:center">
               <ng-container>
-                <img class="imagenAcordeon" src="../../../assets/images/banner/javebanner1.jpg" (click)="abrirLink(institucion.url)">  
+                <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(institucion.url)">  
                 <br><br>
                 <div class="input-group">
                   <a class="acordeonButton labelAcordeon">{{ institucion.nombre }}</a>
                 </div>
-                <br><br>
+                <br>
                 <div class="input-group">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
-                  <a class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
-                  <a class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
+                  <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
+                  <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
                 </div>        
               </ng-container>
-
-
-          </li>
-        </ul>
+          </div>
+        </div>
         <br>
     </div>
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseD" (click)="getDominiosInternacionales('RED_ACELERADORAS')"> 
+  <div class="panel-heading" (click)="getDominiosInternacionales('RED_ACELERADORAS')"> 
     <h4 class="panel-title">
       <a>{{'ACORDEON.REDES'| translate}}</a>
     </h4>
   </div>
-  <div id="collapseD" class="panel-collapse collapse">
+  <div id="collapseD"  *ngIf="map.get('RED_ACELERADORAS')">
     <div class="panel-body">
       <br>
       <div class="contGridFluid">
-        <div *ngFor="let acelerador of dominiosInternacionales" (click)="seleccion(acelerador)" class="colGrid3" style="text-align:center">
+        <div *ngFor="let acelerador of dominiosInternacionales" (click)="seleccion(acelerador)" class="colGrid5" style="text-align:center">
 
           <ng-container>
             <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(acelerador.url)">  
@@ -106,12 +97,12 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseE">
+  <div class="panel-heading" (click)="getDominiosInternacionales('TECNOLOGICOS')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.TECNOLOGICOS'| translate}}</a>
     </h4>
   </div>
-  <div id="collapseE" class="panel-collapse collapse">
+  <div id="collapseE"  *ngIf="map.get('TECNOLOGICOS')">
     <div class="panel-body">
         <br>
         Acá van a ir las TECNOLOGICOS
@@ -120,16 +111,16 @@
   </div>
 </div>
 <div class="panel panel-default">
-  <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseF" (click)="getDominiosInternacionales('AUSJAL')">
+  <div class="panel-heading" (click)="getDominiosInternacionales('AUSJAL')">
     <h4 class="panel-title">
       <a>{{'ACORDEON.AUSJAL'| translate}}</a>
     </h4>
   </div>
-  <div id="collapseF" class="panel-collapse collapse">
+  <div id="collapseF"  *ngIf="map.get('AUSJAL')">
     <div class="panel-body">
         <br>
         <div class="contGridFluid">
-          <div *ngFor="let ausjal of dominiosInternacionales" (click)="seleccion(ausjal)" class="colGrid3" style="text-align:center">
+          <div *ngFor="let ausjal of dominiosInternacionales" (click)="seleccion(ausjal)" class="colGrid5" style="text-align:center">
                         
               <ng-container>
                 <img class="imagenAcordeon" src="../../../assets/images/add-icon.png" (click)="abrirLink(ausjal.url)">  

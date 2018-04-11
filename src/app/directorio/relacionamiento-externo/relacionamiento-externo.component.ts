@@ -27,33 +27,23 @@ export class RelacionamientoExternoComponent implements OnInit {
   datos : any;
   esAdmin : boolean = false;
   // valorEtiquetas = new  Array ();
+  map = new Map();
 
   ngOnInit() {
+
+    this.map.set("CIENTIFICA",false);
+    this.map.set("LABORATORIO",false);
+    this.map.set("UNIVERSIDAD",false);
+    this.map.set("RED_ACELERADORAS",false);
+    this.map.set("TECNOLOGICOS",false);
+    this.map.set("AUSJAL",false);
+
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
 
     let datos;
     datos={ id: 2 , nombre: 'Universidad Distrital', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
 
-    this.datos=datos;
-    // this.valorEtiquetas.push(datos);
-
-    // datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    // this.valorEtiquetas.push(datos);
-
-    // datos={ id: 4 , nombre: 'Universidad Nacional Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    // this.valorEtiquetas.push(datos);
-
-    // datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    // this.valorEtiquetas.push(datos);
-
-    // datos={ id: 4 , nombre: 'Universidad Nacional Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    // this.valorEtiquetas.push(datos);
-
-    // datos={ id: 1 , nombre: 'Universidad Javeriana Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    // this.valorEtiquetas.push(datos);
-
-    // datos={ id: 4 , nombre: 'Universidad Nacional Bogota', url: "http://www.javeriana.edu.co" , imagen: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Escudo150.gif" };
-    // this.valorEtiquetas.push(datos);
+    this.datos=datos;    
   }
 
   dominiosInternacionales = new  Array ();
@@ -65,6 +55,8 @@ export class RelacionamientoExternoComponent implements OnInit {
   getDominiosInternacionales(tipo : any){
     console.log('getDominiosInternacionales : entro a getDominiosInternacionales', tipo)
     this.dominiosInternacionales=[];
+
+    this.actualizarChecks(tipo);
     
     this.directorioService.listarDominiosInternacionales(tipo).subscribe(
       response => {
@@ -75,6 +67,24 @@ export class RelacionamientoExternoComponent implements OnInit {
         console.log("Error en dominios internacionales")
       }
     );
+  }
+
+  actualizarChecks(tipo : any){
+    console.log(tipo);
+    Array.from(this.map.entries(), (value: any) => {
+      if(value[0] != tipo){
+        if(value[1]==true){
+          this.map.set(value[0], false);
+        }
+      }else{
+        if(value[1]==true){
+          this.map.set(value[0], false);
+        }else{
+          this.map.set(value[0], true);
+        }
+      }
+    });
+    console.log(this.map.size,this.map.get(tipo));   
   }
 
   seleccion(seleccion){

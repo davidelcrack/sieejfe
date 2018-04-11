@@ -70,9 +70,8 @@ export class RelacionamientoInternoComponent implements OnInit {
     console.log('getDominios : entro a getDominios', tipo)
     this.dominiosNacionales=[];
 
-    console.log(this.map.get(tipo));
     this.actualizarChecks(tipo);
-    console.log(this.map.get(tipo));
+    
     this.directorioService.listarDominiosNacionales(tipo).subscribe(
       response => {
         this.dominiosNacionales = response;
