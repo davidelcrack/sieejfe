@@ -85,23 +85,21 @@ export class RelacionamientoInternoComponent implements OnInit {
   }
 
   actualizarChecks(tipo : any){
-    
+    console.log(tipo);
     Array.from(this.map.entries(), (value: any) => {
       if(value[0] != tipo){
-        value[1]=false;
+        if(value[1]==true){
+          this.map.set(value[0], false);
+        }
       }else{
-        console.log(value[0], value[1])
-        value[1]=true;
-        console.log(value[1])
+        if(value[1]==true){
+          this.map.set(value[0], false);
+        }else{
+          this.map.set(value[0], true);
+        }
       }
     });
-
-    Array.from(this.map.entries(), (value: any) => {
-      console.log(value[0], value[1])
-    });
-
-    console.log(this.map.get(tipo));
-   
+    console.log(this.map.size,this.map.get(tipo));   
   }
 
   seleccion(seleccion){

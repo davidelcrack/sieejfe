@@ -409,7 +409,9 @@ export class EventoComponent implements OnInit {
     this.evento=this.events[detallado].id;
     this.usuario=90;
 
-    this.inscripciones.cargarDetalles(this.usuario, this.evento);
+    if(this.esAdmin){
+      this.inscripciones.cargarDetalles(this.usuario, this.evento);
+    }
 
     let el: any;
     el = document.getElementById("overlayInformacionEvento");
@@ -427,16 +429,13 @@ export class EventoComponent implements OnInit {
 
   suscribirse(){
     console.log('suscribirse : entro a suscribirse');
-    
+    this.suscrito=true;
     this.eventosService.suscribirse(this.idActual).subscribe(
       response => {         
         console.log(response); 
-        if(response){
-          console.log('++++++++++++');
-          this.suscrito=true;
-        }        
       }, error => {
         console.log("**suscribirse***"+error);
+        this.desuscribirse();
       }      
     );
 

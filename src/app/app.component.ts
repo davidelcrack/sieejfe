@@ -76,9 +76,9 @@ export class AppComponent {
     console.log("ngOnInit: Entro a ngOnInit");
     //localStorage.setItem('USER', null);//this.currentUser = JSON.parse(localStorage.getItem('USER'))   
     this.currentUser = localStorage.getItem('USER');
-    console.log(JSON.parse(localStorage.getItem('LOGGEADO')))  ;
-    this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
-    //this.estado='NUEVO'; // sí local
+    //console.log(JSON.parse(localStorage.getItem('LOGGEADO')))  ;
+    //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
+    this.estado='NUEVO'; // sí local
     console.log(this.estado);
     console.log(this.currentUser);
     if (this.currentUser != null) {
