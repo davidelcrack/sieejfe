@@ -325,23 +325,40 @@ export class EventoComponent implements OnInit {
   guardarCambios(){
     console.log('guardarCambios : entro a guardarCambios')
 
-    this.cerrarPopUp();
+    
 
     if(this.accion==2){
       console.log('Adición : cerro Adición')
-      this.agregarEvento();
+      this.comprobarLlenoTotal();
     }
     if(this.accion==1){
       console.log('Edición : cerro Edición')
       this.events[this.idEditado]=this.eventsEditar[0];
+      this.cerrarPopUp();
     }
     if(this.accion==3){
       console.log('Listar : cerro Listar')
       this.events=this.eventsEditar;
+      this.cerrarPopUp();
     }
     
     console.log(this.events);
 
+  }
+
+  comprobarLlenoTotal(){
+    console.log(this.eventsEditar);
+    if(this.eventsEditar[0].title==""){
+      alert('Debe llenar todos los campos');
+    }else{
+      if(this.eventsEditar[0].start>=this.eventsEditar[0].end){
+        alert('La fecha de inicio debe ser menor');
+      }else{
+        this.cerrarPopUp();
+        this.agregarEvento();
+      }      
+    }
+    
   }
 
   agregarEvento(){
