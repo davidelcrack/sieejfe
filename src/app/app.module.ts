@@ -77,6 +77,7 @@ import { SuscriptoresComponent } from './evento/suscriptores/suscriptores.compon
 import { PymesComponent } from './empresa/pymes/pymes.component';
 import { EventosService } from './servicios/eventos/eventos.service';
 import { SolicitarServicioComponent } from './servicios-emprendimiento/solicitar-servicio/solicitar-servicio.component';
+import { PopupAvisoComponent } from './popup-aviso/popup-aviso.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -110,7 +111,8 @@ registerLocaleData(localeEsCo);
     ContextMenuComponent,
     SuscriptoresComponent,
     PymesComponent,
-    SolicitarServicioComponent
+    SolicitarServicioComponent,
+    PopupAvisoComponent
   ],
   imports: [
     CommonModule,

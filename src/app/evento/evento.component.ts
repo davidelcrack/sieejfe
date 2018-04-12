@@ -25,6 +25,7 @@ import { SuscriptoresComponent } from './suscriptores/suscriptores.component';
 import { EventosService } from '../servicios/eventos/eventos.service';
 import { concat } from 'rxjs/operator/concat';
 import { ColaService } from '../servicios/cola/cola.service';
+import { PopupAvisoComponent } from '../popup-aviso/popup-aviso.component';
 
 
 const colors: any = {
@@ -349,10 +350,12 @@ export class EventoComponent implements OnInit {
   comprobarLlenoTotal(){
     console.log(this.eventsEditar);
     if(this.eventsEditar[0].title==""){
-      alert('Debe llenar todos los campos');
+      this.mensajeMostrar='Debe llenar todos los campos';
+      this.avisar();
     }else{
       if(this.eventsEditar[0].start>=this.eventsEditar[0].end){
-        alert('La fecha de inicio debe ser menor');
+        this.mensajeMostrar='La fecha inicial debe ser menor a la fecha final';
+        this.avisar();
       }else{
         this.cerrarPopUp();
         this.agregarEvento();
@@ -487,6 +490,11 @@ export class EventoComponent implements OnInit {
 
   }
 
+  mensajeMostrar : any;
+  @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
+  avisar(){
+    this.avisoPopUp.mostrarPop();
+  }
 
 
   
