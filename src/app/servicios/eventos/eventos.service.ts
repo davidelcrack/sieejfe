@@ -40,4 +40,9 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
+  listarMisEventos(){
+    return this.http.get(this.backendUrl + "listarEventosPorUsuario/" , { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

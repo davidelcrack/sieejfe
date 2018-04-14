@@ -60,33 +60,10 @@ const colors: any = {
 export class EventoComponent implements OnInit {
 
   esAdmin : boolean = false;
-  misContactos = true;
+  misContactos = false;
   ngOnInit() {
-
-    let data: CalendarEvent;
-
-    this.eventosService.obtenerEventos().subscribe(
-      response => {         
-        console.log(response);        
-        this.eventosTodos=response;
-        response.forEach(element => {          
-          console.log('comienza : '+new Date(element.inicio))
-          console.log('termina : '+new Date(element.fin))
-          data = {
-            id: element.id,
-            start: new Date(element.inicio),
-            end: new Date(element.fin),
-            title: element.titulo,
-            color: colors.blueJaverina,
-            actions: this.actions, 
-          };  
-          this.events.push(data);
-        });
-        this.refresh.next();
-      }, error => {
-        console.log("**obtenerEventos***"+error);
-      }      
-    ); 
+    
+    this.cargarTodosLosEventos();
 
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
 
@@ -154,6 +131,7 @@ export class EventoComponent implements OnInit {
   descripcionEvento : any;
   capacidadMaxima : any;
   mostrarDetallesMas=false;
+  mensajeTooTip="Filtrar por mis eventos";
 
   evento : any;
   usuario : any;
@@ -253,10 +231,30 @@ export class EventoComponent implements OnInit {
     console.log('cerrarPopUp : entro a cerrarPopUp');
     this.mostrarEventos=false;
     this.mostrarDetallesMas=false; this.masDetallesClass= "custom-mostrar";
+
+    this.validarCambios();
     
     let el : any;
     el = document.getElementById("overlayEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  validarCambios(){
+    if(this.accion==1){
+      console.log('Edición : cerro Edición')
+      this.events[this.idEditado]=this.eventsEditar[0];
+      let idAct = this.events[this.idEditado].id;
+
+      let index = this.eventosTodos.indexOf(this.eventosTodos.find( function (elementTodos){
+        return elementTodos.id == idAct;
+      }))
+
+      this.eventosTodos[index].descripcion=this.descripcionEvento;
+      this.eventosTodos[index].requisitos=this.requisitosEvento;
+      this.eventosTodos[index].capacidad_maxima=this.capacidadMaxima;
+
+
+    }
   }
 
   
@@ -522,6 +520,13 @@ export class EventoComponent implements OnInit {
     console.log('cambio : entro a cambio');
     console.log(atributo, valor);
 
+    if(atributo=='capacidadMaxima'){
+      console.log(valor);
+      let numero = parseInt(valor,10);
+      console.log(numero, this.idActual);
+      valor=numero;
+    }
+
     if(this.accion==1){
       let mensaje = { id: this.idActual  , accion: 'editarEvento' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
       
@@ -552,11 +557,67 @@ export class EventoComponent implements OnInit {
   mostrarMisEventos(){
     if(this.misContactos){
       this.misContactos=false;
-      this.misContactosSt="fa fa-address-book-o"
-    }else{
-      this.misContactos=true;
       this.misContactosSt="fa fa-address-book"
+      this.cargarTodosLosEventos();
+      this.mensajeTooTip="Filtrar por mis eventos";
+    }else{
+      this.mensajeTooTip="Mostrar todos los eventos";
+      this.misContactos=true;
+      this.misContactosSt="fa fa-address-book-o"
+      let data: CalendarEvent;
+      this.eventosService.listarMisEventos().subscribe(
+        response => {         
+          console.log(response);                        
+          this.events=[];
+
+          this.eventosTodos=response;
+          response.forEach(element => {          
+            console.log('comienza : '+new Date(element.inicio))
+            console.log('termina : '+new Date(element.fin))
+            data = {
+              id: element.id,
+              start: new Date(element.inicio),
+              end: new Date(element.fin),
+              title: element.titulo,
+              color: colors.yellowJaveriana,
+              actions: this.actions, 
+            };  
+            this.events.push(data);
+          });
+        this.refresh.next();      
+
+      });
+
     }
+  }
+
+  cargarTodosLosEventos(){
+    let data: CalendarEvent;
+
+    this.eventosService.obtenerEventos().subscribe(
+      response => {         
+        console.log(response);    
+        this.events=[];    
+        this.eventosTodos=response;
+        response.forEach(element => {          
+          console.log('comienza : '+new Date(element.inicio))
+          console.log('termina : '+new Date(element.fin))
+          data = {
+            id: element.id,
+            start: new Date(element.inicio),
+            end: new Date(element.fin),
+            title: element.titulo,
+            color: colors.blueJaverina,
+            actions: this.actions, 
+          };  
+          this.events.push(data);
+        });
+        this.refresh.next();
+      }, error => {
+        console.log("**obtenerEventos***"+error);
+      }      
+    ); 
+
   }
 
   masDetallesClass= "custom-mostrar"
@@ -566,7 +627,7 @@ export class EventoComponent implements OnInit {
       this.masDetallesClass="custom-mostrar"    
     }else{
       this.mostrarDetallesMas=true;
-      this.masDetallesClass="custom-mostrado"
+      this.masDetallesClass="custom-mostrado";
     }
   }
 
