@@ -60,6 +60,7 @@ const colors: any = {
 export class EventoComponent implements OnInit {
 
   esAdmin : boolean = false;
+  misContactos = true;
   ngOnInit() {
 
     let data: CalendarEvent;
@@ -77,7 +78,7 @@ export class EventoComponent implements OnInit {
             end: new Date(element.fin),
             title: element.titulo,
             color: colors.blueJaverina,
-            actions: this.actions
+            actions: this.actions, 
           };  
           this.events.push(data);
         });
@@ -97,7 +98,7 @@ export class EventoComponent implements OnInit {
     //   id: 1,
     //   start: subDays(startOfDay(new Date()), 1),
     //   end: addDays(new Date(), 1),
-    //   title: 'Evento crack de 3 días',
+    //   title: 'Emprendimiento : El camino',
     //   color: colors.blueJaverina,
     //   actions: this.actions
     // };
@@ -116,7 +117,7 @@ export class EventoComponent implements OnInit {
     //   id: 3,
     //   start: subDays(endOfMonth(new Date()), 3),
     //   end: addDays(endOfMonth(new Date()), 3),
-    //   title: 'Evento que dura 2 meses',
+    //   title: 'Charla Google',
     //   color: colors.blue,
     //   actions: this.actions
     // };
@@ -126,7 +127,7 @@ export class EventoComponent implements OnInit {
     //   id: 4,
     //   start: addHours(startOfDay(new Date()), 2),
     //   end: new Date(),
-    //   title: 'Evento de los cracks',
+    //   title: 'Hackaton 2018',
     //   color: colors.yellowJaveriana,
     //   actions: this.actions      
     // };
@@ -143,13 +144,21 @@ export class EventoComponent implements OnInit {
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: string = 'month';
-
   viewDate: Date = new Date();
-
   locale: string = 'es-CO';
 
   eventosTodos = new Array();
-  requisitosEvento : any;
+  detalleEvento : any;
+  
+  requisitosEvento : any;  
+  descripcionEvento : any;
+  capacidadMaxima : any;
+  mostrarDetallesMas=false;
+
+  evento : any;
+  usuario : any;
+  suscrito : boolean =false;
+
 
   modalData: {
     action: string;
@@ -243,6 +252,7 @@ export class EventoComponent implements OnInit {
   cerrarPopUp(){
     console.log('cerrarPopUp : entro a cerrarPopUp');
     this.mostrarEventos=false;
+    this.mostrarDetallesMas=false; this.masDetallesClass= "custom-mostrar";
     
     let el : any;
     el = document.getElementById("overlayEvento");
@@ -254,22 +264,41 @@ export class EventoComponent implements OnInit {
   accion=undefined;
   idEditado=-1;
 
+  /* ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** */
+
   abrirEdicionEvento(id : any){
-    this.accion=1;
+    this.accion=1; this.descripcionEvento=null; this.requisitosEvento=null; this.capacidadMaxima=null;
     console.log('abrirEdicionEvento : entro a abrirEdicionEvento');
     console.log(this.events);
     let escogido = this.events.indexOf(this.events.find(function(element) {
       return element.id == id;
-    }));
+    }));    
+
     this.idActual=this.events[escogido].id;
     this.eventsEditar=[];
     this.eventsEditar.push(this.events[escogido]);
     this.idEditado=escogido;
 
+    let index = this.eventosTodos.indexOf(this.eventosTodos.find( function (elementTodos){
+      return elementTodos.id == id;
+    }))
+
+    this.descripcionEvento=this.eventosTodos[index].descripcion;
+    this.requisitosEvento=this.eventosTodos[index].requisitos;
+
+    if(this.eventosTodos[index].capacidad_maxima == -1){
+      this.capacidadMaxima=null;
+    }else{
+      this.capacidadMaxima=this.eventosTodos[index].capacidad_maxima;
+    }
+
     let el: any;
     el = document.getElementById("overlayEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
+
+
+  /* ********** CREACION ********** CREACION ********** CREACION ********** CREACION ********** CREACION ********** CREACION ********** CREACION ********** */
 
   cont=100;   
   idActual:any=-1;
@@ -277,6 +306,7 @@ export class EventoComponent implements OnInit {
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
     this.accion=2;
     this.eventsEditar=[];
+    this.descripcionEvento=null; this.requisitosEvento=null; this.capacidadMaxima=null;
 
     // let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
     // console.log(mensaje);
@@ -403,13 +433,11 @@ export class EventoComponent implements OnInit {
     this.refresh.next()
   }
 
-  detalleEvento : any;
-  descripcionEvento : any;
-  evento : any;
-  usuario : any;
-  suscrito : boolean =false;
+  /* ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** */
 
   @ViewChild(SuscriptoresComponent) inscripciones: SuscriptoresComponent;
+  inscritoClass="";
+  estaInscritoClass="";
 
   abrirDetalleEventos(idEvento: any){
     console.log('abrirDetalleEventos : entro a abrirDetalleEventos',idEvento);
@@ -422,12 +450,36 @@ export class EventoComponent implements OnInit {
     let indice = this.eventosTodos.indexOf( this.eventosTodos.find(function(element) {
       return element.id == idEvento;
     }));
-    console.log(this.eventosTodos);
+    
     this.descripcionEvento=this.eventosTodos[indice].descripcion;
     this.requisitosEvento=this.eventosTodos[indice].requisitos;
 
+    if(this.eventosTodos[indice].capacidad_maxima == -1){
+      this.capacidadMaxima='No se tiene un límite de capacidad';
+    }else{
+      this.capacidadMaxima=this.eventosTodos[indice].capacidad_maxima;
+    }
+    
+
     this.evento=this.events[detallado].id;
     this.usuario=90;
+
+    this.eventosService.estaInscrito(this.evento).subscribe(
+      response => {         
+        console.log(response);   
+        this.suscrito=response;         
+        if(this.suscrito){
+          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-check';   
+          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscrito';   
+        }else{
+          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-bell';   
+          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
+        }
+        
+      }, error => {
+        console.log("**Esta suscrito***"+error);
+      }      
+    ); 
 
     if(this.esAdmin){
       this.inscripciones.cargarDetalles(this.usuario, this.evento);
@@ -449,21 +501,21 @@ export class EventoComponent implements OnInit {
 
   suscribirse(){
     console.log('suscribirse : entro a suscribirse');
-    this.suscrito=true;
     this.eventosService.suscribirse(this.idActual).subscribe(
       response => {         
-        console.log(response); 
+        console.log(response);
+        if(response){
+          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-check';   
+          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscrito';   
+        }else{
+          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-bell';   
+          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
+        }
       }, error => {
         console.log("**suscribirse***"+error);
-        this.desuscribirse();
       }      
     );
 
-  }
- 
-  desuscribirse(){
-    console.log('desuscribirse : entro a desuscribirse');
-   this.suscrito=false;
   }
 
   cambio(atributo : any , valor : any , tipo : any){
@@ -483,7 +535,7 @@ export class EventoComponent implements OnInit {
 
         },
           error => {
-            console.log("Error al editar descripcion imagen");
+            console.log("Error al editar imagen");
           });
       } 
     }
@@ -496,6 +548,27 @@ export class EventoComponent implements OnInit {
     this.avisoPopUp.mostrarPop();
   }
 
+  misContactosSt: any = "fa fa-address-book" ;
+  mostrarMisEventos(){
+    if(this.misContactos){
+      this.misContactos=false;
+      this.misContactosSt="fa fa-address-book-o"
+    }else{
+      this.misContactos=true;
+      this.misContactosSt="fa fa-address-book"
+    }
+  }
+
+  masDetallesClass= "custom-mostrar"
+  mostrarDetallesEdicion(){
+    if(this.mostrarDetallesMas){
+      this.mostrarDetallesMas=false;  
+      this.masDetallesClass="custom-mostrar"    
+    }else{
+      this.mostrarDetallesMas=true;
+      this.masDetallesClass="custom-mostrado"
+    }
+  }
 
   
 }

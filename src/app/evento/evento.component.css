@@ -20,6 +20,8 @@
   }
 
   a.fa.fa-list-ul,
+  a.fa.fa-address-book-o,
+  a.fa.fa-address-book,
   a.fa.fa-plus-circle{
     float:right; 
     border-color : #FFCC00;
@@ -202,4 +204,57 @@ body {
     background-color: #FFCC00;
     min-width: 125px;
   }
-  
+
+  .custom-mostrar {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #FFCC00;
+    color : #ffffff;
+    border-color: #ffffff;  
+    border-radius: 8px;
+}
+
+.custom-mostrado {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color : #FFCC00;
+    border-color: #FFCC00;  
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.custom-inscribir {    
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color : #FFCC00;
+    border-color: #FFCC00;  
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;  
+    min-width: 200px;
+}
+
+.custom-inscrito {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #FFCC00;
+    color : #ffffff;
+    border-color: #ffffff;  
+    border-radius: 8px;
+    min-width: 200px; 
+}
+
+label.custom-inscrito:before{
+    content: "Inscrito   "
+}
+
+label.custom-inscribir:before{
+    content: "Inscribirse   "
+}

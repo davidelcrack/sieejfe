@@ -1,13 +1,10 @@
 <br>
-
 <div class="calendarioMargen">
 
 <div class="input-group" style="float:right;">
-  <!-- <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirAdicionEvento() ; mostrarEventos=true;">{{'EVENTOS.ADD'| translate}}</button> -->
-  <!-- <button type="button" style="float:right; background-color: #000066 ; border-color : #000066" class="btn btn-info btn-lg" (click)="abrirTodosEventos() ; mostrarEventos=true;">{{'EVENTOS.SHOW'| translate}}</button> -->
   <a class="fa fa-plus-circle" (click)="abrirAdicionEvento() ; mostrarEventos=true;" ></a>
   <a class="fa fa-list-ul" (click)="abrirTodosEventos() ; mostrarEventos=true;" ></a>
-  
+  <a class="{{misContactosSt}}" (click)="mostrarMisEventos()"></a>  
 </div>
 
 <br><br><br>
@@ -121,7 +118,7 @@
   </mwl-calendar-day-view>
 </div>
 
-<br><br>
+<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->
 
 <div id="overlayEvento">
   
@@ -159,12 +156,9 @@
 
         <thead>
           <tr>
-            <th>{{'EVENTOS.NAME'| translate}}</th>
-            <!-- <th>{{'EVENTOS.COLOR'| translate}}</th> -->
-            <!-- <th>Color Auxiliar</th> -->
+            <th>{{'EVENTOS.NAME'| translate}}</th>     
             <th>{{'EVENTOS.BEGIN'| translate}}</th>
             <th>{{'EVENTOS.END'| translate}}</th>
-            <!-- <th>Eliminar</th> -->
           </tr>
         </thead>
 
@@ -178,20 +172,6 @@
                 (ngModelChange)="cambio('titulo',event.title, 'STRING')"
                 (keyup)="refresh.next()">
             </td>
-            <!-- <td>
-              <input
-                type="color"
-                [(ngModel)]="event.color.primary"
-                (change)="refresh.next()">
-            </td> -->
-            <!--
-            <td>
-              <input
-                type="color"
-                [(ngModel)]="event.color.secondary"
-                (change)="refresh.next()">
-            </td>
-            -->
             <td>
               <mwl-demo-utils-date-time-picker
                 [(ngModel)]="event.start"
@@ -206,21 +186,42 @@
                 placeholder="Not set">
               </mwl-demo-utils-date-time-picker>
             </td>
-            <!--
-            <td>
-              <button
-                class="btn btn-danger"
-                (click)="eliminar(event.id)">
-                x
-              </button>
-            </td>
-            -->
           </tr>
         </tbody>
-
       </table>
 
+      
+      <label (click)="mostrarDetallesEdicion()" for="mostrarDetallesMas" class="{{masDetallesClass}}">
+          <i class="fa fa-hand-o-down"></i> Editar detalles
+      </label>
 
+      <br><br><br>
+
+      <div *ngIf="mostrarDetallesMas">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Descripción</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="descripcionEventoJ" placeholder="Ingrese descripción" name="descripcionEventoJ"
+                [(ngModel)]="descripcionEvento" (ngModelChange)="cambio('descripcionEvento',descripcionEvento,'STRING')">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Requisitos</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="requisitosnEventoJ" placeholder="Ingrese requisitos" name="requisitosnEventoJ"
+                [(ngModel)]="requisitosEvento" (ngModelChange)="cambio('requisitosEvento',requisitosEvento,'STRING')">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Capacidad Máxima</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="capacidadEventoJ" placeholder="Ingrese capacidad máxima" name="capacidadEventoJ"
+                [(ngModel)]="capacidadMaxima" (ngModelChange)="cambio('capacidadMaxima',capacidadMaxima,'NUMERIC')">
+            </div>
+          </div>
+        </form>
+      </div>
       
         <br><br>
         <!-- <div *ngIf="accion==2"> -->
@@ -229,27 +230,29 @@
             <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUp()">{{'EVENTOS.CANCEL'| translate}}</button>
           </div>
         <!-- </div> -->
-
-
-
     </div>
 </div>
 
 
-<br><br>
+<!-- ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** -->
 
 <div id="overlayInformacionEvento">
   
   <div class="modalShow">      
       <span class="close" (click)="cerrarPopUpDetalle()">&times;</span><br><br>
-
       
       <h4>
         {{detalleEvento}}
       </h4>  
 
-      <a *ngIf="!suscrito" class="fa fa-bell" (click)="suscribirse()" >Suscribirse</a>
-      <a *ngIf="suscrito" class="fa fa-check" (click)="desuscribirse()" >Suscrito</a>
+      <!-- <a *ngIf="!suscrito" class="fa fa-bell" (click)="suscribirse()" >Suscribirse</a>
+      <a *ngIf="suscrito" class="fa fa-check" (click)="desuscribirse()" >Suscrito</a> -->
+
+      <div style="float:right;">
+        <label  id="labelInscripcionFa" (click)="suscribirse()" class="custom-inscribir">
+          <i id="inscripcionFa" class="fa fa-bell"></i>
+        </label>
+      </div>  
 
       <br><br>
       <h5>Descripcion</h5>
@@ -264,7 +267,12 @@
         {{requisitosEvento}}
       </h6>
       <br><br>
-    
+      <h5>Capacidad Máxima</h5>
+      <br><br>
+      <h6>          
+        {{capacidadMaxima}}
+      </h6>
+      <br><br>
       <app-suscriptores></app-suscriptores>      
 
     </div>

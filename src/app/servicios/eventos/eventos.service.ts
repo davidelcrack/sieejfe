@@ -13,6 +13,7 @@ export class EventosService {
   backendUrl = environment.url;
 
   obtenerSuscritos(id : any){      
+    console.log(id);
     return this.http.get(this.backendUrl + "listarInscritos/" + id, { withCredentials: true })
     .map((res: Response) => res.json());
   }
@@ -30,6 +31,12 @@ export class EventosService {
   suscribirse(id:any){
     console.log(id);
     return this.http.get(this.backendUrl + "inscribirse/"+id , { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
+  estaInscrito(id : any){
+    console.log(id);
+    return this.http.get(this.backendUrl + "inscrito/"+id , { withCredentials: true })
     .map((res: Response) => res.json());
   }
 

@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  url:"http://localhost:8080/"
+  url:"http://35.185.90.153:8080/sice2-backend/"
 };
