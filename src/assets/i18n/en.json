@@ -22,7 +22,8 @@
     "UNIVERSIDAD" : "College",
     "QUIENES" : "About Us?",
     "OFERTASERVICIOS" : "Services Offered",
-    "SOLICITARSERVICIO" : "Request Services"
+    "SOLICITARSERVICIO" : "Request Services",
+    "RESPONDERSOLICITUDES" : "Reply Requests"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -42,7 +43,8 @@
     "Universidad" : "University",
     "Servicios" : "Services",
     "aboutus" : "About Us?",
-    "solicitarServicio" : "Request Service"
+    "solicitarServicio" : "Request Service",
+    "solicitudesServicio" : "Reply Requests"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

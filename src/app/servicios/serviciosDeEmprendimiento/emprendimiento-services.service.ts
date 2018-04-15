@@ -23,4 +23,9 @@ export class EmprendimientoServicesService {
     .map((res: Response) => res.json());
   }
 
+  obtenerSolicitudes(codigo : any){      
+    return this.http.get(this.backendUrl + "listarSolicitudes/"+ codigo, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

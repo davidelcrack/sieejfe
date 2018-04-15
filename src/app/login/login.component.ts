@@ -80,6 +80,14 @@ export class LoginComponent implements OnInit {
         this.appComponent.comprobarEstado();
         //this.especificarPermisos();
 
+        if(this.esAdmon){
+          (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=true; 
+          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=false;   
+        }else{
+          (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=false; 
+          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;   
+        }
+
       }, error => {
         alert("Error en el servidor retornando URD"); console.log("**URD***"+error);
       }      

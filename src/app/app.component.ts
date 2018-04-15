@@ -34,6 +34,7 @@ export class AppComponent {
   currentUser = null;
   estado : any;
   static mostrarEtiquetas = false;
+  esAdmin=false;
 
   getStaticMostrarEtiquetas(){
     return AppComponent.mostrarEtiquetas;
@@ -84,6 +85,24 @@ export class AppComponent {
     if (this.currentUser != null) {
       this.esUser = true;
     }
+
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+    console.log(this.esAdmin);
+
+    if(this.esAdmin!=null){
+      if(this.esAdmin){
+        setTimeout(() => {
+          (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=true; 
+          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=false;   
+        });        
+      }else{
+        setTimeout(() => {
+          (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=false; 
+          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;   
+        });                
+      }
+    }
+
   }
 
   onClick(event) {
@@ -177,7 +196,8 @@ export class AppComponent {
   @ViewChild('serviciosTab') serviciosTemplate;
   @ViewChild('aboutUsTab') aboutUsTemplate;
   @ViewChild('solicitarServicioTab') solicitarServicioTemplate;
-  
+  @ViewChild('solicitudesServicioTab') solicitudesServicioTemplate;
+    
   openTabs(nombre : any){
     if(nombre=='about'){
       this.tabsComponent.openTab('Información',this.aboutTemplate,{},true);
@@ -205,7 +225,10 @@ export class AppComponent {
     }    
     if(nombre=='solicitarServicio'){
       this.tabsComponent.openTab('solicitarServicio',this.solicitarServicioTemplate,{},true);
-    }    
+    } 
+    if(nombre=='solicitudesServicio'){
+      this.tabsComponent.openTab('solicitudesServicio',this.solicitudesServicioTemplate,{},true);
+    } 
   }
 
   irAHome(){

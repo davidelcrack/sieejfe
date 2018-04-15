@@ -24,13 +24,18 @@
             <li class="dropdown dropdownNav"><a  class="dropA">{{'ENTORNO.SERVICIOS'| translate}}</a>
                 <ul class="dropMioJaja">
                     <li><a (click)="openTabs('servicioEmprendimiento')" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>
-                    <li><a (click)="openTabs('solicitarServicio')" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>
+                    <li id="menuSolicitarNormal"><a (click)="openTabs('solicitarServicio')" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>
+                    <li id="muniResponderAdmin"><a (click)="openTabs('solicitudesServicio')" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>
                 </ul>
             </li>
             <li><a (click)="openTabs('directorio')">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
            
 
             <li class="right"><a class="fa fa-sign-out" (click)="logout()" ></a></li>
+            <li class="right"><a class="fa fa-user-circle-o">
+                <span class="fa fa-comment"></span>
+                <span class="num"></span>
+              </a></li>            
             <li class="right"><a class="disabled">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            
 
             <li class="dropdown right">                
@@ -117,6 +122,10 @@
 
     <ng-template #solicitarServicioTab>
         <app-solicitar-servicio></app-solicitar-servicio>
+    </ng-template>
+
+    <ng-template #solicitudesServicioTab>
+        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>
     </ng-template>
 
     <div class="social-icons">

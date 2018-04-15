@@ -22,7 +22,8 @@
     "UNIVERSIDAD" : "Universidad",
     "QUIENES" : "¿Quiénes Somos?",
     "OFERTASERVICIOS" : "Oferta de Servicios",
-    "SOLICITARSERVICIO" : "Solicitar Servicios"
+    "SOLICITARSERVICIO" : "Solicitar Servicios",
+    "RESPONDERSOLICITUDES" : "Responder Solicitudes"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -42,7 +43,8 @@
     "Universidad" : "Universidad",
     "Servicios" : "Servicios",
     "aboutus" : "¿Quiénes Somos?",
-    "solicitarServicio" : "Solicitar Servicio"
+    "solicitarServicio" : "Solicitar Servicio",
+    "solicitudesServicio" : "Responder Solicitudes"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",

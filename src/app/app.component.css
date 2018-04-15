@@ -299,3 +299,28 @@ ul.dropMioJaja li a{
     color: #FFFFFF;
     padding: 14px 0px 0px 0px;
 }
+
+a.fa-user-circle-o {
+    position: relative;
+    font-size: 20px !important;
+    color: grey;
+    cursor: pointer;
+  }
+  span.fa-comment {
+    position: absolute;
+    font-size: 1.3em !important;
+    top: -4px;
+    color: red;
+    right: -4px;
+  }
+  span.num {
+    position: absolute;
+    font-size: 0.7em;
+    top: 2px;
+    color: #fff;
+    right: 5px;
+  }
+
+  span.num:before{
+    content: "4   "
+}
