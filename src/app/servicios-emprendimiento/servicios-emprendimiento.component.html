@@ -31,7 +31,7 @@
       </ng-container>
       
       <!-- Info Column -->
-      <ng-container *ngIf="esAdmin" matColumnDef="informacion">
+      <ng-container matColumnDef="informacion">
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
         <mat-cell *matCellDef="let row"  (click)="abrirInformacion(row)"></mat-cell>
       </ng-container>

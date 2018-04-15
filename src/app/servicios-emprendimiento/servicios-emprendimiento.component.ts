@@ -24,6 +24,10 @@ export class ServiciosEmprendimientoComponent implements OnInit {
   ) {
     this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
 
+    if(!this.esAdmin){
+      this.displayedColumns = ['id', 'nombre', 'informacion'];
+    }
+
     /*
     this.directorioService.obtenerDirectorio().subscribe(
       response => {
