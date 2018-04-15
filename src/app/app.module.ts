@@ -78,6 +78,7 @@ import { PymesComponent } from './empresa/pymes/pymes.component';
 import { EventosService } from './servicios/eventos/eventos.service';
 import { SolicitarServicioComponent } from './servicios-emprendimiento/solicitar-servicio/solicitar-servicio.component';
 import { PopupAvisoComponent } from './popup-aviso/popup-aviso.component';
+import { EmprendimientoServicesService } from './servicios/serviciosDeEmprendimiento/emprendimiento-services.service';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -173,7 +174,8 @@ registerLocaleData(localeEsCo);
     ColaRestService,
     UsuarioService,
     DirectorioService,
-    EventosService
+    EventosService,
+    EmprendimientoServicesService
   ],
   bootstrap: [AppComponent],
   exports : [DateTimePickerComponent],

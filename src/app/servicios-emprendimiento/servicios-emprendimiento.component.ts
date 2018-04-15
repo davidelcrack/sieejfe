@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DirectorioService } from '../servicios/directorio/directorio.service';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ServicioEmprendimiento } from '../modelo/servicioEmprendimiento/servicioEmprendimiento.model';
+import { EmprendimientoServicesService } from '../servicios/serviciosDeEmprendimiento/emprendimiento-services.service';
+import { ColaService } from '../servicios/cola/cola.service';
 
 @Component({
   selector: 'app-servicios-emprendimiento',
@@ -12,7 +14,9 @@ export class ServiciosEmprendimientoComponent implements OnInit {
 
   constructor(
     private directorioService : DirectorioService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private emprendimientoServicesService : EmprendimientoServicesService,
+    private colaService : ColaService
   ) {
     this.dataSource = new MatTableDataSource(this.servicios);
    }
@@ -28,50 +32,47 @@ export class ServiciosEmprendimientoComponent implements OnInit {
       this.displayedColumns = ['id', 'nombre', 'informacion'];
     }
 
-    /*
-    this.directorioService.obtenerDirectorio().subscribe(
-      response => {
-        console.log(response);
-        response.forEach(element => {
-          let data : any;
+    this.servicios=[];
+    this.dataSource = new MatTableDataSource(this.servicios);
+    let data : any;
+    this.emprendimientoServicesService.obtenerLosServicios().subscribe(
+      response => {         
+        console.log(response);        
+        response.forEach(element => {          
           data ={
             id : element.id,
-            url : element.url,
-            activo : element.activo,
-            nombreUniversidad : element.nombreUniversidad,
-            editaUniversidad : '---'
+            nombre : element.nombre,
+            link : element.url
           };
-          this.universidades.push(data);          
+          this.servicios.push(data);          
         });
-        this.dataSource._updatePaginator(4);
-        //this.dataSource._updateChangeSubscription();
-        //this.dataSource.connect();
+        console.log(this.servicios);
+        this.dataSource._updateChangeSubscription();
+        setTimeout(() => {
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort= this.sort;
+        });
+        
+      }, error => {
+        console.log("**obtenerSuscritos***"+error);
+      }      
+    );
 
-        // updateValues(myArray: any[]) {
-        //   this.dataSource.next(myArray)
-        // }
+  
 
-      },
-      error => {
-        console.log("no se puede obtener tipos identificacion tercero")
-      }
-    );  
-
-    */
-
-    let data : ServicioEmprendimiento;
-    data ={
-      id : 1,
-      nombre : 'Ayuda',      
-      link : 'www.javeriana.edu.co'
-    };
-    this.servicios.push(data);
-    data ={
-      id : 2,
-      nombre : 'Emprendimiento',      
-      link : 'www.javeriana.edu.co'
-    };
-    this.servicios.push(data);    
+    // let data : ServicioEmprendimiento;
+    // data ={
+    //   id : 1,
+    //   nombre : 'Ayuda',      
+    //   link : 'www.javeriana.edu.co'
+    // };
+    // this.servicios.push(data);
+    // data ={
+    //   id : 2,
+    //   nombre : 'Emprendimiento',      
+    //   link : 'www.javeriana.edu.co'
+    // };
+    // this.servicios.push(data);    
   }
   
   displayedColumns = ['id', 'nombre', 'informacion' , 'editar'];
@@ -108,7 +109,11 @@ export class ServiciosEmprendimientoComponent implements OnInit {
   abrirInformacion(row : any){
     console.log("++++++++++++++++++++++++++++++++++");
     console.log(row);
-    window.open('http://'+row.link,'_blank'); 
+    if(row.link.startsWith("http")){
+      window.open(row.link,'_blank'); 
+    }else{
+      window.open('http://'+row.link,'_blank'); 
+    }
   }
 
   servicio=new ServicioEmprendimiento();
@@ -141,5 +146,27 @@ export class ServiciosEmprendimientoComponent implements OnInit {
     this.dataSource._updateChangeSubscription();
   }
 
+  cambio(atributo : any , valor : any , tipo : any, id:any){
+    console.log('cambio : entro a cambio');
+    console.log(atributo, valor);
+    
+    let mensaje = { id: id  , accion: 'editarServicio' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
+    
+    console.log(mensaje);
+
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+
+      },
+        error => {
+          console.log("Error al editar servicio");
+        });
+    } 
+    
+
+  }
 
 }
