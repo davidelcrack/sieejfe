@@ -1,17 +1,115 @@
 <br><br>
 
-<div style="float:left" >
-  <div class="col-md-4">
-    <div class="btn-group">
-      <div class="btn btn-primary" (click)="pedirSolicitudes(0)">
-        Todas
-      </div>
-      <div class="btn btn-primary" (click)="pedirSolicitudes(1)">
-        Por Resolver
-      </div>
-      <div class="btn btn-primary" (click)="pedirSolicitudes(2)">
-        Resueltas
+<div class="ServMargen">
+
+  <div style="float:left" >
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div id="botonTodasSolicitudesAdmin" class="btn btn-outline-primary" (click)="pedirSolicitudes(0)">
+          Todas
+        </div>
+        <div id="botonPorResolverSolicitudesAdmin" class="btn btn-primary" (click)="pedirSolicitudes(1)">
+          Por Resolver
+        </div>
+        <div id="botonResueltasSolicitudesAdmin" class="btn btn-primary" (click)="pedirSolicitudes(2)">
+          Resueltas
+        </div>
       </div>
     </div>
   </div>
+
+  <br><br>
+
+  <div class="mat-app-background basic-container">
+
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+      </mat-form-field>
+    </div>
+  
+    <div class="example-container mat-elevation-z8" >
+  
+      <mat-table #tableRespuestaServicios [dataSource]="dataSource" matSort>
+  
+        <!-- ID Column -->
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+        </ng-container>
+  
+        <!-- Remitente Column -->
+        <ng-container matColumnDef="remitente">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Remitente </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.remitente}} </mat-cell>
+        </ng-container>
+
+        <!-- Estado Column -->
+        <ng-container matColumnDef="estado">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+          <mat-cell class="{{row.estado}} mat-cell cdk-column-estado mat-column-estado" *matCellDef="let row"></mat-cell>
+        </ng-container>
+        
+        <!-- Fecha Column -->
+        <ng-container matColumnDef="fecha">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.fecha}} </mat-cell>
+        </ng-container>
+  
+        <!-- Ver Column -->
+        <ng-container matColumnDef="ver">
+          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-cell class="{{row.estado}} mat-cell cdk-column-ver mat-column-ver" *matCellDef="let row"  (click)="abrirInformacion(row)"></mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+  
+      <mat-paginator [pageSizeOptions]="[1, 10, 25, 100]"></mat-paginator>
+    </div>
+  
+  </div>
+
+
+  <div id="overlayResponderServicios">
+  
+    <div class="modalShow">      
+        <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+        
+        <form>
+          <div class="forma">
+
+            <h4>
+              Solicitud
+            </h4>
+
+            <input [disabled]="true" class="formas" placeholder="Nombre Solitud" #nombreSolicitudRes maxlength="80" [(ngModel)]="solicitud.nombre" name="nombreSolicitudRes" required>
+                  
+            <br><br>
+      
+            <textarea [disabled]="true" placeholder="Mensaje Remitente" #msnRemitente maxlength="300" [(ngModel)]="solicitud.descripcion" name="msnRemitente" cols="25"></textarea>
+
+            <h4 *ngIf="solicitud.estado">
+              Respuesta
+            </h4>
+
+
+            <textarea *ngIf="solicitud.estado" placeholder="Respuesta" #msnRespuesta maxlength="300" [(ngModel)]="respuesta" name="msnRespuesta" cols="25"></textarea>
+          
+            <input *ngIf="solicitud.estado" class="formas" (click)="enviar()" type="submit" value="Responder">
+      
+          </div>
+        </form>        
+  
+        <br><br>
+    </div>
+  
+    
+  </div>
+
+
+
+</div>
 

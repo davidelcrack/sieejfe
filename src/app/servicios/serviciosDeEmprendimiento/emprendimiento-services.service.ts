@@ -28,4 +28,9 @@ export class EmprendimientoServicesService {
     .map((res: Response) => res.json());
   }
 
+  cerrarSolicitud(respuesta){
+    return this.http.post(this.backendUrl + "cerrarSolicitud/", respuesta, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }
