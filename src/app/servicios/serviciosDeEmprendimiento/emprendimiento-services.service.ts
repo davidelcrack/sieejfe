@@ -17,4 +17,10 @@ export class EmprendimientoServicesService {
     .map((res: Response) => res.json());
   }
 
+  solicitarService(solicitud){
+    console.log(solicitud)
+    return this.http.post(this.backendUrl + "crearSolicitud/", solicitud, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

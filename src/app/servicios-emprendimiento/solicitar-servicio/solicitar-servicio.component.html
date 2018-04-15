@@ -1,11 +1,26 @@
-<br><br>
-<!-- <div class="imgHolder">
-  <img id="imagenPreviewPrincipal" src="assets/images/IMG_7779.jpg" />
-  <label style="line-height:600px;" for="imagenPreviewPrincipal">Estamos en Construcción</label>
-</div> -->
+<br>
+<div class="tablaMargen">
+  
+  <br><br>
+  <h2>Solicitar Servicio</h2>
+  <br><br>
 
-<div>
-    <img src="assets/images/IMG_7779.jpg" alt="Google+">
-    <span>Estamos en Construcción</span>
+  <form>
+    <div class="forma">
+        
+      <input placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="solicitudPojo.nombre" name="Name" required>
+            
+      <br><br>
+
+      <textarea placeholder="Mensaje" #msn maxlength="300" [(ngModel)]="solicitudPojo.descripcion" name="Msn" cols="25"></textarea>
+    
+      <input (click)="solicitarServicio()" type="submit" value="Enviar">
+
+    </div>
+  </form>
+  <br><br><br>
+
+
+  
 
 </div>

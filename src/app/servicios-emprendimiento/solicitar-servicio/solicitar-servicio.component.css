@@ -1,4 +1,4 @@
-img{
+/* img{
     width:100%;
     max-width:600px;
 }
@@ -10,7 +10,7 @@ img{
     /* margin-left: 40px;
     margin-right: 20px; */
     /*Dejar centrado*/
-    margin: auto;
+  /*  margin: auto;
     width: 50%;
     padding: 10px;
 }
@@ -21,4 +21,68 @@ span{
     font-style: normal;
     font-weight: 400;
     font-size: 60px
+} */
+
+::ng-deep div.tablaMargen{
+    margin-left: 40px;
+    margin-right:40px;
+  }
+
+  h2 {
+	color: #000066;
+}
+
+button,
+button:focus
+{
+  background-color: #000066;
+  color : #ffffff;
+  border-color: #ffffff;  
+}
+
+button:hover,
+button:visited,
+button:active
+{
+  background-color: #ffffff ;
+  color : #000066;
+  border-color: #000066;  
+}
+
+textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+div.forma {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: #ffffff ;
+    color : #000066;
+    border-color: #000066;  
+}
+
+input[type=submit] {
+    background-color: #000066;
+    color : #ffffff;
+    border-color: #ffffff;  
 }

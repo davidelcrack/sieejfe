@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmprendimientoServicesService } from '../../servicios/serviciosDeEmprendimiento/emprendimiento-services.service';
 
 @Component({
   selector: 'app-solicitar-servicio',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitarServicioComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private emprendimientoServicesService : EmprendimientoServicesService
+  ) { }
+
+  solicitudPojo = { nombre : "" , descripcion : ""  }
 
   ngOnInit() {
+  }
+
+  solicitarServicio(){
+
+    this.emprendimientoServicesService.solicitarService(this.solicitudPojo).subscribe(
+      response => {         
+        console.log(response);                
+        
+      }, error => {
+        console.log("**obtenerSuscritos***"+error);
+      }      
+    );
+
+
   }
 
 }
