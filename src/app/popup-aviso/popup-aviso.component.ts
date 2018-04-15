@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-popup-aviso',
   templateUrl: './popup-aviso.component.html',
   styleUrls: ['./popup-aviso.component.css']
 })
-export class PopupAvisoComponent implements OnInit {
+export class PopupAvisoComponent implements OnInit , OnChanges {
 
   constructor() { }
 
@@ -13,6 +14,10 @@ export class PopupAvisoComponent implements OnInit {
   }
 
   @Input('mensaje')mensaje;
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
 
   mostrar=false;
 

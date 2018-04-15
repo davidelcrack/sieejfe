@@ -499,6 +499,7 @@ export class EventoComponent implements OnInit {
 
   suscribirse(){
     console.log('suscribirse : entro a suscribirse');
+    this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
     this.eventosService.suscribirse(this.idActual).subscribe(
       response => {         
         console.log(response);
@@ -510,6 +511,8 @@ export class EventoComponent implements OnInit {
           (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
         }
       }, error => {
+        this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
+        this.avisar();
         console.log("**suscribirse***"+error);
       }      
     );
