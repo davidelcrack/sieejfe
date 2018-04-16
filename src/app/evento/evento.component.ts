@@ -26,6 +26,9 @@ import { EventosService } from '../servicios/eventos/eventos.service';
 import { concat } from 'rxjs/operator/concat';
 import { ColaService } from '../servicios/cola/cola.service';
 import { PopupAvisoComponent } from '../popup-aviso/popup-aviso.component';
+import { constructDependencies } from '@angular/core/src/di/reflective_provider';
+import { FormularioPersonalizadoComponent } from './formulario-personalizado/formulario-personalizado.component';
+import { debounce } from 'rxjs/operators/debounce';
 
 
 const colors: any = {
@@ -119,6 +122,8 @@ export class EventoComponent implements OnInit {
   ) {}
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
+
+  @ViewChild(FormularioPersonalizadoComponent) formularioPersonalizadoComponent : FormularioPersonalizadoComponent 
 
   view: string = 'month';
   viewDate: Date = new Date();
@@ -231,6 +236,7 @@ export class EventoComponent implements OnInit {
     console.log('cerrarPopUp : entro a cerrarPopUp');
     this.mostrarEventos=false;
     this.mostrarDetallesMas=false; this.masDetallesClass= "custom-mostrar";
+    this.atributosPersonalizados=[];
 
     this.validarCambios();
     
@@ -251,7 +257,9 @@ export class EventoComponent implements OnInit {
 
       this.eventosTodos[index].descripcion=this.descripcionEvento;
       this.eventosTodos[index].requisitos=this.requisitosEvento;
-      this.eventosTodos[index].capacidad_maxima=this.capacidadMaxima;
+      if(this.capacidadMaxima != null){
+        this.eventosTodos[index].capacidad_maxima=this.capacidadMaxima;
+      }
 
 
     }
@@ -449,14 +457,16 @@ export class EventoComponent implements OnInit {
       return element.id == idEvento;
     }));
     
+
     this.descripcionEvento=this.eventosTodos[indice].descripcion;
     this.requisitosEvento=this.eventosTodos[indice].requisitos;
-
     if(this.eventosTodos[indice].capacidad_maxima == -1){
       this.capacidadMaxima='No se tiene un límite de capacidad';
     }else{
       this.capacidadMaxima=this.eventosTodos[indice].capacidad_maxima;
     }
+
+    this.atributosPersonalizados=this.eventosTodos[indice].atrPersonalizados;
     
 
     this.evento=this.events[detallado].id;
@@ -500,23 +510,43 @@ export class EventoComponent implements OnInit {
   suscribirse(){
     console.log('suscribirse : entro a suscribirse');
     this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
-    this.eventosService.suscribirse(this.idActual).subscribe(
-      response => {         
-        console.log(response);
-        if(response){
-          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-check';   
-          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscrito';   
-        }else{
-          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-bell';   
-          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
-        }
-      }, error => {
-        this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
-        this.avisar();
-        console.log("**suscribirse***"+error);
-      }      
-    );
+    let pasa = false;
+    debugger
+    if(!this.suscrito){
+      pasa = this.llenarFormulario();
+    }else{
+      pasa = true;
+    }
 
+    if(pasa){
+      this.eventosService.suscribirse(this.idActual).subscribe(
+        response => {         
+          console.log(response);
+          this.suscrito=response;
+          if(response){
+            (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-check';   
+            (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscrito';   
+          }else{
+            (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-bell';   
+            (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
+          }
+        }, error => {
+          this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
+          this.avisar();
+          console.log("**suscribirse***"+error);
+        }      
+      );
+    }
+
+  }
+
+  llenarFormulario(){
+    if(this.atributosPersonalizados.length>0){
+      this.formularioPersonalizadoComponent.abrir(this.atributosPersonalizados);
+      return false;      
+    }else{
+      return true;
+    }
   }
 
   cambio(atributo : any , valor : any , tipo : any){
@@ -632,6 +662,105 @@ export class EventoComponent implements OnInit {
       this.mostrarDetallesMas=true;
       this.masDetallesClass="custom-mostrado";
     }
+  }
+
+  atributosPersonalizados = new Array();
+  anadirAtributo(){
+
+    let puedeAgregar=false;
+    if(this.atributosPersonalizados.length>0){      
+      let ultimo = this.atributosPersonalizados.length-1;
+
+      if(this.atributosPersonalizados[ultimo].nombre != null){
+        puedeAgregar=true;
+      }
+    }else{
+      puedeAgregar=true;
+    }
+
+    if(puedeAgregar){
+
+      let mensaje = { id: this.idActual  , accion: 'asociarAtrPersonalizadoEvento' , atributo: 'personalizado' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
+      
+      console.log(mensaje);
+
+      let data={
+        id: -1,
+        nombre: null, 
+        descripcion : null
+      }
+
+      this.atributosPersonalizados.push(data);
+
+      let observable = this.colaService.agregarACola(mensaje);
+
+      if (observable) {
+        observable.subscribe(response => {
+          console.log(response)       
+          
+          if(response[0].accion=='crear'){
+
+            let id=response[0].valor.id;
+
+            let index= this.atributosPersonalizados.indexOf(this.atributosPersonalizados.find(function (buscadoElement){
+              return buscadoElement.id==-1;
+            }))
+            
+            this.atributosPersonalizados[index].id=id;
+
+            console.log(this.atributosPersonalizados);
+
+            }
+
+        },
+          error => {
+            console.log("Error al editar imagen");
+          });
+      }       
+    }
+  }
+
+  cambioPersonalizado(atributo : any , valor : any , tipo : any, id: any){
+    console.log('cambio : entro a cambio');
+    console.log(this.atributosPersonalizados);
+    console.log(atributo, valor, id);
+
+    let mensaje = { id: id  , accion: 'editarAtrPersonalizado' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
+    
+    console.log(mensaje);
+
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+
+      },
+        error => {
+          console.log("Error al editar imagen");
+        });
+    } 
+
+  }
+
+  onNotifyInscribirse(e){
+    this.eventosService.suscribirse(this.idActual).subscribe(
+      response => {         
+        console.log(response);
+        this.suscrito=response;
+        if(response){
+          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-check';   
+          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscrito';   
+        }else{
+          (<HTMLInputElement>document.getElementById('inscripcionFa')).className='fa fa-bell';   
+          (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
+        }
+      }, error => {
+        this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
+        this.avisar();
+        console.log("**suscribirse***"+error);
+      }      
+    );
   }
 
   

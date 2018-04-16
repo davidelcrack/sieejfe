@@ -198,6 +198,11 @@
       <br><br><br>
 
       <div *ngIf="mostrarDetallesMas">
+
+        <div class="input-group" style="float:right;">
+          <a class="fa fa-plus-circle" (click)="anadirAtributo()" ></a>        
+        </div>
+
         <form class="form-horizontal">
           <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Descripción</label>
@@ -221,6 +226,22 @@
             </div>
           </div>
         </form>
+
+        <form class="form-horizontal">
+          <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
+            <div class="form-group">
+              <div class="col-sm-2">
+                <input type="text" class="form-control" id="personalizadoLabel{{idActual}}{{i}}" placeholder="Nombre" name="personalizadoLabel{{idActual}}{{i}}"
+                  [(ngModel)]="personalizados.nombre" (ngModelChange)="cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)">
+              </div>
+                  <div class="col-sm-10">          
+                <input type="text" class="form-control" id="personalizadoInput{{idActual}}{{i}}" placeholder="Ingrese descripción" name="personalizadoLabel{{idActual}}{{i}}"
+                  [(ngModel)]="personalizados.descripcion" (ngModelChange)="cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)">
+              </div>
+            </div>
+          </div>
+        </form>
+
       </div>
       
         <br><br>
@@ -280,4 +301,5 @@
 
 </div>
 
+<app-formulario-personalizado (guardo)="onNotifyInscribirse($event)"></app-formulario-personalizado>
 <app-popup-aviso [mensaje]="mensajeMostrar" ></app-popup-aviso>
