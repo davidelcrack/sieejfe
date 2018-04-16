@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { element } from 'protractor';
+import { EventosService } from '../../servicios/eventos/eventos.service';
 
 @Component({
   selector: 'app-formulario-personalizado',
@@ -7,7 +9,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FormularioPersonalizadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private eventosService : EventosService
+  ) { }
 
   ngOnInit() {
   }
@@ -32,8 +36,32 @@ export class FormularioPersonalizadoComponent implements OnInit {
   }
 
   enviar(){
-    this.guardo.emit('enviar');
-    this.cerrarPopUp();
+
+    let pojoAtributos= {id: null , dato: null}
+    let atributosEnviar = new Array();
+    this.atributosPersonalizados.forEach(element =>{
+      pojoAtributos={
+        id:element.id,
+        dato: element.descripcion
+      }
+      atributosEnviar.push(pojoAtributos);
+    })
+    console.log(atributosEnviar);
+    this.eventosService.guardarDatosPersonalizados(atributosEnviar).subscribe(
+      response => {         
+        console.log(response);
+        this.guardo.emit('enviar');
+        this.cerrarPopUp();
+      });    
+  }
+
+  comprobar(){
+    this.atributosPersonalizados.forEach(element => {
+      if(element.descripcion==null){
+        return false;
+      }
+    })
+    return true;
   }
 
 }

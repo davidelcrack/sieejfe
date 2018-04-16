@@ -511,7 +511,6 @@ export class EventoComponent implements OnInit {
     console.log('suscribirse : entro a suscribirse');
     this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
     let pasa = false;
-    debugger
     if(!this.suscrito){
       pasa = this.llenarFormulario();
     }else{

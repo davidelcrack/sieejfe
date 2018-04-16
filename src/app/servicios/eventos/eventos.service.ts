@@ -45,4 +45,9 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
+  guardarDatosPersonalizados(atributosPersonalizados){
+    return this.http.post(this.backendUrl + "guardarDatosPersonalizados/", atributosPersonalizados, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }
