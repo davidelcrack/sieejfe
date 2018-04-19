@@ -48,3 +48,26 @@ button:active
 a{
   float:left;
 }
+
+
+/* BOTONES EXPORTAR */
+
+a.fa.fa-file-excel-o{
+  float:right; 
+  border-color : darkgreen;
+  font-size: 45px;
+  color: darkgreen;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+a.fa.fa-file-pdf-o{
+  float:right; 
+  border-color : darkred;
+  font-size: 45px;
+  color: darkred;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}

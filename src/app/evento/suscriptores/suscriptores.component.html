@@ -7,6 +7,9 @@ evento : {{idEvento}} -->
 
 <br><br>
 
+<a *ngIf="esAdmin" class="fa fa-file-excel-o" (click)="exportarExcel()" ></a>
+<a *ngIf="esAdmin" class="fa fa-file-pdf-o " (click)="exportarPDF()" ></a>
+
 <div class="mat-app-background basic-container">
 
   <div class="example-header">

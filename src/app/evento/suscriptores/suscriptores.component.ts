@@ -110,5 +110,19 @@ export class SuscriptoresComponent implements OnInit {
     console.log("++++++++++++++++++++++++++++++++++");
     console.log(row)
   }
+
+  exportarExcel(){
+    this.eventosService.exportarExcel(this.idEvento).subscribe(
+      response =>{
+        console.log(response);
+      });
+  }
+
+  // exportarPDF(){
+  //   this.eventosService.exportarPDF(this.idEvento).subscribe(
+  //     response =>{
+  //       console.log(response);
+  //     });
+  // }
   
 }

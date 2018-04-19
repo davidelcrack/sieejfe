@@ -50,4 +50,15 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
+  exportarExcel(id : any){
+    console.log('exportarExcel : entro a exportarExcel')
+    return this.http.get(this.backendUrl + "exportarExcelInscritos/"+ id , { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
+  // exportarPDF(id : any){
+  //   return this.http.get(this.backendUrl + "exportarExcelInscritos/"+ id , { withCredentials: true })
+  //   .map((res: Response) => res.json());
+  // }
+
 }
