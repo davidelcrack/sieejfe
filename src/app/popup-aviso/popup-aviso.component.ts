@@ -35,4 +35,18 @@ export class PopupAvisoComponent implements OnInit , OnChanges {
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
+  mostrarPopExito(){
+    console.log('mostrarPopExito : entro a mostrarPopExito');    
+    let el : any;
+    el = document.getElementById("overlayAvisoInfoExito");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  cerrarPopUpExito(){
+    console.log('cerrarPopUp : entro a cerrarPopUp');    
+    let el : any;
+    el = document.getElementById("overlayAvisoInfoExito");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
 }

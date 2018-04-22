@@ -78,6 +78,7 @@ export class TabsComponent implements AfterContentInit {
   }
 
   dynamicTabs: TabComponent[] = [];
+  tabsAbiertos : any [] = [];
   
   @ContentChildren(TabComponent) 
   tabs: QueryList<TabComponent>;
@@ -107,35 +108,51 @@ export class TabsComponent implements AfterContentInit {
   
   openTab(title: string, template, data, isCloseable) {
     // get a component factory for our TabComponent
-    let componentFactory = this._componentFactoryResolver.resolveComponentFactory(TabComponent);
-    
-    // fetch the view container reference from our anchor directive
-    let viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
-    
-    // alternatively...
-    // let viewContainerRef = this.dynamicTabPlaceholder;
-    
-    // create a component instance
-    let componentRef = viewContainerRef.createComponent(componentFactory);
 
-    // set the according properties on our component instance
-    let instance: TabComponent = componentRef.instance as TabComponent;
-    instance.title = title;
-    instance.template = template;
-    instance.dataContext = data;
-    instance.isCloseable = isCloseable;
-    
-    // remember the dynamic component for rendering the
-    // tab navigation headers
-    this.dynamicTabs.push(componentRef.instance as TabComponent);
-    
-    // set it active
-    this.selectTab(this.dynamicTabs[this.dynamicTabs.length - 1]);
+    let repetido = this.verificarActive(title);
+
+    if(repetido === -1) {
+      let componentFactory = this._componentFactoryResolver.resolveComponentFactory(TabComponent);
+      
+      // fetch the view container reference from our anchor directive
+      let viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
+      
+      // alternatively...
+      // let viewContainerRef = this.dynamicTabPlaceholder;
+      
+      // create a component instance
+      let componentRef = viewContainerRef.createComponent(componentFactory);
+
+      // set the according properties on our component instance
+      let instance: TabComponent = componentRef.instance as TabComponent;
+      instance.title = title;
+      instance.template = template;
+      instance.dataContext = data;
+      instance.isCloseable = isCloseable;
+      
+      // remember the dynamic component for rendering the
+      // tab navigation headers
+      this.dynamicTabs.push(componentRef.instance as TabComponent);
+      
+      // set it active
+      this.selectTab(this.dynamicTabs[this.dynamicTabs.length - 1]);
+    }else{
+      this.selectTab(this.dynamicTabs[repetido]);
+    }
   }
   
   selectTab(tab: TabComponent){
     console.log('SelectTab : entro a selectTab' , this.dynamicTabs);
     // deactivate all tabs
+    let repetido =this.tabsAbiertos.indexOf(this.tabsAbiertos.find(function(element){      
+      return element===tab.title;
+    }));
+    if(repetido==-1){ 
+      this.tabsAbiertos.push(tab.title); //console.log('No esta '+repetido);
+    }else{
+      this.tabsAbiertos.splice(repetido, 1); // console.log('Ya esta '+repetido);
+      this.tabsAbiertos.push(tab.title);
+    }
     this.tabs.toArray().forEach(tab => tab.active = false);
     this.dynamicTabs.forEach(tab => tab.active = false);
     
@@ -148,14 +165,33 @@ export class TabsComponent implements AfterContentInit {
       if(this.dynamicTabs[i] === tab) {
         // remove the tab from our array
         this.dynamicTabs.splice(i,1);
+
+        let repetido =this.tabsAbiertos.indexOf(this.tabsAbiertos.find(function(element){      
+          return element===tab.title;
+        }));               
+        this.tabsAbiertos.splice(repetido, 1); 
         
         // destroy our dynamically created component again
         let viewContainerRef = this.dynamicTabPlaceholder.viewContainer;
         // let viewContainerRef = this.dynamicTabPlaceholder;
         viewContainerRef.remove(i);
+
+        let ultimaTab=this.tabsAbiertos[this.tabsAbiertos.length-1];
         
-        // set tab index to 1st one
-        this.selectTab(this.tabs.first);
+        //console.log(ultimaTab); console.log(this.dynamicTabs); console.log(this.tabs);
+
+        let abreUltima =this.dynamicTabs.indexOf(this.dynamicTabs.find(function(element){      
+          return element.title===ultimaTab;
+        }));
+        
+        console.log(this.dynamicTabs[abreUltima]);
+        if(this.dynamicTabs[abreUltima] != undefined){
+          this.selectTab(this.dynamicTabs[abreUltima]);
+        }else{
+          this.selectTab(this.tabs.first);
+        }
+        sessionStorage.setItem('OPENTABS', JSON.stringify(this.tabsAbiertos) );
+        console.log(JSON.parse(sessionStorage.getItem('OPENTABS')));
         break;
       }
     }
@@ -171,6 +207,19 @@ export class TabsComponent implements AfterContentInit {
 
   selectHome(){
     this.selectTab(this.tabs.first);
+  }
+
+  verificarActive(title : string){
+    let repetido =this.dynamicTabs.indexOf(this.dynamicTabs.find(function(element){
+      return element.title===title;
+    }));
+
+    if(repetido!=-1){
+      console.log(title + ' ya esta' + repetido);
+    }else{
+      console.log(title + ' es nuevo' + repetido);
+    }
+    return repetido;
   }
 
 }

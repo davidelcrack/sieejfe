@@ -45,8 +45,9 @@ export class VerSolicitudesSeviciosComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  codigo:any;
   pedirSolicitudes(codigo : any){
-
+    this.codigo=codigo;
     this.actualizarEscogido(codigo);
 
     this.solicitudes=[];
@@ -135,6 +136,7 @@ export class VerSolicitudesSeviciosComponent implements OnInit {
       response => {         
         console.log(response); 
         this.cerrarPopUp();
+        this.pedirSolicitudes(this.codigo);
       });
 
   }

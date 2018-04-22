@@ -25,6 +25,33 @@
   overflow: scroll; */
 }
 
+#overlayAvisoInfoExito {
+  visibility: hidden;
+  /*position: absolute;*/
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  text-align:center;        
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    
+}
+
+#overlayAvisoInfoExito div.modalShowInfoExito {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  border: 2px solid darkgreen;
+  border-radius: 8px;
+  /* max-height: 800px;
+  overflow: scroll; */
+}
+
 body {
   height:100%;
   margin:0;
@@ -58,7 +85,12 @@ h4 {
   color:black;
 }
 
-h3 {
+h3.alerta {
   margin: 0 0 10px;
   color: darkred;
+}
+
+h3.exito {
+  margin: 0 0 10px;
+  color: darkgreen;
 }
