@@ -42,7 +42,7 @@ export class FormularioPersonalizadoComponent implements OnInit {
     this.atributosPersonalizados.forEach(element =>{
       pojoAtributos={
         id:element.id,
-        dato: element.descripcion
+        dato: element.respuesta        
       }
       atributosEnviar.push(pojoAtributos);
     })

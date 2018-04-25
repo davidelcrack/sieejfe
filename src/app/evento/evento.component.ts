@@ -367,8 +367,7 @@ export class EventoComponent implements OnInit {
     if(this.accion==2){
       console.log('Adición : cerro Adición')
       let valido= this.comprobarLlenoTotal();
-      if(valido){
-        this.cerrarPopUp();
+      if(valido){        
         this.agregarEvento();
       }
     }
@@ -411,8 +410,9 @@ export class EventoComponent implements OnInit {
 
   agregarEvento(){
     console.log('agregarEvento : entro a agregarEvento');
+    debugger
     let evento=this.eventsEditar[0];
-    console.log(evento);
+    console.log(evento, this.atributosPersonalizados);
 
     let data;
     let eventoEnviar = new Array();
@@ -435,6 +435,7 @@ export class EventoComponent implements OnInit {
         console.log("**obtenerEventos***"+error);
       }      
     ); 
+    this.cerrarPopUp();
   }
   
   eliminar(id : any){
@@ -686,43 +687,45 @@ export class EventoComponent implements OnInit {
 
     if(puedeAgregar){
 
+      
       let mensaje = { id: this.idActual  , accion: 'asociarAtrPersonalizadoEvento' , atributo: 'personalizado' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
       
       console.log(mensaje);
 
       let data={
-        id: -1,
+        id: null,
         nombre: null, 
-        descripcion : null
-      }
-
+        descripcion : null        
+      }      
       this.atributosPersonalizados.push(data);
+      if(this.accion==1){
+        let observable = this.colaService.agregarACola(mensaje);
 
-      let observable = this.colaService.agregarACola(mensaje);
-
-      if (observable) {
-        observable.subscribe(response => {
-          console.log(response)       
-          
-          if(response[0].accion=='crear'){
-
-            let id=response[0].valor.id;
-
-            let index= this.atributosPersonalizados.indexOf(this.atributosPersonalizados.find(function (buscadoElement){
-              return buscadoElement.id==-1;
-            }))
+        if (observable) {
+          observable.subscribe(response => {
+            console.log(response)       
             
-            this.atributosPersonalizados[index].id=id;
+            if(response[0].accion=='crear'){
 
-            console.log(this.atributosPersonalizados);
+              let id=response[0].valor.id;
 
-            }
+              let index= this.atributosPersonalizados.indexOf(this.atributosPersonalizados.find(function (buscadoElement){
+                return buscadoElement.id==-1;
+              }))
+              
+              this.atributosPersonalizados[index].id=id;
 
-        },
-          error => {
-            console.log("Error al editar imagen");
-          });
-      }       
+              console.log(this.atributosPersonalizados);
+
+              }
+
+          },
+            error => {
+              console.log("Error al editar imagen");
+            });
+        }    
+      }
+         
     }
   }
 
