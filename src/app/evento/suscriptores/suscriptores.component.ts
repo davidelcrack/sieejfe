@@ -17,7 +17,8 @@ export class SuscriptoresComponent implements OnInit {
 
   ngOnInit(
   ) {
-    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));    
+    this.atributosPersonalizados.push('');    
   }
 
   idUsuario:any;
@@ -37,7 +38,8 @@ export class SuscriptoresComponent implements OnInit {
         console.log(response);        
         response.forEach(element => {          
           data ={
-            id : element.apellidos,
+            id: element.id,
+            apellidos : element.apellidos,
             nombre : element.nombre,
             estado : element.username
           };
@@ -83,18 +85,14 @@ export class SuscriptoresComponent implements OnInit {
 
   }
   
-  displayedColumns = ['id', 'Nombre', 'Estado'];
+  displayedColumns = ['id', 'Nombre', 'Estado', 'informacion'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   suscriptores = new Array();
-
-  cerrarPopUp(){
-	  console.log('cerrarPopUp : entro a cerrarPopUp');
-  }
-
+ 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -124,5 +122,38 @@ export class SuscriptoresComponent implements OnInit {
   //       console.log(response);
   //     });
   // }
+  atributosPersonalizados = new Array();
+  
+  abrirDetalles(row : any){    
+    console.log(row, this.idEvento, row.id);   
+    
+    this.eventosService.getDetallesUsuario( this.idEvento, row.id).subscribe(
+      response =>{        
+        this.atributosPersonalizados=[];
+        this.atributosPersonalizados=response;       
+        console.log(this.atributosPersonalizados);
+        this.llenarFormulario();
+      }
+    )
+  }
+
+  llenarFormulario(){
+    if(this.atributosPersonalizados.length>0){
+      let el : any;
+      el = document.getElementById("overlayDetallesFinos");
+      el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+
+      
+
+    }
+  }
+
+  cerrarPopUp(){
+    console.log('cerrarPopUp : entro a cerrarPopUp');
+      
+    let el : any;
+    el = document.getElementById("overlayDetallesFinos");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
   
 }

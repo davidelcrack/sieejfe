@@ -25,7 +25,7 @@ evento : {{idEvento}} -->
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> <a> {{row.id}} </a> </mat-cell>
+        <mat-cell *matCellDef="let row"> <a> {{row.apellidos}} </a> </mat-cell>
       </ng-container>
 
       <!-- Progress Column -->
@@ -40,6 +40,12 @@ evento : {{idEvento}} -->
         <mat-cell *matCellDef="let row"> <a> {{row.estado}} </a> </mat-cell>
       </ng-container>
 
+      <!-- Info Column -->
+      <ng-container matColumnDef="informacion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row"  (click)="abrirDetalles(row)"></mat-cell>
+      </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">
       </mat-row>
@@ -52,3 +58,36 @@ evento : {{idEvento}} -->
 </div>
 
 <br><br>
+
+
+
+<!-- ********** DETALLES PERSONALIZADO ********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** -->
+
+<div id="overlayDetallesFinos">
+  
+    <div id="modalListaJa" class="modalShow">      
+        <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+
+        <h4>
+            Detalles
+          </h4>
+
+        <form>
+          <div class="forma">
+
+            <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
+                <div class="form-group">
+                    <label class="col-sm-2" for="pwd">{{personalizados.nombreAtrPersonalizado}}</label>
+                    <div class="col-sm-10">          
+                    <input id="listado{{i}}" type="text" class="formas" [(ngModel)]="personalizados.respuestaAtrPersonalizado" name="first">
+                  </div>
+                </div>
+              </div>      
+          </div>
+        </form>   
+  
+        <br><br>
+    </div>
+  
+    
+  </div>

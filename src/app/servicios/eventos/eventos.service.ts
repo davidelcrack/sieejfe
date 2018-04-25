@@ -61,4 +61,10 @@ export class EventosService {
   //   .map((res: Response) => res.json());
   // }
 
+  getDetallesUsuario(evento, usuario){
+    console.log('getDetallesUsuario : entro a getDetallesUsuario')
+    return this.http.get(this.backendUrl + "listarDatosPersonalizadosPorUsuario/" +evento + "/"+ usuario , { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }
