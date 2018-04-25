@@ -231,6 +231,10 @@ export class AppComponent {
     } 
   }
 
+  cerrarTab(nombre : any){
+    this.tabsComponent.cerrarTabDinamica(nombre)
+  }
+
   irAHome(){
     this.tabsComponent.selectHome();
   }

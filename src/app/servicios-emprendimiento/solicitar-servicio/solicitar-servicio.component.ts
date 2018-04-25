@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmprendimientoServicesService } from '../../servicios/serviciosDeEmprendimiento/emprendimiento-services.service';
 import { PopupAvisoComponent } from '../../popup-aviso/popup-aviso.component';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-solicitar-servicio',
@@ -10,7 +11,8 @@ import { PopupAvisoComponent } from '../../popup-aviso/popup-aviso.component';
 export class SolicitarServicioComponent implements OnInit {
 
   constructor(
-    private emprendimientoServicesService : EmprendimientoServicesService
+    private emprendimientoServicesService : EmprendimientoServicesService,
+    private appComponent : AppComponent
   ) { }
 
   solicitudPojo = { nombre : "" , descripcion : ""  }
@@ -34,7 +36,13 @@ export class SolicitarServicioComponent implements OnInit {
   }
 
   avisar(){
-    this.avisoPopUp.mostrarPopExito();
+    this.avisoPopUp.mostrarPopExito();    
+  }
+
+  onCerrarNotify(e){
+    console.log('onNotifyPopUp : entro a onNotifyPopUp',e);    
+    this.appComponent.cerrarTab('solicitarServicio');
+    this.appComponent.openTabs('servicioEmprendimiento');
   }
 
 }

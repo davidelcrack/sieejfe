@@ -222,4 +222,15 @@ export class TabsComponent implements AfterContentInit {
     return repetido;
   }
 
+  cerrarTabDinamica(nombre:any){        
+    let aCerrar =this.dynamicTabs.indexOf(this.dynamicTabs.find(function(element){
+      return element.title===nombre;
+    }));
+
+    let tab= this.dynamicTabs[aCerrar];
+
+    this.closeTab(tab);
+
+  }
+
 }
