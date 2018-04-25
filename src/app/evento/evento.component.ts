@@ -366,7 +366,11 @@ export class EventoComponent implements OnInit {
 
     if(this.accion==2){
       console.log('Adición : cerro Adición')
-      this.comprobarLlenoTotal();
+      let valido= this.comprobarLlenoTotal();
+      if(valido){
+        this.cerrarPopUp();
+        this.agregarEvento();
+      }
     }
     if(this.accion==1){
       console.log('Edición : cerro Edición')
@@ -385,18 +389,23 @@ export class EventoComponent implements OnInit {
 
   comprobarLlenoTotal(){
     console.log(this.eventsEditar);
+    
     if(this.eventsEditar[0].title==""){
       this.mensajeMostrar='Debe llenar todos los campos';
       this.avisar();
-    }else{
-      if(this.eventsEditar[0].start>=this.eventsEditar[0].end){
-        this.mensajeMostrar='La fecha inicial debe ser menor a la fecha final';
-        this.avisar();
-      }else{
-        this.cerrarPopUp();
-        this.agregarEvento();
-      }      
+      return false;
     }
+    if(this.eventsEditar[0].start>=this.eventsEditar[0].end){
+      this.mensajeMostrar='La fecha inicial debe ser menor a la fecha final';
+      this.avisar();
+      return false;
+    }     
+    if(this.descripcionEvento==null || this.capacidadMaxima==null || this.requisitosEvento==null){
+      this.mensajeMostrar='Debe llenar los detalles del evento';
+      this.avisar();
+      return false;
+    }
+    return true;   
     
   }
 
@@ -412,17 +421,15 @@ export class EventoComponent implements OnInit {
       inicio: evento.start,
       fin: evento.end,
       titulo: evento.title,
-      requisitos: null,
-      descripcion: null,
+      requisitos: this.requisitosEvento,
+      descripcion: this.descripcionEvento,
+      capacidad_maxima: this.capacidadMaxima
     };
 
     eventoEnviar.push(data);
     this.eventosService.crearEvento(data).subscribe(
       response => {         
-        console.log(response); 
-        this.eventsEditar[0].id=response.id;
-        this.events.push(this.eventsEditar[0]);
-        this.refresh.next();
+        this.cargarTodosLosEventos();
       }, error => {
         console.log("**obtenerEventos***"+error);
       }      
@@ -455,9 +462,8 @@ export class EventoComponent implements OnInit {
     
     let indice = this.eventosTodos.indexOf( this.eventosTodos.find(function(element) {
       return element.id == idEvento;
-    }));
+    }));   
     
-
     this.descripcionEvento=this.eventosTodos[indice].descripcion;
     this.requisitosEvento=this.eventosTodos[indice].requisitos;
     if(this.eventosTodos[indice].capacidad_maxima == -1){
@@ -530,7 +536,7 @@ export class EventoComponent implements OnInit {
             (<HTMLInputElement>document.getElementById('labelInscripcionFa')).className='custom-inscribir';   
           }
         }, error => {
-          this.mensajeMostrar='El evento ya ha alcanzado su capacidad máxima';
+          this.mensajeMostrar='Ha ocurrido un error inscribiendose';
           this.avisar();
           console.log("**suscribirse***"+error);
         }      

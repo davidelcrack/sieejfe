@@ -2,7 +2,7 @@
 <div class="calendarioMargen">
 
 <div class="input-group" style="float:right;">
-  <a class="fa fa-plus-circle" (click)="abrirAdicionEvento() ; mostrarEventos=true;" ></a>
+  <a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="abrirAdicionEvento() ; mostrarEventos=true;" ></a>
   <a class="fa fa-list-ul" (click)="abrirTodosEventos() ; mostrarEventos=true;" ></a>
   <a class="{{misContactosSt}}" (click)="mostrarMisEventos()" ngbTooltip="{{mensajeTooTip}}"></a>  
 </div>
@@ -227,30 +227,49 @@
           </div>
         </form>
 
-        <form class="form-horizontal">
-          <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
-            <div class="form-group">
-              <div class="col-sm-2">
-                <input type="text" class="form-control" id="personalizadoLabel{{idActual}}{{i}}" placeholder="Nombre" name="personalizadoLabel{{idActual}}{{i}}"
-                  [(ngModel)]="personalizados.nombre" (ngModelChange)="cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)">
-              </div>
-                  <div class="col-sm-10">          
-                <input type="text" class="form-control" id="personalizadoInput{{idActual}}{{i}}" placeholder="Ingrese descripción" name="personalizadoLabel{{idActual}}{{i}}"
-                  [(ngModel)]="personalizados.descripcion" (ngModelChange)="cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)">
+        <div *ngIf="accion==1">
+          <form class="form-horizontal">
+            <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" id="personalizadoLabel{{idActual}}{{i}}" placeholder="Nombre" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.nombre" (ngModelChange)="cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)">
+                </div>
+                    <div class="col-sm-10">          
+                  <input type="text" class="form-control" id="personalizadoInput{{idActual}}{{i}}" placeholder="Ingrese descripción" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.descripcion" (ngModelChange)="cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)">
+                </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+
+        <div *ngIf="accion==2">
+          <form class="form-horizontal">
+            <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" id="personalizadoLabel{{idActual}}{{i}}" placeholder="Nombre" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.nombre">
+                </div>
+                    <div class="col-sm-10">          
+                  <input type="text" class="form-control" id="personalizadoInput{{idActual}}{{i}}" placeholder="Ingrese descripción" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.descripcion">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
 
       </div>
       
         <br><br>
-        <!-- <div *ngIf="accion==2"> -->
-          <!-- <div class="input-group centered">
+        <div *ngIf="accion==2">
+          <div class="input-group centered">
             <button  class="btn btn-info btn-lg guardar" type="button" (click)="guardarCambios()">{{'EVENTOS.SAVE'| translate}}</button>       
             <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUp()">{{'EVENTOS.CANCEL'| translate}}</button>
-          </div> -->
-        <!-- </div> -->
+          </div> 
+        </div>
     </div>
 </div>
 
