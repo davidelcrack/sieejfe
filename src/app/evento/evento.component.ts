@@ -423,7 +423,8 @@ export class EventoComponent implements OnInit {
       titulo: evento.title,
       requisitos: this.requisitosEvento,
       descripcion: this.descripcionEvento,
-      capacidad_maxima: this.capacidadMaxima
+      capacidad_maxima: this.capacidadMaxima,
+      atrPersonalizados : this.atributosPersonalizados
     };
 
     eventoEnviar.push(data);
