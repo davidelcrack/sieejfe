@@ -6,4 +6,5 @@
 export const environment = {
   production: false,
   url:"http://35.185.90.153:8080/sice2-backend/"
+  //url:"http://10.151.101.99:8080/"
 };

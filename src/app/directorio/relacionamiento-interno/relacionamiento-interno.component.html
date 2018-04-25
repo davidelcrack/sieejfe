@@ -22,7 +22,7 @@
                 <a class="acordeonButton labelAcordeon">{{ universidad.nombre }}</a>
               </div>
               <br>
-              <div class="input-group">
+              <div class="input-group padInferior">
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(universidad.url)"></a>
                 <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(universidad)" ></a>
                 <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(universidad.id)" ></a> 
@@ -55,7 +55,7 @@
                   <a class="acordeonButton labelAcordeon">{{ gobierno.nombre }}</a>
                 </div>
                 <br>
-                <div class="input-group">
+                <div class="input-group padInferior">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(gobierno.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(gobierno)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(gobierno.id)" ></a> 
@@ -116,7 +116,7 @@
                 <a class="acordeonButton labelAcordeon">{{ ong.nombre }}</a>
               </div>
               <br>
-              <div class="input-group">
+              <div class="input-group padInferior">
                 <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ong.url)"></a>
                 <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(ong)" ></a>
                 <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(ong.id)" ></a> 
@@ -177,7 +177,7 @@
                   <a class="acordeonButton labelAcordeon">{{ mentores.nombre }}</a>
                 </div>
                 <br>
-                <div class="input-group">
+                <div class="input-group padInferior">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(mentores.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(mentores)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(mentores.id)" ></a> 
@@ -210,7 +210,7 @@
                   <a class="acordeonButton labelAcordeon">{{ financiador.nombre }}</a>
                 </div>
                 <br>
-                <div class="input-group">
+                <div class="input-group padInferior">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(financiador.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(financiador)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(financiador.id)" ></a> 
@@ -257,7 +257,7 @@
                   <a class="acordeonButton labelAcordeon">{{ acelerador.nombre }}</a>
                 </div>
                 <br>
-                <div class="input-group">
+                <div class="input-group padInferior">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioNacional(acelerador)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioNacional(acelerador.id)" ></a> 

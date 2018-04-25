@@ -50,7 +50,7 @@
                   <a class="acordeonButton labelAcordeon">{{ institucion.nombre }}</a>
                 </div>
                 <br>
-                <div class="input-group">
+                <div class="input-group padInferior">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
@@ -81,7 +81,7 @@
               <a class="acordeonButton labelAcordeon">{{ acelerador.nombre }}</a>
             </div>
             <br>
-            <div class="input-group">
+            <div class="input-group padInferior">
               <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
               <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
               <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
@@ -129,7 +129,7 @@
                   <a class="acordeonButton labelAcordeon">{{ ausjal.nombre }}</a>
                 </div>
                 <br>
-                <div class="input-group">
+                <div class="input-group padInferior">
                   <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ausjal.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(ausjal)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(ausjal.id)" ></a> 
