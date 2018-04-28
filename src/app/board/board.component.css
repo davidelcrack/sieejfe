@@ -73,7 +73,7 @@ p.labelPanel{
 }
 
 .recuadro{
-    background-color:rgb(231, 208, 114);
+    background-color:rgb(206, 202, 186);
     text-align: center!important;
     padding: 3rem!important;
     border-radius: .25rem!important;
@@ -81,6 +81,16 @@ p.labelPanel{
     line-height: 1.2;
     margin-right: 20px;
     margin-left: 20px;
+}
+
+.recuadroGrande{
+    background-color:rgb(231, 208, 114);
+    text-align: center!important;
+    padding: 3rem!important;
+    border-radius: .25rem!important;
+    font-weight: 500;
+    line-height: 1.2;
+    min-height: 400px;
 }
 
 .textoRecuadro{
