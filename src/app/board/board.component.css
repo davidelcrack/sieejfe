@@ -84,7 +84,8 @@ p.labelPanel{
 }
 
 .recuadroGrande{
-    background-color:rgb(231, 208, 114);
+    /* background-color:#fcf8e3; */
+    background-color:#f0e8bf;
     text-align: center!important;
     padding: 3rem!important;
     border-radius: .25rem!important;
@@ -105,10 +106,30 @@ p.labelPanel{
     color: inherit;
 }
 
+.recuadroGrande .section-heading-upper {
+    display: block;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #8a6d3b;
+}
+
+.recuadroGrande .section-heading-lower {
+    display: block;
+    font-size: 3rem;
+    font-weight: 100;
+    color: #8a6d3b
+}
+
 .section-heading .section-heading-upper {
     display: block;
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 800;    
+}
+
+.mb-3{
+    display: block;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .section-heading-lower {

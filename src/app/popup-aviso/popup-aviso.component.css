@@ -14,12 +14,12 @@
 }
 
 #overlayAviso div.modalShow {
-  background-color: #fefefe;
+  background-color: #f2dede ;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
-  border: 2px solid darkred;
+  border: 2px solid #ebccd1;
   border-radius: 8px;
   /* max-height: 800px;
   overflow: scroll; */
@@ -41,12 +41,12 @@
 }
 
 #overlayAvisoInfoExito div.modalShowInfoExito {
-  background-color: #fefefe;
+  background-color: #dff0d8;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
-  border: 2px solid darkgreen;
+  border: 2px solid #d6e9c6;
   border-radius: 8px;
   /* max-height: 800px;
   overflow: scroll; */
@@ -80,17 +80,24 @@ body {
   width: 100%; /* Could be more or less, depending on screen size */
 }
 
-h4 {
+h4.alerta {
   margin: 0 0 10px;
-  color:black;
+  color: #a94442;
+}
+
+h4.exito {
+  margin: 0 0 10px;
+  color: #3c763d;
 }
 
 h3.alerta {
+  font-weight: 700;
   margin: 0 0 10px;
-  color: darkred;
+  color: #a94442;
 }
 
 h3.exito {
+  font-weight: 700;
   margin: 0 0 10px;
-  color: darkgreen;
+  color: #3c763d;
 }
