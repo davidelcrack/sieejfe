@@ -1,18 +1,18 @@
 <br>
 <div class="quienesMargen">
-<h2>¿Quiénes Somos?</h2>
-<br>
-<p>
+<!-- <h2>¿Quiénes Somos?</h2>
+<br> -->
+<!-- <p>
   Somos un grupo de estudiantes de Ingeniería de Sistemas de la Pontificia Universidad Javeriana conformado por:<br>
   David Acuña -  david.acuna@javeriana.edu.co <br>
   Daniel Sanchez -  d-sancheza@javeriana.edu.co <br>
   Brayan Guerrero -  b.guerrero@javeriana.edu.co <br>
 
   
-</p>
+</p> -->
 <br>
 
-<h2>Enlaces</h2>
+<h2>Enlaces de Interés</h2>
 <br>
 
 <a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="agregarEnlace(undefined)" ></a>
@@ -36,10 +36,10 @@
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container *ngIf="esAdmin" matColumnDef="Editar">
+      <!-- <ng-container *ngIf="esAdmin" matColumnDef="Editar">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
         <mat-cell *matCellDef="let row" (click)="agregarEnlace(row)"></mat-cell>
-      </ng-container>
+      </ng-container> -->
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">

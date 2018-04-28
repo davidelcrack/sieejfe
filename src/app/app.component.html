@@ -4,15 +4,14 @@
     <header>
         <div class="container-fluid brand-container">
             <div >
-                <a href="http://www.javeriana.edu.co"> <img src="assets/images/header/tiara.png" alt="Pontificia Universidad Javeriana"></a>            
-                <img class="pull-right content-to-hide" src="assets/images/header/logoSICE2.png" alt="MAX">
+                <a target="_blank" href="http://www.javeriana.edu.co"> <img src="assets/images/header/tiara.png" alt="Pontificia Universidad Javeriana"></a>            
+                <img class="pull-right content-to-hide" src="assets/images/header/logoV2SICE2.png" alt="MAX">
         </div>       
         </div>
         
         <div class="container-fluid navtopdiv"></div>
         <ul class="topnav">
-            <li><a class="active dropA fa fa-home" (click)="irAHome()"></a></li>            
-            <li><a (click)="openTabs('aboutus')">{{'ENTORNO.QUIENES'| translate}}</a></li>
+            <li><a class="active dropA fa fa-home" (click)="irAHome()"></a></li>                        
             <!-- <li class="dropdown dropdownNav"><a class="dropA">{{'ENTORNO.ADMINISTRACION'| translate}}</a>
                 <ul class="dropMioJaja">
                     <li><a (click)="openTabs('usuario')" >{{'ENTORNO.USUARIOS'| translate}}</a></li>
@@ -29,7 +28,8 @@
                 </ul>
             </li>
             <li><a (click)="openTabs('directorio')">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
-           
+            <li><a (click)="openTabs('aboutus')">{{'ENTORNO.QUIENES'| translate}}</a></li>
+            
 
             <li class="right"><a class="fa fa-sign-out" (click)="logout()" ></a></li>
             <li class="right"><a class="fa fa-user-circle-o">

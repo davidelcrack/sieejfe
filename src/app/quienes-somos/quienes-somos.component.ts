@@ -43,7 +43,7 @@ export class QuienesSomosComponent implements OnInit {
     this.enlaces.push(data);
   }
   
-  displayedColumns = ['Nombre' , 'Editar'];
+  displayedColumns = ['Nombre']; //, 'Editar'
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -20,7 +20,7 @@
     "RELACIONAMIENTO" : "Relacionamiento",
     "ADMINISTRACION" : "Administración",
     "UNIVERSIDAD" : "Universidad",
-    "QUIENES" : "¿Quiénes Somos?",
+    "QUIENES" : "Enlaces de Interés",
     "OFERTASERVICIOS" : "Oferta de Servicios",
     "SOLICITARSERVICIO" : "Solicitar Servicios",
     "RESPONDERSOLICITUDES" : "Responder Solicitudes"
@@ -42,7 +42,7 @@
     "Directorio"  : "Relacionamiento",
     "Universidad" : "Universidad",
     "Servicios" : "Servicios",
-    "aboutus" : "¿Quiénes Somos?",
+    "aboutus" : "Enlaces de Interés",
     "solicitarServicio" : "Solicitar Servicio",
     "solicitudesServicio" : "Responder Solicitudes"
   },
@@ -60,8 +60,8 @@
     "SPONSOR" : "Sponsor",
     "MENTORES" : "Red de Mentores",
     "FINANCIADORES" : "Red de Financiadores",
-    "INCUBADORES" : "Red de Incubadores",
-    "ACELERADORES" : "Red de Aceleradores",
+    "INCUBADORES" : "Red de Encubadores",
+    "ACELERADORES" : "Red de Aceleradoras",
     "CIENTIFICA" : "Asociaciones Científicas",
     "LABORATORIO" : "Laboratorios de Investigación",
     "INSTITUCIONES" : "Universidades e intituciones",
