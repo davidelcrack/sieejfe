@@ -1,0 +1,62 @@
+<div id="overlayListadoEventos">
+  
+  <div class="modalShow">      
+    <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+            
+      <div>
+      <h2>Lista de Eventos</h2>
+
+      <br>
+
+      <div class="mat-app-background basic-container">
+
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+          </mat-form-field>
+        </div>
+
+        <div class="example-container mat-elevation-z8" >
+
+          <mat-table #tableListadoEventos [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+              <mat-cell *matCellDef="let row"> <a> {{row.id}} </a> </mat-cell>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="Titulo">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
+              <mat-cell *matCellDef="let row"> <a> {{row.titulo}} </a> </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Inicio">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Inicio </mat-header-cell>
+              <mat-cell *matCellDef="let row"> <a> {{row.inicio}} </a> </mat-cell>
+            </ng-container>
+
+            <!-- Info Column -->
+            <ng-container matColumnDef="Fin">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Fin </mat-header-cell>
+              <mat-cell *matCellDef="let row">  <a> {{row.fin}} </a> </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+          </mat-table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+
+      </div>
+      </div>
+
+
+
+
+  </div>
+</div>

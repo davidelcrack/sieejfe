@@ -29,6 +29,7 @@ import { PopupAvisoComponent } from '../popup-aviso/popup-aviso.component';
 import { constructDependencies } from '@angular/core/src/di/reflective_provider';
 import { FormularioPersonalizadoComponent } from './formulario-personalizado/formulario-personalizado.component';
 import { debounce } from 'rxjs/operators/debounce';
+import { ListadoEventosComponent } from './listado-eventos/listado-eventos.component';
 
 
 const colors: any = {
@@ -64,6 +65,9 @@ export class EventoComponent implements OnInit {
 
   esAdmin : boolean = false;
   misContactos = false;
+
+  @ViewChild(ListadoEventosComponent) listado: ListadoEventosComponent;
+
   ngOnInit() {
     
     this.cargarTodosLosEventos();
@@ -347,16 +351,7 @@ export class EventoComponent implements OnInit {
 
   abrirTodosEventos(){
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
-    this.accion=3;
-    this.eventsEditar=[];
-
-    this.eventsEditar=this.events;
-    
-    //this.refresh.next();
-    
-    let el: any;
-    el = document.getElementById("overlayEvento");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    this.listado.abrirPopUp(this.eventosTodos);
   }
 
   guardarCambios(){
