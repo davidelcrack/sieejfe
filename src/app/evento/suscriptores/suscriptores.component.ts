@@ -87,6 +87,7 @@ export class SuscriptoresComponent implements OnInit {
   
   displayedColumns = ['id', 'Nombre', 'Estado', 'informacion'];
   dataSource: MatTableDataSource<any>;
+  highlightedRows = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -154,6 +155,16 @@ export class SuscriptoresComponent implements OnInit {
     let el : any;
     el = document.getElementById("overlayDetallesFinos");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  agregarSeleccion(row){
+    let posicion= this.highlightedRows.indexOf(row);
+    if(posicion == -1 ){
+      this.highlightedRows.push(row);
+    }else{
+      this.highlightedRows.splice(posicion,1);
+    }
+    console.log(this.highlightedRows);
   }
   
 }

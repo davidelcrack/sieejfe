@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LogoutService } from './servicios/logout.service';
 import { TabsComponent } from './tabs/tabs.component';
 import { TranslateService } from 'ng2-translate';
+//import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -254,5 +255,25 @@ export class AppComponent {
       }
     })
   }
+
+  // static mostrarLaNotificacion: boolean = false;
+  // timer: any;
+  // suscription: any;
+
+
+  /*mostrarNotificacion() {
+    console.log('mostrarNotificacion : entro a mostrarNotificacion')
+    AppComponent.mostrarLaNotificacion = true;
+    this.timer = Observable.timer(3000);
+    this.suscription = this.timer.subscribe(t => {
+      AppComponent.mostrarLaNotificacion = false;
+      this.suscription.unsubscribe();
+    });
+
+  }
+
+  get staticMostrarLaNotificacion() {
+    return AppComponent.mostrarLaNotificacion;
+  }*/
   
 }

@@ -37,11 +37,11 @@ export class DominioPopUpComponent implements OnInit {
     console.log('cambio : entro a cambio');
     console.log(atributo, valor);
 
-    let mensaje = { id: this.dominio.id  , accion: 'editarInventarioImagen' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
+    let mensaje = { id: this.dominio.id  , accion: 'editarDominio' , atributo: atributo , valor: valor , prioridad: true, tipoDato: tipo }
     
     console.log(mensaje);
 
-    /*let observable = this.serviceCola.agregarACola(mensaje);
+    let observable = this.serviceCola.agregarACola(mensaje);
 
     if (observable) {
       observable.subscribe(response => {
@@ -51,7 +51,7 @@ export class DominioPopUpComponent implements OnInit {
         error => {
           console.log("Error al editar descripcion imagen");
         });
-    } */
+    } 
 
   }
 

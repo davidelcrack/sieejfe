@@ -181,7 +181,8 @@ registerLocaleData(localeEsCo);
     UsuarioService,
     DirectorioService,
     EventosService,
-    EmprendimientoServicesService
+    EmprendimientoServicesService,
+    //AppComponent
   ],
   bootstrap: [AppComponent],
   exports : [DateTimePickerComponent],

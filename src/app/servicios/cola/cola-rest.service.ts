@@ -4,6 +4,7 @@ import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../environments/environment';
+//import { AppComponent } from '../../app.component';
 
 @Injectable()
 export class ColaRestService {
@@ -36,5 +37,21 @@ export class ColaRestService {
 
   }
 
+  /*
+  enviar(copia) : Observable<any>{
+    //this.appComponent.mostrarNotificacion();
+    console.log("mensaje", copia)
+    return this.http.post(
+      environment.url + 'mensaje',
+      copia,
+      { withCredentials: true })
+      .map((res: Response) =>{
+        this.appComponent.mostrarNotificacion();
+        return res.json()
+      } );
+
+  }
+
+   */
 
 }

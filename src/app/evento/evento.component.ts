@@ -767,5 +767,15 @@ export class EventoComponent implements OnInit {
     );
   }
 
+  // validarFechaInscribir(){
+  //   debugger;
+  //   let hoy = new Date();
+  //   if(this.evento.fin>hoy){
+  //     return false;
+  //   }else{
+  //     return true;
+  //   }
+  // }
+
   
 }

@@ -47,7 +47,9 @@ evento : {{idEvento}} -->
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      <mat-row *matRowDef="let row; columns: displayedColumns;" 
+        (click)="agregarSeleccion(row)"
+        [style.background]="highlightedRows.indexOf(row) != -1 ? 'lightblue' : ''">
       </mat-row>
     </mat-table>
 

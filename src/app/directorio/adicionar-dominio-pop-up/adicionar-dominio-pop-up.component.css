@@ -51,3 +51,41 @@ body {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .centered button,
+  .centered button:focus
+  {
+    background-color: #000066;
+    color : #ffffff;
+    border-color: #ffffff;  
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .centered button:hover.guardar,
+  .centered button:visited,
+  .centered button:active
+  {
+    background-color: green ;
+    color : #ffffff;
+    border-color: #ffffff;  
+  }
+
+  .centered button:hover.cancelar,
+  .centered button:visited,
+  .centered button:active
+  {
+    background-color:  red ;
+    color : #ffffff;
+    border-color: #ffffff;  
+  }
+
+  .input-group{
+      display:block !important;
+  }
