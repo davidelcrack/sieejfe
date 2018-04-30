@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, EventEmitter } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { EventosService } from '../../servicios/eventos/eventos.service';
+import { DetallesCorreoComponent } from './detalles-correo/detalles-correo.component';
+import { Output } from '@angular/core/src/metadata/directives';
+import { concat } from 'rxjs/operator/concat';
 
 @Component({
   selector: 'app-suscriptores',
@@ -41,7 +44,8 @@ export class SuscriptoresComponent implements OnInit {
             id: element.id,
             apellidos : element.apellidos,
             nombre : element.nombre,
-            estado : element.username
+            username : element.username,
+            email : element.email
           };
           this.suscriptores.push(data);          
         });
@@ -85,7 +89,7 @@ export class SuscriptoresComponent implements OnInit {
 
   }
   
-  displayedColumns = ['id', 'Nombre', 'Estado', 'informacion'];
+  displayedColumns = ['id', 'Nombre', 'Usuario', 'informacion'];
   dataSource: MatTableDataSource<any>;
   highlightedRows = [];
 
@@ -117,12 +121,12 @@ export class SuscriptoresComponent implements OnInit {
       });
   }
 
-  // exportarPDF(){
-  //   this.eventosService.exportarPDF(this.idEvento).subscribe(
-  //     response =>{
-  //       console.log(response);
-  //     });
-  // }
+  exportarPDF(){
+    this.eventosService.exportarPDF(this.idEvento).subscribe(
+      response =>{
+        console.log(response);
+      });
+  }
   atributosPersonalizados = new Array();
   
   abrirDetalles(row : any){    
@@ -167,8 +171,30 @@ export class SuscriptoresComponent implements OnInit {
     console.log(this.highlightedRows);
   }
 
+  @ViewChild(DetallesCorreoComponent) detallesCorreo : DetallesCorreoComponent;  
+
   enviarCorreos(){
-    console.log('enviarCorreos : entro a enviarCorreos')
+    console.log('enviarCorreos : entro a enviarCorreos');
+    this.detallesCorreo.abrirPopUp();
+   
+  }
+
+  onNotifyCorreos(e){
+    
+    let detallesCorreo ={
+      usuario: this.highlightedRows,
+      asunto:e.asunto,
+      descripcion : e.descripcion
+    }
+
+    this.eventosService.enviarCorreos(detallesCorreo).subscribe(
+      response =>{
+        console.log(response);
+      },
+      error =>{
+        console.log('Error en enviar varios correos')
+      }
+    )
   }
   
 }

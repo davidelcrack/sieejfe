@@ -1,0 +1,27 @@
+<div id="overlayDetallesDeCorreo">
+  
+  <div class="modalShow">      
+      <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+      
+      <h3>DETALLES DEL CORREO</h3>   
+      
+      
+      <form>
+        <div class="forma">
+            
+          <input placeholder="NombreCorreo" #nombreCorreo maxlength="80" [(ngModel)]="asunto" name="NameCorreo">
+                
+          <br><br>
+    
+          <textarea placeholder="MensajeCorreo" #msnCorreo maxlength="300" [(ngModel)]="descripcion" name="MsnCorreo" cols="25"></textarea>
+        
+          <input (click)="enviarCorreo()" type="submit" value="Enviar">
+    
+        </div>
+      </form>
+      <br><br>
+
+  </div>
+
+  
+</div>

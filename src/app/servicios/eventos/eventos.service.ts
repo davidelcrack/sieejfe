@@ -28,6 +28,12 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
+  enviarCorreos(detallesCorreo){     
+    console.log(detallesCorreo); 
+    return this.http.post(this.backendUrl + "notificarUsuarios/", detallesCorreo, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
   suscribirse(id:any){
     console.log(id);
     return this.http.get(this.backendUrl + "inscribirse/"+id , { withCredentials: true })
@@ -56,10 +62,10 @@ export class EventosService {
     .map((res: Response) => res.json());
   }
 
-  // exportarPDF(id : any){
-  //   return this.http.get(this.backendUrl + "exportarExcelInscritos/"+ id , { withCredentials: true })
-  //   .map((res: Response) => res.json());
-  // }
+  exportarPDF(id : any){
+    return this.http.get(this.backendUrl + "exportarPdfInscritos/"+ id , { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
 
   getDetallesUsuario(evento, usuario){
     console.log('getDetallesUsuario : entro a getDetallesUsuario')

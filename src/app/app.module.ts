@@ -82,6 +82,7 @@ import { EmprendimientoServicesService } from './servicios/serviciosDeEmprendimi
 import { VerSolicitudesSeviciosComponent } from './servicios-emprendimiento/ver-solicitudes-sevicios/ver-solicitudes-sevicios.component';
 import { FormularioPersonalizadoComponent } from './evento/formulario-personalizado/formulario-personalizado.component';
 import { ListadoEventosComponent } from './evento/listado-eventos/listado-eventos.component';
+import { DetallesCorreoComponent } from './evento/suscriptores/detalles-correo/detalles-correo.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -119,7 +120,8 @@ registerLocaleData(localeEsCo);
     PopupAvisoComponent,
     VerSolicitudesSeviciosComponent,
     FormularioPersonalizadoComponent,
-    ListadoEventosComponent
+    ListadoEventosComponent,
+    DetallesCorreoComponent
   ],
   imports: [
     CommonModule,

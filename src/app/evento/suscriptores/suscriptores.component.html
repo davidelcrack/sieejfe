@@ -35,9 +35,9 @@ evento : {{idEvento}} -->
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="Estado">
+      <ng-container matColumnDef="Usuario">
         <mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </mat-header-cell>
-        <mat-cell *matCellDef="let row"> <a> {{row.estado}} </a> </mat-cell>
+        <mat-cell *matCellDef="let row"> <a> {{row.username}} </a> </mat-cell>
       </ng-container>
 
       <!-- Info Column -->
@@ -97,3 +97,5 @@ evento : {{idEvento}} -->
   
     
   </div>
+
+  <app-detalles-correo (notify)="onNotifyCorreos($event)"></app-detalles-correo>
