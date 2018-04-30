@@ -123,3 +123,24 @@ div.forma {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+/* Boton  */
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #000066;
+  color : #ffffff;
+  border-color: #ffffff;  
+  border-radius: 8px;
+}
+
+.custom-file-upload:hover,
+.custom-file-upload:visited,
+.custom-file-upload:active
+{
+background-color: #ffffff ;
+color : #000066;
+border: 1px solid #000066;
+}

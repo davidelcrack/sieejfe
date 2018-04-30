@@ -61,7 +61,11 @@ evento : {{idEvento}} -->
 
 <br><br>
 
-
+<div *ngIf="highlightedRows.length>0">  
+  <label for="file-upload" class="custom-file-upload" (click)="enviarCorreos()">
+      <i class="fa fa-paper-plane-o"></i> Enviar Correos
+  </label>
+</div>
 
 <!-- ********** DETALLES PERSONALIZADO ********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** -->
 

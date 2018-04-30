@@ -63,7 +63,11 @@ export class RelacionamientoInternoComponent implements OnInit {
   dominiosNacionales = new  Array ();
   
   abrirLink(u : any){
-    window.open(u,'_blank'); 
+    if(u.startsWith("http")){
+      window.open(u,'_blank'); 
+    }else{
+      window.open('http://'+u,'_blank'); 
+    }
   }
 
   getDominios(tipo : any){

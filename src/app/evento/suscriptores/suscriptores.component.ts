@@ -166,5 +166,9 @@ export class SuscriptoresComponent implements OnInit {
     }
     console.log(this.highlightedRows);
   }
+
+  enviarCorreos(){
+    console.log('enviarCorreos : entro a enviarCorreos')
+  }
   
 }

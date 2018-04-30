@@ -48,8 +48,12 @@ export class RelacionamientoExternoComponent implements OnInit {
 
   dominiosInternacionales = new  Array ();
   
-  abrirLink(u : any){
-    window.open(u,'_blank'); 
+  abrirLink(u : any){    
+    if(u.startsWith("http")){
+      window.open(u,'_blank'); 
+    }else{
+      window.open('http://'+u,'_blank'); 
+    }
   }
 
   getDominiosInternacionales(tipo : any){
