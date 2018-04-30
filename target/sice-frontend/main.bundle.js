@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/logoV2SICE2.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento')\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio')\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio')\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento')\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio')\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('aboutus')\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/logoV2SICE2.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento')\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio')\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio')\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento')\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio')\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('aboutus')\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
 
 /***/ }),
 
@@ -67,6 +67,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//import { Observable } from 'rxjs/Rx';
 var AppComponent = /** @class */ (function () {
     function AppComponent(route, router, eref, logoutService, translate) {
         this.route = route;
@@ -398,6 +399,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__servicios_emprendimiento_ver_solicitudes_sevicios_ver_solicitudes_sevicios_component__ = __webpack_require__("../../../../../src/app/servicios-emprendimiento/ver-solicitudes-sevicios/ver-solicitudes-sevicios.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__evento_formulario_personalizado_formulario_personalizado_component__ = __webpack_require__("../../../../../src/app/evento/formulario-personalizado/formulario-personalizado.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__ = __webpack_require__("../../../../../src/app/evento/listado-eventos/listado-eventos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__ = __webpack_require__("../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -411,6 +413,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import { EmbedVideo } from 'ngx-embed-video';
+
 
 
 
@@ -494,7 +497,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_46__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */],
                 __WEBPACK_IMPORTED_MODULE_48__servicios_emprendimiento_ver_solicitudes_sevicios_ver_solicitudes_sevicios_component__["a" /* VerSolicitudesSeviciosComponent */],
                 __WEBPACK_IMPORTED_MODULE_49__evento_formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */]
+                __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__["a" /* DetallesCorreoComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_36__angular_common__["b" /* CommonModule */],
@@ -556,7 +560,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_26__servicios_usuario_service__["a" /* UsuarioService */],
                 __WEBPACK_IMPORTED_MODULE_29__servicios_directorio_directorio_service__["a" /* DirectorioService */],
                 __WEBPACK_IMPORTED_MODULE_44__servicios_eventos_eventos_service__["a" /* EventosService */],
-                __WEBPACK_IMPORTED_MODULE_47__servicios_serviciosDeEmprendimiento_emprendimiento_services_service__["a" /* EmprendimientoServicesService */]
+                __WEBPACK_IMPORTED_MODULE_47__servicios_serviciosDeEmprendimiento_emprendimiento_services_service__["a" /* EmprendimientoServicesService */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]],
             exports: [__WEBPACK_IMPORTED_MODULE_37__pickers_date_time_picker_component__["a" /* DateTimePickerComponent */]],
@@ -846,7 +850,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#overlayAdicion {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n}\r\n\r\n#overlayAdicion div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n}\r\n\r\nbody {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n.close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 80%; /* Could be more or less, depending on screen size */\r\n}", ""]);
+exports.push([module.i, "#overlayAdicion {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n}\r\n\r\n#overlayAdicion div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n}\r\n\r\nbody {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n.close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 80%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\n.centered {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n\r\n.centered button,\r\n  .centered button:focus\r\n  {\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n  }\r\n\r\n.centered button:hover.guardar,\r\n  .centered button:visited,\r\n  .centered button:active\r\n  {\r\n    background-color: green ;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n  }\r\n\r\n.centered button:hover.cancelar,\r\n  .centered button:visited,\r\n  .centered button:active\r\n  {\r\n    background-color:  red ;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n  }\r\n\r\n.input-group{\r\n      display:block !important;\r\n  }\r\n", ""]);
 
 // exports
 
@@ -859,7 +863,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"overlayAdicion\">\n  \n  <div *ngIf=\"mostrarAdicionDominio\" class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>Agregar un Dominio</h3>   \n      {{tipo}}\n      \n      <form class=\"form-horizontal\">\n        \n      </form>\n      <br><br>\n  </div>\n\n  \n</div>"
+module.exports = "<div id=\"overlayAdicion\">\n  \n  <div *ngIf=\"mostrarAdicionDominio\" class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>AGREGAR DOMINIO {{tipo}}</h3>   \n      \n      \n      <form class=\"form-horizontal\">\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\n          <div class=\"col-sm-10\">\n            <input type=\"text\" class=\"form-control\" id=\"nombreUDirectorio\" placeholder=\"Ingrese nombre\" name=\"nombreUDirectorio\"\n              [(ngModel)]=\"dominio.nombre\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"pwd\">URL</label>\n          <div class=\"col-sm-10\">          \n            <input type=\"text\" class=\"form-control\" id=\"urlUDirectorio\" placeholder=\"Ingrese url\" name=\"urlUDirectorio\"\n              [(ngModel)]=\"dominio.url\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"pwd\">Clasificación</label>\n          <div class=\"col-sm-10\"> \n            <select class=\"form-control\" [(ngModel)]=\"clasificacion\" name=\"selectDominios\">\n              <option class=\"optSelect\" *ngFor=\"let clasi of clasificacionDominios\">{{clasi.identificador}}</option>\n            </select> \n          </div>\n        </div>\n      </form>\n      <br><br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\n      </div> \n\n  </div>\n\n  \n</div>"
 
 /***/ }),
 
@@ -869,6 +873,7 @@ module.exports = "<div id=\"overlayAdicion\">\n  \n  <div *ngIf=\"mostrarAdicion
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdicionarDominioPopUpComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__servicios_directorio_directorio_service__ = __webpack_require__("../../../../../src/app/servicios/directorio/directorio.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -879,9 +884,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AdicionarDominioPopUpComponent = /** @class */ (function () {
-    function AdicionarDominioPopUpComponent() {
+    function AdicionarDominioPopUpComponent(directorioService) {
+        this.directorioService = directorioService;
         this.mostrarAdicionDominio = false;
+        this.dominio = { nombre: null, url: null };
+        this.clasificacionDominios = new Array();
     }
     AdicionarDominioPopUpComponent.prototype.ngOnInit = function () {
     };
@@ -895,9 +904,68 @@ var AdicionarDominioPopUpComponent = /** @class */ (function () {
     AdicionarDominioPopUpComponent.prototype.abrirAdicionarDominio = function (tipo) {
         console.log('abrirAdicionarDominio : entro a abrirAdicionarDominio');
         this.tipo = tipo;
+        if (this.tipo == 'NACIONAL') {
+            this.nacional = true;
+            var data = void 0;
+            data = { nombre: 'UNIVERSIDAD', identificador: 'UNIVERSIDAD' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'GOBIERNO', identificador: 'GOBIERNO' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'REGULADORES', identificador: 'REGULADORES' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'INVESTIGACION', identificador: 'INVESTIGACION' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'ONG', identificador: 'ONG' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'INDUSTRIA', identificador: 'INDUSTRIA' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'SPONSOR', identificador: 'SPONSOR' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'RED DE MENTORES', identificador: 'RED_MENTORES' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'RED DE FINANCIADORES', identificador: 'RED_FINANCIADORES' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'ENCUBADORES', identificador: 'INCUBADORES' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'RED DE ACELERADORAS', identificador: 'RED_ACELERADORAS' };
+            this.clasificacionDominios.push(data);
+        }
+        else {
+            this.nacional = false;
+            var data = void 0;
+            data = { nombre: 'CIENTIFICA', identificador: 'CIENTIFICA' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'LABORATORIO', identificador: 'LABORATORIO' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'UNIVERSIDAD', identificador: 'UNIVERSIDAD' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'RED DE ACELERADORAS', identificador: 'RED_ACELERADORAS' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'TECNOLOGICOS', identificador: 'TECNOLOGICOS' };
+            this.clasificacionDominios.push(data);
+            data = { nombre: 'AUSJAL', identificador: 'AUSJAL' };
+            this.clasificacionDominios.push(data);
+        }
         var el;
         el = document.getElementById("overlayAdicion");
         el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    AdicionarDominioPopUpComponent.prototype.guardarCambios = function () {
+        var _this = this;
+        var pojoDominio = {
+            nombre: this.dominio.nombre,
+            url: this.dominio.url,
+            nacional: this.nacional,
+            activo: true,
+            tipo: this.clasificacion
+        };
+        console.log(pojoDominio);
+        this.directorioService.crearDominio(pojoDominio).subscribe(function (response) {
+            console.log(response);
+            _this.cerrarPopUp();
+        }, function (error) {
+            console.log('Error creando dominio');
+        });
     };
     AdicionarDominioPopUpComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -905,7 +973,7 @@ var AdicionarDominioPopUpComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component.html"),
             styles: [__webpack_require__("../../../../../src/app/directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_directorio_directorio_service__["a" /* DirectorioService */]])
     ], AdicionarDominioPopUpComponent);
     return AdicionarDominioPopUpComponent;
 }());
@@ -1082,19 +1150,16 @@ var DominioPopUpComponent = /** @class */ (function () {
     DominioPopUpComponent.prototype.cambio = function (atributo, valor, tipo) {
         console.log('cambio : entro a cambio');
         console.log(atributo, valor);
-        var mensaje = { id: this.dominio.id, accion: 'editarInventarioImagen', atributo: atributo, valor: valor, prioridad: true, tipoDato: tipo };
+        var mensaje = { id: this.dominio.id, accion: 'editarDominio', atributo: atributo, valor: valor, prioridad: true, tipoDato: tipo };
         console.log(mensaje);
-        /*let observable = this.serviceCola.agregarACola(mensaje);
-    
+        var observable = this.serviceCola.agregarACola(mensaje);
         if (observable) {
-          observable.subscribe(response => {
-            console.log(response)
-    
-          },
-            error => {
-              console.log("Error al editar descripcion imagen");
+            observable.subscribe(function (response) {
+                console.log(response);
+            }, function (error) {
+                console.log("Error al editar descripcion imagen");
             });
-        } */
+        }
     };
     DominioPopUpComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1371,7 +1436,12 @@ var RelacionamientoExternoComponent = /** @class */ (function () {
         this.datos = datos;
     };
     RelacionamientoExternoComponent.prototype.abrirLink = function (u) {
-        window.open(u, '_blank');
+        if (u.startsWith("http")) {
+            window.open(u, '_blank');
+        }
+        else {
+            window.open('http://' + u, '_blank');
+        }
     };
     RelacionamientoExternoComponent.prototype.getDominiosInternacionales = function (tipo) {
         var _this = this;
@@ -1535,7 +1605,12 @@ var RelacionamientoInternoComponent = /** @class */ (function () {
         this.datos = datos;
     };
     RelacionamientoInternoComponent.prototype.abrirLink = function (u) {
-        window.open(u, '_blank');
+        if (u.startsWith("http")) {
+            window.open(u, '_blank');
+        }
+        else {
+            window.open('http://' + u, '_blank');
+        }
     };
     RelacionamientoInternoComponent.prototype.getDominios = function (tipo) {
         var _this = this;
@@ -2000,7 +2075,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/evento/evento.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<div class=\"calendarioMargen\">\r\n\r\n<div class=\"input-group\" style=\"float:right;\">\r\n  <a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirAdicionEvento() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"fa fa-list-ul\" (click)=\"abrirTodosEventos() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"{{misContactosSt}}\" (click)=\"mostrarMisEventos()\" ngbTooltip=\"{{mensajeTooTip}}\"></a>  \r\n</div>\r\n\r\n<br><br><br>\r\n<ng-template #modalContent let-close=\"close\">\r\n  <div class=\"modal-header\">\r\n    <h5 class=\"modal-title\">Event action occurred</h5>\r\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div>\r\n      Action:\r\n      <pre>{{ modalData?.action }}</pre>\r\n    </div>\r\n    <div>\r\n      Event:\r\n      <pre>{{ modalData?.event | json }}</pre>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">OK</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<div class=\"row text-center\">\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarPreviousView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.PREV'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-outline-secondary\"\r\n        mwlCalendarToday\r\n        [(viewDate)]=\"viewDate\">\r\n        {{'EVENTOS.HOY'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarNextView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.NEXT'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'es-CO' }}</h3>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'month'\"\r\n        [class.active]=\"view === 'month'\">\r\n        {{'EVENTOS.MES'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'week'\"\r\n        [class.active]=\"view === 'week'\">\r\n        {{'EVENTOS.WEEK'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'day'\"\r\n        [class.active]=\"view === 'day'\">\r\n        {{'EVENTOS.DAY'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n\r\n\r\n<div [ngSwitch]=\"view\">\r\n  <mwl-calendar-month-view\r\n    *ngSwitchCase=\"'month'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    [activeDayIsOpen]=\"activeDayIsOpen\"\r\n    (dayClicked)=\"dayClicked($event.day)\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-month-view>\r\n  <mwl-calendar-week-view\r\n    *ngSwitchCase=\"'week'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-week-view>\r\n  <mwl-calendar-day-view\r\n    *ngSwitchCase=\"'day'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-day-view>\r\n</div>\r\n\r\n<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->\r\n\r\n<div id=\"overlayEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n\r\n      <div *ngIf=\"accion==1\">\r\n        <h3>\r\n          {{'EVENTOS.EDIT'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==2\">\r\n        <h3>\r\n          {{'EVENTOS.CREATE'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==3\">\r\n        <h3>\r\n          {{'EVENTOS.LIST'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n        <!-- <button\r\n          class=\"btn btn-primary pull-right\"\r\n          (click)=\"addEvent()\">\r\n          Agregar\r\n        </button> -->\r\n        \r\n\r\n      <table class=\"table table-bordered\">\r\n\r\n        <thead>\r\n          <tr>\r\n            <th>{{'EVENTOS.NAME'| translate}}</th>     \r\n            <th>{{'EVENTOS.BEGIN'| translate}}</th>\r\n            <th>{{'EVENTOS.END'| translate}}</th>\r\n          </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          <tr *ngFor=\"let event of eventsEditar; let index = index\">\r\n            <td>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                [(ngModel)]=\"event.title\"\r\n                (ngModelChange)=\"cambio('titulo',event.title, 'STRING')\"\r\n                (keyup)=\"refresh.next()\">\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.start\"\r\n                (ngModelChange)=\"refresh.next(); cambio('inicio',event.start, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.end\"\r\n                (ngModelChange)=\"refresh.next(); cambio('fin',event.end, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n      \r\n      <label (click)=\"mostrarDetallesEdicion()\" for=\"mostrarDetallesMas\" class=\"{{masDetallesClass}}\">\r\n          <i class=\"fa fa-hand-o-down\"></i> Editar detalles\r\n      </label>\r\n\r\n      <br><br><br>\r\n\r\n      <div *ngIf=\"mostrarDetallesMas\">\r\n\r\n        <div class=\"input-group\" style=\"float:right;\">\r\n          <a class=\"fa fa-plus-circle\" (click)=\"anadirAtributo()\" ></a>        \r\n        </div>\r\n\r\n        <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Descripción</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"descripcionEventoJ\" placeholder=\"Ingrese descripción\" name=\"descripcionEventoJ\"\r\n                [(ngModel)]=\"descripcionEvento\" (ngModelChange)=\"cambio('descripcion',descripcionEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Requisitos</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"requisitosnEventoJ\" placeholder=\"Ingrese requisitos\" name=\"requisitosnEventoJ\"\r\n                [(ngModel)]=\"requisitosEvento\" (ngModelChange)=\"cambio('requisitos',requisitosEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Capacidad Máxima</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"capacidadEventoJ\" placeholder=\"Ingrese capacidad máxima\" name=\"capacidadEventoJ\"\r\n                [(ngModel)]=\"capacidadMaxima\" (ngModelChange)=\"cambio('capacidadMaxima',capacidadMaxima,'LONG')\">\r\n            </div>\r\n          </div>\r\n        </form>\r\n\r\n        <div *ngIf=\"accion==1\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\" (ngModelChange)=\"cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\" (ngModelChange)=\"cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n        <div *ngIf=\"accion==2\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n      </div>\r\n      \r\n        <br><br>\r\n        <div *ngIf=\"accion==2\">\r\n          <div class=\"input-group centered\">\r\n            <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n            <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n          </div> \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** -->\r\n\r\n<div id=\"overlayInformacionEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUpDetalle()\">&times;</span><br><br>\r\n      \r\n      <h4>\r\n        {{detalleEvento}}\r\n      </h4>  \r\n\r\n      <!-- <a *ngIf=\"!suscrito\" class=\"fa fa-bell\" (click)=\"suscribirse()\" >Suscribirse</a>\r\n      <a *ngIf=\"suscrito\" class=\"fa fa-check\" (click)=\"desuscribirse()\" >Suscrito</a> -->\r\n\r\n      <div style=\"float:right;\">\r\n        <label  id=\"labelInscripcionFa\" (click)=\"suscribirse()\" class=\"custom-inscribir\">\r\n          <i id=\"inscripcionFa\" class=\"fa fa-bell\"></i>\r\n        </label>\r\n      </div>  \r\n\r\n      <br><br>\r\n      <h5>Descripcion</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{descripcionEvento}}        \r\n      </h6>  \r\n      <br><br>\r\n      <h5>Requisitos</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{requisitosEvento}}\r\n      </h6>\r\n      <br><br>\r\n      <h5>Capacidad Máxima</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{capacidadMaxima}}\r\n      </h6>\r\n      <br><br>\r\n      <app-suscriptores></app-suscriptores>      \r\n\r\n    </div>\r\n</div>\r\n\r\n<!-- ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** -->\r\n\r\n\r\n<app-listado-eventos></app-listado-eventos>\r\n\r\n</div>\r\n\r\n<app-formulario-personalizado (guardo)=\"onNotifyInscribirse($event)\"></app-formulario-personalizado>\r\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" ></app-popup-aviso>"
+module.exports = "<br>\r\n<div class=\"calendarioMargen\">\r\n\r\n<div class=\"input-group\" style=\"float:right;\">\r\n  <a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirAdicionEvento() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"fa fa-list-ul\" (click)=\"abrirTodosEventos() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"{{misContactosSt}}\" (click)=\"mostrarMisEventos()\" ngbTooltip=\"{{mensajeTooTip}}\"></a>  \r\n</div>\r\n\r\n<br><br><br>\r\n<ng-template #modalContent let-close=\"close\">\r\n  <div class=\"modal-header\">\r\n    <h5 class=\"modal-title\">Event action occurred</h5>\r\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div>\r\n      Action:\r\n      <pre>{{ modalData?.action }}</pre>\r\n    </div>\r\n    <div>\r\n      Event:\r\n      <pre>{{ modalData?.event | json }}</pre>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">OK</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<div class=\"row text-center\">\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarPreviousView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.PREV'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-outline-secondary\"\r\n        mwlCalendarToday\r\n        [(viewDate)]=\"viewDate\">\r\n        {{'EVENTOS.HOY'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarNextView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.NEXT'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'es-CO' }}</h3>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'month'\"\r\n        [class.active]=\"view === 'month'\">\r\n        {{'EVENTOS.MES'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'week'\"\r\n        [class.active]=\"view === 'week'\">\r\n        {{'EVENTOS.WEEK'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'day'\"\r\n        [class.active]=\"view === 'day'\">\r\n        {{'EVENTOS.DAY'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n\r\n\r\n<div [ngSwitch]=\"view\">\r\n  <mwl-calendar-month-view\r\n    *ngSwitchCase=\"'month'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    [activeDayIsOpen]=\"activeDayIsOpen\"\r\n    (dayClicked)=\"dayClicked($event.day)\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-month-view>\r\n  <mwl-calendar-week-view\r\n    *ngSwitchCase=\"'week'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-week-view>\r\n  <mwl-calendar-day-view\r\n    *ngSwitchCase=\"'day'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-day-view>\r\n</div>\r\n\r\n<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->\r\n\r\n<div id=\"overlayEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n\r\n      <div *ngIf=\"accion==1\">\r\n        <h3>\r\n          {{'EVENTOS.EDIT'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==2\">\r\n        <h3>\r\n          {{'EVENTOS.CREATE'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==3\">\r\n        <h3>\r\n          {{'EVENTOS.LIST'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n        <!-- <button\r\n          class=\"btn btn-primary pull-right\"\r\n          (click)=\"addEvent()\">\r\n          Agregar\r\n        </button> -->\r\n        \r\n\r\n      <table class=\"table table-bordered\">\r\n\r\n        <thead>\r\n          <tr>\r\n            <th>{{'EVENTOS.NAME'| translate}}</th>     \r\n            <th>{{'EVENTOS.BEGIN'| translate}}</th>\r\n            <th>{{'EVENTOS.END'| translate}}</th>\r\n          </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          <tr *ngFor=\"let event of eventsEditar; let index = index\">\r\n            <td>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                [(ngModel)]=\"event.title\"\r\n                (ngModelChange)=\"cambio('titulo',event.title, 'STRING')\"\r\n                (keyup)=\"refresh.next()\">\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.start\"\r\n                (ngModelChange)=\"refresh.next(); cambio('inicio',event.start, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.end\"\r\n                (ngModelChange)=\"refresh.next(); cambio('fin',event.end, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n      \r\n      <label (click)=\"mostrarDetallesEdicion()\" for=\"mostrarDetallesMas\" class=\"{{masDetallesClass}}\">\r\n          <i class=\"fa fa-hand-o-down\"></i> Editar detalles\r\n      </label>\r\n\r\n      <br><br><br>\r\n\r\n      <div *ngIf=\"mostrarDetallesMas\">\r\n\r\n        <div class=\"input-group\" style=\"float:right;\">\r\n          <a class=\"fa fa-plus-circle\" (click)=\"anadirAtributo()\" ></a>        \r\n        </div>\r\n\r\n        <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Descripción</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"descripcionEventoJ\" placeholder=\"Ingrese descripción\" name=\"descripcionEventoJ\"\r\n                [(ngModel)]=\"descripcionEvento\" (ngModelChange)=\"cambio('descripcion',descripcionEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Requisitos</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"requisitosnEventoJ\" placeholder=\"Ingrese requisitos\" name=\"requisitosnEventoJ\"\r\n                [(ngModel)]=\"requisitosEvento\" (ngModelChange)=\"cambio('requisitos',requisitosEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Capacidad Máxima</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"capacidadEventoJ\" placeholder=\"Ingrese capacidad máxima\" name=\"capacidadEventoJ\"\r\n                [(ngModel)]=\"capacidadMaxima\" (ngModelChange)=\"cambio('capacidadMaxima',capacidadMaxima,'LONG')\">\r\n            </div>\r\n          </div>\r\n        </form>\r\n\r\n        <div *ngIf=\"accion==1\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\" (ngModelChange)=\"cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\" (ngModelChange)=\"cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n        <div *ngIf=\"accion==2\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n      </div>\r\n      \r\n        <br><br>\r\n        <div *ngIf=\"accion==2\">\r\n          <div class=\"input-group centered\">\r\n            <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n            <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n          </div> \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** -->\r\n\r\n<div id=\"overlayInformacionEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUpDetalle()\">&times;</span><br><br>\r\n      \r\n      <h4>\r\n        {{detalleEvento}}\r\n      </h4>  \r\n\r\n      <!-- <a *ngIf=\"!suscrito\" class=\"fa fa-bell\" (click)=\"suscribirse()\" >Suscribirse</a>\r\n      <a *ngIf=\"suscrito\" class=\"fa fa-check\" (click)=\"desuscribirse()\" >Suscrito</a> -->\r\n\r\n      <!-- *ngIf=\"validarFechaInscribir()\"  -->\r\n      <div style=\"float:right;\">\r\n        <label  id=\"labelInscripcionFa\" (click)=\"suscribirse()\" class=\"custom-inscribir\">\r\n          <i id=\"inscripcionFa\" class=\"fa fa-bell\"></i>\r\n        </label>\r\n      </div>  \r\n\r\n      <br><br>\r\n      <h5>Descripcion</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{descripcionEvento}}        \r\n      </h6>  \r\n      <br><br>\r\n      <h5>Requisitos</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{requisitosEvento}}\r\n      </h6>\r\n      <br><br>\r\n      <h5>Capacidad Máxima</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{capacidadMaxima}}\r\n      </h6>\r\n      <br><br>\r\n      <app-suscriptores></app-suscriptores>      \r\n\r\n    </div>\r\n</div>\r\n\r\n<!-- ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** -->\r\n\r\n\r\n<app-listado-eventos></app-listado-eventos>\r\n\r\n</div>\r\n\r\n<app-formulario-personalizado (guardo)=\"onNotifyInscribirse($event)\"></app-formulario-personalizado>\r\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" ></app-popup-aviso>"
 
 /***/ }),
 
@@ -2893,6 +2968,93 @@ var ListadoEventosComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#overlayDetallesDeCorreo {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n}\r\n\r\n#overlayDetallesDeCorreo div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n}\r\n\r\nbody {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n.close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 80%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\nh2 {\r\n\tcolor: #000066;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\ntextarea{\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\n\r\ninput{\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\n\r\ndiv.forma {\r\n    border-radius: 5px;\r\n    background-color: #f2f2f2;\r\n    padding: 20px;\r\n}\r\n\r\ninput[type=submit]:hover {\r\n    background-color: #ffffff ;\r\n    color : #000066;\r\n    border-color: #000066;  \r\n}\r\n\r\ninput[type=submit] {\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"overlayDetallesDeCorreo\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>DETALLES DEL CORREO</h3>   \n      \n      \n      <form>\n        <div class=\"forma\">\n            \n          <input placeholder=\"NombreCorreo\" #nombreCorreo maxlength=\"80\" [(ngModel)]=\"asunto\" name=\"NameCorreo\">\n                \n          <br><br>\n    \n          <textarea placeholder=\"MensajeCorreo\" #msnCorreo maxlength=\"300\" [(ngModel)]=\"descripcion\" name=\"MsnCorreo\" cols=\"25\"></textarea>\n        \n          <input (click)=\"enviarCorreo()\" type=\"submit\" value=\"Enviar\">\n    \n        </div>\n      </form>\n      <br><br>\n\n  </div>\n\n  \n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetallesCorreoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DetallesCorreoComponent = /** @class */ (function () {
+    function DetallesCorreoComponent() {
+        this.notify = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+    }
+    DetallesCorreoComponent.prototype.ngOnInit = function () {
+    };
+    DetallesCorreoComponent.prototype.cerrarPopUp = function () {
+        console.log('cerrarPopUp : entro a cerrarPopUp');
+        var el;
+        el = document.getElementById("overlayDetallesDeCorreo");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    DetallesCorreoComponent.prototype.abrirPopUp = function () {
+        console.log('abrirPopUp : entro a abrirPopUp');
+        var el;
+        el = document.getElementById("overlayDetallesDeCorreo");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    DetallesCorreoComponent.prototype.enviarCorreo = function () {
+        console.log('enviarCorreo : entro a enviarCorreo');
+        var detalles = {
+            asunto: this.asunto,
+            descripcion: this.descripcion
+        };
+        this.cerrarPopUp();
+        this.notify.emit(detalles);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
+    ], DetallesCorreoComponent.prototype, "notify", void 0);
+    DetallesCorreoComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-detalles-correo',
+            template: __webpack_require__("../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DetallesCorreoComponent);
+    return DetallesCorreoComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/evento/suscriptores/suscriptores.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2901,7 +3063,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h2 {\r\n\tcolor: #000066;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\n.example-container {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  min-width: 300px;\r\n}\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n\r\n::ng-deep div.tablaMargen{\r\n  margin-left: 40px;\r\n  margin-right:40px;\r\n}\r\n\r\na{\r\n  float:left;\r\n}\r\n\r\n/* BOTONES EXPORTAR */\r\n\r\na.fa.fa-file-excel-o{\r\n  float:right; \r\n  border-color : darkgreen;\r\n  font-size: 45px;\r\n  color: darkgreen;\r\n  margin-left: 10px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\na.fa.fa-file-pdf-o{\r\n  float:right; \r\n  border-color : darkred;\r\n  font-size: 45px;\r\n  color: darkred;\r\n  margin-left: 10px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\nmat-cell.mat-cell.cdk-column-informacion.mat-column-informacion.ng-star-inserted:before  { \r\n  font-family: FontAwesome; \r\n  font-size: 30px; \r\n  display: inline-block; \r\n  content: '\\1F50D';\r\n  cursor: pointer;\r\n}\r\n\r\n#overlayDetallesFinos {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n  \r\n}\r\n\r\n#overlayDetallesFinos div.modalShow {\r\n  background-color: #fefefe;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #000066;\r\n  border-radius: 8px;\r\n  max-height: 600px;\r\n  overflow: scroll;\r\n}\r\n\r\ninput.formas{\r\n  width: 100%;\r\n  padding: 12px 20px;\r\n  margin: 8px 0;\r\n  display: inline-block;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n}\r\n\r\ndiv.forma {\r\n  border-radius: 5px;\r\n  background-color: #f2f2f2;\r\n  padding: 20px;\r\n}\r\n", ""]);
+exports.push([module.i, "h2 {\r\n\tcolor: #000066;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\n.example-container {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  min-width: 300px;\r\n}\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n\r\n::ng-deep div.tablaMargen{\r\n  margin-left: 40px;\r\n  margin-right:40px;\r\n}\r\n\r\na{\r\n  float:left;\r\n}\r\n\r\n/* BOTONES EXPORTAR */\r\n\r\na.fa.fa-file-excel-o{\r\n  float:right; \r\n  border-color : darkgreen;\r\n  font-size: 45px;\r\n  color: darkgreen;\r\n  margin-left: 10px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\na.fa.fa-file-pdf-o{\r\n  float:right; \r\n  border-color : darkred;\r\n  font-size: 45px;\r\n  color: darkred;\r\n  margin-left: 10px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\nmat-cell.mat-cell.cdk-column-informacion.mat-column-informacion.ng-star-inserted:before  { \r\n  font-family: FontAwesome; \r\n  font-size: 30px; \r\n  display: inline-block; \r\n  content: '\\1F50D';\r\n  cursor: pointer;\r\n}\r\n\r\n#overlayDetallesFinos {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n  \r\n}\r\n\r\n#overlayDetallesFinos div.modalShow {\r\n  background-color: #fefefe;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #000066;\r\n  border-radius: 8px;\r\n  max-height: 600px;\r\n  overflow: scroll;\r\n}\r\n\r\ninput.formas{\r\n  width: 100%;\r\n  padding: 12px 20px;\r\n  margin: 8px 0;\r\n  display: inline-block;\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n}\r\n\r\ndiv.forma {\r\n  border-radius: 5px;\r\n  background-color: #f2f2f2;\r\n  padding: 20px;\r\n}\r\n\r\n/* Boton  */\r\n\r\n.custom-file-upload {\r\n  display: inline-block;\r\n  padding: 6px 12px;\r\n  cursor: pointer;\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n  border-radius: 8px;\r\n}\r\n\r\n.custom-file-upload:hover,\r\n.custom-file-upload:visited,\r\n.custom-file-upload:active\r\n{\r\nbackground-color: #ffffff ;\r\ncolor : #000066;\r\nborder: 1px solid #000066;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2914,7 +3076,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/evento/suscriptores/suscriptores.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<div *ngIf=\"esAdmin\" class=\"tablaMargen\">\n<h2>Inscritos</h2>\n\n<!-- usuario : {{idUsuario}}\nevento : {{idEvento}} -->\n\n<br><br>\n\n<a *ngIf=\"esAdmin\" class=\"fa fa-file-excel-o\" (click)=\"exportarExcel()\" ></a>\n<a *ngIf=\"esAdmin\" class=\"fa fa-file-pdf-o \" (click)=\"exportarPDF()\" ></a>\n\n<div class=\"mat-app-background basic-container\">\n\n  <div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n    </mat-form-field>\n  </div>\n\n  <div class=\"example-container mat-elevation-z8\" >\n\n    <mat-table #tableSuscriptores [dataSource]=\"dataSource\" matSort>\n\n      <!-- ID Column -->\n      <ng-container matColumnDef=\"id\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> <a> {{row.apellidos}} </a> </mat-cell>\n      </ng-container>\n\n      <!-- Progress Column -->\n      <ng-container matColumnDef=\"Nombre\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> <a> {{row.nombre}} </a> </mat-cell>\n      </ng-container>\n\n      <!-- Name Column -->\n      <ng-container matColumnDef=\"Estado\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> <a> {{row.estado}} </a> </mat-cell>\n      </ng-container>\n\n      <!-- Info Column -->\n      <ng-container matColumnDef=\"informacion\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"  (click)=\"abrirDetalles(row)\"></mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n      </mat-row>\n    </mat-table>\n\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  </div>\n\n</div>\n</div>\n\n<br><br>\n\n\n\n<!-- ********** DETALLES PERSONALIZADO ********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** -->\n\n<div id=\"overlayDetallesFinos\">\n  \n    <div id=\"modalListaJa\" class=\"modalShow\">      \n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n\n        <h4>\n            Detalles\n          </h4>\n\n        <form>\n          <div class=\"forma\">\n\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\n                <div class=\"form-group\">\n                    <label class=\"col-sm-2\" for=\"pwd\">{{personalizados.nombreAtrPersonalizado}}</label>\n                    <div class=\"col-sm-10\">          \n                    <input id=\"listado{{i}}\" type=\"text\" class=\"formas\" [(ngModel)]=\"personalizados.respuestaAtrPersonalizado\" name=\"first\">\n                  </div>\n                </div>\n              </div>      \n          </div>\n        </form>   \n  \n        <br><br>\n    </div>\n  \n    \n  </div>"
+module.exports = "<br>\n<div *ngIf=\"esAdmin\" class=\"tablaMargen\">\n<h2>Inscritos</h2>\n\n<!-- usuario : {{idUsuario}}\nevento : {{idEvento}} -->\n\n<br><br>\n\n<a *ngIf=\"esAdmin\" class=\"fa fa-file-excel-o\" (click)=\"exportarExcel()\" ></a>\n<a *ngIf=\"esAdmin\" class=\"fa fa-file-pdf-o \" (click)=\"exportarPDF()\" ></a>\n\n<div class=\"mat-app-background basic-container\">\n\n  <div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n    </mat-form-field>\n  </div>\n\n  <div class=\"example-container mat-elevation-z8\" >\n\n    <mat-table #tableSuscriptores [dataSource]=\"dataSource\" matSort>\n\n      <!-- ID Column -->\n      <ng-container matColumnDef=\"id\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> <a> {{row.apellidos}} </a> </mat-cell>\n      </ng-container>\n\n      <!-- Progress Column -->\n      <ng-container matColumnDef=\"Nombre\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> <a> {{row.nombre}} </a> </mat-cell>\n      </ng-container>\n\n      <!-- Name Column -->\n      <ng-container matColumnDef=\"Usuario\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> <a> {{row.username}} </a> </mat-cell>\n      </ng-container>\n\n      <!-- Info Column -->\n      <ng-container matColumnDef=\"informacion\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"  (click)=\"abrirDetalles(row)\"></mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\" \n        (click)=\"agregarSeleccion(row)\"\n        [style.background]=\"highlightedRows.indexOf(row) != -1 ? 'lightblue' : ''\">\n      </mat-row>\n    </mat-table>\n\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  </div>\n\n</div>\n</div>\n\n<br><br>\n\n<div *ngIf=\"highlightedRows.length>0\">  \n  <label for=\"file-upload\" class=\"custom-file-upload\" (click)=\"enviarCorreos()\">\n      <i class=\"fa fa-paper-plane-o\"></i> Enviar Correos\n  </label>\n</div>\n\n<!-- ********** DETALLES PERSONALIZADO ********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** DETALLES PERSONALIZADO********** -->\n\n<div id=\"overlayDetallesFinos\">\n  \n    <div id=\"modalListaJa\" class=\"modalShow\">      \n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n\n        <h4>\n            Detalles\n          </h4>\n\n        <form>\n          <div class=\"forma\">\n\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\n                <div class=\"form-group\">\n                    <label class=\"col-sm-2\" for=\"pwd\">{{personalizados.nombreAtrPersonalizado}}</label>\n                    <div class=\"col-sm-10\">          \n                    <input id=\"listado{{i}}\" type=\"text\" class=\"formas\" [(ngModel)]=\"personalizados.respuestaAtrPersonalizado\" name=\"first\">\n                  </div>\n                </div>\n              </div>      \n          </div>\n        </form>   \n  \n        <br><br>\n    </div>\n  \n    \n  </div>\n\n  <app-detalles-correo (notify)=\"onNotifyCorreos($event)\"></app-detalles-correo>"
 
 /***/ }),
 
@@ -2926,6 +3088,7 @@ module.exports = "<br>\n<div *ngIf=\"esAdmin\" class=\"tablaMargen\">\n<h2>Inscr
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicios_eventos_eventos_service__ = __webpack_require__("../../../../../src/app/servicios/eventos/eventos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detalles_correo_detalles_correo_component__ = __webpack_require__("../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2938,18 +3101,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SuscriptoresComponent = /** @class */ (function () {
     function SuscriptoresComponent(eventosService) {
         this.eventosService = eventosService;
         this.esAdmin = false;
-        this.displayedColumns = ['id', 'Nombre', 'Estado', 'informacion'];
+        this.displayedColumns = ['id', 'Nombre', 'Usuario', 'informacion'];
+        this.highlightedRows = [];
         this.suscriptores = new Array();
-        // exportarPDF(){
-        //   this.eventosService.exportarPDF(this.idEvento).subscribe(
-        //     response =>{
-        //       console.log(response);
-        //     });
-        // }
         this.atributosPersonalizados = new Array();
         this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["D" /* MatTableDataSource */](this.suscriptores);
     }
@@ -2972,7 +3131,8 @@ var SuscriptoresComponent = /** @class */ (function () {
                     id: element.id,
                     apellidos: element.apellidos,
                     nombre: element.nombre,
-                    estado: element.username
+                    username: element.username,
+                    email: element.email
                 };
                 _this.suscriptores.push(data);
             });
@@ -3026,6 +3186,11 @@ var SuscriptoresComponent = /** @class */ (function () {
             console.log(response);
         });
     };
+    SuscriptoresComponent.prototype.exportarPDF = function () {
+        this.eventosService.exportarPDF(this.idEvento).subscribe(function (response) {
+            console.log(response);
+        });
+    };
     SuscriptoresComponent.prototype.abrirDetalles = function (row) {
         var _this = this;
         console.log(row, this.idEvento, row.id);
@@ -3049,6 +3214,32 @@ var SuscriptoresComponent = /** @class */ (function () {
         el = document.getElementById("overlayDetallesFinos");
         el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
     };
+    SuscriptoresComponent.prototype.agregarSeleccion = function (row) {
+        var posicion = this.highlightedRows.indexOf(row);
+        if (posicion == -1) {
+            this.highlightedRows.push(row);
+        }
+        else {
+            this.highlightedRows.splice(posicion, 1);
+        }
+        console.log(this.highlightedRows);
+    };
+    SuscriptoresComponent.prototype.enviarCorreos = function () {
+        console.log('enviarCorreos : entro a enviarCorreos');
+        this.detallesCorreo.abrirPopUp();
+    };
+    SuscriptoresComponent.prototype.onNotifyCorreos = function (e) {
+        var detallesCorreo = {
+            usuario: this.highlightedRows,
+            asunto: e.asunto,
+            descripcion: e.descripcion
+        };
+        this.eventosService.enviarCorreos(detallesCorreo).subscribe(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log('Error en enviar varios correos');
+        });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
@@ -3057,6 +3248,10 @@ var SuscriptoresComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["A" /* MatSort */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["A" /* MatSort */])
     ], SuscriptoresComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__detalles_correo_detalles_correo_component__["a" /* DetallesCorreoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__detalles_correo_detalles_correo_component__["a" /* DetallesCorreoComponent */])
+    ], SuscriptoresComponent.prototype, "detallesCorreo", void 0);
     SuscriptoresComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-suscriptores',
@@ -4229,6 +4424,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//import { AppComponent } from '../../app.component';
 var ColaRestService = /** @class */ (function () {
     function ColaRestService(http) {
         this.http = http;
@@ -4406,6 +4602,10 @@ var DirectorioService = /** @class */ (function () {
         return this.http.post(this.backendUrl + "listarDominiosNacionales", tipo, { withCredentials: true })
             .map(function (res) { return res.json(); });
     };
+    DirectorioService.prototype.crearDominio = function (pojoDominio) {
+        return this.http.post(this.backendUrl + "crearDominio", pojoDominio, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
     DirectorioService.prototype.listarDominiosInternacionales = function (tipo) {
         return this.http.post(this.backendUrl + "listarDominiosInternacionales", tipo, { withCredentials: true })
             .map(function (res) { return res.json(); });
@@ -4472,6 +4672,11 @@ var EventosService = /** @class */ (function () {
         return this.http.post(this.backendUrl + "crearEvento/", evento, { withCredentials: true })
             .map(function (res) { return res.json(); });
     };
+    EventosService.prototype.enviarCorreos = function (detallesCorreo) {
+        console.log(detallesCorreo);
+        return this.http.post(this.backendUrl + "notificarUsuarios/", detallesCorreo, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
     EventosService.prototype.suscribirse = function (id) {
         console.log(id);
         return this.http.get(this.backendUrl + "inscribirse/" + id, { withCredentials: true })
@@ -4495,10 +4700,10 @@ var EventosService = /** @class */ (function () {
         return this.http.get(this.backendUrl + "exportarExcelInscritos/" + id, { withCredentials: true })
             .map(function (res) { return res.json(); });
     };
-    // exportarPDF(id : any){
-    //   return this.http.get(this.backendUrl + "exportarExcelInscritos/"+ id , { withCredentials: true })
-    //   .map((res: Response) => res.json());
-    // }
+    EventosService.prototype.exportarPDF = function (id) {
+        return this.http.get(this.backendUrl + "exportarPdfInscritos/" + id, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
     EventosService.prototype.getDetallesUsuario = function (evento, usuario) {
         console.log('getDetallesUsuario : entro a getDetallesUsuario');
         return this.http.get(this.backendUrl + "listarDatosPersonalizadosPorUsuario/" + evento + "/" + usuario, { withCredentials: true })
