@@ -99,3 +99,5 @@ evento : {{idEvento}} -->
   </div>
 
   <app-detalles-correo (notify)="onNotifyCorreos($event)"></app-detalles-correo>
+
+  <app-popup-aviso [mensaje]="mensajeMostrar" (cerroPop)="onCerrarNotify($event)"></app-popup-aviso>

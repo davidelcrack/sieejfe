@@ -17,6 +17,8 @@ export class DetallesCorreoComponent implements OnInit {
 
   cerrarPopUp(){
     console.log('cerrarPopUp : entro a cerrarPopUp');
+    this.asunto=null;
+    this.descripcion=null;
     
     let el : any;
     el = document.getElementById("overlayDetallesDeCorreo");

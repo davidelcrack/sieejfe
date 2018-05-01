@@ -4,6 +4,7 @@ import { EventosService } from '../../servicios/eventos/eventos.service';
 import { DetallesCorreoComponent } from './detalles-correo/detalles-correo.component';
 import { Output } from '@angular/core/src/metadata/directives';
 import { concat } from 'rxjs/operator/concat';
+import { PopupAvisoComponent } from '../../popup-aviso/popup-aviso.component';
 
 @Component({
   selector: 'app-suscriptores',
@@ -179,6 +180,7 @@ export class SuscriptoresComponent implements OnInit {
    
   }
 
+  mensajeMostrar : any = "Se han enviado los correos satisfactoriamente";
   onNotifyCorreos(e){
     
     let detallesCorreo ={
@@ -190,11 +192,22 @@ export class SuscriptoresComponent implements OnInit {
     this.eventosService.enviarCorreos(detallesCorreo).subscribe(
       response =>{
         console.log(response);
+        this.avisar();
       },
       error =>{
         console.log('Error en enviar varios correos')
       }
     )
+  }
+
+  @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
+
+  avisar(){
+    this.avisoPopUp.mostrarPopExito();    
+  }
+
+  onCerrarNotify(e){
+    console.log('Se cerro el pop up');
   }
   
 }
