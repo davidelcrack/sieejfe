@@ -92,6 +92,7 @@ p.labelPanel{
     font-weight: 500;
     line-height: 1.2;
     min-height: 400px;
+    margin : 14px;
 }
 
 .textoRecuadro{
@@ -220,3 +221,50 @@ p a{
     color: blue;
     text-shadow: 0 0 12px rgba(230,160,55,0.6);
 }
+
+#demo{
+    padding: 0px 0px 0px 0px;    
+    margin : 30px;
+}
+
+#demo div.carousel-caption{
+    background-color: black;
+    opacity: 0.8;
+}
+
+.acordeonButton{
+    /* margin: auto;
+    width: 20%;
+    padding: 10px; */
+    display: table;  /* Instead of display:block */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .labelAcordeon{
+    font-size: 1rem;
+    font-weight: 800;   
+  }
+
+  .pareja{
+      margin: 14px;
+  }
+
+.imagenPanel{
+    background: url("../../assets/images/banner/ImagenJav1.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    min-height: 600px;
+    max-height: 600px;
+}
+
+  .textoPanel{
+    background-color: #FFCC00;
+    min-height: 600px;
+    max-height: 600px;
+  }
+
+  .margenTexto{
+      margin: 14px;
+  }

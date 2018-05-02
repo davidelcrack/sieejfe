@@ -1,32 +1,144 @@
 <ngb-carousel>
-    <ng-template *ngFor="let imagenMostrar of [1,2,3]" ngbSlide>
-      <img src="../../assets/images/banner/ImagenJav{{imagenMostrar}}.jpg" alt="Slide {{imagenMostrar}}" (click)="clickImagen('servicioEmprendimiento')">
-      <div class="carousel-caption">
-        <h3>Titulo Slide {{imagenMostrar}}</h3>
-        <p>Texto con formato en el slide {{imagenMostrar}}.</p>
-      </div>
-    </ng-template>
-  </ngb-carousel>
+  <ng-template *ngFor="let imagenMostrar of [1,2,3]" ngbSlide>
+    <img src="../../assets/images/banner/ImagenJav{{imagenMostrar}}.jpg" alt="Slide {{imagenMostrar}}" (click)="clickImagen('servicioEmprendimiento')">
+    <div class="carousel-caption">
+      <h3>Titulo Slide {{imagenMostrar}}</h3>
+      <p>Texto con formato en el slide {{imagenMostrar}}.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
 
-  <!-- <br>
+<!-- <br>
   <p class="tituloPanel w3-xxxlarge">{{'BOARD.EMPRENDEDOR'| translate}}</p>
 
   <br> -->
-  <br>
-  <div class="colGrid1" style="text-align:center">
-    <div class="recuadroGrande">
-      <h2 class="textoRecuadro">
-        <span class="section-heading-upper">Ecosistema Javeriano</span>
-        <span class="section-heading-lower">de Emprendimiento</span>
-      </h2>
-      <br>
-      <p class="mb-3">
-        El EJE es una plataforma dirigido a los emprendedores de la Pontificia Univerisada Javeriana (sede Bogotá) que entrega información actualizada de los principales eventos y actividades asociadas con el tema del emprendimiento que se desarrollan en la universidad
-      </p>      
-    </div>
-  </div>  
+<br>
 
-  <br>
+<div class="colGrid1" style="text-align:center">
+  <div class="recuadroGrande">
+    <h2 class="textoRecuadro">
+      <span class="section-heading-upper">Ecosistema Javeriano</span>
+      <span class="section-heading-lower">de Emprendimiento</span>
+    </h2>
+    <br>
+    <p class="mb-3">
+      El EJE es una plataforma dirigido a los emprendedores de la Pontificia Univerisada Javeriana (sede Bogotá) que entrega información
+      actualizada de los principales eventos y actividades asociadas con el tema del emprendimiento que se desarrollan en
+      la universidad
+    </p>
+  </div>
+</div>
+
+<br>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <!-- The slideshow -->
+  <div class="container carousel-inner no-padding">
+    <div class="carousel-item active">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+
+<div id="recuadripareja" class="pareja contGridFluid">
+    <div class="colGrid2 imagenPanel" style="text-align:center">
+  
+    </div>
+    <div class="colGrid2 textoPanel" style="text-align:center">
+        <p class="margenTexto mb-3 labelPanel" for="botonSIIEJ1"> 
+            El sistema busca apoyar la coordinación entre los diferentes actores que se encuentran en
+            el ecosistema de innovación y emprendimiento de la facultad de ingeniería. Son múltiples
+            los mecanismos y procesos que tendrá el sistema para apoyar y contribuir a la coordinación
+            entre actores. Estos mecanismos se dividen en dos, pueden ser internos o externos.
+          </p>
+    </div>
+  </div>
+
+<!--
   <div class="contGridFluid">
     <div class="colGrid4" >
       <ng-container>
@@ -87,7 +199,7 @@
         </div>
       </div>
     </div>  
-  </div>
+  </div> -->
 
-  <!-- ../../assets/images/jave2.png -->
-  <!-- https://lorempixel.com/900/500?r=1 -->
+<!-- ../../assets/images/jave2.png -->
+<!-- https://lorempixel.com/900/500?r=1 -->
