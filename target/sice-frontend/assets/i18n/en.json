@@ -34,7 +34,7 @@
       "CERRARTODAS" : "Close All",
       "DEMAS" : "Close Others"
     },
-    "Principal Emprendimiento" : "Board",
+    "Principal Emprendimiento" : "Home",
     "Información" : "Information",
     "Usuarios" : "User" ,
     "Empresa"  : "Company",
@@ -42,9 +42,10 @@
     "Directorio"  : "Relationship",
     "Universidad" : "University",
     "Servicios" : "Services",
-    "aboutus" : "About Us?",
+    "aboutus" : "Web Links",
     "solicitarServicio" : "Request Service",
-    "solicitudesServicio" : "Reply Requests"
+    "solicitudesServicio" : "Reply Requests",
+    "detalleEvento" : "Join Us!"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

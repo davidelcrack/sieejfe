@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/logoV2SICE2.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento')\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio')\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio')\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento')\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio')\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('aboutus')\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/sice2V3.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento', null)\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio', null)\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio', null)\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento', null)\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio', null)\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('aboutus', null)\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #eventoAbrirTab>\r\n        <mwl-demo-component [idAbrir]=\"detalle\"></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #detalleEventoTab>\r\n        <app-detalles-evento [idAbrir]=\"detalle\"></app-detalles-evento>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
 
 /***/ }),
 
@@ -214,7 +214,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.disabled = function () {
         return true;
     };
-    AppComponent.prototype.openTabs = function (nombre) {
+    AppComponent.prototype.openTabs = function (nombre, detalle) {
+        this.detalle = detalle;
         if (nombre == 'about') {
             this.tabsComponent.openTab('Información', this.aboutTemplate, {}, true);
         }
@@ -244,6 +245,12 @@ var AppComponent = /** @class */ (function () {
         }
         if (nombre == 'solicitudesServicio') {
             this.tabsComponent.openTab('solicitudesServicio', this.solicitudesServicioTemplate, {}, true);
+        }
+        if (nombre == 'eventoEspecifico') {
+            this.tabsComponent.openTab('Evento', this.eventoAbrirTemplate, detalle, true);
+        }
+        if (nombre == 'detalleEvento') {
+            this.tabsComponent.openTab('detalleEvento', this.detalleEventoTemplate, detalle, true);
         }
     };
     AppComponent.prototype.cerrarTab = function (nombre) {
@@ -319,6 +326,14 @@ var AppComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('solicitudesServicioTab'),
         __metadata("design:type", Object)
     ], AppComponent.prototype, "solicitudesServicioTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('eventoAbrirTab'),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "eventoAbrirTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('detalleEventoTab'),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "detalleEventoTemplate", void 0);
     AppComponent = AppComponent_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
@@ -400,6 +415,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__evento_formulario_personalizado_formulario_personalizado_component__ = __webpack_require__("../../../../../src/app/evento/formulario-personalizado/formulario-personalizado.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__ = __webpack_require__("../../../../../src/app/evento/listado-eventos/listado-eventos.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__ = __webpack_require__("../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__evento_detalles_evento_detalles_evento_component__ = __webpack_require__("../../../../../src/app/evento/detalles-evento/detalles-evento.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -413,6 +429,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import { EmbedVideo } from 'ngx-embed-video';
+
 
 
 
@@ -498,7 +515,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_48__servicios_emprendimiento_ver_solicitudes_sevicios_ver_solicitudes_sevicios_component__["a" /* VerSolicitudesSeviciosComponent */],
                 __WEBPACK_IMPORTED_MODULE_49__evento_formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */],
                 __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__["a" /* DetallesCorreoComponent */]
+                __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__["a" /* DetallesCorreoComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__evento_detalles_evento_detalles_evento_component__["a" /* DetallesEventoComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_36__angular_common__["b" /* CommonModule */],
@@ -674,7 +692,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".tituloPanel {\r\n    font-family: 'Lobster';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n}\r\n\r\nimg{\r\n    margin: auto;\r\n    width: 100% !important;\r\n    \r\n    max-height: 500px;\r\n}\r\n\r\ndiv.carousel-caption{\r\n    background-color: black;\r\n    opacity: 0.5;\r\n}\r\n\r\n::ng-deep ol.carousel-indicators{\r\n    margin: auto;\r\n    width: 100% !important;\r\n    padding: 10px;\r\n    max-height: 400px;\r\n}\r\n\r\n::ng-deep ol.carousel-indicators .active{\r\n    border-color: white;\r\n    background-color: darkslategrey;\r\n    position: relative;\r\n    -webkit-box-flex: 0;\r\n    -ms-flex: 0 1 auto;\r\n    flex: 0 1 auto;\r\n    width: 30px;\r\n    height: 6px;\r\n    margin-right: 3px;\r\n    margin-left: 3px;\r\n    text-indent: -999px;\r\n}\r\n\r\n/* Para quitar border azul en click */\r\n\r\n.carousel.slide{\r\n    outline: none !important;\r\n}\r\n\r\n::ng-deep a.carousel-control-prev:hover,\r\n::ng-deep a.carousel-control-next:hover{\r\n    background-color: black;\r\n    opacity: 0.1;\r\n    \r\n}\r\n\r\n::ng-deep a.carousel-control-prev{\r\n    margin-left: -40px;\r\n}\r\n\r\n::ng-deep a.carousel-control-next{\r\n    margin-right: -40px;\r\n}\r\n\r\n::ng-deep div.carousel-caption{\r\n    border-radius: 10px;\r\n}\r\n\r\n/* Cuerpo del board */\r\n\r\nimg.inicioPanel{\r\n    border-radius: 30%;\r\n    padding: 5px 80px;\r\n}\r\n\r\np.labelPanel{\r\n    padding: 0px 90px !important;\r\n}\r\n\r\n.recuadro{\r\n    background-color:rgb(206, 202, 186);\r\n    text-align: center!important;\r\n    padding: 3rem!important;\r\n    border-radius: .25rem!important;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n    margin-right: 20px;\r\n    margin-left: 20px;\r\n}\r\n\r\n.recuadroGrande{\r\n    /* background-color:#fcf8e3; */\r\n    background-color:#f0e8bf;\r\n    text-align: center!important;\r\n    padding: 3rem!important;\r\n    border-radius: .25rem!important;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n    min-height: 400px;\r\n    margin : 14px;\r\n}\r\n\r\n.textoRecuadro{\r\n    text-transform: uppercase;\r\n    margin-bottom: 1.5rem!important;\r\n    font-family: Lora;\r\n    font-size: 2rem;\r\n    margin-bottom: .5rem;\r\n    font-family: inherit;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n    color: inherit;\r\n}\r\n\r\n.recuadroGrande .section-heading-upper {\r\n    display: block;\r\n    font-size: 2rem;\r\n    font-weight: 500;\r\n    color: #8a6d3b;\r\n}\r\n\r\n.recuadroGrande .section-heading-lower {\r\n    display: block;\r\n    font-size: 3rem;\r\n    font-weight: 100;\r\n    color: #8a6d3b\r\n}\r\n\r\n.section-heading .section-heading-upper {\r\n    display: block;\r\n    font-size: 1rem;\r\n    font-weight: 800;    \r\n}\r\n\r\n.mb-3{\r\n    display: block;\r\n    font-size: 2rem;\r\n    font-weight: 500;\r\n}\r\n\r\n.section-heading-lower {\r\n    display: block;\r\n    font-size: 3rem;\r\n    font-weight: 100;\r\n}\r\n\r\n.ml-auto, .mx-auto {\r\n    margin-left: auto!important;\r\n}\r\n\r\n.mr-auto, .mx-auto {\r\n    margin-right: auto!important;\r\n}\r\n\r\na.btn {\r\n    -webkit-box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);\r\n            box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);\r\n    text-align:center !important;\r\n    display:block !important;    \r\n  }\r\n\r\ndiv.botonRecuadro{\r\n    margin: auto;\r\n    width: 50%;\r\n    padding: 10px;\r\n    text-align:center;\r\n    display:block;\r\n  }\r\n\r\n.btn-primary {\r\n    background-color: #e6a756;\r\n    border-color: #e6a756;\r\n  }\r\n\r\n.btn-primary:hover, .btn-primary:focus, .btn-primary:active {\r\n    background-color: #FFCC00;\r\n    border-color: #FFCC00;\r\n  }\r\n\r\n.font-weight-light {\r\n    font-weight: 100 !important;\r\n  }\r\n\r\n.acordeonButton{\r\n    /* margin: auto;\r\n    width: 20%;\r\n    padding: 10px; */\r\n    display: table;  /* Instead of display:block */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n.input-group{\r\n    padding: 0px 140px !important; \r\n    /* padding: 0px 180px !important;  */\r\n  }\r\n\r\na.fa.fa-external-link,\r\n  a.fa.fa-pencil-square-o,\r\n  a.fa.fa-cloud-upload{\r\n    border-color : #FFCC00;\r\n    font-size: 40px;\r\n    color: #FFCC00;\r\n    cursor: pointer;\r\n  }\r\n\r\n.labelAcordeon{\r\n    font-size: 1rem;\r\n    font-weight: 800;   \r\n  }\r\n\r\n.imagenAcordeon{\r\n    cursor: pointer;\r\n    border-radius: 30%;\r\n    padding: 5px 80px;\r\n    height: 200px;\r\n    max-width: 450px;\r\n  }\r\n\r\n/* El del icono next */\r\n\r\n/* ::ng-deep span.carousel-control-next-icon{\r\n    \r\n} */\r\n\r\np a{\r\n    color: blue;\r\n    text-shadow: 0 0 12px rgba(230,160,55,0.6);\r\n}\r\n\r\n#demo{\r\n    padding: 0px 0px 0px 0px;    \r\n    margin : 30px;\r\n}\r\n\r\n#demo div.carousel-caption{\r\n    background-color: black;\r\n    opacity: 0.8;\r\n}\r\n\r\n.acordeonButton{\r\n    /* margin: auto;\r\n    width: 20%;\r\n    padding: 10px; */\r\n    display: table;  /* Instead of display:block */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n.labelAcordeon{\r\n    font-size: 1rem;\r\n    font-weight: 800;   \r\n  }\r\n\r\n.pareja{\r\n      margin: 14px;\r\n  }\r\n\r\n.imagenPanel{\r\n    background: url(" + escape(__webpack_require__("../../../../../src/assets/images/banner/ImagenJav1.jpg")) + ");\r\n    background-size:     cover;                      /* <------ */\r\n    background-repeat:   no-repeat;\r\n    background-position: center center; \r\n    min-height: 600px;\r\n    max-height: 600px;\r\n}\r\n\r\n.textoPanel{\r\n    background-color: #FFCC00;\r\n    min-height: 600px;\r\n    max-height: 600px;\r\n  }\r\n\r\n.margenTexto{\r\n      margin: 14px;\r\n  }", ""]);
+exports.push([module.i, ".tituloPanel {\r\n    font-family: 'Lobster';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n}\r\n\r\nimg{\r\n    margin: auto;\r\n    width: 100% !important;\r\n    \r\n    max-height: 500px;\r\n}\r\n\r\ndiv.carousel-caption{\r\n    background-color: black;\r\n    opacity: 0.5;\r\n}\r\n\r\n::ng-deep ol.carousel-indicators{\r\n    margin: auto;\r\n    width: 100% !important;\r\n    padding: 10px;\r\n    max-height: 400px;\r\n}\r\n\r\n::ng-deep ol.carousel-indicators .active{\r\n    border-color: white;\r\n    background-color: darkslategrey;\r\n    position: relative;\r\n    -webkit-box-flex: 0;\r\n    -ms-flex: 0 1 auto;\r\n    flex: 0 1 auto;\r\n    width: 30px;\r\n    height: 6px;\r\n    margin-right: 3px;\r\n    margin-left: 3px;\r\n    text-indent: -999px;\r\n}\r\n\r\n/* Para quitar border azul en click */\r\n\r\n.carousel.slide{\r\n    outline: none !important;\r\n}\r\n\r\n::ng-deep a.carousel-control-prev:hover,\r\n::ng-deep a.carousel-control-next:hover{\r\n    background-color: black;\r\n    opacity: 0.1;\r\n    \r\n}\r\n\r\n::ng-deep a.carousel-control-prev{\r\n    margin-left: -40px;\r\n}\r\n\r\n::ng-deep a.carousel-control-next{\r\n    margin-right: -40px;\r\n}\r\n\r\n::ng-deep div.carousel-caption{\r\n    border-radius: 10px;\r\n}\r\n\r\n/* Cuerpo del board */\r\n\r\nimg.inicioPanel{\r\n    border-radius: 30%;\r\n    padding: 5px 80px;\r\n}\r\n\r\np.labelPanel{\r\n    padding: 0px 90px !important;\r\n}\r\n\r\n.recuadro{\r\n    background-color:rgb(206, 202, 186);\r\n    text-align: center!important;\r\n    padding: 3rem!important;\r\n    border-radius: .25rem!important;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n    margin-right: 20px;\r\n    margin-left: 20px;\r\n}\r\n\r\n.recuadroGrande{\r\n    /* background-color:#fcf8e3; */\r\n    background-color:#f0e8bf;\r\n    text-align: center!important;\r\n    padding: 3rem!important;\r\n    border-radius: .25rem!important;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n    min-height: 400px;\r\n    margin : 14px;\r\n}\r\n\r\n.textoRecuadro{\r\n    text-transform: uppercase;\r\n    margin-bottom: 1.5rem!important;\r\n    font-family: Lora;\r\n    font-size: 2rem;\r\n    margin-bottom: .5rem;\r\n    font-family: inherit;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n    color: inherit;\r\n}\r\n\r\n.recuadroGrande .section-heading-upper {\r\n    display: block;\r\n    font-size: 2rem;\r\n    font-weight: 500;\r\n    color: #8a6d3b;\r\n}\r\n\r\n.recuadroGrande .section-heading-lower {\r\n    display: block;\r\n    font-size: 3rem;\r\n    font-weight: 100;\r\n    color: #8a6d3b\r\n}\r\n\r\n.section-heading .section-heading-upper {\r\n    display: block;\r\n    font-size: 1rem;\r\n    font-weight: 800;    \r\n}\r\n\r\n.mb-3{\r\n    display: block;\r\n    font-size: 2rem;\r\n    font-weight: 500;\r\n}\r\n\r\n.section-heading-lower {\r\n    display: block;\r\n    font-size: 3rem;\r\n    font-weight: 100;\r\n}\r\n\r\n.ml-auto, .mx-auto {\r\n    margin-left: auto!important;\r\n}\r\n\r\n.mr-auto, .mx-auto {\r\n    margin-right: auto!important;\r\n}\r\n\r\na.btn {\r\n    -webkit-box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);\r\n            box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);\r\n    text-align:center !important;\r\n    display:block !important;    \r\n  }\r\n\r\ndiv.botonRecuadro{\r\n    margin: auto;\r\n    width: 50%;\r\n    padding: 10px;\r\n    text-align:center;\r\n    display:block;\r\n  }\r\n\r\n.btn-primary {\r\n    background-color: #e6a756;\r\n    border-color: #e6a756;\r\n  }\r\n\r\n.btn-primary:hover, .btn-primary:focus, .btn-primary:active {\r\n    background-color: #FFCC00;\r\n    border-color: #FFCC00;\r\n  }\r\n\r\n.font-weight-light {\r\n    font-weight: 100 !important;\r\n  }\r\n\r\n.acordeonButton{\r\n    /* margin: auto;\r\n    width: 20%;\r\n    padding: 10px; */\r\n    display: table;  /* Instead of display:block */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n.input-group{\r\n    padding: 0px 140px !important; \r\n    /* padding: 0px 180px !important;  */\r\n  }\r\n\r\na.fa.fa-external-link,\r\n  a.fa.fa-pencil-square-o,\r\n  a.fa.fa-cloud-upload{\r\n    border-color : #FFCC00;\r\n    font-size: 40px;\r\n    color: #FFCC00;\r\n    cursor: pointer;\r\n  }\r\n\r\n.labelAcordeon{\r\n    font-size: 1rem;\r\n    font-weight: 800;   \r\n  }\r\n\r\n.imagenAcordeon{\r\n    cursor: pointer;\r\n    border-radius: 30%;\r\n    padding: 5px 80px;\r\n    height: 200px;\r\n    max-width: 450px;\r\n  }\r\n\r\n/* El del icono next */\r\n\r\n/* ::ng-deep span.carousel-control-next-icon{\r\n    \r\n} */\r\n\r\np a{\r\n    color: blue;\r\n    text-shadow: 0 0 12px rgba(230,160,55,0.6);\r\n}\r\n\r\n#demo{\r\n    padding: 0px 0px 0px 0px;    \r\n    margin : 30px;\r\n}\r\n\r\n#demo div.carousel-caption{\r\n    background-color: black;\r\n    opacity: 0.8;\r\n}\r\n\r\n.acordeonButton{\r\n    /* margin: auto;\r\n    width: 20%;\r\n    padding: 10px; */\r\n    display: table;  /* Instead of display:block */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n.labelAcordeon{\r\n    font-size: 1rem;\r\n    font-weight: 800;   \r\n  }\r\n\r\n.pareja{\r\n      margin: 14px;\r\n      cursor: pointer;\r\n  }\r\n\r\n.imagenPanel{\r\n    background: url(" + escape(__webpack_require__("../../../../../src/assets/images/board/hackatonPoster.jpg")) + ");\r\n    background-size:     cover;                      /* <------ */\r\n    background-repeat:   no-repeat;\r\n    background-position: center center; \r\n    min-height: 600px;\r\n    max-height: 600px;\r\n}\r\n\r\n.textoPanel{\r\n    background-color: #FFCC00;\r\n    min-height: 600px;\r\n    max-height: 600px;\r\n    overflow-y: scroll;\r\n    overflow-x: hidden;\r\n  }\r\n\r\n.margenTexto{\r\n      margin: 14px;\r\n  }", ""]);
 
 // exports
 
@@ -687,7 +705,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/board/board.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ngb-carousel>\r\n  <ng-template *ngFor=\"let imagenMostrar of [1,2,3]\" ngbSlide>\r\n    <img src=\"../../assets/images/banner/ImagenJav{{imagenMostrar}}.jpg\" alt=\"Slide {{imagenMostrar}}\" (click)=\"clickImagen('servicioEmprendimiento')\">\r\n    <div class=\"carousel-caption\">\r\n      <h3>Titulo Slide {{imagenMostrar}}</h3>\r\n      <p>Texto con formato en el slide {{imagenMostrar}}.</p>\r\n    </div>\r\n  </ng-template>\r\n</ngb-carousel>\r\n\r\n<!-- <br>\r\n  <p class=\"tituloPanel w3-xxxlarge\">{{'BOARD.EMPRENDEDOR'| translate}}</p>\r\n\r\n  <br> -->\r\n<br>\r\n\r\n<div class=\"colGrid1\" style=\"text-align:center\">\r\n  <div class=\"recuadroGrande\">\r\n    <h2 class=\"textoRecuadro\">\r\n      <span class=\"section-heading-upper\">Ecosistema Javeriano</span>\r\n      <span class=\"section-heading-lower\">de Emprendimiento</span>\r\n    </h2>\r\n    <br>\r\n    <p class=\"mb-3\">\r\n      El EJE es una plataforma dirigido a los emprendedores de la Pontificia Univerisada Javeriana (sede Bogotá) que entrega información\r\n      actualizada de los principales eventos y actividades asociadas con el tema del emprendimiento que se desarrollan en\r\n      la universidad\r\n    </p>\r\n  </div>\r\n</div>\r\n\r\n<br>\r\n\r\n<div id=\"demo\" class=\"carousel slide\" data-ride=\"carousel\">\r\n  <!-- The slideshow -->\r\n  <div class=\"container carousel-inner no-padding\">\r\n    <div class=\"carousel-item active\">\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n    </div>\r\n    <div class=\"carousel-item\">\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n    </div>\r\n    <div class=\"carousel-item\">\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <!-- Left and right controls -->\r\n  <a class=\"carousel-control-prev\" href=\"#demo\" data-slide=\"prev\">\r\n    <span class=\"carousel-control-prev-icon\"></span>\r\n  </a>\r\n  <a class=\"carousel-control-next\" href=\"#demo\" data-slide=\"next\">\r\n    <span class=\"carousel-control-next-icon\"></span>\r\n  </a>\r\n</div>\r\n\r\n\r\n<div id=\"recuadripareja\" class=\"pareja contGridFluid\">\r\n    <div class=\"colGrid2 imagenPanel\" style=\"text-align:center\">\r\n  \r\n    </div>\r\n    <div class=\"colGrid2 textoPanel\" style=\"text-align:center\">\r\n        <p class=\"margenTexto mb-3 labelPanel\" for=\"botonSIIEJ1\"> \r\n            El sistema busca apoyar la coordinación entre los diferentes actores que se encuentran en\r\n            el ecosistema de innovación y emprendimiento de la facultad de ingeniería. Son múltiples\r\n            los mecanismos y procesos que tendrá el sistema para apoyar y contribuir a la coordinación\r\n            entre actores. Estos mecanismos se dividen en dos, pueden ser internos o externos.\r\n          </p>\r\n    </div>\r\n  </div>\r\n\r\n<!--\r\n  <div class=\"contGridFluid\">\r\n    <div class=\"colGrid4\" >\r\n      <ng-container>\r\n        <img class=\"inicioPanel\" id=\"botonSIIEJ1\" src=\"../../assets/images/banner/javebanner1.jpg\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \r\n        <br><br>\r\n        <p class=\"mb-3 labelPanel\" for=\"botonSIIEJ1\"> \r\n          El sistema busca apoyar la coordinación entre los diferentes actores que se encuentran en\r\n          el ecosistema de innovación y emprendimiento de la facultad de ingeniería. Son múltiples\r\n          los mecanismos y procesos que tendrá el sistema para apoyar y contribuir a la coordinación\r\n          entre actores. Estos mecanismos se dividen en dos, pueden ser internos o externos.\r\n        </p>\r\n      </ng-container>\r\n      <ng-container>\r\n        <br>\r\n        <img class=\"inicioPanel\" id=\"botonSIIEJ1\" src=\"../../assets/images/banner/javebanner1.jpg\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \r\n        <br><br>\r\n        <p class=\"mb-3 labelPanel\" for=\"botonSIIEJ1\"> \r\n          El sistema busca apoyar la coordinación entre los diferentes actores que se encuentran en\r\n          el ecosistema de innovación y emprendimiento de la facultad de ingeniería. Son múltiples\r\n          los mecanismos y procesos que tendrá el sistema para apoyar y contribuir a la coordinación\r\n          entre actores. Estos mecanismos se dividen en dos, pueden ser internos o externos.\r\n        </p>\r\n      </ng-container>\r\n    </div> \r\n    <div class=\"colGrid4\">\r\n      <ng-container>\r\n        <img class=\"inicioPanel\" id=\"botonSIIEJ1\" src=\"../../assets/images/banner/javebanner1.jpg\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \r\n        <br><br>        \r\n        <p class=\"mb-3 labelPanel\" for=\"botonSIIEJ1\">\r\n            La Pontificia Universidad Javeriana es una universidad privada colombiana fundada en 1623 y regentada por la Compañía de Jesús.\r\n            En 2016 y 2017 logró posicionarse como la mejor universidad del país según Times Higher Education, \r\n            una de las firmas más prestigiosas a nivel mundial en World University Rankings. Adicionalmente, \r\n            tiene 179 grupos de investigación registrados en Colciencias de los cuales 99 han sido \r\n            escalafonados de acuerdo con su productividad, lo que convierte a esta institution en una de las \r\n            cinco universidades del país con el mayor número de grupos de investigación reconocidos por \r\n            Colciencias y la más destacada de las privadas en este campo junto a la Universidad de los Andes.\r\n            <br><br>\r\n            <a id=\"title\" href=\"http://www.javeriana.edu.co\" target=\"_blank\">Aprende más...</a>\r\n        </p>\r\n      </ng-container>\r\n    </div> \r\n    <div class=\"colGrid2\" style=\"text-align:center\">\r\n      <div class=\"recuadro\">\r\n        <h2 class=\"textoRecuadro\">\r\n          <span class=\"section-heading-upper\">Emprende</span>\r\n          <span class=\"section-heading-lower\">Con Nosotros</span>\r\n        </h2>\r\n        <p class=\"mb-3\">\r\n          Los proyectos y eventos que puedan ser creados en este\r\n          sistema podrían tener un patrocinio, es por esto que el inversionista es\r\n          identificado como un stakeholder.\r\n        </p>\r\n        <br>\r\n        <div class=\"botonRecuadro\">\r\n          <a class=\"btn btn-primary\" (click)=\"aprende()\">\r\n            Aprende Más\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>  \r\n  </div> -->\r\n\r\n<!-- ../../assets/images/jave2.png -->\r\n<!-- https://lorempixel.com/900/500?r=1 -->"
+module.exports = "<ngb-carousel>\r\n  <ng-template *ngFor=\"let imagenMostrar of [1,2,3]\" ngbSlide>\r\n    <img src=\"../../assets/images/banner/ImagenJav{{imagenMostrar}}.jpg\" alt=\"Slide {{imagenMostrar}}\" (click)=\"clickImagen('servicioEmprendimiento')\">\r\n    <div class=\"carousel-caption\">\r\n      <h3>Titulo Slide {{imagenMostrar}}</h3>\r\n      <p>Texto con formato en el slide {{imagenMostrar}}.</p>\r\n    </div>\r\n  </ng-template>\r\n</ngb-carousel>\r\n\r\n<!-- <br>\r\n  <p class=\"tituloPanel w3-xxxlarge\">{{'BOARD.EMPRENDEDOR'| translate}}</p>\r\n\r\n  <br> -->\r\n<br>\r\n\r\n<div class=\"colGrid1\" style=\"text-align:center\">\r\n  <div class=\"recuadroGrande\">\r\n    <h2 class=\"textoRecuadro\">\r\n      <span class=\"section-heading-upper\">Ecosistema Javeriano</span>\r\n      <span class=\"section-heading-lower\">de Emprendimiento</span>\r\n    </h2>\r\n    <br>\r\n    <p class=\"mb-3\">\r\n      El EJE es una plataforma dirigido a los emprendedores de la Pontificia Univerisada Javeriana (sede Bogotá) que entrega información\r\n      actualizada de los principales eventos y actividades asociadas con el tema del emprendimiento que se desarrollan en\r\n      la universidad\r\n    </p>\r\n  </div>\r\n</div>\r\n\r\n<br>\r\n\r\n<div id=\"demo\" class=\"carousel slide\" data-ride=\"carousel\">\r\n  <!-- The slideshow -->\r\n  <div class=\"container carousel-inner no-padding\">\r\n    <div class=\"carousel-item active\">\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n    </div>\r\n    <div class=\"carousel-item\">\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n    </div>\r\n    <div class=\"carousel-item\">\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"col-xs-3 col-sm-3 col-md-3\">\r\n        <ng-container>\r\n          <img src=\"../../assets/images/banner/silueta.jpg\">\r\n          <a class=\"acordeonButton labelAcordeon\">Nombre y Apellido</a>\r\n        </ng-container>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <!-- Left and right controls -->\r\n  <a class=\"carousel-control-prev\" href=\"#demo\" data-slide=\"prev\">\r\n    <span class=\"carousel-control-prev-icon\"></span>\r\n  </a>\r\n  <a class=\"carousel-control-next\" href=\"#demo\" data-slide=\"next\">\r\n    <span class=\"carousel-control-next-icon\"></span>\r\n  </a>\r\n</div>\r\n\r\n\r\n<div id=\"recuadripareja\" class=\"pareja contGridFluid\" (click)=\"abrirEventoHackaton(11)\">\r\n    <div class=\"colGrid2 imagenPanel\" style=\"text-align:center\">\r\n  \r\n    </div>\r\n    <div class=\"colGrid2 textoPanel\" style=\"text-align:center\">\r\n        <p class=\"margenTexto mb-3 labelPanel\" for=\"botonSIIEJ1\"> \r\n          El Centro Ático, la Facultad de Ingeniería, la Facultad de Estudios Ambientales y\r\n          Rurales de la Pontificia Universidad Javeriana y el EL TIEMPO Casa Editorial,\r\n          invitan a participar en la Hackathón “Reinventa, Realiza y Respira” que tiene\r\n          como fin promover el encuentro, la experimentación y la creación interdisciplinar\r\n          entre los participantes, quienes durante 24 horas continuas resolverán el reto\r\n          propuesto para el encuentro.\r\n          Con el apoyo de la Vicerrectoría del Medio Universitario y la Vicerrectoría\r\n          Académica, de la Pontificia Universidad Javeriana.\r\n          </p>\r\n    </div>\r\n  </div>\r\n\r\n<!--\r\n  <div class=\"contGridFluid\">\r\n    <div class=\"colGrid4\" >\r\n      <ng-container>\r\n        <img class=\"inicioPanel\" id=\"botonSIIEJ1\" src=\"../../assets/images/banner/javebanner1.jpg\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \r\n        <br><br>\r\n        <p class=\"mb-3 labelPanel\" for=\"botonSIIEJ1\"> \r\n          El sistema busca apoyar la coordinación entre los diferentes actores que se encuentran en\r\n          el ecosistema de innovación y emprendimiento de la facultad de ingeniería. Son múltiples\r\n          los mecanismos y procesos que tendrá el sistema para apoyar y contribuir a la coordinación\r\n          entre actores. Estos mecanismos se dividen en dos, pueden ser internos o externos.\r\n        </p>\r\n      </ng-container>\r\n      <ng-container>\r\n        <br>\r\n        <img class=\"inicioPanel\" id=\"botonSIIEJ1\" src=\"../../assets/images/banner/javebanner1.jpg\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \r\n        <br><br>\r\n        <p class=\"mb-3 labelPanel\" for=\"botonSIIEJ1\"> \r\n          El sistema busca apoyar la coordinación entre los diferentes actores que se encuentran en\r\n          el ecosistema de innovación y emprendimiento de la facultad de ingeniería. Son múltiples\r\n          los mecanismos y procesos que tendrá el sistema para apoyar y contribuir a la coordinación\r\n          entre actores. Estos mecanismos se dividen en dos, pueden ser internos o externos.\r\n        </p>\r\n      </ng-container>\r\n    </div> \r\n    <div class=\"colGrid4\">\r\n      <ng-container>\r\n        <img class=\"inicioPanel\" id=\"botonSIIEJ1\" src=\"../../assets/images/banner/javebanner1.jpg\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \r\n        <br><br>        \r\n        <p class=\"mb-3 labelPanel\" for=\"botonSIIEJ1\">\r\n            La Pontificia Universidad Javeriana es una universidad privada colombiana fundada en 1623 y regentada por la Compañía de Jesús.\r\n            En 2016 y 2017 logró posicionarse como la mejor universidad del país según Times Higher Education, \r\n            una de las firmas más prestigiosas a nivel mundial en World University Rankings. Adicionalmente, \r\n            tiene 179 grupos de investigación registrados en Colciencias de los cuales 99 han sido \r\n            escalafonados de acuerdo con su productividad, lo que convierte a esta institution en una de las \r\n            cinco universidades del país con el mayor número de grupos de investigación reconocidos por \r\n            Colciencias y la más destacada de las privadas en este campo junto a la Universidad de los Andes.\r\n            <br><br>\r\n            <a id=\"title\" href=\"http://www.javeriana.edu.co\" target=\"_blank\">Aprende más...</a>\r\n        </p>\r\n      </ng-container>\r\n    </div> \r\n    <div class=\"colGrid2\" style=\"text-align:center\">\r\n      <div class=\"recuadro\">\r\n        <h2 class=\"textoRecuadro\">\r\n          <span class=\"section-heading-upper\">Emprende</span>\r\n          <span class=\"section-heading-lower\">Con Nosotros</span>\r\n        </h2>\r\n        <p class=\"mb-3\">\r\n          Los proyectos y eventos que puedan ser creados en este\r\n          sistema podrían tener un patrocinio, es por esto que el inversionista es\r\n          identificado como un stakeholder.\r\n        </p>\r\n        <br>\r\n        <div class=\"botonRecuadro\">\r\n          <a class=\"btn btn-primary\" (click)=\"aprende()\">\r\n            Aprende Más\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>  \r\n  </div> -->\r\n\r\n<!-- ../../assets/images/jave2.png -->\r\n<!-- https://lorempixel.com/900/500?r=1 -->"
 
 /***/ }),
 
@@ -712,8 +730,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var BoardComponent = /** @class */ (function () {
     function BoardComponent(appComponent) {
         this.appComponent = appComponent;
+        this.esAdmin = false;
     }
     BoardComponent.prototype.ngOnInit = function () {
+        this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
         this.llamarServicio();
     };
     BoardComponent.prototype.llamarServicio = function () {
@@ -721,10 +741,19 @@ var BoardComponent = /** @class */ (function () {
     };
     BoardComponent.prototype.clickImagen = function (nombre) {
         console.log("clickImagen : entro a clickImagen");
-        this.appComponent.openTabs(nombre);
+        this.appComponent.openTabs(nombre, null);
     };
     BoardComponent.prototype.aprende = function () {
-        this.appComponent.openTabs('aboutus');
+        this.appComponent.openTabs('aboutus', null);
+    };
+    BoardComponent.prototype.abrirEventoHackaton = function (id) {
+        console.log('abrirEventoHackaton : entro a abrirEventoHackaton');
+        if (this.esAdmin) {
+            this.appComponent.openTabs('eventoEspecifico', id);
+        }
+        else {
+            this.appComponent.openTabs('detalleEvento', id);
+        }
     };
     BoardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1060,7 +1089,7 @@ var DirectorioComponent = /** @class */ (function () {
         }
     };
     DirectorioComponent.prototype.abrirEdicion = function () {
-        this.appComponent.openTabs('universidad');
+        this.appComponent.openTabs('universidad', null);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__relacionamiento_interno_relacionamiento_interno_component__["a" /* RelacionamientoInternoComponent */]),
@@ -2055,6 +2084,202 @@ var EtiquetasInicioComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/evento/detalles-evento/detalles-evento.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__("../../../../css-loader/lib/url/escape.js");
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "::ng-deep div.calendarioMargen{\r\n    margin-left: 40px;\r\n    margin-right:40px;\r\n}\r\n\r\n/* BOTON SUSCRIPCION */\r\n\r\na.fa.fa-bell{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 20px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n    border-style: solid;\r\n    border-radius: 10px;\r\n    border-width: 1px;\r\n    padding: 5px;\r\n    min-width: 125px;\r\n  }\r\n\r\na.fa.fa-check{\r\n    float:right; \r\n    border-color : #ffffff;\r\n    font-size: 20px;\r\n    color: #ffffff;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n    border-style: solid;\r\n    border-radius: 10px;\r\n    border-width: 1px;\r\n    padding: 5px;\r\n    background-color: #FFCC00;\r\n    min-width: 125px;\r\n  }\r\n\r\n.custom-mostrar {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #FFCC00;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    border-radius: 8px;\r\n}\r\n\r\n.custom-mostrado {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #ffffff;\r\n    color : #FFCC00;\r\n    border-color: #FFCC00;  \r\n    border-radius: 8px;\r\n    border-style: solid;\r\n    border-width: 2px;\r\n}\r\n\r\n.custom-inscribir {    \r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #ffffff;\r\n    color : #FFCC00;\r\n    border-color: #FFCC00;  \r\n    border-radius: 8px;\r\n    border-style: solid;\r\n    border-width: 2px;  \r\n    min-width: 200px;\r\n}\r\n\r\n.custom-inscrito {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #FFCC00;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    border-radius: 8px;\r\n    min-width: 200px; \r\n}\r\n\r\nlabel.custom-inscrito:before{\r\n    content: \"Inscrito   \"\r\n}\r\n\r\nlabel.custom-inscribir:before{\r\n    content: \"Inscribirse   \"\r\n}\r\n\r\n/* letras */\r\n\r\nh4 {\r\n    margin: 0 0 10px;\r\n    text-transform: uppercase;\r\n  }\r\n\r\nh5 {\r\n    margin: 0 0 10px;\r\n    float: left;\r\n    color: #000066;\r\n  }\r\n\r\nh6 {\r\n    margin: 0 0 10px;\r\n    float: left;\r\n  }\r\n\r\n/* imagen */\r\n\r\n.imagenDetalles{\r\n    background: url(" + escape(__webpack_require__("../../../../../src/assets/images/board/hackatonPoster.jpg")) + ");\r\n    background-size:     cover;                      /* <------ */\r\n    background-repeat:   no-repeat;\r\n    background-position: center center; \r\n    min-height: 600px;\r\n    max-height: 600px;\r\n}\r\n\r\n.textoDetalles{\r\n    padding: 20px;\r\n    min-height: 600px;\r\n    max-height: 600px;\r\n    overflow-y: auto;\r\n    overflow-x: hidden;\r\n  }\r\n\r\n/* Animacion */\r\n\r\n.typewriter{\r\n    width:100%;\r\n    margin:0 auto;\r\n  }\r\n\r\n.typewriter h1 {\r\n    color: #000066;\r\n    font-family: monospace;\r\n    overflow: hidden; /* Ensures the content is not revealed until the animation */\r\n    border-right: .15em solid orange; /* The typwriter cursor */\r\n    white-space: nowrap; /* Keeps the content on a single line */\r\n    margin: 0 auto; /* Gives that scrolling effect as the typing happens */\r\n    letter-spacing: .15em; /* Adjust as needed */\r\n    -webkit-animation: \r\n      typing 3.5s steps(30, end),\r\n      blink-caret .5s step-end infinite;\r\n            animation: \r\n      typing 3.5s steps(30, end),\r\n      blink-caret .5s step-end infinite;\r\n    text-align: center;\r\n  }\r\n\r\n/* The typing effect */\r\n\r\n@-webkit-keyframes typing {\r\n    from { width: 0 }\r\n    to { width: 100% }\r\n  }\r\n\r\n@keyframes typing {\r\n    from { width: 0 }\r\n    to { width: 100% }\r\n  }\r\n\r\n/* The typewriter cursor effect */\r\n\r\n@-webkit-keyframes blink-caret {\r\n    from, to { border-color: transparent }\r\n    50% { border-color: orange }\r\n  }\r\n\r\n@keyframes blink-caret {\r\n    from, to { border-color: transparent }\r\n    50% { border-color: orange }\r\n  }\r\n\r\n/* mas eventos */\r\n\r\na.fa.fa-calendar{\r\n    float:right; \r\n    border-color : #ffffff;\r\n    font-size: 20px;\r\n    color: #ffffff;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n    border-style: solid;\r\n    border-radius: 10px;\r\n    border-width: 1px;\r\n    padding: 5px;\r\n    background-color: #FFCC00;\r\n    min-width: 125px;\r\n  }\r\n\r\n.custom-abrir {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    border-radius: 8px;\r\n}\r\n\r\nlabel.custom-abrir:before{\r\n    content: \"Ver M\\E1s Eventos   \"\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/evento/detalles-evento/detalles-evento.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "    \n<div class=\"calendarioMargen\">\n      <br><br>\n\n      <div class=\"typewriter\">\n        <h1>{{detalleEvento}}</h1>\n      </div>\n      <br><br>\n      <!-- <a *ngIf=\"!suscrito\" class=\"fa fa-bell\" (click)=\"suscribirse()\" >Suscribirse</a>\n      <a *ngIf=\"suscrito\" class=\"fa fa-check\" (click)=\"desuscribirse()\" >Suscrito</a> -->\n\n      <!-- *ngIf=\"validarFechaInscribir()\"  -->\n      <div style=\"float:right;\">\n        <label  id=\"labelInscripcionFa\" (click)=\"suscribirse()\" class=\"custom-inscribir\">\n          <i id=\"inscripcionFa\" class=\"fa fa-bell\"></i>\n        </label>\n      </div>  \n      <div class=\"contGridFluid\">\n        <div class=\"colGrid2 imagenDetalles\" style=\"text-align:center\">\n\n        </div>\n        <div class=\"colGrid2 textoDetalles\">\n          <br><br>\n          <h5>Descripcion</h5>\n          <br><br>\n          <h6>          \n            {{descripcionEvento}}        \n          </h6>  \n          <br><br>\n          <h5>Requisitos</h5>\n          <br><br><br><br>\n          <h6>          \n            {{requisitosEvento}}\n          </h6>\n          <br><br>\n          <h5>Capacidad Máxima</h5>\n          <br><br>\n          <h6>          \n            {{capacidadMaxima}}\n          </h6>\n\n          <br><br><br>\n\n          <div style=\"width:100%;\">\n            <label  id=\"labelMasEventos\" (click)=\"abrirEventos()\" class=\"custom-abrir\">\n              <i id=\"abrirFa\" class=\"fa fa-calendar\"></i>\n            </label>\n          </div>  \n\n      </div>\n    </div>      \n  </div>      \n\n<app-formulario-personalizado (guardo)=\"onNotifyInscribirse($event)\"></app-formulario-personalizado>\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" ></app-popup-aviso>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/evento/detalles-evento/detalles-evento.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetallesEventoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__servicios_eventos_eventos_service__ = __webpack_require__("../../../../../src/app/servicios/eventos/eventos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__formulario_personalizado_formulario_personalizado_component__ = __webpack_require__("../../../../../src/app/evento/formulario-personalizado/formulario-personalizado.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var DetallesEventoComponent = /** @class */ (function () {
+    function DetallesEventoComponent(eventosService, appComponent) {
+        this.eventosService = eventosService;
+        this.appComponent = appComponent;
+        this.eventosTodos = new Array();
+        this.atributosPersonalizados = new Array();
+    }
+    DetallesEventoComponent.prototype.ngOnChanges = function (changes) {
+        if (changes.idAbrir) {
+            this.abrirDetalleEventos();
+        }
+    };
+    DetallesEventoComponent.prototype.ngOnInit = function () {
+    };
+    DetallesEventoComponent.prototype.abrirDetalleEventos = function () {
+        var _this = this;
+        console.log('abrirDetalleEventos : entro a abrirDetalleEventos');
+        var idEvento = this.idAbrir;
+        this.eventosService.obtenerEventos().subscribe(function (response) {
+            console.log(response);
+            _this.eventosTodos = response;
+            var detallado = _this.eventosTodos.indexOf(_this.eventosTodos.find(function (element) {
+                return element.id == idEvento;
+            }));
+            _this.detalleEvento = _this.eventosTodos[detallado].titulo;
+            _this.descripcionEvento = _this.eventosTodos[detallado].descripcion;
+            _this.requisitosEvento = _this.eventosTodos[detallado].requisitos;
+            if (_this.eventosTodos[detallado].capacidad_maxima == -1) {
+                _this.capacidadMaxima = 'No se tiene un límite de capacidad';
+            }
+            else {
+                _this.capacidadMaxima = _this.eventosTodos[detallado].capacidad_maxima;
+            }
+            _this.atributosPersonalizados = _this.eventosTodos[detallado].atrPersonalizados;
+            _this.evento = _this.eventosTodos[detallado].id;
+            _this.eventosService.estaInscrito(_this.evento).subscribe(function (response) {
+                console.log(response);
+                _this.suscrito = response;
+                if (_this.suscrito) {
+                    document.getElementById('inscripcionFa').className = 'fa fa-check';
+                    document.getElementById('labelInscripcionFa').className = 'custom-inscrito';
+                }
+                else {
+                    document.getElementById('inscripcionFa').className = 'fa fa-bell';
+                    document.getElementById('labelInscripcionFa').className = 'custom-inscribir';
+                }
+            }, function (error) {
+                console.log("**Esta suscrito***" + error);
+            });
+        });
+    };
+    DetallesEventoComponent.prototype.suscribirse = function () {
+        var _this = this;
+        console.log('suscribirse : entro a suscribirse');
+        var idEvento = this.idAbrir;
+        this.mensajeMostrar = 'El evento ya ha alcanzado su capacidad máxima';
+        var pasa = false;
+        if (!this.suscrito) {
+            pasa = this.llenarFormulario();
+        }
+        else {
+            pasa = true;
+        }
+        if (pasa) {
+            this.eventosService.suscribirse(idEvento).subscribe(function (response) {
+                console.log(response);
+                _this.suscrito = response;
+                if (response) {
+                    document.getElementById('inscripcionFa').className = 'fa fa-check';
+                    document.getElementById('labelInscripcionFa').className = 'custom-inscrito';
+                }
+                else {
+                    document.getElementById('inscripcionFa').className = 'fa fa-bell';
+                    document.getElementById('labelInscripcionFa').className = 'custom-inscribir';
+                }
+            }, function (error) {
+                _this.mensajeMostrar = 'Ha ocurrido un error inscribiendose';
+                _this.avisar();
+                console.log("**suscribirse***" + error);
+            });
+        }
+    };
+    DetallesEventoComponent.prototype.llenarFormulario = function () {
+        if (this.atributosPersonalizados.length > 0) {
+            this.formularioPersonalizadoComponent.abrir(this.atributosPersonalizados);
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    DetallesEventoComponent.prototype.avisar = function () {
+        this.avisoPopUp.mostrarPop();
+    };
+    DetallesEventoComponent.prototype.onNotifyInscribirse = function (e) {
+        var _this = this;
+        var idEvento = this.idAbrir;
+        this.eventosService.suscribirse(idEvento).subscribe(function (response) {
+            console.log(response);
+            _this.suscrito = response;
+            if (response) {
+                document.getElementById('inscripcionFa').className = 'fa fa-check';
+                document.getElementById('labelInscripcionFa').className = 'custom-inscrito';
+            }
+            else {
+                document.getElementById('inscripcionFa').className = 'fa fa-bell';
+                document.getElementById('labelInscripcionFa').className = 'custom-inscribir';
+            }
+        }, function (error) {
+            _this.mensajeMostrar = 'El evento ya ha alcanzado su capacidad máxima';
+            _this.avisar();
+            console.log("**suscribirse***" + error);
+        });
+    };
+    DetallesEventoComponent.prototype.abrirEventos = function () {
+        this.appComponent.cerrarTab('detalleEvento');
+        this.appComponent.openTabs('evento', null);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])('idAbrir'),
+        __metadata("design:type", Object)
+    ], DetallesEventoComponent.prototype, "idAbrir", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */])
+    ], DetallesEventoComponent.prototype, "formularioPersonalizadoComponent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+    ], DetallesEventoComponent.prototype, "avisoPopUp", void 0);
+    DetallesEventoComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-detalles-evento',
+            template: __webpack_require__("../../../../../src/app/evento/detalles-evento/detalles-evento.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/evento/detalles-evento/detalles-evento.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_eventos_eventos_service__["a" /* EventosService */],
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]])
+    ], DetallesEventoComponent);
+    return DetallesEventoComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/evento/evento.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2086,18 +2311,19 @@ module.exports = "<br>\r\n<div class=\"calendarioMargen\">\r\n\r\n<div class=\"i
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_calendar__ = __webpack_require__("../../../../angular-calendar/esm5/angular-calendar.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_date_fns__ = __webpack_require__("../../../../date-fns/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_date_fns___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_date_fns__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pickers_custom_date_formatter_provider__ = __webpack_require__("../../../../../src/app/pickers/custom-date-formatter.provider.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__suscriptores_suscriptores_component__ = __webpack_require__("../../../../../src/app/evento/suscriptores/suscriptores.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__servicios_eventos_eventos_service__ = __webpack_require__("../../../../../src/app/servicios/eventos/eventos.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__formulario_personalizado_formulario_personalizado_component__ = __webpack_require__("../../../../../src/app/evento/formulario-personalizado/formulario-personalizado.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__listado_eventos_listado_eventos_component__ = __webpack_require__("../../../../../src/app/evento/listado-eventos/listado-eventos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular_calendar__ = __webpack_require__("../../../../angular-calendar/esm5/angular-calendar.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_date_fns__ = __webpack_require__("../../../../date-fns/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_date_fns___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_date_fns__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pickers_custom_date_formatter_provider__ = __webpack_require__("../../../../../src/app/pickers/custom-date-formatter.provider.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__suscriptores_suscriptores_component__ = __webpack_require__("../../../../../src/app/evento/suscriptores/suscriptores.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__servicios_eventos_eventos_service__ = __webpack_require__("../../../../../src/app/servicios/eventos/eventos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__formulario_personalizado_formulario_personalizado_component__ = __webpack_require__("../../../../../src/app/evento/formulario-personalizado/formulario-personalizado.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__listado_eventos_listado_eventos_component__ = __webpack_require__("../../../../../src/app/evento/listado-eventos/listado-eventos.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2107,6 +2333,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2177,7 +2404,7 @@ var EventoComponent = /** @class */ (function () {
                 }
             }
         ];
-        this.refresh = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["b" /* Subject */]();
+        this.refresh = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["b" /* Subject */]();
         this.events = [];
         this.activeDayIsOpen = true;
         this.mostrarEventos = false;
@@ -2192,6 +2419,11 @@ var EventoComponent = /** @class */ (function () {
         this.masDetallesClass = "custom-mostrar";
         this.atributosPersonalizados = new Array();
     }
+    EventoComponent.prototype.ngOnChanges = function (changes) {
+        if (changes.idAbrir) {
+            this.abrirEspecifico();
+        }
+    };
     EventoComponent.prototype.ngOnInit = function () {
         this.cargarTodosLosEventos();
         this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
@@ -2237,8 +2469,8 @@ var EventoComponent = /** @class */ (function () {
     EventoComponent.prototype.dayClicked = function (_a) {
         var date = _a.date, events = _a.events;
         console.log('dayClicked : entro a dayClicked');
-        if (Object(__WEBPACK_IMPORTED_MODULE_4_date_fns__["isSameMonth"])(date, this.viewDate)) {
-            if ((Object(__WEBPACK_IMPORTED_MODULE_4_date_fns__["isSameDay"])(this.viewDate, date) && this.activeDayIsOpen === true) ||
+        if (Object(__WEBPACK_IMPORTED_MODULE_5_date_fns__["isSameMonth"])(date, this.viewDate)) {
+            if ((Object(__WEBPACK_IMPORTED_MODULE_5_date_fns__["isSameDay"])(this.viewDate, date) && this.activeDayIsOpen === true) ||
                 events.length === 0) {
                 this.activeDayIsOpen = false;
             }
@@ -2264,8 +2496,8 @@ var EventoComponent = /** @class */ (function () {
     EventoComponent.prototype.addEvent = function () {
         this.events.push({
             title: 'New event',
-            start: Object(__WEBPACK_IMPORTED_MODULE_4_date_fns__["startOfDay"])(new Date()),
-            end: Object(__WEBPACK_IMPORTED_MODULE_4_date_fns__["endOfDay"])(new Date()),
+            start: Object(__WEBPACK_IMPORTED_MODULE_5_date_fns__["startOfDay"])(new Date()),
+            end: Object(__WEBPACK_IMPORTED_MODULE_5_date_fns__["endOfDay"])(new Date()),
             color: colors.blueJaverina,
             draggable: true,
             resizable: {
@@ -2698,25 +2930,37 @@ var EventoComponent = /** @class */ (function () {
             console.log("**suscribirse***" + error);
         });
     };
+    EventoComponent.prototype.abrirEspecifico = function () {
+        var _this = this;
+        this.timer = __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["a" /* Observable */].timer(1000);
+        this.suscription = this.timer.subscribe(function (t) {
+            _this.abrirDetalleEventos(_this.idAbrir);
+            _this.suscription.unsubscribe();
+        });
+    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_11__listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_11__listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_12__listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_12__listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */])
     ], EventoComponent.prototype, "listado", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])('idAbrir'),
+        __metadata("design:type", Object)
+    ], EventoComponent.prototype, "idAbrir", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('modalContent'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* TemplateRef */])
     ], EventoComponent.prototype, "modalContent", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_10__formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_10__formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_11__formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_11__formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */])
     ], EventoComponent.prototype, "formularioPersonalizadoComponent", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_6__suscriptores_suscriptores_component__["a" /* SuscriptoresComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_6__suscriptores_suscriptores_component__["a" /* SuscriptoresComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_7__suscriptores_suscriptores_component__["a" /* SuscriptoresComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_7__suscriptores_suscriptores_component__["a" /* SuscriptoresComponent */])
     ], EventoComponent.prototype, "inscripciones", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_9__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_9__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_10__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_10__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
     ], EventoComponent.prototype, "avisoPopUp", void 0);
     EventoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -2726,14 +2970,14 @@ var EventoComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/evento/evento.component.css")],
             providers: [
                 {
-                    provide: __WEBPACK_IMPORTED_MODULE_3_angular_calendar__["a" /* CalendarDateFormatter */],
-                    useClass: __WEBPACK_IMPORTED_MODULE_5__pickers_custom_date_formatter_provider__["a" /* CustomDateFormatter */]
+                    provide: __WEBPACK_IMPORTED_MODULE_4_angular_calendar__["a" /* CalendarDateFormatter */],
+                    useClass: __WEBPACK_IMPORTED_MODULE_6__pickers_custom_date_formatter_provider__["a" /* CustomDateFormatter */]
                 }
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModal */],
-            __WEBPACK_IMPORTED_MODULE_7__servicios_eventos_eventos_service__["a" /* EventosService */],
-            __WEBPACK_IMPORTED_MODULE_8__servicios_cola_cola_service__["a" /* ColaService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__["a" /* NgbModal */],
+            __WEBPACK_IMPORTED_MODULE_8__servicios_eventos_eventos_service__["a" /* EventosService */],
+            __WEBPACK_IMPORTED_MODULE_9__servicios_cola_cola_service__["a" /* ColaService */]])
     ], EventoComponent);
     return EventoComponent;
 }());
@@ -4171,7 +4415,7 @@ var SolicitarServicioComponent = /** @class */ (function () {
     SolicitarServicioComponent.prototype.onCerrarNotify = function (e) {
         console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
         this.appComponent.cerrarTab('solicitarServicio');
-        this.appComponent.openTabs('servicioEmprendimiento');
+        this.appComponent.openTabs('servicioEmprendimiento', null);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
@@ -5506,10 +5750,10 @@ var UsuarioComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/assets/images/banner/ImagenJav1.jpg":
+/***/ "../../../../../src/assets/images/board/hackatonPoster.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "ImagenJav1.77eb8a481a3c8d87951e.jpg";
+module.exports = __webpack_require__.p + "hackatonPoster.1b6037afd091c74d11f2.jpg";
 
 /***/ }),
 

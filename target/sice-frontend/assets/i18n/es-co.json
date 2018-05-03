@@ -34,7 +34,7 @@
       "CERRARTODAS" : "Cerrar Todas",
       "DEMAS" : "Cerrar Otras"
     },
-    "Principal Emprendimiento" : "Board",
+    "Principal Emprendimiento" : "Home",
     "Información" : "Información",
     "Usuarios" : "Usuarios" ,
     "Empresa"  : "Empresa",
@@ -44,7 +44,8 @@
     "Servicios" : "Servicios",
     "aboutus" : "Enlaces de Interés",
     "solicitarServicio" : "Solicitar Servicio",
-    "solicitudesServicio" : "Responder Solicitudes"
+    "solicitudesServicio" : "Responder Solicitudes",
+    "detalleEvento" : "¡Asiste!"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",
