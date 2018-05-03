@@ -13,6 +13,7 @@ export class BoardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
     this.llamarServicio();
   }
 
@@ -22,11 +23,22 @@ export class BoardComponent implements OnInit {
 
   clickImagen(nombre : any){
     console.log("clickImagen : entro a clickImagen");
-    this.appComponent.openTabs(nombre);
+    this.appComponent.openTabs(nombre, null);
   }
 
   aprende(){
-    this.appComponent.openTabs('aboutus');
+    this.appComponent.openTabs('aboutus', null);
+  }
+
+  esAdmin : boolean = false;
+
+  abrirEventoHackaton(id: any){
+    console.log('abrirEventoHackaton : entro a abrirEventoHackaton');
+    if(this.esAdmin){
+      this.appComponent.openTabs('eventoEspecifico', id);
+    }else{
+      this.appComponent.openTabs('detalleEvento', id);
+    }
   }
 
 }

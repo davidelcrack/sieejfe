@@ -1,0 +1,191 @@
+::ng-deep div.calendarioMargen{
+    margin-left: 40px;
+    margin-right:40px;
+}
+
+/* BOTON SUSCRIPCION */
+
+a.fa.fa-bell{
+    float:right; 
+    border-color : #FFCC00;
+    font-size: 20px;
+    color: #FFCC00;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5px;
+    min-width: 125px;
+  }
+  
+  a.fa.fa-check{
+    float:right; 
+    border-color : #ffffff;
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5px;
+    background-color: #FFCC00;
+    min-width: 125px;
+  }
+
+  .custom-mostrar {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #FFCC00;
+    color : #ffffff;
+    border-color: #ffffff;  
+    border-radius: 8px;
+}
+
+.custom-mostrado {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color : #FFCC00;
+    border-color: #FFCC00;  
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.custom-inscribir {    
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color : #FFCC00;
+    border-color: #FFCC00;  
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;  
+    min-width: 200px;
+}
+
+.custom-inscrito {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #FFCC00;
+    color : #ffffff;
+    border-color: #ffffff;  
+    border-radius: 8px;
+    min-width: 200px; 
+}
+
+label.custom-inscrito:before{
+    content: "Inscrito   "
+}
+
+label.custom-inscribir:before{
+    content: "Inscribirse   "
+}
+
+/* letras */
+h4 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+  }
+
+  h5 {
+    margin: 0 0 10px;
+    float: left;
+    color: #000066;
+  }
+  
+  h6 {
+    margin: 0 0 10px;
+    float: left;
+  }
+
+  /* imagen */
+
+  .imagenDetalles{
+    background: url("../../../assets/images/board/hackatonPoster.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    min-height: 600px;
+    max-height: 600px;
+}
+
+.textoDetalles{
+    padding: 20px;
+    min-height: 600px;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Animacion */
+
+.typewriter{
+    width:100%;
+    margin:0 auto;
+  }
+  .typewriter h1 {
+    color: #000066;
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+    text-align: center;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+  
+  /* mas eventos */
+
+  a.fa.fa-calendar{
+    float:right; 
+    border-color : #ffffff;
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5px;
+    background-color: #FFCC00;
+    min-width: 125px;
+  }
+
+  .custom-abrir {
+    float: left;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #000066;
+    color : #ffffff;
+    border-color: #ffffff;  
+    border-radius: 8px;
+}
+
+label.custom-abrir:before{
+    content: "Ver Más Eventos   "
+}

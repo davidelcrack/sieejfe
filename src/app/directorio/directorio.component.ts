@@ -48,7 +48,7 @@ export class DirectorioComponent implements OnInit {
   }
 
   abrirEdicion(){
-    this.appComponent.openTabs('universidad');
+    this.appComponent.openTabs('universidad', null);
   }
 
 }

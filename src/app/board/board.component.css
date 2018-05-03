@@ -248,10 +248,11 @@ p a{
 
   .pareja{
       margin: 14px;
+      cursor: pointer;
   }
 
 .imagenPanel{
-    background: url("../../assets/images/banner/ImagenJav1.jpg");
+    background: url("../../assets/images/board/hackatonPoster.jpg");
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center; 
@@ -263,6 +264,8 @@ p a{
     background-color: #FFCC00;
     min-height: 600px;
     max-height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .margenTexto{

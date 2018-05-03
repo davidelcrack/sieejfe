@@ -198,8 +198,15 @@ export class AppComponent {
   @ViewChild('aboutUsTab') aboutUsTemplate;
   @ViewChild('solicitarServicioTab') solicitarServicioTemplate;
   @ViewChild('solicitudesServicioTab') solicitudesServicioTemplate;
-    
-  openTabs(nombre : any){
+  @ViewChild('eventoAbrirTab') eventoAbrirTemplate;
+  @ViewChild('detalleEventoTab') detalleEventoTemplate;
+  
+  
+  detalle : any;  
+  openTabs(nombre : any , detalle : any){
+
+    this.detalle=detalle;
+
     if(nombre=='about'){
       this.tabsComponent.openTab('Información',this.aboutTemplate,{},true);
     }
@@ -230,6 +237,13 @@ export class AppComponent {
     if(nombre=='solicitudesServicio'){
       this.tabsComponent.openTab('solicitudesServicio',this.solicitudesServicioTemplate,{},true);
     } 
+    if(nombre=='eventoEspecifico'){
+      this.tabsComponent.openTab('Evento',this.eventoAbrirTemplate, detalle ,true);
+    }
+    if(nombre=='detalleEvento'){
+      this.tabsComponent.openTab('detalleEvento',this.detalleEventoTemplate, detalle ,true);
+    }    
+    
   }
 
   cerrarTab(nombre : any){

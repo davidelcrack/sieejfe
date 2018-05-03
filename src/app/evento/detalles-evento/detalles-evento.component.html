@@ -1,0 +1,55 @@
+    
+<div class="calendarioMargen">
+      <br><br>
+
+      <div class="typewriter">
+        <h1>{{detalleEvento}}</h1>
+      </div>
+      <br><br>
+      <!-- <a *ngIf="!suscrito" class="fa fa-bell" (click)="suscribirse()" >Suscribirse</a>
+      <a *ngIf="suscrito" class="fa fa-check" (click)="desuscribirse()" >Suscrito</a> -->
+
+      <!-- *ngIf="validarFechaInscribir()"  -->
+      <div style="float:right;">
+        <label  id="labelInscripcionFa" (click)="suscribirse()" class="custom-inscribir">
+          <i id="inscripcionFa" class="fa fa-bell"></i>
+        </label>
+      </div>  
+      <div class="contGridFluid">
+        <div class="colGrid2 imagenDetalles" style="text-align:center">
+
+        </div>
+        <div class="colGrid2 textoDetalles">
+          <br><br>
+          <h5>Descripcion</h5>
+          <br><br>
+          <h6>          
+            {{descripcionEvento}}        
+          </h6>  
+          <br><br>
+          <h5>Requisitos</h5>
+          <br><br><br><br>
+          <h6>          
+            {{requisitosEvento}}
+          </h6>
+          <br><br>
+          <h5>Capacidad Máxima</h5>
+          <br><br>
+          <h6>          
+            {{capacidadMaxima}}
+          </h6>
+
+          <br><br><br>
+
+          <div style="width:100%;">
+            <label  id="labelMasEventos" (click)="abrirEventos()" class="custom-abrir">
+              <i id="abrirFa" class="fa fa-calendar"></i>
+            </label>
+          </div>  
+
+      </div>
+    </div>      
+  </div>      
+
+<app-formulario-personalizado (guardo)="onNotifyInscribirse($event)"></app-formulario-personalizado>
+<app-popup-aviso [mensaje]="mensajeMostrar" ></app-popup-aviso>

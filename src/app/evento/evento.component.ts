@@ -1,5 +1,5 @@
-import { Component, OnInit ,ChangeDetectionStrategy, ViewChild, TemplateRef} from '@angular/core';
-
+import { Component, OnInit ,ChangeDetectionStrategy, ViewChild, TemplateRef, Input, SimpleChanges} from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -67,6 +67,15 @@ export class EventoComponent implements OnInit {
   misContactos = false;
 
   @ViewChild(ListadoEventosComponent) listado: ListadoEventosComponent;
+
+  @Input('idAbrir') idAbrir;
+
+  ngOnChanges(changes: SimpleChanges) {
+    
+    if(changes.idAbrir){
+      this.abrirEspecifico();
+    }
+  }
 
   ngOnInit() {
     
@@ -449,7 +458,7 @@ export class EventoComponent implements OnInit {
   inscritoClass="";
   estaInscritoClass="";
 
-  abrirDetalleEventos(idEvento: any){
+  abrirDetalleEventos(idEvento: any){    
     console.log('abrirDetalleEventos : entro a abrirDetalleEventos',idEvento);
     this.idActual=idEvento;  
     let detallado = this.events.indexOf(this.events.find(function(element) {
@@ -499,8 +508,8 @@ export class EventoComponent implements OnInit {
     let el: any;
     el = document.getElementById("overlayInformacionEvento");
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-
-  }
+    
+     }
 
   cerrarPopUpDetalle(){
     console.log('cerrarPopUpDetalle : entro a cerrarPopUpDetalle');    
@@ -765,6 +774,18 @@ export class EventoComponent implements OnInit {
         console.log("**suscribirse***"+error);
       }      
     );
+  }
+
+  timer: any;
+  suscription: any;
+  abrirEspecifico(){    
+
+    this.timer = Observable.timer(1000);
+    this.suscription = this.timer.subscribe(t => {
+      this.abrirDetalleEventos(this.idAbrir);
+      this.suscription.unsubscribe();
+    });
+    
   }
 
   // validarFechaInscribir(){

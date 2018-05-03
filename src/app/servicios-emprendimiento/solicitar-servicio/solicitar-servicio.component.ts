@@ -42,7 +42,7 @@ export class SolicitarServicioComponent implements OnInit {
   onCerrarNotify(e){
     console.log('onNotifyPopUp : entro a onNotifyPopUp',e);    
     this.appComponent.cerrarTab('solicitarServicio');
-    this.appComponent.openTabs('servicioEmprendimiento');
+    this.appComponent.openTabs('servicioEmprendimiento', null);
   }
 
 }

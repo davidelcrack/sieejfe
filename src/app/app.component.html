@@ -5,7 +5,7 @@
         <div class="container-fluid brand-container">
             <div >
                 <a target="_blank" href="http://www.javeriana.edu.co"> <img src="assets/images/header/tiara.png" alt="Pontificia Universidad Javeriana"></a>            
-                <img class="pull-right content-to-hide" src="assets/images/header/logoV2SICE2.png" alt="MAX">
+                <img class="pull-right content-to-hide" src="assets/images/header/sice2V3.png" alt="MAX">
         </div>       
         </div>
         
@@ -21,14 +21,14 @@
             </li> -->            
             <li class="dropdown dropdownNav"><a  class="dropA">{{'ENTORNO.SERVICIOS'| translate}}</a>
                 <ul class="dropMioJaja">
-                    <li><a (click)="openTabs('servicioEmprendimiento')" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>
-                    <li id="menuSolicitarNormal"><a (click)="openTabs('solicitarServicio')" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>
-                    <li id="muniResponderAdmin"><a (click)="openTabs('solicitudesServicio')" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>
+                    <li><a (click)="openTabs('servicioEmprendimiento', null)" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>
+                    <li id="menuSolicitarNormal"><a (click)="openTabs('solicitarServicio', null)" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>
+                    <li id="muniResponderAdmin"><a (click)="openTabs('solicitudesServicio', null)" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>
                 </ul>
             </li>
-            <li><a (click)="openTabs('evento')">{{'ENTORNO.EVENTOS'| translate}}</a></li>
-            <li><a (click)="openTabs('directorio')">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
-            <li><a (click)="openTabs('aboutus')">{{'ENTORNO.QUIENES'| translate}}</a></li>
+            <li><a (click)="openTabs('evento', null)">{{'ENTORNO.EVENTOS'| translate}}</a></li>
+            <li><a (click)="openTabs('directorio', null)">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
+            <li><a (click)="openTabs('aboutus', null)">{{'ENTORNO.QUIENES'| translate}}</a></li>
             
 
             <li class="right"><a class="fa fa-sign-out" (click)="logout()" ></a></li>
@@ -107,6 +107,14 @@
     
     <ng-template #eventoTab>
         <mwl-demo-component></mwl-demo-component>
+    </ng-template>
+
+    <ng-template #eventoAbrirTab>
+        <mwl-demo-component [idAbrir]="detalle"></mwl-demo-component>
+    </ng-template>
+
+    <ng-template #detalleEventoTab>
+        <app-detalles-evento [idAbrir]="detalle"></app-detalles-evento>
     </ng-template>
 
     <ng-template #serviciosTab>
