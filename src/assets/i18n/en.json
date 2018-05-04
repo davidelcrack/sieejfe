@@ -23,7 +23,8 @@
     "QUIENES" : "About Us?",
     "OFERTASERVICIOS" : "Services Offered",
     "SOLICITARSERVICIO" : "Request Services",
-    "RESPONDERSOLICITUDES" : "Reply Requests"
+    "RESPONDERSOLICITUDES" : "Reply Requests",
+    "APOYOIDEAS" : "We Support You!"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -45,7 +46,8 @@
     "aboutus" : "Web Links",
     "solicitarServicio" : "Request Service",
     "solicitudesServicio" : "Reply Requests",
-    "detalleEvento" : "Join Us!"
+    "detalleEvento" : "Join Us!",
+    "apoyoIdeas" : "We Support You!"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

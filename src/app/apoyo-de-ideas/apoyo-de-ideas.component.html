@@ -1,0 +1,33 @@
+
+<br>
+<div class="apoyoMargen">
+
+
+  <br><br>
+  <h2>Escribe tu Idea</h2>
+  <br><br>
+
+  
+  <form>
+    <div class="forma">
+
+        <mat-form-field>
+            <mat-select [(value)]="seleccionados" placeholder="Campos de Acción" [formControl]="campos" multiple>
+              <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{campo}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+      <input placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="solicitudIdea.titulo" name="Name" required>
+            
+      <br><br>
+
+      <textarea placeholder="Mensaje" #msn maxlength="300" [(ngModel)]="solicitudIdea.descripcion" name="Msn" cols="25"></textarea>
+    
+      <input (click)="enviarIdea()" type="submit" value="Enviar">
+
+    </div>
+  </form>
+
+</div>
+
+<app-popup-aviso [mensaje]="mensajeMostrar" (cerroPop)="onCerrarNotify($event)"></app-popup-aviso>

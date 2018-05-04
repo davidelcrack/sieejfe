@@ -23,7 +23,8 @@
     "QUIENES" : "Enlaces de Interés",
     "OFERTASERVICIOS" : "Oferta de Servicios",
     "SOLICITARSERVICIO" : "Solicitar Servicios",
-    "RESPONDERSOLICITUDES" : "Responder Solicitudes"
+    "RESPONDERSOLICITUDES" : "Responder Solicitudes",
+    "APOYOIDEAS" : "¡Te Apoyamos!"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -45,7 +46,8 @@
     "aboutus" : "Enlaces de Interés",
     "solicitarServicio" : "Solicitar Servicio",
     "solicitudesServicio" : "Responder Solicitudes",
-    "detalleEvento" : "¡Asiste!"
+    "detalleEvento" : "¡Asiste!",
+    "apoyoIdeas" : "¡Te apoyamos!"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",

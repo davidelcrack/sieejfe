@@ -200,6 +200,7 @@ export class AppComponent {
   @ViewChild('solicitudesServicioTab') solicitudesServicioTemplate;
   @ViewChild('eventoAbrirTab') eventoAbrirTemplate;
   @ViewChild('detalleEventoTab') detalleEventoTemplate;
+  @ViewChild('apoyoIdeasTab') apoyoIdeasTemplate;
   
   
   detalle : any;  
@@ -243,7 +244,9 @@ export class AppComponent {
     if(nombre=='detalleEvento'){
       this.tabsComponent.openTab('detalleEvento',this.detalleEventoTemplate, detalle ,true);
     }    
-    
+    if(nombre=='apoyoIdeas'){
+      this.tabsComponent.openTab('apoyoIdeas',this.apoyoIdeasTemplate, {} ,true);
+    }    
   }
 
   cerrarTab(nombre : any){
