@@ -24,7 +24,8 @@
     "OFERTASERVICIOS" : "Oferta de Servicios",
     "SOLICITARSERVICIO" : "Solicitar Servicios",
     "RESPONDERSOLICITUDES" : "Responder Solicitudes",
-    "APOYOIDEAS" : "¡Te Apoyamos!"
+    "APOYOIDEAS" : "¡Te Apoyamos!",
+    "ADMONCORREOS" : "Administración Correos"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -47,7 +48,8 @@
     "solicitarServicio" : "Solicitar Servicio",
     "solicitudesServicio" : "Responder Solicitudes",
     "detalleEvento" : "¡Asiste!",
-    "apoyoIdeas" : "¡Te apoyamos!"
+    "apoyoIdeas" : "¡Te apoyamos!",
+    "admonCorreos" : "Administración Correos"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",

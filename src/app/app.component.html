@@ -29,6 +29,7 @@
             <li><a (click)="openTabs('evento', null)">{{'ENTORNO.EVENTOS'| translate}}</a></li>
             <li><a (click)="openTabs('directorio', null)">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
             <li><a (click)="openTabs('apoyoIdeas', null)">{{'ENTORNO.APOYOIDEAS'| translate}}</a></li>
+            <li id="menuAdmonCorreos"><a (click)="openTabs('admonCorreos', null)">{{'ENTORNO.ADMONCORREOS'| translate}}</a></li>
             <li><a (click)="openTabs('aboutus', null)">{{'ENTORNO.QUIENES'| translate}}</a></li>
             
 
@@ -144,6 +145,10 @@
 
     <ng-template #apoyoIdeasTab>
         <app-apoyo-de-ideas></app-apoyo-de-ideas>
+    </ng-template>
+
+    <ng-template #admonCorreosTab>
+        <app-administracion-correos></app-administracion-correos>
     </ng-template>
 
     <div class="social-icons">

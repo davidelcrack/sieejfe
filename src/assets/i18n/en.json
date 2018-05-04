@@ -24,7 +24,8 @@
     "OFERTASERVICIOS" : "Services Offered",
     "SOLICITARSERVICIO" : "Request Services",
     "RESPONDERSOLICITUDES" : "Reply Requests",
-    "APOYOIDEAS" : "We Support You!"
+    "APOYOIDEAS" : "We Support You!",
+    "ADMONCORREOS" : "Mail Management"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -47,7 +48,8 @@
     "solicitarServicio" : "Request Service",
     "solicitudesServicio" : "Reply Requests",
     "detalleEvento" : "Join Us!",
-    "apoyoIdeas" : "We Support You!"
+    "apoyoIdeas" : "We Support You!",
+    "admonCorreos" : "Mail Management"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

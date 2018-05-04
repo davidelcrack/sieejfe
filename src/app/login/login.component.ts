@@ -83,9 +83,11 @@ export class LoginComponent implements OnInit {
         if(this.esAdmon){
           (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=true; 
           (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=false;   
+          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=false;   
         }else{
           (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=false; 
-          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;   
+          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;  
+          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=true;    
         }
 
       }, error => {

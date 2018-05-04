@@ -1,0 +1,55 @@
+<br>
+<div class="CorreosMargen">
+<h2>Administración de Correos</h2>
+
+<br><br>
+
+<a class="fa fa-plus-circle"></a>
+
+<div class="mat-app-background basic-container">
+
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+    </mat-form-field>
+  </div>
+
+  <div class="example-container mat-elevation-z8" >
+
+    <mat-table #tableAdmonCorreos [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Facultad </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+      </ng-container>
+      
+      <!-- Info Column -->
+      <ng-container matColumnDef="correo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.correo}} </mat-cell>
+      </ng-container>
+
+      <!-- Editar Column -->
+      <ng-container matColumnDef="editar">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row"  (click)="editarCorreo(row)"></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+</div>
+
+</div>

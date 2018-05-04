@@ -95,11 +95,13 @@ export class AppComponent {
         setTimeout(() => {
           (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=true; 
           (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=false;   
+          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=false;   
         });        
       }else{
         setTimeout(() => {
           (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=false; 
-          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;   
+          (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;
+          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=true;   
         });                
       }
     }
@@ -201,7 +203,7 @@ export class AppComponent {
   @ViewChild('eventoAbrirTab') eventoAbrirTemplate;
   @ViewChild('detalleEventoTab') detalleEventoTemplate;
   @ViewChild('apoyoIdeasTab') apoyoIdeasTemplate;
-  
+  @ViewChild('admonCorreosTab') admonCorreosTemplate;
   
   detalle : any;  
   openTabs(nombre : any , detalle : any){
@@ -247,6 +249,10 @@ export class AppComponent {
     if(nombre=='apoyoIdeas'){
       this.tabsComponent.openTab('apoyoIdeas',this.apoyoIdeasTemplate, {} ,true);
     }    
+    if(nombre=='admonCorreos'){
+      this.tabsComponent.openTab('admonCorreos',this.admonCorreosTemplate, {} ,true);
+    }  
+    
   }
 
   cerrarTab(nombre : any){
