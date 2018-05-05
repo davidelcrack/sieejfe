@@ -204,6 +204,7 @@ export class AppComponent {
   @ViewChild('detalleEventoTab') detalleEventoTemplate;
   @ViewChild('apoyoIdeasTab') apoyoIdeasTemplate;
   @ViewChild('admonCorreosTab') admonCorreosTemplate;
+  @ViewChild('confGeneralTab') confGeneralTemplate;
   
   detalle : any;  
   openTabs(nombre : any , detalle : any){
@@ -252,6 +253,9 @@ export class AppComponent {
     if(nombre=='admonCorreos'){
       this.tabsComponent.openTab('admonCorreos',this.admonCorreosTemplate, {} ,true);
     }  
+    if(nombre=='confGeneral'){
+      this.tabsComponent.openTab('confGeneral',this.confGeneralTemplate, {} ,true);
+    }
     
   }
 

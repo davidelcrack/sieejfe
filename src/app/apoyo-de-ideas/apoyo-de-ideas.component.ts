@@ -17,32 +17,37 @@ export class ApoyoDeIdeasComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.apoyoIdeasService.listar().subscribe( 
+      response =>{
+        this.listaCampos=response;
+    })
   }
 
   campos = new FormControl();
   seleccionados = new Array();
 
-  listaCampos = ['Ciencia', 'Sistemas', 'Artes', 'Electronica', 'Diseño', 'Otro'];
+  // listaCampos = [ 
+  //   { id: 1, nombre :'Ciencia'}, { id: 2, nombre : 'Sistemas'}, { id: 3, nombre : 'Artes'}];
+
+  listaCampos = new Array();
 
   solicitudIdea = { titulo : "" , descripcion : ""  }
 
   mensajeMostrar : any = "¡Su idea ya está siendo observada!";
   @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
 
-  enviarIdea(){
-    
+  enviarIdea(){    
     let idea ={
-      categorias : this.seleccionados,
-      titulo: this.solicitudIdea.titulo,
+      etiquetas : this.seleccionados,
+      nombre: this.solicitudIdea.titulo,
       descripcion : this.solicitudIdea.descripcion
     }
 
-    // this.apoyoIdeasService.enviar(idea).subscribe(
-    //   response =>{
-    //     this.avisar();
-    //   });
-
-      this.avisar();   
+    this.apoyoIdeasService.enviar(idea).subscribe(
+      response =>{    
+        console.log(response);    
+        this.avisar();
+      });     
 
   }
 

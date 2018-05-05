@@ -25,7 +25,9 @@
     "SOLICITARSERVICIO" : "Request Services",
     "RESPONDERSOLICITUDES" : "Reply Requests",
     "APOYOIDEAS" : "We Support You!",
-    "ADMONCORREOS" : "Mail Management"
+    "ADMONCORREOS" : "Mail Management",
+    "CONFGENERAL" : "General Configuration",
+    "CONFIGURACION" : "Settings"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -49,7 +51,9 @@
     "solicitudesServicio" : "Reply Requests",
     "detalleEvento" : "Join Us!",
     "apoyoIdeas" : "We Support You!",
-    "admonCorreos" : "Mail Management"
+    "admonCorreos" : "Mail Management",
+    "confGeneral" : "General Configuration",
+    "configuracion" : "Settings"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

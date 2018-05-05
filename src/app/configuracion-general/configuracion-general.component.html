@@ -1,0 +1,25 @@
+<br>
+<div class="etiquetasMargen">
+
+
+  <br><br>
+  <h2>Selecciona Tu Campo De Acción</h2>
+  <br><br>
+
+  <form>
+    <div class="forma">
+
+      <mat-form-field>
+        <mat-select [compareWith]="compareObjects" [(ngModel)]="seleccionados" placeholder="Campos de Acción" [formControl]="campos" multiple>
+          <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{campo.nombre}}</mat-option>
+        </mat-select>
+      </mat-form-field>             
+    
+      <input (click)="enviarEtiquetas()" type="submit" value="Enviar">
+
+    </div>
+  </form>
+
+</div>
+
+<app-popup-aviso [mensaje]="mensajeMostrar" (cerroPop)="onCerrarNotify($event)"></app-popup-aviso>

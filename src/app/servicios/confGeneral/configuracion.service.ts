@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
-export class ApoyoIdeasService {
+export class ConfiguracionService {
 
   constructor(
     private http: Http
@@ -12,13 +12,13 @@ export class ApoyoIdeasService {
 
   backendUrl = environment.url;
 
-  enviar(idea : any){
-    return this.http.post(this.backendUrl + "guardarIdea/", idea, { withCredentials: true })
+  asignarEtiquetas(etiqueta : any){
+    return this.http.post(this.backendUrl + "asignarEtiquetas/", etiqueta, { withCredentials: true })
     .map((res: Response) => res.json());
   }
 
-  listar(){
-    return this.http.get(this.backendUrl + "listarEtiquetas/", { withCredentials: true })
+  cargarActuales(){
+    return this.http.get(this.backendUrl + "listarEtiquetasPropias/", { withCredentials: true })
     .map((res: Response) => res.json());
   }
 

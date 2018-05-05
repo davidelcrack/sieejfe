@@ -13,7 +13,7 @@
 
         <mat-form-field>
             <mat-select [(value)]="seleccionados" placeholder="Campos de Acción" [formControl]="campos" multiple>
-              <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{campo}}</mat-option>
+              <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{campo.nombre}}</mat-option>
             </mat-select>
           </mat-form-field>
         
