@@ -27,7 +27,9 @@
     "APOYOIDEAS" : "¡Te Apoyamos!",
     "ADMONCORREOS" : "Administración Correos",
     "CONFGENERAL" : "Configuración General",
-    "CONFIGURACION" : "Configuración"
+    "CONFIGURACION" : "Configuración",
+    "seguimientoIdeas" : "Tus Ideas",
+    "CUENTANOS" : "Cuentanos tu idea"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -53,7 +55,9 @@
     "apoyoIdeas" : "¡Te apoyamos!",
     "admonCorreos" : "Administración Correos",
     "confGeneral" : "Configuración General",
-    "configuracion" : "Configuración"
+    "configuracion" : "Configuración",
+    "seguimientoIdeas" : "Tus Ideas",
+    "cuentanos" : "Cuentanos tu idea"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",

@@ -28,8 +28,14 @@
             </li>
             <li><a (click)="openTabs('evento', null)">{{'ENTORNO.EVENTOS'| translate}}</a></li>
             <li><a (click)="openTabs('directorio', null)">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>
-            <li><a (click)="openTabs('apoyoIdeas', null)">{{'ENTORNO.APOYOIDEAS'| translate}}</a></li>
             
+            <li id="menuApoyoDeIdeas" class="dropdown dropdownNav"><a  class="dropA">{{'ENTORNO.APOYOIDEAS'| translate}}</a>
+                <ul class="dropMioJaja">
+                    <li><a (click)="openTabs('cuentanos', null)">{{'ENTORNO.CUENTANOS'| translate}}</a></li>
+                    <li><a (click)="openTabs('seguimientoIdeas', null)">{{'ENTORNO.seguimientoIdeas'| translate}}</a></li>
+                </ul>
+            </li>
+
             <li id="menuAdmonCorreos" class="dropdown dropdownNav"><a  class="dropA">{{'ENTORNO.CONFIGURACION'| translate}}</a>
                 <ul class="dropMioJaja">
                     <li><a (click)="openTabs('admonCorreos', null)">{{'ENTORNO.ADMONCORREOS'| translate}}</a></li>
@@ -161,6 +167,10 @@
 
     <ng-template #confGeneralTab>
         <app-configuracion-general></app-configuracion-general>
+    </ng-template>
+
+    <ng-template #seguimientoIdeasTab>
+        <app-seguimiento-ideas></app-seguimiento-ideas>
     </ng-template>
 
     <div class="social-icons">

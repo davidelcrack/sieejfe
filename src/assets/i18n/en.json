@@ -27,7 +27,9 @@
     "APOYOIDEAS" : "We Support You!",
     "ADMONCORREOS" : "Mail Management",
     "CONFGENERAL" : "General Configuration",
-    "CONFIGURACION" : "Settings"
+    "CONFIGURACION" : "Settings",
+    "seguimientoIdeas" : "Your Ideas",
+    "CUENTANOS" : "Tell us your idea"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -53,7 +55,9 @@
     "apoyoIdeas" : "We Support You!",
     "admonCorreos" : "Mail Management",
     "confGeneral" : "General Configuration",
-    "configuracion" : "Settings"
+    "configuracion" : "Settings",
+    "seguimientoIdeas" : "Your Ideas",
+    "cuentanos" : "Tell us your idea"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

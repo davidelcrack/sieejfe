@@ -95,13 +95,15 @@ export class AppComponent {
         setTimeout(() => {
           (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=true; 
           (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=false;   
-          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=false;   
+          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=false; 
+          (<HTMLInputElement>document.getElementById('menuApoyoDeIdeas')).hidden=true;   
         });        
       }else{
         setTimeout(() => {
           (<HTMLInputElement>document.getElementById('menuSolicitarNormal')).hidden=false; 
           (<HTMLInputElement>document.getElementById('muniResponderAdmin')).hidden=true;
-          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=true;   
+          (<HTMLInputElement>document.getElementById('menuAdmonCorreos')).hidden=true;  
+          (<HTMLInputElement>document.getElementById('menuApoyoDeIdeas')).hidden=false;    
         });                
       }
     }
@@ -205,6 +207,7 @@ export class AppComponent {
   @ViewChild('apoyoIdeasTab') apoyoIdeasTemplate;
   @ViewChild('admonCorreosTab') admonCorreosTemplate;
   @ViewChild('confGeneralTab') confGeneralTemplate;
+  @ViewChild('seguimientoIdeasTab') seguimientoIdeasTemplate;
   
   detalle : any;  
   openTabs(nombre : any , detalle : any){
@@ -247,8 +250,8 @@ export class AppComponent {
     if(nombre=='detalleEvento'){
       this.tabsComponent.openTab('detalleEvento',this.detalleEventoTemplate, detalle ,true);
     }    
-    if(nombre=='apoyoIdeas'){
-      this.tabsComponent.openTab('apoyoIdeas',this.apoyoIdeasTemplate, {} ,true);
+    if(nombre=='cuentanos'){
+      this.tabsComponent.openTab('cuentanos',this.apoyoIdeasTemplate, {} ,true);
     }    
     if(nombre=='admonCorreos'){
       this.tabsComponent.openTab('admonCorreos',this.admonCorreosTemplate, {} ,true);
@@ -256,6 +259,9 @@ export class AppComponent {
     if(nombre=='confGeneral'){
       this.tabsComponent.openTab('confGeneral',this.confGeneralTemplate, {} ,true);
     }
+    if(nombre=='seguimientoIdeas'){
+      this.tabsComponent.openTab('seguimientoIdeas',this.seguimientoIdeasTemplate, {} ,true);
+    }    
     
   }
 
