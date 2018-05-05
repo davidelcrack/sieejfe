@@ -28,7 +28,7 @@
     "ADMONCORREOS" : "Mail Management",
     "CONFGENERAL" : "General Configuration",
     "CONFIGURACION" : "Settings",
-    "seguimientoIdeas" : "Your Ideas",
+    "seguimientoIdeas" : "Check Ideas",
     "CUENTANOS" : "Tell us your idea"
   },
   "BOARD": {
@@ -56,7 +56,7 @@
     "admonCorreos" : "Mail Management",
     "confGeneral" : "General Configuration",
     "configuracion" : "Settings",
-    "seguimientoIdeas" : "Your Ideas",
+    "seguimientoIdeas" : "Check Ideas",
     "cuentanos" : "Tell us your idea"
   },
   "ACORDEON" : {

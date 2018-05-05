@@ -22,4 +22,14 @@ export class ApoyoIdeasService {
     .map((res: Response) => res.json());
   }
 
+  listarIdeasSeguimiento(){
+    return this.http.get(this.backendUrl + "listarIdeas/", { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
+  responderAIdea(respuesta : any){
+    return this.http.post(this.backendUrl + "responderIdea/", respuesta, { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

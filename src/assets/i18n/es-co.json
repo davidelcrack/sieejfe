@@ -28,7 +28,7 @@
     "ADMONCORREOS" : "Administración Correos",
     "CONFGENERAL" : "Configuración General",
     "CONFIGURACION" : "Configuración",
-    "seguimientoIdeas" : "Tus Ideas",
+    "seguimientoIdeas" : "Checkea Ideas",
     "CUENTANOS" : "Cuentanos tu idea"
   },
   "BOARD": {
@@ -56,7 +56,7 @@
     "admonCorreos" : "Administración Correos",
     "confGeneral" : "Configuración General",
     "configuracion" : "Configuración",
-    "seguimientoIdeas" : "Tus Ideas",
+    "seguimientoIdeas" : "Checkea Ideas",
     "cuentanos" : "Cuentanos tu idea"
   },
   "ACORDEON" : {
