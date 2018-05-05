@@ -22,7 +22,7 @@ export class ConfiguracionGeneralComponent implements OnInit {
         this.listaCampos=response;
         
         this.configuracionService.cargarActuales().subscribe( 
-          responseActuales =>{            
+          responseActuales =>{                        
             // let aux=[]
             // responseActuales.forEach(element => {
             //   if(this.listaCampos.find(x=>x.id==element.id)){
@@ -30,6 +30,7 @@ export class ConfiguracionGeneralComponent implements OnInit {
             //   }              
             // });
             this.seleccionados = responseActuales;
+            this.copia=responseActuales;
           });
 
     })
@@ -37,6 +38,7 @@ export class ConfiguracionGeneralComponent implements OnInit {
 
   campos = new FormControl();
   seleccionados = new Array();
+  copia = new Array();
 
   // listaCampos = [ 
   //   { id: 1, nombre :'Ciencia'}, { id: 2, nombre : 'Sistemas'}, { id: 3, nombre : 'Artes'}];
@@ -45,7 +47,21 @@ export class ConfiguracionGeneralComponent implements OnInit {
 
   enviarEtiquetas(){    
     
-    this.configuracionService.asignarEtiquetas(this.seleccionados).subscribe(
+    let etiquetasEnviar = new Array();
+
+    this.seleccionados.forEach(element => {
+      let repetido = this.copia.find(function(elementBuscar){
+        return element.id == elementBuscar.id;
+      });    
+
+      if(repetido == undefined){
+        etiquetasEnviar.push(element);
+      }
+
+    });    
+
+
+    this.configuracionService.asignarEtiquetas(etiquetasEnviar).subscribe(
       response =>{    
         console.log(response);    
         this.avisar();
