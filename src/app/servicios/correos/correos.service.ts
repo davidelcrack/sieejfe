@@ -13,7 +13,12 @@ export class CorreosService {
   backendUrl = environment.url;
 
   get(){
-    return this.http.get(this.backendUrl + "obtenerCorreos/", { withCredentials: true })
+    return this.http.get(this.backendUrl + "listarCorreosInstitucionales/", { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
+  crearCorreo(correo){
+    return this.http.post(this.backendUrl + "crearCorreoInstitucional", correo, { withCredentials: true })
     .map((res: Response) => res.json());
   }
 

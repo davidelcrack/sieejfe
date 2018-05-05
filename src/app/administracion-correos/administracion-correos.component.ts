@@ -17,42 +17,51 @@ export class AdministracionCorreosComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.correos);
    }
 
+  elCorreo ={nombre : null, correo : null}
+
   ngOnInit(
   ) {
-    this.correos=[];
-    this.dataSource = new MatTableDataSource(this.correos);
-    let data : any;
-    // this.correosService.get().subscribe(
-    //   response => {         
-    //     console.log(response);        
-    //     response.forEach(element => {          
-    //       data ={
-    //         id : element.id,
-    //         nombre : element.nombre,
-    //         correo : element.correo
-    //       };
-    //       this.correos.push(data);          
-    //     });
-    //     console.log(this.correos);
-    //     this.dataSource._updateChangeSubscription();
-    //     setTimeout(() => {
-    //       this.dataSource.paginator = this.paginator;
-    //       this.dataSource.sort= this.sort;
-    //     });
-        
-    //   }, error => {
-    //     console.log("**obtenerSuscritos***"+error);
-    //   }      
-    // ); 
+     this.listarCorreos();
   }
   
-  displayedColumns = ['id', 'nombre', 'correo' , 'editar'];
+  displayedColumns = ['id', 'nombre', 'correo', 'eliminar'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   correos = new Array();
+
+  listarCorreos(){
+
+    this.correos=[];
+    this.dataSource = new MatTableDataSource(this.correos);
+    let data : any;
+    this.correosService.get().subscribe(
+      response => {      
+        debugger   
+        console.log(response);        
+        response.forEach(element => {          
+          data ={
+            id : element.id,
+            nombre : element.nombre,
+            correo : element.correo
+          };
+          this.correos.push(data);          
+        });
+        console.log(this.correos);
+        this.dataSource._updateChangeSubscription();
+        setTimeout(() => {
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort= this.sort;
+        });
+        
+      }, error => {
+        console.log("**obtenerCorreos***"+error);
+      }      
+    );
+
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -66,17 +75,53 @@ export class AdministracionCorreosComponent implements OnInit {
   }
  
   correoActual : any;  
-  editarCorreo(row : any){        
-    // let el: any;
-    // el = document.getElementById("overlayServiciosEmprendimiento");
-    // el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  crearCorreo(row : any){        
+    let el: any;
+    el = document.getElementById("overlayAdicionCorreos");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
   cerrarPopUp(){
     console.log('cerrarPopUp : entro a cerrarPopUp');
-    // let el : any;
-    // el = document.getElementById("overlayServiciosEmprendimiento");
-    // el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    this.elCorreo ={nombre : null, correo : null}
+    this.listarCorreos();
+    let el : any;
+    el = document.getElementById("overlayAdicionCorreos");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  guardarCambios(){
+
+    this.correosService.crearCorreo(this.elCorreo).subscribe(
+      response =>{
+        debugger
+        console.log(response);
+        this.cerrarPopUp();
+      },
+      error=>{
+        console.log('Error creando correo');
+      }
+    )
+  }
+
+  eliminarCorreo(row : any){
+
+    let mensaje = { id: row.id  , accion: 'eliminar' , clase: 'CorreosInstitucionales', atributo: 'ok' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
+    
+    console.log(mensaje);
+
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+        this.listarCorreos();
+      },
+        error => {
+          console.log("Error al elminar correo");
+        });
+    } 
+
   }
 
 }
