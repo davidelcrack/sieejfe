@@ -23,7 +23,13 @@
     "QUIENES" : "About Us?",
     "OFERTASERVICIOS" : "Services Offered",
     "SOLICITARSERVICIO" : "Request Services",
-    "RESPONDERSOLICITUDES" : "Reply Requests"
+    "RESPONDERSOLICITUDES" : "Reply Requests",
+    "APOYOIDEAS" : "We Support You!",
+    "ADMONCORREOS" : "Mail Management",
+    "CONFGENERAL" : "General Configuration",
+    "CONFIGURACION" : "Settings",
+    "seguimientoIdeas" : "Check Ideas",
+    "CUENTANOS" : "Tell us your idea"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -45,7 +51,13 @@
     "aboutus" : "Web Links",
     "solicitarServicio" : "Request Service",
     "solicitudesServicio" : "Reply Requests",
-    "detalleEvento" : "Join Us!"
+    "detalleEvento" : "Join Us!",
+    "apoyoIdeas" : "We Support You!",
+    "admonCorreos" : "Mail Management",
+    "confGeneral" : "General Configuration",
+    "configuracion" : "Settings",
+    "seguimientoIdeas" : "Check Ideas",
+    "cuentanos" : "Tell us your idea"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

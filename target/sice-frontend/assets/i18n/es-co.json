@@ -23,7 +23,13 @@
     "QUIENES" : "Enlaces de Interés",
     "OFERTASERVICIOS" : "Oferta de Servicios",
     "SOLICITARSERVICIO" : "Solicitar Servicios",
-    "RESPONDERSOLICITUDES" : "Responder Solicitudes"
+    "RESPONDERSOLICITUDES" : "Responder Solicitudes",
+    "APOYOIDEAS" : "¡Te Apoyamos!",
+    "ADMONCORREOS" : "Administración Correos",
+    "CONFGENERAL" : "Configuración General",
+    "CONFIGURACION" : "Configuración",
+    "seguimientoIdeas" : "Checkea Ideas",
+    "CUENTANOS" : "Cuentanos tu idea"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -45,7 +51,13 @@
     "aboutus" : "Enlaces de Interés",
     "solicitarServicio" : "Solicitar Servicio",
     "solicitudesServicio" : "Responder Solicitudes",
-    "detalleEvento" : "¡Asiste!"
+    "detalleEvento" : "¡Asiste!",
+    "apoyoIdeas" : "¡Te apoyamos!",
+    "admonCorreos" : "Administración Correos",
+    "confGeneral" : "Configuración General",
+    "configuracion" : "Configuración",
+    "seguimientoIdeas" : "Checkea Ideas",
+    "cuentanos" : "Cuentanos tu idea"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",

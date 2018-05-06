@@ -17,6 +17,413 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
+/***/ "../../../../../src/app/administracion-correos/administracion-correos.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "h2 {\r\n\tcolor: #000066;\r\n}\r\n\r\n::ng-deep div.CorreosMargen{\r\n    margin-left: 40px;\r\n    margin-right:40px;\r\n}\r\n\r\na.fa.fa-plus-circle{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 45px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.mat-cell.cdk-column-eliminar.mat-column-eliminar.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\F1F8';\r\n    cursor: pointer;\r\n    color : darkred\r\n  }\r\n\r\n#overlayAdicionCorreos {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n}\r\n\r\n#overlayAdicionCorreos div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n}\r\n\r\nbody {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n.close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 80%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\n.centered {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n\r\n.centered button,\r\n  .centered button:focus\r\n  {\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n  }\r\n\r\n.centered button:hover.guardar,\r\n  .centered button:visited,\r\n  .centered button:active\r\n  {\r\n    background-color: green ;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n  }\r\n\r\n.centered button:hover.cancelar,\r\n  .centered button:visited,\r\n  .centered button:active\r\n  {\r\n    background-color:  red ;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n  }\r\n\r\n.input-group{\r\n      display:block !important;\r\n  }\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/administracion-correos/administracion-correos.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<div class=\"CorreosMargen\">\n<h2>Administración de Correos</h2>\n\n<br><br>\n\n<a class=\"fa fa-plus-circle\" (click)=\"crearCorreo()\"></a>\n\n<div class=\"mat-app-background basic-container\">\n\n  <div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n    </mat-form-field>\n  </div>\n\n  <div class=\"example-container mat-elevation-z8\" >\n\n    <mat-table #tableAdmonCorreos [dataSource]=\"dataSource\" matSort>\n\n      <!-- ID Column -->\n      <ng-container matColumnDef=\"id\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\n      </ng-container>\n\n      <!-- Nombre Column -->\n      <ng-container matColumnDef=\"nombre\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Facultad </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n      </ng-container>\n      \n      <!-- Info Column -->\n      <ng-container matColumnDef=\"correo\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n      </ng-container>\n\n      <!-- Eliminar Column -->\n      <ng-container matColumnDef=\"eliminar\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"  (click)=\"eliminarCorreo(row)\"></mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n      </mat-row>\n    </mat-table>\n\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  </div>\n\n</div>\n\n</div>\n\n<div id=\"overlayAdicionCorreos\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>AGREGAR CORREO</h3>   \n      \n      \n      <form class=\"form-horizontal\">\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\n          <div class=\"col-sm-10\">\n            <input type=\"text\" class=\"form-control\" id=\"nombreCorreoAdmon\" placeholder=\"Ingrese nombre\" name=\"nombreCorreoAdmon\"\n              [(ngModel)]=\"elCorreo.nombre\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"pwd\">Correo</label>\n          <div class=\"col-sm-10\">          \n            <input type=\"text\" class=\"form-control\" id=\"elcorreoAdmon\" placeholder=\"Ingrese correo\" name=\"elcorreoAdmon\"\n              [(ngModel)]=\"elCorreo.correo\">\n          </div>\n        </div>        \n      </form>\n      <br><br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\n      </div> \n\n  </div>\n\n  \n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/administracion-correos/administracion-correos.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdministracionCorreosComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicios_correos_correos_service__ = __webpack_require__("../../../../../src/app/servicios/correos/correos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdministracionCorreosComponent = /** @class */ (function () {
+    function AdministracionCorreosComponent(colaService, correosService) {
+        this.colaService = colaService;
+        this.correosService = correosService;
+        this.elCorreo = { nombre: null, correo: null };
+        this.displayedColumns = ['id', 'nombre', 'correo', 'eliminar'];
+        this.correos = new Array();
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["D" /* MatTableDataSource */](this.correos);
+    }
+    AdministracionCorreosComponent.prototype.ngOnInit = function () {
+        this.listarCorreos();
+    };
+    AdministracionCorreosComponent.prototype.listarCorreos = function () {
+        var _this = this;
+        this.correos = [];
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["D" /* MatTableDataSource */](this.correos);
+        var data;
+        this.correosService.get().subscribe(function (response) {
+            debugger;
+            console.log(response);
+            response.forEach(function (element) {
+                data = {
+                    id: element.id,
+                    nombre: element.nombre,
+                    correo: element.correo
+                };
+                _this.correos.push(data);
+            });
+            console.log(_this.correos);
+            _this.dataSource._updateChangeSubscription();
+            setTimeout(function () {
+                _this.dataSource.paginator = _this.paginator;
+                _this.dataSource.sort = _this.sort;
+            });
+        }, function (error) {
+            console.log("**obtenerCorreos***" + error);
+        });
+    };
+    AdministracionCorreosComponent.prototype.ngAfterViewInit = function () {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    };
+    AdministracionCorreosComponent.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    AdministracionCorreosComponent.prototype.crearCorreo = function (row) {
+        var el;
+        el = document.getElementById("overlayAdicionCorreos");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    AdministracionCorreosComponent.prototype.cerrarPopUp = function () {
+        console.log('cerrarPopUp : entro a cerrarPopUp');
+        this.elCorreo = { nombre: null, correo: null };
+        this.listarCorreos();
+        var el;
+        el = document.getElementById("overlayAdicionCorreos");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    AdministracionCorreosComponent.prototype.guardarCambios = function () {
+        var _this = this;
+        this.correosService.crearCorreo(this.elCorreo).subscribe(function (response) {
+            debugger;
+            console.log(response);
+            _this.cerrarPopUp();
+        }, function (error) {
+            console.log('Error creando correo');
+        });
+    };
+    AdministracionCorreosComponent.prototype.eliminarCorreo = function (row) {
+        var _this = this;
+        var mensaje = { id: row.id, accion: 'eliminar', clase: 'CorreosInstitucionales', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+        console.log(mensaje);
+        var observable = this.colaService.agregarACola(mensaje);
+        if (observable) {
+            observable.subscribe(function (response) {
+                console.log(response);
+                _this.listarCorreos();
+            }, function (error) {
+                console.log("Error al elminar correo");
+            });
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MatPaginator */])
+    ], AdministracionCorreosComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["A" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["A" /* MatSort */])
+    ], AdministracionCorreosComponent.prototype, "sort", void 0);
+    AdministracionCorreosComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-administracion-correos',
+            template: __webpack_require__("../../../../../src/app/administracion-correos/administracion-correos.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/administracion-correos/administracion-correos.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_cola_cola_service__["a" /* ColaService */],
+            __WEBPACK_IMPORTED_MODULE_2__servicios_correos_correos_service__["a" /* CorreosService */]])
+    ], AdministracionCorreosComponent);
+    return AdministracionCorreosComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "::ng-deep div.apoyoMargen{\r\n    margin-left: 40px;\r\n    margin-right:40px;\r\n}\r\n\r\n::ng-deep div.mat-input-infix.mat-form-field-infix{\r\n    width: 100%;\r\n}\r\n\r\n/* forms */\r\n\r\nh2 {\r\n\tcolor: #000066;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\ntextarea{\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\n\r\ninput{\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\n\r\ndiv.forma {\r\n    border-radius: 5px;\r\n    background-color: #f2f2f2;\r\n    padding: 20px;\r\n}\r\n\r\ninput[type=submit]:hover {\r\n    background-color: #ffffff ;\r\n    color : #000066;\r\n    border-color: #000066;  \r\n}\r\n\r\ninput[type=submit] {\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<br>\n<div class=\"apoyoMargen\">\n\n\n  <br><br>\n  <h2>Escribe tu Idea</h2>\n  <br><br>\n\n  \n  <form>\n    <div class=\"forma\">\n\n        <mat-form-field>\n            <mat-select [(value)]=\"seleccionados\" placeholder=\"Campos de Acción\" [formControl]=\"campos\" multiple>\n              <mat-option *ngFor=\"let campo of listaCampos\" [value]=\"campo\">{{campo.nombre}}</mat-option>\n            </mat-select>\n          </mat-form-field>\n        \n      <input placeholder=\"Nombre\" #nombre maxlength=\"80\" [(ngModel)]=\"solicitudIdea.titulo\" name=\"Name\" required>\n            \n      <br><br>\n\n      <textarea placeholder=\"Mensaje\" #msn maxlength=\"300\" [(ngModel)]=\"solicitudIdea.descripcion\" name=\"Msn\" cols=\"25\"></textarea>\n    \n      <input (click)=\"enviarIdea()\" type=\"submit\" value=\"Enviar\">\n\n    </div>\n  </form>\n\n</div>\n\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" (cerroPop)=\"onCerrarNotify($event)\"></app-popup-aviso>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApoyoDeIdeasComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__servicios_apoyoIdeas_apoyo_ideas_service__ = __webpack_require__("../../../../../src/app/servicios/apoyoIdeas/apoyo-ideas.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ApoyoDeIdeasComponent = /** @class */ (function () {
+    function ApoyoDeIdeasComponent(apoyoIdeasService, appComponent) {
+        this.apoyoIdeasService = apoyoIdeasService;
+        this.appComponent = appComponent;
+        this.campos = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]();
+        this.seleccionados = new Array();
+        // listaCampos = [ 
+        //   { id: 1, nombre :'Ciencia'}, { id: 2, nombre : 'Sistemas'}, { id: 3, nombre : 'Artes'}];
+        this.listaCampos = new Array();
+        this.solicitudIdea = { titulo: "", descripcion: "" };
+        this.mensajeMostrar = "¡Su idea ya está siendo observada!";
+    }
+    ApoyoDeIdeasComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.apoyoIdeasService.listar().subscribe(function (response) {
+            _this.listaCampos = response;
+        });
+    };
+    ApoyoDeIdeasComponent.prototype.enviarIdea = function () {
+        var _this = this;
+        var idea = {
+            etiquetas: this.seleccionados,
+            nombre: this.solicitudIdea.titulo,
+            descripcion: this.solicitudIdea.descripcion
+        };
+        this.apoyoIdeasService.enviar(idea).subscribe(function (response) {
+            console.log(response);
+            _this.avisar();
+        });
+    };
+    ApoyoDeIdeasComponent.prototype.avisar = function () {
+        this.avisoPopUp.mostrarPopExito();
+    };
+    ApoyoDeIdeasComponent.prototype.onCerrarNotify = function (e) {
+        console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
+        this.appComponent.cerrarTab('apoyoIdeas');
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+    ], ApoyoDeIdeasComponent.prototype, "avisoPopUp", void 0);
+    ApoyoDeIdeasComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-apoyo-de-ideas',
+            template: __webpack_require__("../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__servicios_apoyoIdeas_apoyo_ideas_service__["a" /* ApoyoIdeasService */],
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]])
+    ], ApoyoDeIdeasComponent);
+    return ApoyoDeIdeasComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "::ng-deep div.ServMargen{\r\n    margin-left: 40px;\r\n    margin-right:40px;\r\n}\r\n\r\n/* mat-cell.false.mat-cell.cdk-column-ver.mat-column-ver.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F50D';\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.true.mat-cell.cdk-column-ver.mat-column-ver.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F4EB';\r\n    cursor: pointer;\r\n  } */\r\n\r\nmat-cell.mat-cell.cdk-column-ver.mat-column-ver.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F50D';\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.false.mat-cell.cdk-column-estado.mat-column-estado.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\2714';\r\n    color: green;\r\n  }\r\n\r\nmat-cell.true.mat-cell.cdk-column-estado.mat-column-estado.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F550';\r\n  }\r\n\r\n#overlayDetalleDeIdea {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n  }\r\n\r\n#overlayDetalleDeIdea div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n  }\r\n\r\n.centered {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n\r\n.centered button,\r\n    .centered button:focus\r\n    {\r\n      background-color: #000066;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n      margin-left: 5px;\r\n      margin-right: 5px;\r\n    }\r\n\r\n.centered button:hover.guardar,\r\n    .centered button:visited,\r\n    .centered button:active\r\n    {\r\n      background-color: green ;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n    }\r\n\r\n.centered button:hover.cancelar,\r\n    .centered button:visited,\r\n    .centered button:active\r\n    {\r\n      background-color:  red ;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n    }\r\n\r\ntextarea{\r\n      width: 100%;\r\n      padding: 12px 20px;\r\n      margin: 8px 0;\r\n      display: inline-block;\r\n      border: 1px solid #ccc;\r\n      border-radius: 4px;\r\n      -webkit-box-sizing: border-box;\r\n              box-sizing: border-box;\r\n  }\r\n\r\ninput.formas{\r\n      width: 100%;\r\n      padding: 12px 20px;\r\n      margin: 8px 0;\r\n      display: inline-block;\r\n      border: 1px solid #ccc;\r\n      border-radius: 4px;\r\n      -webkit-box-sizing: border-box;\r\n              box-sizing: border-box;\r\n  }\r\n\r\ndiv.forma {\r\n      border-radius: 5px;\r\n      background-color: #f2f2f2;\r\n      padding: 20px;\r\n  }\r\n\r\ninput[type=submit]:hover {\r\n      background-color: #ffffff ;\r\n      color : #000066;\r\n      border-color: #000066;  \r\n  }\r\n\r\ninput[type=submit] {\r\n      background-color: #000066;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n  }\r\n\r\nh4{\r\n    color: #000066;\r\n  }\r\n\r\nh2 {\r\n    color: #000066;\r\n  }\r\n  ", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br><br>\n\n<div class=\"ServMargen\">\n\n  <br><br>\n  <h2>Ideas</h2>\n  <br><br>\n\n  <div class=\"mat-app-background basic-container\">\n\n    <div class=\"example-header\">\n      <mat-form-field>\n        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n      </mat-form-field>\n    </div>\n  \n    <div class=\"example-container mat-elevation-z8\" >\n  \n      <mat-table #tableSeguimientoIdeas [dataSource]=\"dataSource\" matSort>\n  \n        <!-- ID Column -->\n        <ng-container matColumnDef=\"titulo\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.titulo}} </mat-cell>\n        </ng-container>\n  \n        <!-- Remitente Column -->\n        <ng-container matColumnDef=\"autor\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.autor}} </mat-cell>\n        </ng-container>\n\n        <!-- Estado Column -->\n        <!-- <ng-container matColumnDef=\"estado\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n          <mat-cell class=\"{{row.estado}} mat-cell cdk-column-estado mat-column-estado\" *matCellDef=\"let row\"></mat-cell>\n        </ng-container> -->\n        \n        <!-- Fecha Column -->\n        <ng-container matColumnDef=\"correo\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n        </ng-container>\n  \n        <!-- Ver Column -->\n        <ng-container matColumnDef=\"ver\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n          <mat-cell class=\"{{row.estado}} mat-cell cdk-column-ver mat-column-ver\" *matCellDef=\"let row\"  (click)=\"abrirIdea(row)\"></mat-cell>\n        </ng-container>\n  \n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n        </mat-row>\n      </mat-table>\n  \n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>\n  \n  </div>\n\n\n  <div id=\"overlayDetalleDeIdea\">\n  \n    <div class=\"modalShow\">      \n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n        \n        <form>\n          <div class=\"forma\">\n\n            <h4>\n              Idea\n            </h4>\n\n            <input [disabled]=\"true\" class=\"formas\" placeholder=\"Nombre Idea\" #nombreIdeas maxlength=\"80\" [(ngModel)]=\"idea.titulo\" name=\"nombreIdeas\" required>\n                  \n            <br><br>\n      \n            <textarea [disabled]=\"true\" placeholder=\"Mensaje Idea\" #msnIdeas maxlength=\"300\" [(ngModel)]=\"idea.descripcion\" name=\"msnIdeas\" cols=\"25\"></textarea>\n\n            <!-- <h4 *ngIf=\"idea.estado\">\n              Respuesta\n            </h4> -->\n\n            <!-- *ngIf=\"idea.estado\"  -->\n            <!-- <textarea placeholder=\"Respuesta\" #msnRespuesta maxlength=\"300\" [(ngModel)]=\"respuesta\" name=\"msnRespuesta\" cols=\"25\"></textarea> -->\n          \n            <!-- *ngIf=\"idea.estado\"  -->\n            <!-- <input class=\"formas\" (click)=\"enviar()\" type=\"submit\" value=\"Responder\"> -->\n      \n          </div>\n        </form>        \n  \n        <br><br>\n    </div>\n  \n    \n  </div>\n\n\n\n</div>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SeguimientoIdeasComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__servicios_apoyoIdeas_apoyo_ideas_service__ = __webpack_require__("../../../../../src/app/servicios/apoyoIdeas/apoyo-ideas.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SeguimientoIdeasComponent = /** @class */ (function () {
+    function SeguimientoIdeasComponent(apoyoIdeasService) {
+        this.apoyoIdeasService = apoyoIdeasService;
+        this.esAdmin = false;
+        this.displayedColumns = ['titulo', 'autor', 'correo', 'ver'];
+        this.ideas = new Array();
+        this.idea = { id: -1, titulo: "", autor: ' ', correo: '', descripcion: "", etiquetas: null };
+        this.respuesta = null;
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["D" /* MatTableDataSource */](this.ideas);
+    }
+    SeguimientoIdeasComponent.prototype.ngOnInit = function () {
+        this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
+        this.pedirIdeas(0);
+    };
+    SeguimientoIdeasComponent.prototype.ngAfterViewInit = function () {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    };
+    SeguimientoIdeasComponent.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    SeguimientoIdeasComponent.prototype.pedirIdeas = function (id) {
+        var _this = this;
+        this.idActual = id;
+        this.ideas = [];
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["D" /* MatTableDataSource */](this.ideas);
+        var data;
+        this.apoyoIdeasService.listarIdeasSeguimiento().subscribe(function (response) {
+            debugger;
+            console.log(response);
+            response.forEach(function (element) {
+                data = {
+                    id: element.id,
+                    titulo: element.titulo,
+                    autor: element.usuarioJaveriana.nombre + ' ' + element.usuarioJaveriana.apellidos,
+                    //estado: element.activa,
+                    correo: element.usuarioJaveriana.email,
+                    descripcion: element.descripcion,
+                    etiquetas: element.etiquetas
+                };
+                _this.ideas.push(data);
+            });
+            console.log(_this.ideas);
+            _this.dataSource._updateChangeSubscription();
+            setTimeout(function () {
+                _this.dataSource.paginator = _this.paginator;
+                _this.dataSource.sort = _this.sort;
+            });
+        }, function (error) {
+            console.log("**Obtener las Ideas***" + error);
+        });
+    };
+    SeguimientoIdeasComponent.prototype.abrirIdea = function (row) {
+        this.idea = row;
+        var el;
+        el = document.getElementById("overlayDetalleDeIdea");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    SeguimientoIdeasComponent.prototype.cerrarPopUp = function () {
+        console.log('cerrarPopUp : entro a cerrarPopUp');
+        this.respuesta = null;
+        this.idea = { id: -1, titulo: "", autor: ' ', correo: '', descripcion: "", etiquetas: null };
+        var el;
+        el = document.getElementById("overlayDetalleDeIdea");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    SeguimientoIdeasComponent.prototype.enviar = function () {
+        var _this = this;
+        console.log('enviar : entro a enviar');
+        var laRespueta = { id: this.idea.id, respuesta: this.respuesta };
+        this.apoyoIdeasService.responderAIdea(laRespueta).subscribe(function (response) {
+            console.log(response);
+            _this.cerrarPopUp();
+            _this.pedirIdeas(_this.idActual);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
+    ], SeguimientoIdeasComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["A" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["A" /* MatSort */])
+    ], SeguimientoIdeasComponent.prototype, "sort", void 0);
+    SeguimientoIdeasComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-seguimiento-ideas',
+            template: __webpack_require__("../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_apoyoIdeas_apoyo_ideas_service__["a" /* ApoyoIdeasService */]])
+    ], SeguimientoIdeasComponent);
+    return SeguimientoIdeasComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/app.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38,7 +445,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/sice2V3.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento', null)\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio', null)\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio', null)\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento', null)\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio', null)\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('aboutus', null)\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #eventoAbrirTab>\r\n        <mwl-demo-component [idAbrir]=\"detalle\"></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #detalleEventoTab>\r\n        <app-detalles-evento [idAbrir]=\"detalle\"></app-detalles-evento>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/sice2V3.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento', null)\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio', null)\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio', null)\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento', null)\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio', null)\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            \r\n            <li id=\"menuApoyoDeIdeas\" class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.APOYOIDEAS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('cuentanos', null)\">{{'ENTORNO.CUENTANOS'| translate}}</a></li>                    \r\n                </ul>\r\n            </li>\r\n\r\n            <li id=\"menuAdmonCorreos\" class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.CONFIGURACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('admonCorreos', null)\">{{'ENTORNO.ADMONCORREOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('confGeneral', null)\">{{'ENTORNO.CONFGENERAL'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('seguimientoIdeas', null)\">{{'ENTORNO.seguimientoIdeas'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n\r\n\r\n            <li><a (click)=\"openTabs('aboutus', null)\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #eventoAbrirTab>\r\n        <mwl-demo-component [idAbrir]=\"detalle\"></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #detalleEventoTab>\r\n        <app-detalles-evento [idAbrir]=\"detalle\"></app-detalles-evento>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <ng-template #apoyoIdeasTab>\r\n        <app-apoyo-de-ideas></app-apoyo-de-ideas>\r\n    </ng-template>\r\n\r\n    <ng-template #admonCorreosTab>\r\n        <app-administracion-correos></app-administracion-correos>\r\n    </ng-template>\r\n\r\n    <ng-template #confGeneralTab>\r\n        <app-configuracion-general></app-configuracion-general>\r\n    </ng-template>\r\n\r\n    <ng-template #seguimientoIdeasTab>\r\n        <app-seguimiento-ideas></app-seguimiento-ideas>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
 
 /***/ }),
 
@@ -133,12 +540,16 @@ var AppComponent = /** @class */ (function () {
                 setTimeout(function () {
                     document.getElementById('menuSolicitarNormal').hidden = true;
                     document.getElementById('muniResponderAdmin').hidden = false;
+                    document.getElementById('menuAdmonCorreos').hidden = false;
+                    document.getElementById('menuApoyoDeIdeas').hidden = true;
                 });
             }
             else {
                 setTimeout(function () {
                     document.getElementById('menuSolicitarNormal').hidden = false;
                     document.getElementById('muniResponderAdmin').hidden = true;
+                    document.getElementById('menuAdmonCorreos').hidden = true;
+                    document.getElementById('menuApoyoDeIdeas').hidden = false;
                 });
             }
         }
@@ -252,6 +663,18 @@ var AppComponent = /** @class */ (function () {
         if (nombre == 'detalleEvento') {
             this.tabsComponent.openTab('detalleEvento', this.detalleEventoTemplate, detalle, true);
         }
+        if (nombre == 'cuentanos') {
+            this.tabsComponent.openTab('cuentanos', this.apoyoIdeasTemplate, {}, true);
+        }
+        if (nombre == 'admonCorreos') {
+            this.tabsComponent.openTab('admonCorreos', this.admonCorreosTemplate, {}, true);
+        }
+        if (nombre == 'confGeneral') {
+            this.tabsComponent.openTab('confGeneral', this.confGeneralTemplate, {}, true);
+        }
+        if (nombre == 'seguimientoIdeas') {
+            this.tabsComponent.openTab('seguimientoIdeas', this.seguimientoIdeasTemplate, {}, true);
+        }
     };
     AppComponent.prototype.cerrarTab = function (nombre) {
         this.tabsComponent.cerrarTabDinamica(nombre);
@@ -334,6 +757,22 @@ var AppComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('detalleEventoTab'),
         __metadata("design:type", Object)
     ], AppComponent.prototype, "detalleEventoTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('apoyoIdeasTab'),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "apoyoIdeasTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('admonCorreosTab'),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "admonCorreosTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('confGeneralTab'),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "confGeneralTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('seguimientoIdeasTab'),
+        __metadata("design:type", Object)
+    ], AppComponent.prototype, "seguimientoIdeasTemplate", void 0);
     AppComponent = AppComponent_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
@@ -416,6 +855,13 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__ = __webpack_require__("../../../../../src/app/evento/listado-eventos/listado-eventos.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__ = __webpack_require__("../../../../../src/app/evento/suscriptores/detalles-correo/detalles-correo.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__evento_detalles_evento_detalles_evento_component__ = __webpack_require__("../../../../../src/app/evento/detalles-evento/detalles-evento.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__apoyo_de_ideas_apoyo_de_ideas_component__ = __webpack_require__("../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__servicios_apoyoIdeas_apoyo_ideas_service__ = __webpack_require__("../../../../../src/app/servicios/apoyoIdeas/apoyo-ideas.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__administracion_correos_administracion_correos_component__ = __webpack_require__("../../../../../src/app/administracion-correos/administracion-correos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__servicios_correos_correos_service__ = __webpack_require__("../../../../../src/app/servicios/correos/correos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__configuracion_general_configuracion_general_component__ = __webpack_require__("../../../../../src/app/configuracion-general/configuracion-general.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__servicios_confGeneral_configuracion_service__ = __webpack_require__("../../../../../src/app/servicios/confGeneral/configuracion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__apoyo_de_ideas_seguimiento_ideas_seguimiento_ideas_component__ = __webpack_require__("../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -429,6 +875,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import { EmbedVideo } from 'ngx-embed-video';
+
+
+
+
+
+
+
 
 
 
@@ -516,7 +969,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_49__evento_formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */],
                 __WEBPACK_IMPORTED_MODULE_50__evento_listado_eventos_listado_eventos_component__["a" /* ListadoEventosComponent */],
                 __WEBPACK_IMPORTED_MODULE_51__evento_suscriptores_detalles_correo_detalles_correo_component__["a" /* DetallesCorreoComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__evento_detalles_evento_detalles_evento_component__["a" /* DetallesEventoComponent */]
+                __WEBPACK_IMPORTED_MODULE_52__evento_detalles_evento_detalles_evento_component__["a" /* DetallesEventoComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__apoyo_de_ideas_apoyo_de_ideas_component__["a" /* ApoyoDeIdeasComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__administracion_correos_administracion_correos_component__["a" /* AdministracionCorreosComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__configuracion_general_configuracion_general_component__["a" /* ConfiguracionGeneralComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__apoyo_de_ideas_seguimiento_ideas_seguimiento_ideas_component__["a" /* SeguimientoIdeasComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_36__angular_common__["b" /* CommonModule */],
@@ -531,7 +988,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_10__app_routing__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["d" /* FormsModule */],
                 //EmbedVideo.forRoot(),
                 __WEBPACK_IMPORTED_MODULE_24__angular_material__["a" /* MatAutocompleteModule */],
                 __WEBPACK_IMPORTED_MODULE_24__angular_material__["b" /* MatButtonModule */],
@@ -567,7 +1024,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_24__angular_material__["o" /* MatNativeDateModule */],
                 __WEBPACK_IMPORTED_MODULE_21__angular_cdk_table__["m" /* CdkTableModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["h" /* ReactiveFormsModule */]
+                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["i" /* ReactiveFormsModule */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_2__servicios_autenticacion_login_service__["a" /* LoginService */],
@@ -579,6 +1036,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_29__servicios_directorio_directorio_service__["a" /* DirectorioService */],
                 __WEBPACK_IMPORTED_MODULE_44__servicios_eventos_eventos_service__["a" /* EventosService */],
                 __WEBPACK_IMPORTED_MODULE_47__servicios_serviciosDeEmprendimiento_emprendimiento_services_service__["a" /* EmprendimientoServicesService */],
+                __WEBPACK_IMPORTED_MODULE_54__servicios_apoyoIdeas_apoyo_ideas_service__["a" /* ApoyoIdeasService */],
+                __WEBPACK_IMPORTED_MODULE_56__servicios_correos_correos_service__["a" /* CorreosService */],
+                __WEBPACK_IMPORTED_MODULE_58__servicios_confGeneral_configuracion_service__["a" /* ConfiguracionService */]
+                //AppComponent
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]],
             exports: [__WEBPACK_IMPORTED_MODULE_37__pickers_date_time_picker_component__["a" /* DateTimePickerComponent */]],
@@ -764,6 +1225,128 @@ var BoardComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__app_component__["a" /* AppComponent */]])
     ], BoardComponent);
     return BoardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/configuracion-general/configuracion-general.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "::ng-deep div.etiquetasMargen{\r\n    margin-left: 40px;\r\n    margin-right:40px;\r\n}\r\n\r\n::ng-deep div.mat-input-infix.mat-form-field-infix{\r\n    width: 100%;\r\n}\r\n\r\n/* forms */\r\n\r\nh2 {\r\n\tcolor: #000066;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\ntextarea{\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\n\r\ninput{\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n}\r\n\r\ndiv.forma {\r\n    border-radius: 5px;\r\n    background-color: #f2f2f2;\r\n    padding: 20px;\r\n}\r\n\r\ninput[type=submit]:hover {\r\n    background-color: #ffffff ;\r\n    color : #000066;\r\n    border-color: #000066;  \r\n}\r\n\r\ninput[type=submit] {\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/configuracion-general/configuracion-general.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<div class=\"etiquetasMargen\">\n\n\n  <br><br>\n  <h2>Selecciona Tu Campo De Acción</h2>\n  <br><br>\n\n  <form>\n    <div class=\"forma\">\n\n      <mat-form-field>\n        <mat-select [compareWith]=\"compareObjects\" [(ngModel)]=\"seleccionados\" placeholder=\"Campos de Acción\" [formControl]=\"campos\" multiple>\n          <mat-option *ngFor=\"let campo of listaCampos\" [value]=\"campo\">{{campo.nombre}}</mat-option>\n        </mat-select>\n      </mat-form-field>             \n    \n      <input (click)=\"enviarEtiquetas()\" type=\"submit\" value=\"Enviar\">\n\n    </div>\n  </form>\n\n</div>\n\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" (cerroPop)=\"onCerrarNotify($event)\"></app-popup-aviso>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/configuracion-general/configuracion-general.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracionGeneralComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicios_apoyoIdeas_apoyo_ideas_service__ = __webpack_require__("../../../../../src/app/servicios/apoyoIdeas/apoyo-ideas.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__servicios_confGeneral_configuracion_service__ = __webpack_require__("../../../../../src/app/servicios/confGeneral/configuracion.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ConfiguracionGeneralComponent = /** @class */ (function () {
+    function ConfiguracionGeneralComponent(apoyoIdeasService, configuracionService) {
+        this.apoyoIdeasService = apoyoIdeasService;
+        this.configuracionService = configuracionService;
+        this.campos = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]();
+        this.seleccionados = new Array();
+        this.copia = new Array();
+        // listaCampos = [ 
+        //   { id: 1, nombre :'Ciencia'}, { id: 2, nombre : 'Sistemas'}, { id: 3, nombre : 'Artes'}];
+        this.listaCampos = new Array();
+        this.mensajeMostrar = "Cambios guardados satisfactoriamente";
+    }
+    ConfiguracionGeneralComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.apoyoIdeasService.listar().subscribe(function (response) {
+            _this.listaCampos = response;
+            _this.configuracionService.cargarActuales().subscribe(function (responseActuales) {
+                // let aux=[]
+                // responseActuales.forEach(element => {
+                //   if(this.listaCampos.find(x=>x.id==element.id)){
+                //     aux.push(element)
+                //   }              
+                // });
+                _this.seleccionados = responseActuales;
+                _this.copia = responseActuales;
+            });
+        });
+    };
+    ConfiguracionGeneralComponent.prototype.enviarEtiquetas = function () {
+        var _this = this;
+        var etiquetasEnviar = new Array();
+        this.seleccionados.forEach(function (element) {
+            var repetido = _this.copia.find(function (elementBuscar) {
+                return element.id == elementBuscar.id;
+            });
+            if (repetido == undefined) {
+                etiquetasEnviar.push(element);
+            }
+        });
+        this.configuracionService.asignarEtiquetas(etiquetasEnviar).subscribe(function (response) {
+            console.log(response);
+            _this.avisar();
+        });
+    };
+    ConfiguracionGeneralComponent.prototype.avisar = function () {
+        this.avisoPopUp.mostrarPopExito();
+    };
+    ConfiguracionGeneralComponent.prototype.onCerrarNotify = function (e) {
+        console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
+    };
+    ConfiguracionGeneralComponent.prototype.compareObjects = function (o1, o2) {
+        return o1.id === o2.id;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+    ], ConfiguracionGeneralComponent.prototype, "avisoPopUp", void 0);
+    ConfiguracionGeneralComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-configuracion-general',
+            template: __webpack_require__("../../../../../src/app/configuracion-general/configuracion-general.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/configuracion-general/configuracion-general.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__servicios_apoyoIdeas_apoyo_ideas_service__["a" /* ApoyoIdeasService */],
+            __WEBPACK_IMPORTED_MODULE_4__servicios_confGeneral_configuracion_service__["a" /* ConfiguracionService */]])
+    ], ConfiguracionGeneralComponent);
+    return ConfiguracionGeneralComponent;
 }());
 
 
@@ -3638,10 +4221,14 @@ var LoginComponent = /** @class */ (function () {
             if (_this.esAdmon) {
                 document.getElementById('menuSolicitarNormal').hidden = true;
                 document.getElementById('muniResponderAdmin').hidden = false;
+                document.getElementById('menuAdmonCorreos').hidden = false;
+                document.getElementById('menuApoyoDeIdeas').hidden = true;
             }
             else {
                 document.getElementById('menuSolicitarNormal').hidden = false;
                 document.getElementById('muniResponderAdmin').hidden = true;
+                document.getElementById('menuAdmonCorreos').hidden = true;
+                document.getElementById('menuApoyoDeIdeas').hidden = false;
             }
         }, function (error) {
             alert("Error en el servidor retornando URD");
@@ -3828,7 +4415,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var DATE_TIME_PICKER_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* NG_VALUE_ACCESSOR */],
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* forwardRef */])(function () { return DateTimePickerComponent; }),
     multi: true
 };
@@ -4610,6 +5197,58 @@ var VerSolicitudesSeviciosComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/servicios/apoyoIdeas/apoyo-ideas.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApoyoIdeasService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ApoyoIdeasService = /** @class */ (function () {
+    function ApoyoIdeasService(http) {
+        this.http = http;
+        this.backendUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url;
+    }
+    ApoyoIdeasService.prototype.enviar = function (idea) {
+        return this.http.post(this.backendUrl + "guardarIdea/", idea, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    ApoyoIdeasService.prototype.listar = function () {
+        return this.http.get(this.backendUrl + "listarEtiquetas/", { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    ApoyoIdeasService.prototype.listarIdeasSeguimiento = function () {
+        return this.http.get(this.backendUrl + "listarIdeas/", { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    ApoyoIdeasService.prototype.responderAIdea = function (respuesta) {
+        return this.http.post(this.backendUrl + "responderIdea/", respuesta, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    ApoyoIdeasService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], ApoyoIdeasService);
+    return ApoyoIdeasService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/servicios/autenticacion/login.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4825,6 +5464,94 @@ var ColaService = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_5__cola_rest_service__["a" /* ColaRestService */]])
     ], ColaService);
     return ColaService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/servicios/confGeneral/configuracion.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracionService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ConfiguracionService = /** @class */ (function () {
+    function ConfiguracionService(http) {
+        this.http = http;
+        this.backendUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url;
+    }
+    ConfiguracionService.prototype.asignarEtiquetas = function (etiqueta) {
+        return this.http.post(this.backendUrl + "asignarEtiquetas/", etiqueta, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    ConfiguracionService.prototype.cargarActuales = function () {
+        return this.http.get(this.backendUrl + "listarEtiquetasPropias/", { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    ConfiguracionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], ConfiguracionService);
+    return ConfiguracionService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/servicios/correos/correos.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CorreosService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CorreosService = /** @class */ (function () {
+    function CorreosService(http) {
+        this.http = http;
+        this.backendUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].url;
+    }
+    CorreosService.prototype.get = function () {
+        return this.http.get(this.backendUrl + "listarCorreosInstitucionales/", { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    CorreosService.prototype.crearCorreo = function (correo) {
+        return this.http.post(this.backendUrl + "crearCorreoInstitucional", correo, { withCredentials: true })
+            .map(function (res) { return res.json(); });
+    };
+    CorreosService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], CorreosService);
+    return CorreosService;
 }());
 
 
