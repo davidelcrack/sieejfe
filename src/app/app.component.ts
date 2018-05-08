@@ -31,7 +31,12 @@ export class AppComponent {
 
     }
   
-  esInvitado=false;
+  static esInvitado: boolean = false;    
+
+  getStaticMostrarLaNotificacion() {
+    return AppComponent.esInvitado;
+  }
+  
   
   esUser = false;
   currentUser = null;
@@ -76,7 +81,7 @@ export class AppComponent {
     translate.use(browserLang.match(/en|es-co/) ? browserLang : idioma);
     }
 
-  ngOnInit() {
+  ngOnInit() {    
     console.log("ngOnInit: Entro a ngOnInit");
     //localStorage.setItem('USER', null);//this.currentUser = JSON.parse(localStorage.getItem('USER'))   
     this.currentUser = localStorage.getItem('USER');

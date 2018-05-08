@@ -38,8 +38,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    AppComponent.esInvitado=false;
     console.log("login: Entro a login");   
-    console.log(this.datosLogin);
+    console.log(this.datosLogin);     
     if(this.datosLogin.username!="" && this.datosLogin.contrasena!=""){   
         
       this.servicioLogin.login(this.datosLogin.username, this.datosLogin.contrasena).subscribe(//no local

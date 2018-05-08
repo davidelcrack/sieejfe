@@ -11,7 +11,7 @@
         
         <div class="container-fluid navtopdiv"></div>
         <ul class="topnav">
-            <div *ngIf="!esInvitado">
+            <div *ngIf="!getStaticMostrarLaNotificacion()">
             <li><a class="active dropA fa fa-home" (click)="irAHome()"></a></li>                        
             <!-- <li class="dropdown dropdownNav"><a class="dropA">{{'ENTORNO.ADMINISTRACION'| translate}}</a>
                 <ul class="dropMioJaja">
@@ -100,11 +100,11 @@
                 <app-etiquetas-inicio></app-etiquetas-inicio>  
             </div>
             <div *ngIf="!getStaticMostrarEtiquetas()"> -->
-                <div *ngIf="!esInvitado">
+                <div *ngIf="!getStaticMostrarLaNotificacion()">
                 <app-board></app-board>
                 </div>
 
-                <div *ngIf="esInvitado">
+                <div *ngIf="getStaticMostrarLaNotificacion()">
                 <app-invitado-crear></app-invitado-crear>
                 </div>
             <!-- </div> 
