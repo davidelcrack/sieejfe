@@ -91,6 +91,7 @@ import { CorreosService } from './servicios/correos/correos.service';
 import { ConfiguracionGeneralComponent } from './configuracion-general/configuracion-general.component';
 import { ConfiguracionService } from './servicios/confGeneral/configuracion.service';
 import { SeguimientoIdeasComponent } from './apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component';
+import { InvitadoCrearComponent } from './invitado-crear/invitado-crear.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -134,7 +135,8 @@ registerLocaleData(localeEsCo);
     ApoyoDeIdeasComponent,
     AdministracionCorreosComponent,
     ConfiguracionGeneralComponent,
-    SeguimientoIdeasComponent
+    SeguimientoIdeasComponent,
+    InvitadoCrearComponent
   ],
   imports: [
     CommonModule,

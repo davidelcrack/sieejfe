@@ -31,6 +31,8 @@ export class AppComponent {
 
     }
   
+  esInvitado=false;
+  
   esUser = false;
   currentUser = null;
   estado : any;

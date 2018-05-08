@@ -1,0 +1,33 @@
+::ng-deep div.ServMargen{
+    margin-left: 40px;
+    margin-right:40px;
+}
+
+h2 {
+color: #000066;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .centered button,
+  .centered button:focus
+  {
+    background-color: #000066;
+    color : #ffffff;
+    border-color: #ffffff;  
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .centered button:hover.guardar,
+  .centered button:visited,
+  .centered button:active
+  {
+    background-color: white ;
+    color : #000066;
+    border-color: #000066;  
+  }
