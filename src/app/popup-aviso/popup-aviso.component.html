@@ -4,7 +4,7 @@
       <span class="close" (click)="cerrarPopUp()">&times;</span><br>
       
       <h3 class="alerta">
-        Advertencia
+        Error
       </h3>  
       
       <br>  
@@ -31,6 +31,30 @@
         {{mensaje}}
       </h4>
       <br>
+
+    </div>
+</div>
+
+<div id="overlayAvisoConBotones">
+  
+  <div class="modalShowConBotones">      
+      <span class="close" (click)="cerrarPopUpBotones()">&times;</span><br>
+
+      
+      <h3 class="advertencia">
+        Advertencia
+      </h3>  
+      
+      <br>
+      <h4 class="advertencia">          
+        ¿Está seguro que desea eliminar el elemento seleccionado?
+      </h4>
+      <br>
+
+      <div class="input-group centered">
+        <button  class="btn btn-info btn-lg guardar" type="button" (click)="confirmacion()">{{'POPUP.SI'| translate}}</button>       
+        <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUpBotones()">{{'POPUP.NO'| translate}}</button>
+      </div> 
 
     </div>
 </div>

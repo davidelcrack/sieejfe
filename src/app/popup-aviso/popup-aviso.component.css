@@ -52,6 +52,34 @@
   overflow: scroll; */
 }
 
+#overlayAvisoConBotones {
+  visibility: hidden;
+  /*position: absolute;*/
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  text-align:center;        
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    
+}
+
+#overlayAvisoConBotones div.modalShowConBotones {
+  background-color: #fcf8e3 ;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  border: 2px solid #faebcc;
+  border-radius: 8px;
+  /* max-height: 800px;
+  overflow: scroll; */
+}
+
+
 body {
   height:100%;
   margin:0;
@@ -90,6 +118,11 @@ h4.exito {
   color: #3c763d;
 }
 
+h4.advertencia {
+  margin: 0 0 10px;
+  color: #8a6d3b;
+}
+
 h3.alerta {
   font-weight: 700;
   margin: 0 0 10px;
@@ -100,4 +133,49 @@ h3.exito {
   font-weight: 700;
   margin: 0 0 10px;
   color: #3c763d;
+}
+
+h3.advertencia {
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #8a6d3b;
+}
+
+/* Botones de si o no */
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered button,
+.centered button:focus
+{
+  background-color: #8a6d3b;
+  color : #ffffff;
+  border-color: #ffffff;  
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.centered button:hover.guardar,
+.centered button:visited,
+.centered button:active
+{
+  background-color: darkgreen ;
+  color : #ffffff;
+  border-color: #ffffff;  
+}
+
+.centered button:hover.cancelar,
+.centered button:visited,
+.centered button:active
+{
+  background-color:  darkred ;
+  color : #ffffff;
+  border-color: #ffffff;  
+}
+
+.input-group{
+  display:block !important;
 }

@@ -69,6 +69,13 @@ a.fa.fa-plus-circle{
     color: #FFCC00;
     cursor: pointer;
   }
+
+  a.fa.fa-trash-o{
+    border-color : darkred;
+    font-size: 40px;
+    color: darkred;
+    cursor: pointer;
+  }
   
   .input-group.padInferior{
     padding : 0px 160px 30px 160px !important;

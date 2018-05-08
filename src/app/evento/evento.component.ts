@@ -444,13 +444,23 @@ export class EventoComponent implements OnInit {
   
   eliminar(id : any){
 
-    let eliminado = this.events.indexOf(this.events.find(function(element) {
-      return element.id == id;
-    }));
+    let mensaje = { id: id  , accion: 'eliminar' , clase: 'Evento', atributo: 'ok' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
+    
+    console.log(mensaje);
 
-    this.events.splice(eliminado, 1); 
-    this.refresh.next()
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+        this.cargarTodosLosEventos();
+      },
+        error => {
+          console.log("Error al elminar correo");
+        });
+    }
   }
+  
 
   /* ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** */
 

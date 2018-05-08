@@ -51,4 +51,27 @@ export class PopupAvisoComponent implements OnInit , OnChanges {
     el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
   }
 
+  mostrarPopBotones(){
+    console.log('mostrarPopBotones : entro a mostrarPopBotones');        
+    let el : any;
+    el = document.getElementById("overlayAvisoConBotones");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  cerrarPopUpBotones(){
+    console.log('cerrarPopUpBotones : entro a cerrarPopUpBotones');       
+    let el : any;
+    el = document.getElementById("overlayAvisoConBotones");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
+  @Output() confirmo : EventEmitter<any> = new EventEmitter <any>();  
+  confirmacion(){
+    console.log('confirmacion : entro a confirmacion');   
+    this.confirmo.emit('Se confirmo'); 
+    let el : any;
+    el = document.getElementById("overlayAvisoConBotones");
+    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
+
 }

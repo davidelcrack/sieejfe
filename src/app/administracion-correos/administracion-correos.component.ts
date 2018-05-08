@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ColaService } from '../servicios/cola/cola.service';
 import { CorreosService } from '../servicios/correos/correos.service';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { PopupAvisoComponent } from '../popup-aviso/popup-aviso.component';
 
 @Component({
   selector: 'app-administracion-correos',
@@ -104,9 +105,18 @@ export class AdministracionCorreosComponent implements OnInit {
     )
   }
 
+  row : any = -1;
+  mensajeMostrar : any;
+  @ViewChild('admonCorreosPopUp') avisoPopUp: PopupAvisoComponent;
+  
   eliminarCorreo(row : any){
+    this.mensajeMostrar= '¿Está seguro que desea eliminar el elemento seleccionado?'
+    this.row=row.id;
+    this.avisoPopUp.mostrarPopBotones();
+  }
 
-    let mensaje = { id: row.id  , accion: 'eliminar' , clase: 'CorreosInstitucionales', atributo: 'ok' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
+  confirmoCierre(e){    
+    let mensaje = { id: this.row  , accion: 'eliminar' , clase: 'CorreosInstitucionales', atributo: 'ok' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
     
     console.log(mensaje);
 
@@ -120,8 +130,7 @@ export class AdministracionCorreosComponent implements OnInit {
         error => {
           console.log("Error al elminar correo");
         });
-    } 
-
+    }
   }
 
 }

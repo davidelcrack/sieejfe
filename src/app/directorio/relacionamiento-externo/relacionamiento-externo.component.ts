@@ -3,6 +3,7 @@ import { DirectorioService } from '../../servicios/directorio/directorio.service
 import { DominioPopUpComponent } from '../dominio-pop-up/dominio-pop-up.component';
 import { AdicionarDominioPopUpComponent } from '../adicionar-dominio-pop-up/adicionar-dominio-pop-up.component';
 import { ImagenPopUpComponent } from '../imagen-pop-up/imagen-pop-up.component';
+import { ColaService } from '../../servicios/cola/cola.service';
 
 @Component({
   selector: 'app-relacionamiento-externo',
@@ -21,7 +22,8 @@ export class RelacionamientoExternoComponent implements OnInit {
   imagenDominio: ImagenPopUpComponent;
 
   constructor(
-    private directorioService : DirectorioService
+    private directorioService : DirectorioService,
+    private serviceCola : ColaService
   ) { }
 
   datos : any;
@@ -115,6 +117,25 @@ export class RelacionamientoExternoComponent implements OnInit {
         
     this.adicionarPopUp.mostrarAdicionDominio=true;
     this.adicionarPopUp.abrirAdicionarDominio('INTERNACIONAL');
+  }
+
+  eliminarDominioInternacional(id, tipo){
+    let mensaje = { id: id  , accion: 'eliminar' , clase: 'Dominio', atributo: 'ok' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
+    
+    console.log(mensaje);
+
+    let observable = this.serviceCola.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)           
+        this.actualizarChecks(tipo); 
+        this.getDominiosInternacionales(tipo);
+      },
+        error => {
+          console.log("Error al elminar correo");
+        });
+    }
   }
 
 }

@@ -55,9 +55,10 @@
                 </div>
                 <br>
                 <div class="input-group padInferior">
-                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>
+                  <a *ngIf="!esAdmin" class="fa fa-external-link acordeonButton" (click)="abrirLink(institucion.url)"></a>                  
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(institucion)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(institucion.id)" ></a> 
+                  <a *ngIf="esAdmin" class="fa fa-trash-o acordeonButton" (click)="eliminarDominioInternacional(institucion.id, 'UNIVERSIDAD')" ></a>
                 </div>        
               </ng-container>
           </div>
@@ -86,9 +87,10 @@
             </div>
             <br>
             <div class="input-group padInferior">
-              <a class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
+              <a *ngIf="!esAdmin" class="fa fa-external-link acordeonButton" (click)="abrirLink(acelerador.url)"></a>
               <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(acelerador)" ></a>
               <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(acelerador.id)" ></a> 
+              <a *ngIf="esAdmin" class="fa fa-trash-o acordeonButton" (click)="eliminarDominioInternacional(acelerador.id, 'RED_ACELERADORAS')" ></a>
             </div>       
             <br><br><br> 
           </ng-container>
@@ -136,9 +138,10 @@
                 </div>
                 <br>
                 <div class="input-group padInferior">
-                  <a class="fa fa-external-link acordeonButton" (click)="abrirLink(ausjal.url)"></a>
+                  <a *ngIf="!esAdmin" class="fa fa-external-link acordeonButton" (click)="abrirLink(ausjal.url)"></a>
                   <a *ngIf="esAdmin" class="fa fa-pencil-square-o acordeonButton" (click)="editarDominioInternacional(ausjal)" ></a>
                   <a *ngIf="esAdmin" class="fa fa-cloud-upload acordeonButton" (click)="editarImagenDominioInternacional(ausjal.id)" ></a> 
+                  <a *ngIf="esAdmin" class="fa fa-trash-o acordeonButton" (click)="eliminarDominioInternacional(ausjal.id, 'AUSJAL')" ></a>
                 </div>       
                 <br><br><br> 
               </ng-container>
