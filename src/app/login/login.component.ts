@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    AppComponent.esInvitado=false;
+    let esUnInvitado=false;
+    AppComponent.esInvitado=esUnInvitado;
+    localStorage.setItem('GUEST', JSON.stringify(esUnInvitado));
     console.log("login: Entro a login");   
     console.log(this.datosLogin);     
     if(this.datosLogin.username!="" && this.datosLogin.contrasena!=""){   

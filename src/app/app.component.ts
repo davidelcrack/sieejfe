@@ -31,7 +31,7 @@ export class AppComponent {
 
     }
   
-  static esInvitado: boolean = false;    
+  static esInvitado: boolean = null;    
 
   getStaticMostrarLaNotificacion() {
     return AppComponent.esInvitado;
@@ -84,6 +84,8 @@ export class AppComponent {
   ngOnInit() {    
     console.log("ngOnInit: Entro a ngOnInit");
     //localStorage.setItem('USER', null);//this.currentUser = JSON.parse(localStorage.getItem('USER'))   
+    let aux = JSON.parse(localStorage.getItem('GUEST'));
+    AppComponent.esInvitado=aux;
     this.currentUser = localStorage.getItem('USER');
     console.log(JSON.parse(localStorage.getItem('LOGGEADO')))  ;
     //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local

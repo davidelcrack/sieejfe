@@ -1,10 +1,189 @@
 <br>
-<div class="ServInvitado">
+<div class="invitadoMargen">
 
-  <h2>Bienvenido Invitado</h2>
+<!-- <div class="input-group" style="float:right;">
+  <a class="fa fa-plus-circle" (click)="abrirAdicionEvento() ; mostrarEventos=true;" ></a>  
+</div> -->
 
-  <div class="input-group centered">
-      <button  class="btn btn-info btn-lg guardar" type="button" (click)="logout()">{{'ENTORNO.SALIR'| translate}}</button>             
-    </div> 
+<h2>Bienvenido Invitado</h2>
+<br><br><br>
+
+<div class="colGrid2 textoPanel" style="text-align:center">
+  <p class="margenTexto mb-3 labelPanel"> 
+    Se encuentra en una pantalla que le permite agregar los eventos de emprendimiento que organizará
+    su facultad. A continuación, encontrara dos botones: el primero, Salir, es para hacer Logout y terminar el proceso
+    de creación; el segundo, Crear Eventos, despliega una ventana en la cual podrá agregar los eventos con las
+    características que usted desee. <br>
+    Lo invitamos a participar de esta iniciativa y le agradecemos su colaboración.
+    </p>
+</div>
+
+<br><br><br>
+
+
+<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->
+
+<div id="overlayEvento">
+  
+  <div class="modalShow">      
+      <span class="close" (click)="cerrarPopUp()">&times;</span><br><br>
+
+      <div *ngIf="accion==1">
+        <h3>
+          {{'EVENTOS.EDIT'| translate}}
+          <div class="clearfix"></div>
+        </h3>
+      </div>
+
+      <div *ngIf="accion==2">
+        <h3>
+          {{'EVENTOS.CREATE'| translate}}
+          <div class="clearfix"></div>
+        </h3>
+      </div>
+
+      <div *ngIf="accion==3">
+        <h3>
+          {{'EVENTOS.LIST'| translate}}
+          <div class="clearfix"></div>
+        </h3>
+      </div>
+        <!-- <button
+          class="btn btn-primary pull-right"
+          (click)="addEvent()">
+          Agregar
+        </button> -->
+        
+
+      <table class="table table-bordered">
+
+        <thead>
+          <tr>
+            <th>{{'EVENTOS.NAME'| translate}}</th>     
+            <th>{{'EVENTOS.BEGIN'| translate}}</th>
+            <th>{{'EVENTOS.END'| translate}}</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let event of eventsEditar; let index = index">
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="event.title"
+                (ngModelChange)="cambio('titulo',event.title, 'STRING')"
+                >
+            </td>
+            <td>
+              <mwl-demo-utils-date-time-picker
+                [(ngModel)]="event.start"
+                (ngModelChange)="cambio('inicio',event.start, 'FECHA')"
+                placeholder="Not set">
+              </mwl-demo-utils-date-time-picker>
+            </td>
+            <td>
+              <mwl-demo-utils-date-time-picker
+                [(ngModel)]="event.end"
+                (ngModelChange)="cambio('fin',event.end, 'FECHA')"
+                placeholder="Not set">
+              </mwl-demo-utils-date-time-picker>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <label (click)="mostrarDetallesEdicion()" for="mostrarDetallesMas" class="{{masDetallesClass}}">
+          <i class="fa fa-hand-o-down"></i> Editar detalles
+      </label>
+
+      <br><br><br>
+
+      <div *ngIf="mostrarDetallesMas">
+
+        <div class="input-group" style="float:right;">
+          <a class="fa fa-plus-circle" (click)="anadirAtributo()" ></a>        
+        </div>
+
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Descripción</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="descripcionEventoJ" placeholder="Ingrese descripción" name="descripcionEventoJ"
+                [(ngModel)]="descripcionEvento" (ngModelChange)="cambio('descripcion',descripcionEvento,'STRING')">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Requisitos</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="requisitosnEventoJ" placeholder="Ingrese requisitos" name="requisitosnEventoJ"
+                [(ngModel)]="requisitosEvento" (ngModelChange)="cambio('requisitos',requisitosEvento,'STRING')">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Capacidad Máxima</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="capacidadEventoJ" placeholder="Ingrese capacidad máxima" name="capacidadEventoJ"
+                [(ngModel)]="capacidadMaxima" (ngModelChange)="cambio('capacidadMaxima',capacidadMaxima,'LONG')">
+            </div>
+          </div>
+        </form>
+
+        <div *ngIf="accion==1">
+          <form class="form-horizontal">
+            <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" id="personalizadoLabel{{idActual}}{{i}}" placeholder="Nombre" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.nombre" (ngModelChange)="cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)">
+                </div>
+                    <div class="col-sm-10">          
+                  <input type="text" class="form-control" id="personalizadoInput{{idActual}}{{i}}" placeholder="Ingrese descripción" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.descripcion" (ngModelChange)="cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="accion==2">
+          <form class="form-horizontal">
+            <div *ngFor="let personalizados of atributosPersonalizados; let i = index">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" id="personalizadoLabel{{idActual}}{{i}}" placeholder="Nombre" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.nombre">
+                </div>
+                    <div class="col-sm-10">          
+                  <input type="text" class="form-control" id="personalizadoInput{{idActual}}{{i}}" placeholder="Ingrese descripción" name="personalizadoLabel{{idActual}}{{i}}"
+                    [(ngModel)]="personalizados.descripcion">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      
+        <br><br>
+        <div *ngIf="accion==2">
+          <div class="input-group centered">
+            <button  class="btn btn-info btn-lg guardar" type="button" (click)="guardarCambios()">{{'EVENTOS.SAVE'| translate}}</button>       
+            <button  class="btn btn-info btn-lg cancelar" type="button" (click)="cerrarPopUp()">{{'EVENTOS.CANCEL'| translate}}</button>
+          </div> 
+        </div>
+    </div>
+</div>
+
+<div class="input-group centered">
+  <button  class="btn btn-info btn-lg salir" type="button" (click)="logout()">{{'ENTORNO.SALIR'| translate}}</button>             
+  <button  class="btn btn-info btn-lg crear" type="button" (click)="abrirAdicionEvento() ; mostrarEventos=true;">{{'EVENTOS.CREATE'| translate}}</button>             
+</div>
 
 </div>
+
+ 
+
+<app-formulario-personalizado (guardo)="onNotifyInscribirse($event)"></app-formulario-personalizado>
+<app-popup-aviso [mensaje]="mensajeMostrar" ></app-popup-aviso>

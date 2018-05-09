@@ -57,7 +57,7 @@ export class ApoyoDeIdeasComponent implements OnInit {
 
   onCerrarNotify(e){
     console.log('onNotifyPopUp : entro a onNotifyPopUp',e); 
-    this.appComponent.cerrarTab('apoyoIdeas');      
+    this.appComponent.cerrarTab('cuentanos');      
   }
 
 
