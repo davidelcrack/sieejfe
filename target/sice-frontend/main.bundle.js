@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/administracion-correos/administracion-correos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<div class=\"CorreosMargen\">\n<h2>Administración de Correos</h2>\n\n<br><br>\n\n<a class=\"fa fa-plus-circle\" (click)=\"crearCorreo()\"></a>\n\n<div class=\"mat-app-background basic-container\">\n\n  <div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n    </mat-form-field>\n  </div>\n\n  <div class=\"example-container mat-elevation-z8\" >\n\n    <mat-table #tableAdmonCorreos [dataSource]=\"dataSource\" matSort>\n\n      <!-- ID Column -->\n      <ng-container matColumnDef=\"id\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\n      </ng-container>\n\n      <!-- Nombre Column -->\n      <ng-container matColumnDef=\"nombre\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Facultad </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n      </ng-container>\n      \n      <!-- Info Column -->\n      <ng-container matColumnDef=\"correo\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n      </ng-container>\n\n      <!-- Eliminar Column -->\n      <ng-container matColumnDef=\"eliminar\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"  (click)=\"eliminarCorreo(row)\"></mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n      </mat-row>\n    </mat-table>\n\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  </div>\n\n</div>\n\n</div>\n\n<div id=\"overlayAdicionCorreos\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>AGREGAR CORREO</h3>   \n      \n      \n      <form class=\"form-horizontal\">\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\n          <div class=\"col-sm-10\">\n            <input type=\"text\" class=\"form-control\" id=\"nombreCorreoAdmon\" placeholder=\"Ingrese nombre\" name=\"nombreCorreoAdmon\"\n              [(ngModel)]=\"elCorreo.nombre\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"pwd\">Correo</label>\n          <div class=\"col-sm-10\">          \n            <input type=\"text\" class=\"form-control\" id=\"elcorreoAdmon\" placeholder=\"Ingrese correo\" name=\"elcorreoAdmon\"\n              [(ngModel)]=\"elCorreo.correo\">\n          </div>\n        </div>        \n      </form>\n      <br><br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\n      </div> \n\n  </div>\n\n  \n</div>"
+module.exports = "<br>\n<div class=\"CorreosMargen\">\n<h2>Administración de Correos</h2>\n\n<br><br>\n\n<a class=\"fa fa-plus-circle\" (click)=\"crearCorreo()\"></a>\n\n<div class=\"mat-app-background basic-container\">\n\n  <div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n    </mat-form-field>\n  </div>\n\n  <div class=\"example-container mat-elevation-z8\" >\n\n    <mat-table #tableAdmonCorreos [dataSource]=\"dataSource\" matSort>\n\n      <!-- ID Column -->\n      <ng-container matColumnDef=\"id\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\n      </ng-container>\n\n      <!-- Nombre Column -->\n      <ng-container matColumnDef=\"nombre\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Facultad </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n      </ng-container>\n      \n      <!-- Info Column -->\n      <ng-container matColumnDef=\"correo\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n      </ng-container>\n\n      <!-- Eliminar Column -->\n      <ng-container matColumnDef=\"eliminar\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"  (click)=\"eliminarCorreo(row)\"></mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n      </mat-row>\n    </mat-table>\n\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  </div>\n\n</div>\n\n</div>\n\n<div id=\"overlayAdicionCorreos\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>AGREGAR CORREO</h3>   \n      \n      \n      <form class=\"form-horizontal\">\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\n          <div class=\"col-sm-10\">\n            <input type=\"text\" class=\"form-control\" id=\"nombreCorreoAdmon\" placeholder=\"Ingrese nombre\" name=\"nombreCorreoAdmon\"\n              [(ngModel)]=\"elCorreo.nombre\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"pwd\">Correo</label>\n          <div class=\"col-sm-10\">          \n            <input type=\"text\" class=\"form-control\" id=\"elcorreoAdmon\" placeholder=\"Ingrese correo\" name=\"elcorreoAdmon\"\n              [(ngModel)]=\"elCorreo.correo\">\n          </div>\n        </div>        \n      </form>\n      <br><br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\n      </div> \n\n  </div>\n\n  \n</div>\n\n<app-popup-aviso #admonCorreosPopUp [mensaje]=\"mensajeMostrar\" (confirmo)=\"confirmoCierre($event)\" ></app-popup-aviso>"
 
 /***/ }),
 
@@ -51,6 +51,7 @@ module.exports = "<br>\n<div class=\"CorreosMargen\">\n<h2>Administración de Co
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicios_correos_correos_service__ = __webpack_require__("../../../../../src/app/servicios/correos/correos.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,6 +65,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AdministracionCorreosComponent = /** @class */ (function () {
     function AdministracionCorreosComponent(colaService, correosService) {
         this.colaService = colaService;
@@ -71,6 +73,7 @@ var AdministracionCorreosComponent = /** @class */ (function () {
         this.elCorreo = { nombre: null, correo: null };
         this.displayedColumns = ['id', 'nombre', 'correo', 'eliminar'];
         this.correos = new Array();
+        this.row = -1;
         this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["D" /* MatTableDataSource */](this.correos);
     }
     AdministracionCorreosComponent.prototype.ngOnInit = function () {
@@ -135,8 +138,13 @@ var AdministracionCorreosComponent = /** @class */ (function () {
         });
     };
     AdministracionCorreosComponent.prototype.eliminarCorreo = function (row) {
+        this.mensajeMostrar = '¿Está seguro que desea eliminar el elemento seleccionado?';
+        this.row = row.id;
+        this.avisoPopUp.mostrarPopBotones();
+    };
+    AdministracionCorreosComponent.prototype.confirmoCierre = function (e) {
         var _this = this;
-        var mensaje = { id: row.id, accion: 'eliminar', clase: 'CorreosInstitucionales', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+        var mensaje = { id: this.row, accion: 'eliminar', clase: 'CorreosInstitucionales', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
         console.log(mensaje);
         var observable = this.colaService.agregarACola(mensaje);
         if (observable) {
@@ -156,6 +164,10 @@ var AdministracionCorreosComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["A" /* MatSort */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["A" /* MatSort */])
     ], AdministracionCorreosComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('admonCorreosPopUp'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+    ], AdministracionCorreosComponent.prototype, "avisoPopUp", void 0);
     AdministracionCorreosComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-administracion-correos',
@@ -256,7 +268,7 @@ var ApoyoDeIdeasComponent = /** @class */ (function () {
     };
     ApoyoDeIdeasComponent.prototype.onCerrarNotify = function (e) {
         console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
-        this.appComponent.cerrarTab('apoyoIdeas');
+        this.appComponent.cerrarTab('cuentanos');
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
@@ -445,7 +457,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/sice2V3.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento', null)\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio', null)\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio', null)\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento', null)\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio', null)\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            \r\n            <li id=\"menuApoyoDeIdeas\" class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.APOYOIDEAS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('cuentanos', null)\">{{'ENTORNO.CUENTANOS'| translate}}</a></li>                    \r\n                </ul>\r\n            </li>\r\n\r\n            <li id=\"menuAdmonCorreos\" class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.CONFIGURACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('admonCorreos', null)\">{{'ENTORNO.ADMONCORREOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('confGeneral', null)\">{{'ENTORNO.CONFGENERAL'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('seguimientoIdeas', null)\">{{'ENTORNO.seguimientoIdeas'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n\r\n\r\n            <li><a (click)=\"openTabs('aboutus', null)\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                \r\n                <app-board></app-board>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #eventoAbrirTab>\r\n        <mwl-demo-component [idAbrir]=\"detalle\"></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #detalleEventoTab>\r\n        <app-detalles-evento [idAbrir]=\"detalle\"></app-detalles-evento>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <ng-template #apoyoIdeasTab>\r\n        <app-apoyo-de-ideas></app-apoyo-de-ideas>\r\n    </ng-template>\r\n\r\n    <ng-template #admonCorreosTab>\r\n        <app-administracion-correos></app-administracion-correos>\r\n    </ng-template>\r\n\r\n    <ng-template #confGeneralTab>\r\n        <app-configuracion-general></app-configuracion-general>\r\n    </ng-template>\r\n\r\n    <ng-template #seguimientoIdeasTab>\r\n        <app-seguimiento-ideas></app-seguimiento-ideas>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div *ngIf=\"esUser\">    \r\n    <header>\r\n        <div class=\"container-fluid brand-container\">\r\n            <div >\r\n                <a target=\"_blank\" href=\"http://www.javeriana.edu.co\"> <img src=\"assets/images/header/tiara.png\" alt=\"Pontificia Universidad Javeriana\"></a>            \r\n                <img class=\"pull-right content-to-hide\" src=\"assets/images/header/sice2V3.png\" alt=\"MAX\">\r\n        </div>       \r\n        </div>\r\n        \r\n        <div class=\"container-fluid navtopdiv\"></div>\r\n        <ul class=\"topnav\">\r\n            <div *ngIf=\"!getStaticMostrarLaNotificacion()\">\r\n            <li><a class=\"active dropA fa fa-home\" (click)=\"irAHome()\"></a></li>                        \r\n            <!-- <li class=\"dropdown dropdownNav\"><a class=\"dropA\">{{'ENTORNO.ADMINISTRACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('usuario')\" >{{'ENTORNO.USUARIOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('universidad')\" >{{'ENTORNO.UNIVERSIDAD'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('empresa')\" >{{'ENTORNO.EMPRESAS'| translate}}</a></li>\r\n                </ul>\r\n            </li> -->            \r\n            <li class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.SERVICIOS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('servicioEmprendimiento', null)\" >{{'ENTORNO.OFERTASERVICIOS'| translate}}</a></li>\r\n                    <li id=\"menuSolicitarNormal\"><a (click)=\"openTabs('solicitarServicio', null)\" >{{'ENTORNO.SOLICITARSERVICIO'| translate}}</a></li>\r\n                    <li id=\"muniResponderAdmin\"><a (click)=\"openTabs('solicitudesServicio', null)\" >{{'ENTORNO.RESPONDERSOLICITUDES'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a (click)=\"openTabs('evento', null)\">{{'ENTORNO.EVENTOS'| translate}}</a></li>\r\n            <li><a (click)=\"openTabs('directorio', null)\">{{'ENTORNO.RELACIONAMIENTO'| translate}}</a></li>\r\n            \r\n            <li id=\"menuApoyoDeIdeas\" class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.APOYOIDEAS'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('cuentanos', null)\">{{'ENTORNO.CUENTANOS'| translate}}</a></li>                    \r\n                </ul>\r\n            </li>\r\n\r\n            <li id=\"menuAdmonCorreos\" class=\"dropdown dropdownNav\"><a  class=\"dropA\">{{'ENTORNO.CONFIGURACION'| translate}}</a>\r\n                <ul class=\"dropMioJaja\">\r\n                    <li><a (click)=\"openTabs('admonCorreos', null)\">{{'ENTORNO.ADMONCORREOS'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('confGeneral', null)\">{{'ENTORNO.CONFGENERAL'| translate}}</a></li>\r\n                    <li><a (click)=\"openTabs('seguimientoIdeas', null)\">{{'ENTORNO.seguimientoIdeas'| translate}}</a></li>\r\n                </ul>\r\n            </li>\r\n\r\n\r\n            <li><a (click)=\"openTabs('aboutus', null)\">{{'ENTORNO.QUIENES'| translate}}</a></li>\r\n            \r\n\r\n            <li class=\"right\"><a class=\"fa fa-sign-out\" (click)=\"logout()\" ></a></li>\r\n            <li class=\"right\"><a class=\"fa fa-user-circle-o\">\r\n                <span class=\"fa fa-comment\"></span>\r\n                <span class=\"num\"></span>\r\n              </a></li>            \r\n            <li class=\"right\"><a class=\"disabled\">{{'ENTORNO.BIENVENIDO'| translate}} {{currentUser}}</a></li>            \r\n\r\n            <li class=\"dropdown right\">                \r\n                <div class=\"infoLanguage\">        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" [(ngModel)]=\"langActual\"> <!-- (change)=\"cerrarAlSeleccionar()\" -->\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>            \r\n                </div>                \r\n            </li>\r\n            </div>\r\n        </ul>\r\n\r\n\r\n\r\n        \r\n\r\n        <!--<div> \r\n            <div class=\"dropMenu\" style=\"right:102px;\">\r\n               \r\n                <div class=\"infoLanguage\">\r\n        \r\n                    <select #langSelect (change)=\"translate.use(langSelect.value)\" class=\"form-control\" (change)=\"cerrarAlSeleccionar()\" [(ngModel)]=\"langActual\">\r\n                        <option class=\"optSelect\" *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{'ENTORNO.'+lang | translate}}</option>\r\n                    </select>\r\n        \r\n                </div>\r\n            </div>\r\n        </div> -->\r\n\r\n    </header>\r\n    <!-- <nav>\r\n        <app-menu></app-menu>\r\n    </nav> -->\r\n    \r\n    <br>\r\n\r\n    <!-- <div class=\"modalNotify\" *ngIf=\"staticMostrarLaNotificacion\">\r\n        Se han guardado los cambios\r\n    </div> -->\r\n\r\n    <app-tabs>\r\n        <app-tab [tabTitle]=\"'Principal Emprendimiento'\">\r\n            <!-- <div *ngIf=\"getStaticMostrarEtiquetas()\">\r\n                <br><br>\r\n                <app-etiquetas-inicio></app-etiquetas-inicio>  \r\n            </div>\r\n            <div *ngIf=\"!getStaticMostrarEtiquetas()\"> -->\r\n                <div *ngIf=\"!getStaticMostrarLaNotificacion()\">\r\n                <app-board></app-board>\r\n                </div>\r\n\r\n                <div *ngIf=\"getStaticMostrarLaNotificacion()\">\r\n                <app-invitado-crear></app-invitado-crear>\r\n                </div>\r\n            <!-- </div> \r\n            <br><br>\r\n            <button class=\"btn btn-default\" (click)=\"openTabs('about')\"><i class=\"glyphicon glyphicon-question-sign\"></i> Información </button>          -->\r\n        </app-tab>\r\n    </app-tabs>\r\n\r\n    <ng-template #about>\r\n        <br><br>    \r\n        <p>\r\n            Bienvenido al Sistema de Emprendimiento Javeriano\r\n        </p>    \r\n    </ng-template>\r\n\r\n    <ng-template #usuarioTab>\r\n        <app-usuario></app-usuario>\r\n    </ng-template>\r\n    \r\n    <ng-template #empresaTab>\r\n        <app-empresa></app-empresa>\r\n    </ng-template>\r\n    \r\n    <ng-template #eventoTab>\r\n        <mwl-demo-component></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #eventoAbrirTab>\r\n        <mwl-demo-component [idAbrir]=\"detalle\"></mwl-demo-component>\r\n    </ng-template>\r\n\r\n    <ng-template #detalleEventoTab>\r\n        <app-detalles-evento [idAbrir]=\"detalle\"></app-detalles-evento>\r\n    </ng-template>\r\n\r\n    <ng-template #serviciosTab>\r\n        <app-servicios-emprendimiento></app-servicios-emprendimiento>\r\n    </ng-template>\r\n    \r\n    <ng-template #directorioTab>\r\n        <app-directorio></app-directorio>\r\n    </ng-template>\r\n\r\n    <ng-template #universidadTab>\r\n        <app-universidad></app-universidad>\r\n    </ng-template>\r\n\r\n    <ng-template #aboutUsTab>\r\n        <app-quienes-somos></app-quienes-somos>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitarServicioTab>\r\n        <app-solicitar-servicio></app-solicitar-servicio>\r\n    </ng-template>\r\n\r\n    <ng-template #solicitudesServicioTab>\r\n        <app-ver-solicitudes-sevicios></app-ver-solicitudes-sevicios>\r\n    </ng-template>\r\n\r\n    <ng-template #apoyoIdeasTab>\r\n        <app-apoyo-de-ideas></app-apoyo-de-ideas>\r\n    </ng-template>\r\n\r\n    <ng-template #admonCorreosTab>\r\n        <app-administracion-correos></app-administracion-correos>\r\n    </ng-template>\r\n\r\n    <ng-template #confGeneralTab>\r\n        <app-configuracion-general></app-configuracion-general>\r\n    </ng-template>\r\n\r\n    <ng-template #seguimientoIdeasTab>\r\n        <app-seguimiento-ideas></app-seguimiento-ideas>\r\n    </ng-template>\r\n\r\n    <div class=\"social-icons\">\r\n        <ul class=\"list-unstyled text-center mb-0\">\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://twitter.com/unijaveriana?lang=es\">\r\n                <i class=\"fa fa-twitter\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.youtube.com/user/UniJaveriana\">\r\n                <i class=\"fa fa-youtube\"></i>\r\n            </a>\r\n            </li>\r\n            <li class=\"list-unstyled-item\">\r\n            <a target=\"_blank\" href=\"https://www.facebook.com/RedDeEmprendimientoJaveriano\">\r\n                <i class=\"fa fa-facebook\"></i>\r\n            </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n      \r\n\r\n</div>\r\n\r\n\r\n<span *ngIf=\"!esUser\">\r\n  <router-outlet></router-outlet>\r\n</span>\r\n\r\n     \r\n     \r\n      "
 
 /***/ }),
 
@@ -518,12 +530,17 @@ var AppComponent = /** @class */ (function () {
             console.log('Está recargando ...');
         }
     };
+    AppComponent.prototype.getStaticMostrarLaNotificacion = function () {
+        return AppComponent_1.esInvitado;
+    };
     AppComponent.prototype.getStaticMostrarEtiquetas = function () {
         return AppComponent_1.mostrarEtiquetas;
     };
     AppComponent.prototype.ngOnInit = function () {
         console.log("ngOnInit: Entro a ngOnInit");
         //localStorage.setItem('USER', null);//this.currentUser = JSON.parse(localStorage.getItem('USER'))   
+        var aux = JSON.parse(localStorage.getItem('GUEST'));
+        AppComponent_1.esInvitado = aux;
         this.currentUser = localStorage.getItem('USER');
         console.log(JSON.parse(localStorage.getItem('LOGGEADO')));
         //this.estado=JSON.parse(localStorage.getItem('LOGGEADO')).estadoEnum; //no local
@@ -698,6 +715,7 @@ var AppComponent = /** @class */ (function () {
             }
         });
     };
+    AppComponent.esInvitado = null;
     AppComponent.mostrarEtiquetas = false;
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__tabs_tabs_component__["a" /* TabsComponent */]),
@@ -862,6 +880,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__configuracion_general_configuracion_general_component__ = __webpack_require__("../../../../../src/app/configuracion-general/configuracion-general.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__servicios_confGeneral_configuracion_service__ = __webpack_require__("../../../../../src/app/servicios/confGeneral/configuracion.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__apoyo_de_ideas_seguimiento_ideas_seguimiento_ideas_component__ = __webpack_require__("../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__invitado_crear_invitado_crear_component__ = __webpack_require__("../../../../../src/app/invitado-crear/invitado-crear.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -875,6 +894,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import { EmbedVideo } from 'ngx-embed-video';
+
 
 
 
@@ -973,7 +993,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_53__apoyo_de_ideas_apoyo_de_ideas_component__["a" /* ApoyoDeIdeasComponent */],
                 __WEBPACK_IMPORTED_MODULE_55__administracion_correos_administracion_correos_component__["a" /* AdministracionCorreosComponent */],
                 __WEBPACK_IMPORTED_MODULE_57__configuracion_general_configuracion_general_component__["a" /* ConfiguracionGeneralComponent */],
-                __WEBPACK_IMPORTED_MODULE_59__apoyo_de_ideas_seguimiento_ideas_seguimiento_ideas_component__["a" /* SeguimientoIdeasComponent */]
+                __WEBPACK_IMPORTED_MODULE_59__apoyo_de_ideas_seguimiento_ideas_seguimiento_ideas_component__["a" /* SeguimientoIdeasComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__invitado_crear_invitado_crear_component__["a" /* InvitadoCrearComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_36__angular_common__["b" /* CommonModule */],
@@ -1987,7 +2008,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* .acordeonButton{\r\n    height: 10px;\r\n    float: right;\r\n    width: 70px;\r\n    margin-right : 700px;\r\n} */\r\n.acordeonButton{\r\n  float: right;\r\n}\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\nbutton {\r\n  float:right;\r\n}\r\n.panel-heading{\r\n    cursor:pointer !important;\r\n}\r\na.fa.fa-plus-circle{\r\n  float:right; \r\n  border-color : #FFCC00;\r\n  font-size: 45px;\r\n  color: #FFCC00;\r\n  margin-left: 30px;\r\n  margin-right: 30px;\r\n  cursor: pointer;\r\n}\r\n/* Con la imagen */\r\n.imagenAcordeon{\r\n  cursor: pointer;\r\n  border-radius: 30%;\r\n  padding: 1px 1px;\r\n  height: 200px;\r\n  max-width: 450px;\r\n}\r\n.acordeonButton{\r\n  /* margin: auto;\r\n  width: 20%;\r\n  padding: 10px; */\r\n  display: table;  /* Instead of display:block */\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n.labelAcordeon{\r\n  font-size: 1rem;\r\n  font-weight: 800;   \r\n}\r\na.fa.fa-external-link,\r\na.fa.fa-pencil-square-o,\r\na.fa.fa-cloud-upload{\r\n  border-color : #FFCC00;\r\n  font-size: 40px;\r\n  color: #FFCC00;\r\n  cursor: pointer;\r\n}\r\n.input-group.padInferior{\r\n  padding : 0px 160px 30px 160px !important;\r\n  /* padding: 0px 180px !important;  */\r\n}\r\n/* Animacion */\r\n.typewriter{\r\n  width:100%;\r\n  margin:0 auto;\r\n}\r\n.typewriter h1 {\r\n  color: #000066;\r\n  font-family: monospace;\r\n  overflow: hidden; /* Ensures the content is not revealed until the animation */\r\n  border-right: .15em solid orange; /* The typwriter cursor */\r\n  white-space: nowrap; /* Keeps the content on a single line */\r\n  margin: 0 auto; /* Gives that scrolling effect as the typing happens */\r\n  letter-spacing: .15em; /* Adjust as needed */\r\n  -webkit-animation: \r\n    typing 3.5s steps(30, end),\r\n    blink-caret .5s step-end infinite;\r\n          animation: \r\n    typing 3.5s steps(30, end),\r\n    blink-caret .5s step-end infinite;\r\n  text-align: center;\r\n}\r\n/* The typing effect */\r\n@-webkit-keyframes typing {\r\n  from { width: 0 }\r\n  to { width: 100% }\r\n}\r\n@keyframes typing {\r\n  from { width: 0 }\r\n  to { width: 100% }\r\n}\r\n/* The typewriter cursor effect */\r\n@-webkit-keyframes blink-caret {\r\n  from, to { border-color: transparent }\r\n  50% { border-color: orange }\r\n}\r\n@keyframes blink-caret {\r\n  from, to { border-color: transparent }\r\n  50% { border-color: orange }\r\n}\r\n", ""]);
+exports.push([module.i, "/* .acordeonButton{\r\n    height: 10px;\r\n    float: right;\r\n    width: 70px;\r\n    margin-right : 700px;\r\n} */\r\n.acordeonButton{\r\n  float: right;\r\n}\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\nbutton {\r\n  float:right;\r\n}\r\n.panel-heading{\r\n    cursor:pointer !important;\r\n}\r\na.fa.fa-plus-circle{\r\n  float:right; \r\n  border-color : #FFCC00;\r\n  font-size: 45px;\r\n  color: #FFCC00;\r\n  margin-left: 30px;\r\n  margin-right: 30px;\r\n  cursor: pointer;\r\n}\r\n/* Con la imagen */\r\n.imagenAcordeon{\r\n  cursor: pointer;\r\n  border-radius: 30%;\r\n  padding: 1px 1px;\r\n  height: 200px;\r\n  max-width: 450px;\r\n}\r\n.acordeonButton{\r\n  /* margin: auto;\r\n  width: 20%;\r\n  padding: 10px; */\r\n  display: table;  /* Instead of display:block */\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n.labelAcordeon{\r\n  font-size: 1rem;\r\n  font-weight: 800;   \r\n}\r\na.fa.fa-external-link,\r\na.fa.fa-pencil-square-o,\r\na.fa.fa-cloud-upload{\r\n  border-color : #FFCC00;\r\n  font-size: 40px;\r\n  color: #FFCC00;\r\n  cursor: pointer;\r\n}\r\na.fa.fa-trash-o{\r\n  border-color : darkred;\r\n  font-size: 40px;\r\n  color: darkred;\r\n  cursor: pointer;\r\n}\r\n.input-group.padInferior{\r\n  padding : 0px 160px 30px 160px !important;\r\n  /* padding: 0px 180px !important;  */\r\n}\r\n/* Animacion */\r\n.typewriter{\r\n  width:100%;\r\n  margin:0 auto;\r\n}\r\n.typewriter h1 {\r\n  color: #000066;\r\n  font-family: monospace;\r\n  overflow: hidden; /* Ensures the content is not revealed until the animation */\r\n  border-right: .15em solid orange; /* The typwriter cursor */\r\n  white-space: nowrap; /* Keeps the content on a single line */\r\n  margin: 0 auto; /* Gives that scrolling effect as the typing happens */\r\n  letter-spacing: .15em; /* Adjust as needed */\r\n  -webkit-animation: \r\n    typing 3.5s steps(30, end),\r\n    blink-caret .5s step-end infinite;\r\n          animation: \r\n    typing 3.5s steps(30, end),\r\n    blink-caret .5s step-end infinite;\r\n  text-align: center;\r\n}\r\n/* The typing effect */\r\n@-webkit-keyframes typing {\r\n  from { width: 0 }\r\n  to { width: 100% }\r\n}\r\n@keyframes typing {\r\n  from { width: 0 }\r\n  to { width: 100% }\r\n}\r\n/* The typewriter cursor effect */\r\n@-webkit-keyframes blink-caret {\r\n  from, to { border-color: transparent }\r\n  50% { border-color: orange }\r\n}\r\n@keyframes blink-caret {\r\n  from, to { border-color: transparent }\r\n  50% { border-color: orange }\r\n}\r\n", ""]);
 
 // exports
 
@@ -2000,7 +2021,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/directorio/relacionamiento-externo/relacionamiento-externo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"abrirEdicion()\">Agregar Categoria Externa</button> -->\n<a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirEdicion()\" ></a>\n<br>\n\n<div class=\"panel-group\" id=\"accordion\">\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('CIENTIFICA')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.CIENTIFICA'| translate}}</a>\n    </h4>\n  </div>\n  <!-- <div id=\"collapse1\" class=\"panel-collapse collapse in\"> -->\n  <div id=\"collapseA\"  *ngIf=\"map.get('CIENTIFICA')\">\n    <div class=\"panel-body\">\n      <br>\n      <div class=\"typewriter\">\n        <h1>Contactar al administrador para mayor información.</h1>\n      </div>\n      <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('LABORATORIO')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.LABORATORIO'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseB\"  *ngIf=\"map.get('LABORATORIO')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('UNIVERSIDAD')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.INSTITUCIONES'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseC\"  *ngIf=\"map.get('UNIVERSIDAD')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n          <div *ngFor=\"let institucion of dominiosInternacionales\" (click)=\"seleccion(institucion)\" class=\"colGrid3\" style=\"text-align:center\">\n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(institucion.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ institucion.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(institucion.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(institucion)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(institucion.id)\" ></a> \n                </div>        \n              </ng-container>\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('RED_ACELERADORAS')\"> \n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.REDES'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseD\"  *ngIf=\"map.get('RED_ACELERADORAS')\">\n    <div class=\"panel-body\">\n      <br>\n      <div class=\"contGridFluid\">\n        <div *ngFor=\"let acelerador of dominiosInternacionales\" (click)=\"seleccion(acelerador)\" class=\"colGrid3\" style=\"text-align:center\">\n\n          <ng-container>\n            <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(acelerador.url)\">  \n            <br><br>\n            <div class=\"input-group\">\n              <a class=\"acordeonButton labelAcordeon\">{{ acelerador.nombre }}</a>\n            </div>\n            <br>\n            <div class=\"input-group padInferior\">\n              <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(acelerador.url)\"></a>\n              <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(acelerador)\" ></a>\n              <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(acelerador.id)\" ></a> \n            </div>       \n            <br><br><br> \n          </ng-container>\n\n        </div>\n      </div>\n      \n      <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('TECNOLOGICOS')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.TECNOLOGICOS'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseE\"  *ngIf=\"map.get('TECNOLOGICOS')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br><br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('AUSJAL')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.AUSJAL'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseF\"  *ngIf=\"map.get('AUSJAL')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n          <div *ngFor=\"let ausjal of dominiosInternacionales\" (click)=\"seleccion(ausjal)\" class=\"colGrid3\" style=\"text-align:center\">\n                        \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(ausjal.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ ausjal.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(ausjal.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(ausjal)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(ausjal.id)\" ></a> \n                </div>       \n                <br><br><br> \n              </ng-container>\n\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n</div>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarDominioInternacional(datos)\">Editar Prueba Int</button>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarImagenDominioInternacional(datos.id)\">Imagen Prueba</button>\n\n<app-dominio-pop-up></app-dominio-pop-up>\n\n<app-adicionar-dominio-pop-up></app-adicionar-dominio-pop-up>\n\n<app-imagen-pop-up></app-imagen-pop-up>\n\n            <!-- <div class=\"input-group\">\n              {{ acelerador.nombre }}\n              <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(acelerador.url)\"></a>\n              <a class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(acelerador)\" ></a>\n              <a class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(acelerador.id)\" ></a> \n            </div> -->"
+module.exports = "<!-- <button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"abrirEdicion()\">Agregar Categoria Externa</button> -->\n<a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirEdicion()\" ></a>\n<br>\n\n<div class=\"panel-group\" id=\"accordion\">\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('CIENTIFICA')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.CIENTIFICA'| translate}}</a>\n    </h4>\n  </div>\n  <!-- <div id=\"collapse1\" class=\"panel-collapse collapse in\"> -->\n  <div id=\"collapseA\"  *ngIf=\"map.get('CIENTIFICA')\">\n    <div class=\"panel-body\">\n      <br>\n      <div class=\"typewriter\">\n        <h1>Contactar al administrador para mayor información.</h1>\n      </div>\n      <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('LABORATORIO')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.LABORATORIO'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseB\"  *ngIf=\"map.get('LABORATORIO')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('UNIVERSIDAD')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.INSTITUCIONES'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseC\"  *ngIf=\"map.get('UNIVERSIDAD')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n          <div *ngFor=\"let institucion of dominiosInternacionales\" (click)=\"seleccion(institucion)\" class=\"colGrid3\" style=\"text-align:center\">\n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(institucion.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ institucion.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(institucion.url)\"></a>                  \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(institucion)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(institucion.id)\" ></a> \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominioInternacional(institucion.id, 'UNIVERSIDAD')\" ></a>\n                </div>        \n              </ng-container>\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('RED_ACELERADORAS')\"> \n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.REDES'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseD\"  *ngIf=\"map.get('RED_ACELERADORAS')\">\n    <div class=\"panel-body\">\n      <br>\n      <div class=\"contGridFluid\">\n        <div *ngFor=\"let acelerador of dominiosInternacionales\" (click)=\"seleccion(acelerador)\" class=\"colGrid3\" style=\"text-align:center\">\n\n          <ng-container>\n            <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(acelerador.url)\">  \n            <br><br>\n            <div class=\"input-group\">\n              <a class=\"acordeonButton labelAcordeon\">{{ acelerador.nombre }}</a>\n            </div>\n            <br>\n            <div class=\"input-group padInferior\">\n              <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(acelerador.url)\"></a>\n              <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(acelerador)\" ></a>\n              <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(acelerador.id)\" ></a> \n              <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominioInternacional(acelerador.id, 'RED_ACELERADORAS')\" ></a>\n            </div>       \n            <br><br><br> \n          </ng-container>\n\n        </div>\n      </div>\n      \n      <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('TECNOLOGICOS')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.TECNOLOGICOS'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseE\"  *ngIf=\"map.get('TECNOLOGICOS')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br><br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominiosInternacionales('AUSJAL')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.AUSJAL'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapseF\"  *ngIf=\"map.get('AUSJAL')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n          <div *ngFor=\"let ausjal of dominiosInternacionales\" (click)=\"seleccion(ausjal)\" class=\"colGrid3\" style=\"text-align:center\">\n                        \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(ausjal.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ ausjal.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(ausjal.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(ausjal)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(ausjal.id)\" ></a> \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominioInternacional(ausjal.id, 'AUSJAL')\" ></a>\n                </div>       \n                <br><br><br> \n              </ng-container>\n\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n</div>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarDominioInternacional(datos)\">Editar Prueba Int</button>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarImagenDominioInternacional(datos.id)\">Imagen Prueba</button>\n\n<app-dominio-pop-up></app-dominio-pop-up>\n\n<app-adicionar-dominio-pop-up></app-adicionar-dominio-pop-up>\n\n<app-imagen-pop-up></app-imagen-pop-up>\n\n            <!-- <div class=\"input-group\">\n              {{ acelerador.nombre }}\n              <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(acelerador.url)\"></a>\n              <a class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioInternacional(acelerador)\" ></a>\n              <a class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioInternacional(acelerador.id)\" ></a> \n            </div> -->"
 
 /***/ }),
 
@@ -2014,6 +2035,7 @@ module.exports = "<!-- <button type=\"button\" class=\"btn btn-info btn-lg\" (cl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dominio_pop_up_dominio_pop_up_component__ = __webpack_require__("../../../../../src/app/directorio/dominio-pop-up/dominio-pop-up.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__adicionar_dominio_pop_up_adicionar_dominio_pop_up_component__ = __webpack_require__("../../../../../src/app/directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__imagen_pop_up_imagen_pop_up_component__ = __webpack_require__("../../../../../src/app/directorio/imagen-pop-up/imagen-pop-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2028,9 +2050,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RelacionamientoExternoComponent = /** @class */ (function () {
-    function RelacionamientoExternoComponent(directorioService) {
+    function RelacionamientoExternoComponent(directorioService, serviceCola) {
         this.directorioService = directorioService;
+        this.serviceCola = serviceCola;
         this.esAdmin = false;
         // valorEtiquetas = new  Array ();
         this.map = new Map();
@@ -2108,6 +2132,21 @@ var RelacionamientoExternoComponent = /** @class */ (function () {
         this.adicionarPopUp.mostrarAdicionDominio = true;
         this.adicionarPopUp.abrirAdicionarDominio('INTERNACIONAL');
     };
+    RelacionamientoExternoComponent.prototype.eliminarDominioInternacional = function (id, tipo) {
+        var _this = this;
+        var mensaje = { id: id, accion: 'eliminar', clase: 'Dominio', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+        console.log(mensaje);
+        var observable = this.serviceCola.agregarACola(mensaje);
+        if (observable) {
+            observable.subscribe(function (response) {
+                console.log(response);
+                _this.actualizarChecks(tipo);
+                _this.getDominiosInternacionales(tipo);
+            }, function (error) {
+                console.log("Error al elminar correo");
+            });
+        }
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__dominio_pop_up_dominio_pop_up_component__["a" /* DominioPopUpComponent */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__dominio_pop_up_dominio_pop_up_component__["a" /* DominioPopUpComponent */])
@@ -2126,7 +2165,8 @@ var RelacionamientoExternoComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/directorio/relacionamiento-externo/relacionamiento-externo.component.html"),
             styles: [__webpack_require__("../../../../../src/app/directorio/relacionamiento-externo/relacionamiento-externo.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_directorio_directorio_service__["a" /* DirectorioService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_directorio_directorio_service__["a" /* DirectorioService */],
+            __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__["a" /* ColaService */]])
     ], RelacionamientoExternoComponent);
     return RelacionamientoExternoComponent;
 }());
@@ -2143,7 +2183,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".acordeonButton{\r\n    float: right;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\nbutton {\r\n    float:right;\r\n}\r\n\r\n.panel-heading{\r\n    cursor:pointer !important;\r\n}\r\n\r\na.fa.fa-plus-circle{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 45px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n  }\r\n\r\n/* Con la imagen */\r\n\r\n.imagenAcordeon{\r\n    cursor: pointer;\r\n    border-radius: 30%;\r\n    padding: 5px 80px;\r\n    height: 200px;\r\n    max-width: 450px;\r\n  }\r\n\r\n.acordeonButton{\r\n    /* margin: auto;\r\n    width: 20%;\r\n    padding: 10px; */\r\n    display: table;  /* Instead of display:block */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n.labelAcordeon{\r\n    font-size: 1rem;\r\n    font-weight: 800;   \r\n  }\r\n\r\na.fa.fa-external-link,\r\n  a.fa.fa-pencil-square-o,\r\n  a.fa.fa-cloud-upload{\r\n    border-color : #FFCC00;\r\n    font-size: 40px;\r\n    color: #FFCC00;\r\n    cursor: pointer;\r\n  }\r\n\r\n.input-group.padInferior{\r\n    padding : 0px 160px 30px 160px !important;\r\n    /* padding: 0px 180px !important;  */\r\n  }\r\n\r\n/* animación */\r\n\r\n.typewriter{\r\n    width:100%;\r\n    margin:0 auto;\r\n  }\r\n\r\n.typewriter h1 {\r\n    color: #000066;\r\n    font-family: monospace;\r\n    overflow: hidden; /* Ensures the content is not revealed until the animation */\r\n    border-right: .15em solid orange; /* The typwriter cursor */\r\n    white-space: nowrap; /* Keeps the content on a single line */\r\n    margin: 0 auto; /* Gives that scrolling effect as the typing happens */\r\n    letter-spacing: .15em; /* Adjust as needed */\r\n    -webkit-animation: \r\n      typing 3.5s steps(30, end),\r\n      blink-caret .5s step-end infinite;\r\n            animation: \r\n      typing 3.5s steps(30, end),\r\n      blink-caret .5s step-end infinite;\r\n    text-align: center;\r\n  }\r\n\r\n/* The typing effect */\r\n\r\n@-webkit-keyframes typing {\r\n    from { width: 0 }\r\n    to { width: 100% }\r\n  }\r\n\r\n@keyframes typing {\r\n    from { width: 0 }\r\n    to { width: 100% }\r\n  }\r\n\r\n/* The typewriter cursor effect */\r\n\r\n@-webkit-keyframes blink-caret {\r\n    from, to { border-color: transparent }\r\n    50% { border-color: orange }\r\n  }\r\n\r\n@keyframes blink-caret {\r\n    from, to { border-color: transparent }\r\n    50% { border-color: orange }\r\n  }\r\n  ", ""]);
+exports.push([module.i, ".acordeonButton{\r\n    float: right;\r\n}\r\n\r\nbutton,\r\nbutton:focus\r\n{\r\n  background-color: #000066;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\nbutton:hover,\r\nbutton:visited,\r\nbutton:active\r\n{\r\n  background-color: #ffffff ;\r\n  color : #000066;\r\n  border-color: #000066;  \r\n}\r\n\r\nbutton {\r\n    float:right;\r\n}\r\n\r\n.panel-heading{\r\n    cursor:pointer !important;\r\n}\r\n\r\na.fa.fa-plus-circle{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 45px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n  }\r\n\r\n/* Con la imagen */\r\n\r\n.imagenAcordeon{\r\n    cursor: pointer;\r\n    border-radius: 30%;\r\n    padding: 5px 80px;\r\n    height: 200px;\r\n    max-width: 450px;\r\n  }\r\n\r\n.acordeonButton{\r\n    /* margin: auto;\r\n    width: 20%;\r\n    padding: 10px; */\r\n    display: table;  /* Instead of display:block */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n.labelAcordeon{\r\n    font-size: 1rem;\r\n    font-weight: 800;   \r\n  }\r\n\r\na.fa.fa-external-link,\r\n  a.fa.fa-pencil-square-o,\r\n  a.fa.fa-cloud-upload{\r\n    border-color : #FFCC00;\r\n    font-size: 40px;\r\n    color: #FFCC00;\r\n    cursor: pointer;\r\n  }\r\n\r\na.fa.fa-trash-o{\r\n    border-color : darkred;\r\n    font-size: 40px;\r\n    color: darkred;\r\n    cursor: pointer;\r\n  }\r\n\r\n.input-group.padInferior{\r\n    padding : 0px 160px 30px 160px !important;\r\n    /* padding: 0px 180px !important;  */\r\n  }\r\n\r\n/* animación */\r\n\r\n.typewriter{\r\n    width:100%;\r\n    margin:0 auto;\r\n  }\r\n\r\n.typewriter h1 {\r\n    color: #000066;\r\n    font-family: monospace;\r\n    overflow: hidden; /* Ensures the content is not revealed until the animation */\r\n    border-right: .15em solid orange; /* The typwriter cursor */\r\n    white-space: nowrap; /* Keeps the content on a single line */\r\n    margin: 0 auto; /* Gives that scrolling effect as the typing happens */\r\n    letter-spacing: .15em; /* Adjust as needed */\r\n    -webkit-animation: \r\n      typing 3.5s steps(30, end),\r\n      blink-caret .5s step-end infinite;\r\n            animation: \r\n      typing 3.5s steps(30, end),\r\n      blink-caret .5s step-end infinite;\r\n    text-align: center;\r\n  }\r\n\r\n/* The typing effect */\r\n\r\n@-webkit-keyframes typing {\r\n    from { width: 0 }\r\n    to { width: 100% }\r\n  }\r\n\r\n@keyframes typing {\r\n    from { width: 0 }\r\n    to { width: 100% }\r\n  }\r\n\r\n/* The typewriter cursor effect */\r\n\r\n@-webkit-keyframes blink-caret {\r\n    from, to { border-color: transparent }\r\n    50% { border-color: orange }\r\n  }\r\n\r\n@keyframes blink-caret {\r\n    from, to { border-color: transparent }\r\n    50% { border-color: orange }\r\n  }\r\n  ", ""]);
 
 // exports
 
@@ -2156,7 +2196,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/directorio/relacionamiento-interno/relacionamiento-interno.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"abrirEdicion()\">Agregar Categoria Interna</button> -->\n<a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirEdicion()\" ></a>\n<br>\n<div class=\"panel-group\" id=\"accordion\">\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('UNIVERSIDAD')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.UNIVERSIDAD'| translate}}</a>\n    </h4>\n  </div>\n  <!-- <div id=\"collapse1\" class=\"panel-collapse collapse in\"> -->\n  <div id=\"collapse1\" *ngIf=\"map.get('UNIVERSIDAD')\">\n    <div class=\"panel-body\">\n      <br>\n      <div class=\"contGridFluid\">\n          <div *ngFor=\"let universidad of dominiosNacionales\" (click)=\"seleccion(universidad)\" class=\"colGrid3\" style=\"text-align:center\">\n          \n            <ng-container>\n              <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(universidad.url)\">  \n              <br><br>\n              <div class=\"input-group\">\n                <a class=\"acordeonButton labelAcordeon\">{{ universidad.nombre }}</a>\n              </div>\n              <br>\n              <div class=\"input-group padInferior\">\n                <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(universidad.url)\"></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(universidad)\" ></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(universidad.id)\" ></a> \n              </div>       \n              <br><br><br> \n            </ng-container>\n\n        </div>\n      </div>\n      <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('GOBIERNO')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.GOBIERNO'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse2\" *ngIf=\"map.get('GOBIERNO')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n            <div *ngFor=\"let gobierno of dominiosNacionales\" (click)=\"seleccion(gobierno)\" class=\"colGrid3\" style=\"text-align:center\">\n              \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(gobierno.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ gobierno.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(gobierno.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(gobierno)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(gobierno.id)\" ></a> \n                </div>       \n                <br><br><br> \n              </ng-container>\n\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('REGULADORES')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.REGULADORES'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse3\" *ngIf=\"map.get('REGULADORES')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('INVESTIGACION')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.INVESTIGACION'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse4\" *ngIf=\"map.get('INVESTIGACION')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('ONG')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.ONG'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse5\" *ngIf=\"map.get('ONG')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n          <div *ngFor=\"let ong of dominiosNacionales\" (click)=\"seleccion(ong)\" class=\"colGrid3\" style=\"text-align:center\">\n              \n            <ng-container>\n              <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(ong.url)\">  \n              <br><br>\n              <div class=\"input-group\">\n                <a class=\"acordeonButton labelAcordeon\">{{ ong.nombre }}</a>\n              </div>\n              <br>\n              <div class=\"input-group padInferior\">\n                <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(ong.url)\"></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(ong)\" ></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(ong.id)\" ></a> \n              </div>       \n              <br><br><br> \n            </ng-container>  \n\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('INDUSTRIA')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.INDUSTRIA'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse6\" *ngIf=\"map.get('INDUSTRIA')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('SPONSOR')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.SPONSOR'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse7\" *ngIf=\"map.get('SPONSOR')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('RED_MENTORES')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.MENTORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse8\" *ngIf=\"map.get('RED_MENTORES')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"contGridFluid\">\n            <div *ngFor=\"let mentores of dominiosNacionales\" (click)=\"seleccion(mentores)\" class=\"colGrid3\" style=\"text-align:center\">\n                \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(mentores.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ mentores.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(mentores.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(mentores)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(mentores.id)\" ></a> \n                </div>       \n                <br><br><br> \n              </ng-container>\n\n            </div>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('RED_FINANCIADORES')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.FINANCIADORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse9\" *ngIf=\"map.get('RED_FINANCIADORES')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"contGridFluid\">\n            <div *ngFor=\"let financiador of dominiosNacionales\" (click)=\"seleccion(financiador)\" class=\"colGrid3\" style=\"text-align:center\">\n                \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(financiador.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ financiador.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(financiador.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(financiador)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(financiador.id)\" ></a> \n                </div>       \n                <br><br><br> \n              </ng-container>\n\n            </div>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('INCUBADORES')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.INCUBADORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse10\" *ngIf=\"map.get('INCUBADORES')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"typewriter\">\n            <h1>Contactar al administrador para mayor información.</h1>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('RED_ACELERADORAS')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.ACELERADORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse11\" *ngIf=\"map.get('RED_ACELERADORAS')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"contGridFluid\">\n            <div *ngFor=\"let acelerador of dominiosNacionales\" (click)=\"seleccion(acelerador)\" class=\"colGrid3\" style=\"text-align:center\">\n                \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(acelerador.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ acelerador.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(acelerador.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(acelerador)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(acelerador.id)\" ></a> \n                </div>       \n                <br><br><br> \n              </ng-container>\n\n            </div>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n</div>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarDominioNacional(datos)\">Editar Prueba</button>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarImagenDominioNacional(datos.id)\">Imagen Prueba</button>\n\n<app-dominio-pop-up></app-dominio-pop-up>\n\n<app-adicionar-dominio-pop-up></app-adicionar-dominio-pop-up>\n\n<app-imagen-pop-up></app-imagen-pop-up>\n\n \n\n<!--\n  <div class=\"contGridFluid\">\n        <div  *ngFor=\"let u of directorioUniversidades; let i = index\" class=\"colGrid3\" style=\"text-align:center\">\n          <ng-container>\n            <img id=\"botonSIIEJ{{u.id}}\" src=\"{{u.imagen}}\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \n            <label for=\"botonSIIEJ{{u.id}}\">{{u.nombreUniversidad}}</label>\n          </ng-container>\n        </div>  \n      </div>\n\n    -->"
+module.exports = "<!-- <button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"abrirEdicion()\">Agregar Categoria Interna</button> -->\n<a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirEdicion()\" ></a>\n<br>\n<div class=\"panel-group\" id=\"accordion\">\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('UNIVERSIDAD')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.UNIVERSIDAD'| translate}}</a>\n    </h4>\n  </div>\n  <!-- <div id=\"collapse1\" class=\"panel-collapse collapse in\"> -->\n  <div id=\"collapse1\" *ngIf=\"map.get('UNIVERSIDAD')\">\n    <div class=\"panel-body\">\n      <br>\n      <div class=\"contGridFluid\">\n          <div *ngFor=\"let universidad of dominiosNacionales\" (click)=\"seleccion(universidad)\" class=\"colGrid3\" style=\"text-align:center\">\n          \n            <ng-container>\n              <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(universidad.url)\">  \n              <br><br>\n              <div class=\"input-group\">\n                <a class=\"acordeonButton labelAcordeon\">{{ universidad.nombre }}</a>\n              </div>\n              <br>\n              <div class=\"input-group padInferior\">\n                <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(universidad.url)\"></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(universidad)\" ></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(universidad.id)\" ></a> \n                <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominio(universidad.id, 'UNIVERSIDAD')\" ></a>\n              </div>       \n              <br><br><br> \n            </ng-container>\n\n        </div>\n      </div>\n      <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('GOBIERNO')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.GOBIERNO'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse2\" *ngIf=\"map.get('GOBIERNO')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n            <div *ngFor=\"let gobierno of dominiosNacionales\" (click)=\"seleccion(gobierno)\" class=\"colGrid3\" style=\"text-align:center\">\n              \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(gobierno.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ gobierno.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(gobierno.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(gobierno)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(gobierno.id)\" ></a> \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominio(gobierno.id, 'GOBIERNO')\" ></a>\n                </div>       \n                <br><br><br> \n              </ng-container>\n\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('REGULADORES')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.REGULADORES'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse3\" *ngIf=\"map.get('REGULADORES')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('INVESTIGACION')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.INVESTIGACION'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse4\" *ngIf=\"map.get('INVESTIGACION')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('ONG')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.ONG'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse5\" *ngIf=\"map.get('ONG')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"contGridFluid\">\n          <div *ngFor=\"let ong of dominiosNacionales\" (click)=\"seleccion(ong)\" class=\"colGrid3\" style=\"text-align:center\">\n              \n            <ng-container>\n              <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(ong.url)\">  \n              <br><br>\n              <div class=\"input-group\">\n                <a class=\"acordeonButton labelAcordeon\">{{ ong.nombre }}</a>\n              </div>\n              <br>\n              <div class=\"input-group padInferior\">\n                <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(ong.url)\"></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(ong)\" ></a>\n                <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(ong.id)\" ></a> \n                <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominio(ong.id, 'ONG')\" ></a>\n              </div>       \n              <br><br><br> \n            </ng-container>  \n\n          </div>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('INDUSTRIA')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.INDUSTRIA'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse6\" *ngIf=\"map.get('INDUSTRIA')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" (click)=\"getDominios('SPONSOR')\">\n    <h4 class=\"panel-title\">\n      <a>{{'ACORDEON.SPONSOR'| translate}}</a>\n    </h4>\n  </div>\n  <div id=\"collapse7\" *ngIf=\"map.get('SPONSOR')\">\n    <div class=\"panel-body\">\n        <br>\n        <div class=\"typewriter\">\n          <h1>Contactar al administrador para mayor información.</h1>\n        </div>\n        <br>\n    </div>\n  </div>\n</div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('RED_MENTORES')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.MENTORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse8\" *ngIf=\"map.get('RED_MENTORES')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"contGridFluid\">\n            <div *ngFor=\"let mentores of dominiosNacionales\" (click)=\"seleccion(mentores)\" class=\"colGrid3\" style=\"text-align:center\">\n                \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(mentores.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ mentores.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(mentores.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(mentores)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(mentores.id)\" ></a> \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominio(mentores.id, 'RED_MENTORES')\" ></a>\n                </div>       \n                <br><br><br> \n              </ng-container>\n\n            </div>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('RED_FINANCIADORES')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.FINANCIADORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse9\" *ngIf=\"map.get('RED_FINANCIADORES')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"contGridFluid\">\n            <div *ngFor=\"let financiador of dominiosNacionales\" (click)=\"seleccion(financiador)\" class=\"colGrid3\" style=\"text-align:center\">\n                \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(financiador.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ financiador.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(financiador.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(financiador)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(financiador.id)\" ></a> \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominio(financiador.id, 'RED_FINANCIADORES')\" ></a>\n                </div>       \n                <br><br><br> \n              </ng-container>\n\n            </div>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('INCUBADORES')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.INCUBADORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse10\" *ngIf=\"map.get('INCUBADORES')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"typewriter\">\n            <h1>Contactar al administrador para mayor información.</h1>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\" (click)=\"getDominios('RED_ACELERADORAS')\">\n      <h4 class=\"panel-title\">\n        <a>{{'ACORDEON.ACELERADORES'| translate}}</a>\n      </h4>\n    </div>\n    <div id=\"collapse11\" *ngIf=\"map.get('RED_ACELERADORAS')\">\n      <div class=\"panel-body\">\n          <br>\n          <div class=\"contGridFluid\">\n            <div *ngFor=\"let acelerador of dominiosNacionales\" (click)=\"seleccion(acelerador)\" class=\"colGrid3\" style=\"text-align:center\">\n                \n              <ng-container>\n                <img class=\"imagenAcordeon\" src=\"../../../assets/images/add-icon.png\" (click)=\"abrirLink(acelerador.url)\">  \n                <br><br>\n                <div class=\"input-group\">\n                  <a class=\"acordeonButton labelAcordeon\">{{ acelerador.nombre }}</a>\n                </div>\n                <br>\n                <div class=\"input-group padInferior\">\n                  <a *ngIf=\"!esAdmin\" class=\"fa fa-external-link acordeonButton\" (click)=\"abrirLink(acelerador.url)\"></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-pencil-square-o acordeonButton\" (click)=\"editarDominioNacional(acelerador)\" ></a>\n                  <a *ngIf=\"esAdmin\" class=\"fa fa-cloud-upload acordeonButton\" (click)=\"editarImagenDominioNacional(acelerador.id)\" ></a> \n                  <a *ngIf=\"esAdmin\" class=\"fa fa-trash-o acordeonButton\" (click)=\"eliminarDominio(acelerador.id, 'RED_ACELERADORAS')\" ></a>\n                </div>       \n                <br><br><br> \n              </ng-container>\n\n            </div>\n          </div>\n          <br>\n      </div>\n    </div>\n  </div>\n</div>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarDominioNacional(datos)\">Editar Prueba</button>\n\n<button type=\"button\" class=\"btn btn-info btn-lg\" (click)=\"editarImagenDominioNacional(datos.id)\">Imagen Prueba</button>\n\n<app-dominio-pop-up></app-dominio-pop-up>\n\n<app-adicionar-dominio-pop-up></app-adicionar-dominio-pop-up>\n\n<app-imagen-pop-up></app-imagen-pop-up>\n\n \n\n<!--\n  <div class=\"contGridFluid\">\n        <div  *ngFor=\"let u of directorioUniversidades; let i = index\" class=\"colGrid3\" style=\"text-align:center\">\n          <ng-container>\n            <img id=\"botonSIIEJ{{u.id}}\" src=\"{{u.imagen}}\" (click)=\"abrirLink(u)\" height=\"200\" width=\"200\">  \n            <label for=\"botonSIIEJ{{u.id}}\">{{u.nombreUniversidad}}</label>\n          </ng-container>\n        </div>  \n      </div>\n\n    -->"
 
 /***/ }),
 
@@ -2170,6 +2210,7 @@ module.exports = "<!-- <button type=\"button\" class=\"btn btn-info btn-lg\" (cl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dominio_pop_up_dominio_pop_up_component__ = __webpack_require__("../../../../../src/app/directorio/dominio-pop-up/dominio-pop-up.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__adicionar_dominio_pop_up_adicionar_dominio_pop_up_component__ = __webpack_require__("../../../../../src/app/directorio/adicionar-dominio-pop-up/adicionar-dominio-pop-up.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__imagen_pop_up_imagen_pop_up_component__ = __webpack_require__("../../../../../src/app/directorio/imagen-pop-up/imagen-pop-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2184,9 +2225,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RelacionamientoInternoComponent = /** @class */ (function () {
-    function RelacionamientoInternoComponent(directorioService) {
+    function RelacionamientoInternoComponent(directorioService, serviceCola) {
         this.directorioService = directorioService;
+        this.serviceCola = serviceCola;
         this.esAdmin = false;
         this.map = new Map();
         this.dominiosNacionales = new Array();
@@ -2277,6 +2320,21 @@ var RelacionamientoInternoComponent = /** @class */ (function () {
         this.adicionarPopUp.mostrarAdicionDominio = true;
         this.adicionarPopUp.abrirAdicionarDominio('NACIONAL');
     };
+    RelacionamientoInternoComponent.prototype.eliminarDominio = function (id, tipo) {
+        var _this = this;
+        var mensaje = { id: id, accion: 'eliminar', clase: 'Dominio', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+        console.log(mensaje);
+        var observable = this.serviceCola.agregarACola(mensaje);
+        if (observable) {
+            observable.subscribe(function (response) {
+                console.log(response);
+                _this.actualizarChecks(tipo);
+                _this.getDominios(tipo);
+            }, function (error) {
+                console.log("Error al elminar correo");
+            });
+        }
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__dominio_pop_up_dominio_pop_up_component__["a" /* DominioPopUpComponent */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__dominio_pop_up_dominio_pop_up_component__["a" /* DominioPopUpComponent */])
@@ -2295,7 +2353,8 @@ var RelacionamientoInternoComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/directorio/relacionamiento-interno/relacionamiento-interno.component.html"),
             styles: [__webpack_require__("../../../../../src/app/directorio/relacionamiento-interno/relacionamiento-interno.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_directorio_directorio_service__["a" /* DirectorioService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__servicios_directorio_directorio_service__["a" /* DirectorioService */],
+            __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__["a" /* ColaService */]])
     ], RelacionamientoInternoComponent);
     return RelacionamientoInternoComponent;
 }());
@@ -3250,11 +3309,18 @@ var EventoComponent = /** @class */ (function () {
         this.cerrarPopUp();
     };
     EventoComponent.prototype.eliminar = function (id) {
-        var eliminado = this.events.indexOf(this.events.find(function (element) {
-            return element.id == id;
-        }));
-        this.events.splice(eliminado, 1);
-        this.refresh.next();
+        var _this = this;
+        var mensaje = { id: id, accion: 'eliminar', clase: 'Evento', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+        console.log(mensaje);
+        var observable = this.colaService.agregarACola(mensaje);
+        if (observable) {
+            observable.subscribe(function (response) {
+                console.log(response);
+                _this.cargarTodosLosEventos();
+            }, function (error) {
+                console.log("Error al elminar correo");
+            });
+        }
     };
     EventoComponent.prototype.abrirDetalleEventos = function (idEvento) {
         var _this = this;
@@ -4112,6 +4178,327 @@ var SuscriptoresComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/invitado-crear/invitado-crear.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "h4 {\r\n    margin: 0 0 10px;\r\n    text-transform: uppercase;\r\n  }\r\n\r\n  h5 {\r\n    margin: 0 0 10px;\r\n    float: left;\r\n    color: #000066;\r\n  }\r\n\r\n  h6 {\r\n    margin: 0 0 10px;\r\n    float: left;\r\n  }\r\n\r\n  pre {\r\n    background-color: #f5f5f5;\r\n    padding: 15px;\r\n  }\r\n\r\n  a.fa.fa-list-ul,\r\n  a.fa.fa-address-book-o,\r\n  a.fa.fa-address-book,\r\n  a.fa.fa-plus-circle{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 40px;\r\n    color: #FFCC00;\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    cursor: pointer;\r\n  }\r\n\r\n  #overlayInformacionEvento,\r\n  #overlayEvento {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n  #overlayInformacionEvento div.modalShow,\r\n#overlayEvento div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 90%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n    /* max-height: 800px;\r\n    overflow: scroll; */\r\n}\r\n\r\n  body {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n  .close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n  .close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n  .modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 100%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\n  ::ng-deep span.cal-day-badge.ng-star-inserted{\r\n    background-color : #000066 !important;\r\n}\r\n\r\n  ::ng-deep div.invitadoMargen{\r\n    margin-left: 40px;\r\n    margin-right:40px;\r\n}\r\n\r\n  ::ng-deep div.btn.btn-primary{\r\n    background-color : #000066;\r\n    border-color: #000066;\r\n}\r\n\r\n  ::ng-deep div.btn.btn-primary:hover{\r\n    background-color : #FFCC00;\r\n    border-color: #FFCC00;\r\n    color: black;\r\n}\r\n\r\n  ::ng-deep div.btn.btn-primary.active{\r\n    background-color : #153086 !important;\r\n    border-color : #153086 !important;\r\n}\r\n\r\n  ::ng-deep a.cal-event-action.ng-star-inserted .fa.fa-fw.fa-times{\r\n    color :rgb(233, 30, 30);\r\n}\r\n\r\n  ::ng-deep a.cal-event-action.ng-star-inserted .fa.fa-fw.fa-times:hover{\r\n    color :darkred;\r\n}\r\n\r\n  ::ng-deep a.cal-event-action.ng-star-inserted .fa.fa-plus-square{\r\n    color : green;\r\n}\r\n\r\n  ::ng-deep a.cal-event-action.ng-star-inserted .fa.fa-plus-square:hover{\r\n    color : darkgreen;\r\n}\r\n\r\n  ::ng-deep div.cal-open-day-events.ng-tns-c12-3.ng-trigger.ng-trigger-collapse.ng-star-inserted{\r\n    background-color: #332a2a !important;\r\n}\r\n\r\n  .centered {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n\r\n  .centered button.crear,\r\n  .centered button:focus\r\n  {\r\n    background-color: #FFCC00;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n  }\r\n\r\n  .centered button.salir,\r\n  .centered button:focus\r\n  {\r\n    background-color: #000066;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n  }\r\n\r\n  .centered button:hover.crear,\r\n  .centered button:visited,\r\n  .centered button:active\r\n  {\r\n    background-color:#ffffff ;\r\n    color : #FFCC00;\r\n    border-color: #FFCC00;  \r\n  }\r\n\r\n  .centered button:hover.salir,\r\n  .centered button:visited,\r\n  .centered button:active\r\n  {\r\n    background-color:  #ffffff ;\r\n    color : #000066;\r\n    border-color: #000066;  \r\n  }\r\n\r\n  .input-group{\r\n      display:block !important;\r\n  }\r\n\r\n  /* BOTON SUSCRIPCION */\r\n\r\n  a.fa.fa-bell{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 20px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n    border-style: solid;\r\n    border-radius: 10px;\r\n    border-width: 1px;\r\n    padding: 5px;\r\n    min-width: 125px;\r\n  }\r\n\r\n  a.fa.fa-check{\r\n    float:right; \r\n    border-color : #ffffff;\r\n    font-size: 20px;\r\n    color: #ffffff;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n    border-style: solid;\r\n    border-radius: 10px;\r\n    border-width: 1px;\r\n    padding: 5px;\r\n    background-color: #FFCC00;\r\n    min-width: 125px;\r\n  }\r\n\r\n  .custom-mostrar {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #FFCC00;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    border-radius: 8px;\r\n}\r\n\r\n  .custom-mostrado {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #ffffff;\r\n    color : #FFCC00;\r\n    border-color: #FFCC00;  \r\n    border-radius: 8px;\r\n    border-style: solid;\r\n    border-width: 2px;\r\n}\r\n\r\n  .custom-inscribir {    \r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #ffffff;\r\n    color : #FFCC00;\r\n    border-color: #FFCC00;  \r\n    border-radius: 8px;\r\n    border-style: solid;\r\n    border-width: 2px;  \r\n    min-width: 200px;\r\n}\r\n\r\n  .custom-inscrito {\r\n    float: left;\r\n    padding: 6px 12px;\r\n    cursor: pointer;\r\n    background-color: #FFCC00;\r\n    color : #ffffff;\r\n    border-color: #ffffff;  \r\n    border-radius: 8px;\r\n    min-width: 200px; \r\n}\r\n\r\n  label.custom-inscrito:before{\r\n    content: \"Inscrito   \"\r\n}\r\n\r\n  label.custom-inscribir:before{\r\n    content: \"Inscribirse   \"\r\n}\r\n\r\n  .textoPanel{\r\n    background-color: rgb(223, 205, 134);\r\n    min-height: 100px;\r\n    max-height: 600px;\r\n    overflow-y: scroll;\r\n    overflow-x: hidden;\r\n  }\r\n\r\n  p.labelPanel{\r\n    padding: 0px 90px !important;\r\n}\r\n\r\n  .margenTexto{\r\n    margin: 14px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/invitado-crear/invitado-crear.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<div class=\"invitadoMargen\">\n\n<!-- <div class=\"input-group\" style=\"float:right;\">\n  <a class=\"fa fa-plus-circle\" (click)=\"abrirAdicionEvento() ; mostrarEventos=true;\" ></a>  \n</div> -->\n\n<h2>Bienvenido Invitado</h2>\n<br><br><br>\n\n<div class=\"colGrid2 textoPanel\" style=\"text-align:center\">\n  <p class=\"margenTexto mb-3 labelPanel\"> \n    Se encuentra en una pantalla que le permite agregar los eventos de emprendimiento que organizará\n    su facultad. A continuación, encontrara dos botones: el primero, Salir, es para hacer Logout y terminar el proceso\n    de creación; el segundo, Crear Eventos, despliega una ventana en la cual podrá agregar los eventos con las\n    características que usted desee. <br>\n    Lo invitamos a participar de esta iniciativa y le agradecemos su colaboración.\n    </p>\n</div>\n\n<br><br><br>\n\n\n<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->\n\n<div id=\"overlayEvento\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n\n      <div *ngIf=\"accion==1\">\n        <h3>\n          {{'EVENTOS.EDIT'| translate}}\n          <div class=\"clearfix\"></div>\n        </h3>\n      </div>\n\n      <div *ngIf=\"accion==2\">\n        <h3>\n          {{'EVENTOS.CREATE'| translate}}\n          <div class=\"clearfix\"></div>\n        </h3>\n      </div>\n\n      <div *ngIf=\"accion==3\">\n        <h3>\n          {{'EVENTOS.LIST'| translate}}\n          <div class=\"clearfix\"></div>\n        </h3>\n      </div>\n        <!-- <button\n          class=\"btn btn-primary pull-right\"\n          (click)=\"addEvent()\">\n          Agregar\n        </button> -->\n        \n\n      <table class=\"table table-bordered\">\n\n        <thead>\n          <tr>\n            <th>{{'EVENTOS.NAME'| translate}}</th>     \n            <th>{{'EVENTOS.BEGIN'| translate}}</th>\n            <th>{{'EVENTOS.END'| translate}}</th>\n          </tr>\n        </thead>\n\n        <tbody>\n          <tr *ngFor=\"let event of eventsEditar; let index = index\">\n            <td>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                [(ngModel)]=\"event.title\"\n                (ngModelChange)=\"cambio('titulo',event.title, 'STRING')\"\n                >\n            </td>\n            <td>\n              <mwl-demo-utils-date-time-picker\n                [(ngModel)]=\"event.start\"\n                (ngModelChange)=\"cambio('inicio',event.start, 'FECHA')\"\n                placeholder=\"Not set\">\n              </mwl-demo-utils-date-time-picker>\n            </td>\n            <td>\n              <mwl-demo-utils-date-time-picker\n                [(ngModel)]=\"event.end\"\n                (ngModelChange)=\"cambio('fin',event.end, 'FECHA')\"\n                placeholder=\"Not set\">\n              </mwl-demo-utils-date-time-picker>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n\n      \n      <label (click)=\"mostrarDetallesEdicion()\" for=\"mostrarDetallesMas\" class=\"{{masDetallesClass}}\">\n          <i class=\"fa fa-hand-o-down\"></i> Editar detalles\n      </label>\n\n      <br><br><br>\n\n      <div *ngIf=\"mostrarDetallesMas\">\n\n        <div class=\"input-group\" style=\"float:right;\">\n          <a class=\"fa fa-plus-circle\" (click)=\"anadirAtributo()\" ></a>        \n        </div>\n\n        <form class=\"form-horizontal\">\n          <div class=\"form-group\">\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Descripción</label>\n            <div class=\"col-sm-10\">          \n              <input type=\"text\" class=\"form-control\" id=\"descripcionEventoJ\" placeholder=\"Ingrese descripción\" name=\"descripcionEventoJ\"\n                [(ngModel)]=\"descripcionEvento\" (ngModelChange)=\"cambio('descripcion',descripcionEvento,'STRING')\">\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Requisitos</label>\n            <div class=\"col-sm-10\">          \n              <input type=\"text\" class=\"form-control\" id=\"requisitosnEventoJ\" placeholder=\"Ingrese requisitos\" name=\"requisitosnEventoJ\"\n                [(ngModel)]=\"requisitosEvento\" (ngModelChange)=\"cambio('requisitos',requisitosEvento,'STRING')\">\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Capacidad Máxima</label>\n            <div class=\"col-sm-10\">          \n              <input type=\"text\" class=\"form-control\" id=\"capacidadEventoJ\" placeholder=\"Ingrese capacidad máxima\" name=\"capacidadEventoJ\"\n                [(ngModel)]=\"capacidadMaxima\" (ngModelChange)=\"cambio('capacidadMaxima',capacidadMaxima,'LONG')\">\n            </div>\n          </div>\n        </form>\n\n        <div *ngIf=\"accion==1\">\n          <form class=\"form-horizontal\">\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\n              <div class=\"form-group\">\n                <div class=\"col-sm-2\">\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\n                    [(ngModel)]=\"personalizados.nombre\" (ngModelChange)=\"cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)\">\n                </div>\n                    <div class=\"col-sm-10\">          \n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\n                    [(ngModel)]=\"personalizados.descripcion\" (ngModelChange)=\"cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)\">\n                </div>\n              </div>\n            </div>\n          </form>\n        </div>\n\n        <div *ngIf=\"accion==2\">\n          <form class=\"form-horizontal\">\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\n              <div class=\"form-group\">\n                <div class=\"col-sm-2\">\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\n                    [(ngModel)]=\"personalizados.nombre\">\n                </div>\n                    <div class=\"col-sm-10\">          \n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\n                    [(ngModel)]=\"personalizados.descripcion\">\n                </div>\n              </div>\n            </div>\n          </form>\n        </div>\n\n      </div>\n      \n        <br><br>\n        <div *ngIf=\"accion==2\">\n          <div class=\"input-group centered\">\n            <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \n            <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\n          </div> \n        </div>\n    </div>\n</div>\n\n<div class=\"input-group centered\">\n  <button  class=\"btn btn-info btn-lg salir\" type=\"button\" (click)=\"logout()\">{{'ENTORNO.SALIR'| translate}}</button>             \n  <button  class=\"btn btn-info btn-lg crear\" type=\"button\" (click)=\"abrirAdicionEvento() ; mostrarEventos=true;\">{{'EVENTOS.CREATE'| translate}}</button>             \n</div>\n\n</div>\n\n \n\n<app-formulario-personalizado (guardo)=\"onNotifyInscribirse($event)\"></app-formulario-personalizado>\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" ></app-popup-aviso>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/invitado-crear/invitado-crear.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvitadoCrearComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_calendar__ = __webpack_require__("../../../../angular-calendar/esm5/angular-calendar.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pickers_custom_date_formatter_provider__ = __webpack_require__("../../../../../src/app/pickers/custom-date-formatter.provider.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__servicios_eventos_eventos_service__ = __webpack_require__("../../../../../src/app/servicios/eventos/eventos.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__evento_formulario_personalizado_formulario_personalizado_component__ = __webpack_require__("../../../../../src/app/evento/formulario-personalizado/formulario-personalizado.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var colors = {
+    blueJaverina: {
+        primary: '#000066',
+        secondary: '#FAE3E3'
+    },
+    blue: {
+        primary: '#1e90ff',
+        secondary: '#D1E8FF'
+    },
+    yellowJaveriana: {
+        primary: '#FFCC00',
+        secondary: '#FDF1BA'
+    }
+};
+var InvitadoCrearComponent = /** @class */ (function () {
+    function InvitadoCrearComponent(appComponent, modal, eventosService, colaService) {
+        this.appComponent = appComponent;
+        this.modal = modal;
+        this.eventosService = eventosService;
+        this.colaService = colaService;
+        this.actions = [
+            {
+                label: '<i class="fa fa-fw fa-pencil"></i>',
+                onClick: function (_a) {
+                    var event = _a.event;
+                    console.log(event);
+                    //this.handleEvent('Edited', event);
+                    // this.abrirEdicionEvento(event.id);
+                }
+            },
+            {
+                label: '<i class="fa fa-fw fa-times"></i>',
+                onClick: function (_a) {
+                    var event = _a.event;
+                    /*this.events = this.events.filter(iEvent => iEvent !== event);
+                    this.handleEvent('Deleted', event);*/
+                    //this.eliminar(event.id);
+                }
+            },
+            {
+                label: '<i class="fa fa-plus-square"></i>',
+                onClick: function (_a) {
+                    var event = _a.event;
+                    console.log(event);
+                    //this.handleEvent('Edited', event);
+                    //this.abrirDetalleEventos(event.id);
+                }
+            }
+        ];
+        this.accion = 2;
+        this.view = 'month';
+        this.viewDate = new Date();
+        this.locale = 'es-CO';
+        this.eventosTodos = new Array();
+        this.mostrarDetallesMas = false;
+        this.mensajeTooTip = "Filtrar por mis eventos";
+        this.suscrito = false;
+        this.mostrarEventos = false;
+        this.cont = 100;
+        this.idActual = -1;
+        this.masDetallesClass = "custom-mostrar";
+        this.atributosPersonalizados = new Array();
+        this.mensajeMostrar = "Se ha creado el evento satisfactoriamente";
+    }
+    InvitadoCrearComponent.prototype.ngOnInit = function () {
+    };
+    InvitadoCrearComponent.prototype.abrirAdicionEvento = function () {
+        console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
+        this.eventsEditar = [];
+        this.descripcionEvento = null;
+        this.requisitosEvento = null;
+        this.capacidadMaxima = null;
+        // let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
+        // console.log(mensaje);
+        // let observable = this.colaService.agregarACola(mensaje);
+        // if (observable) {
+        //   observable.subscribe(response => {
+        //     console.log(response)            
+        //     this.idActual=response[0].id;
+        //     console.log(this.idActual);
+        //   },
+        //     error => {
+        //       console.log("Error al crear evento");
+        //     });
+        // } 
+        this.eventsEditar.push({
+            id: 0,
+            start: new Date(),
+            end: new Date(),
+            title: '',
+            color: colors.blueJaverina,
+            actions: this.actions
+        });
+        //this.refresh.next();
+        var el;
+        el = document.getElementById("overlayEvento");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    InvitadoCrearComponent.prototype.logout = function () {
+        this.appComponent.logout();
+    };
+    InvitadoCrearComponent.prototype.mostrarDetallesEdicion = function () {
+        if (this.mostrarDetallesMas) {
+            this.mostrarDetallesMas = false;
+            this.masDetallesClass = "custom-mostrar";
+        }
+        else {
+            this.mostrarDetallesMas = true;
+            this.masDetallesClass = "custom-mostrado";
+        }
+    };
+    InvitadoCrearComponent.prototype.cerrarPopUp = function () {
+        console.log('cerrarPopUp : entro a cerrarPopUp');
+        this.mostrarEventos = false;
+        this.mostrarDetallesMas = false;
+        this.masDetallesClass = "custom-mostrar";
+        this.atributosPersonalizados = [];
+        var el;
+        el = document.getElementById("overlayEvento");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    InvitadoCrearComponent.prototype.anadirAtributo = function () {
+        var _this = this;
+        var puedeAgregar = false;
+        if (this.atributosPersonalizados.length > 0) {
+            var ultimo = this.atributosPersonalizados.length - 1;
+            if (this.atributosPersonalizados[ultimo].nombre != null) {
+                puedeAgregar = true;
+            }
+        }
+        else {
+            puedeAgregar = true;
+        }
+        if (puedeAgregar) {
+            var mensaje = { id: this.idActual, accion: 'asociarAtrPersonalizadoEvento', atributo: 'personalizado', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+            console.log(mensaje);
+            var data = {
+                id: null,
+                nombre: null,
+                descripcion: null
+            };
+            this.atributosPersonalizados.push(data);
+            var observable = this.colaService.agregarACola(mensaje);
+            if (observable) {
+                observable.subscribe(function (response) {
+                    console.log(response);
+                    if (response[0].accion == 'crear') {
+                        var id = response[0].valor.id;
+                        var index = _this.atributosPersonalizados.indexOf(_this.atributosPersonalizados.find(function (buscadoElement) {
+                            return buscadoElement.id == -1;
+                        }));
+                        _this.atributosPersonalizados[index].id = id;
+                        console.log(_this.atributosPersonalizados);
+                    }
+                }, function (error) {
+                    console.log("Error al editar imagen");
+                });
+            }
+        }
+    };
+    InvitadoCrearComponent.prototype.cambioPersonalizado = function (atributo, valor, tipo, id) {
+        console.log('cambio : entro a cambio');
+        console.log(this.atributosPersonalizados);
+        console.log(atributo, valor, id);
+        var mensaje = { id: id, accion: 'editarAtrPersonalizado', atributo: atributo, valor: valor, prioridad: true, tipoDato: tipo };
+        console.log(mensaje);
+        var observable = this.colaService.agregarACola(mensaje);
+        if (observable) {
+            observable.subscribe(function (response) {
+                console.log(response);
+            }, function (error) {
+                console.log("Error al editar imagen");
+            });
+        }
+    };
+    InvitadoCrearComponent.prototype.cambio = function (atributo, valor, tipo) {
+        console.log('cambio : entro a cambio');
+        console.log(atributo, valor);
+        if (atributo == 'capacidadMaxima') {
+            console.log(valor);
+            var numero = parseInt(valor, 10);
+            console.log(numero, this.idActual);
+            valor = numero;
+        }
+    };
+    InvitadoCrearComponent.prototype.guardarCambios = function () {
+        console.log('guardarCambios : entro a guardarCambios');
+        if (this.accion == 2) {
+            console.log('Adición : cerro Adición');
+            //let valido= this.comprobarLlenoTotal();
+            var valido = true;
+            if (valido) {
+                this.agregarEvento();
+            }
+        }
+    };
+    InvitadoCrearComponent.prototype.agregarEvento = function () {
+        var _this = this;
+        console.log('agregarEvento : entro a agregarEvento');
+        debugger;
+        var evento = this.eventsEditar[0];
+        console.log(evento, this.atributosPersonalizados);
+        var data;
+        var eventoEnviar = new Array();
+        data = {
+            id: 0,
+            inicio: evento.start,
+            fin: evento.end,
+            titulo: evento.title,
+            requisitos: this.requisitosEvento,
+            descripcion: this.descripcionEvento,
+            capacidad_maxima: this.capacidadMaxima,
+            atrPersonalizados: this.atributosPersonalizados
+        };
+        eventoEnviar.push(data);
+        this.eventosService.crearEvento(data).subscribe(function (response) {
+            _this.avisar();
+        }, function (error) {
+            console.log("**obtenerEventos***" + error);
+        });
+        this.cerrarPopUp();
+    };
+    InvitadoCrearComponent.prototype.avisar = function () {
+        this.avisoPopUp.mostrarPopExito();
+    };
+    InvitadoCrearComponent.prototype.onCerrarNotify = function (e) {
+        console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('modalContent'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* TemplateRef */])
+    ], InvitadoCrearComponent.prototype, "modalContent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_7__evento_formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_7__evento_formulario_personalizado_formulario_personalizado_component__["a" /* FormularioPersonalizadoComponent */])
+    ], InvitadoCrearComponent.prototype, "formularioPersonalizadoComponent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+    ], InvitadoCrearComponent.prototype, "avisoPopUp", void 0);
+    InvitadoCrearComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-invitado-crear',
+            template: __webpack_require__("../../../../../src/app/invitado-crear/invitado-crear.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/invitado-crear/invitado-crear.component.css")],
+            providers: [
+                {
+                    provide: __WEBPACK_IMPORTED_MODULE_2_angular_calendar__["a" /* CalendarDateFormatter */],
+                    useClass: __WEBPACK_IMPORTED_MODULE_3__pickers_custom_date_formatter_provider__["a" /* CustomDateFormatter */]
+                }
+            ]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* NgbModal */],
+            __WEBPACK_IMPORTED_MODULE_4__servicios_eventos_eventos_service__["a" /* EventosService */],
+            __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__["a" /* ColaService */]])
+    ], InvitadoCrearComponent);
+    return InvitadoCrearComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/login/login.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4183,7 +4570,18 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
+        var esUnInvitado = null;
         console.log("login: Entro a login");
+        if (this.datosLogin.username.startsWith('Invitado')) {
+            esUnInvitado = true;
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */].esInvitado = esUnInvitado;
+            localStorage.setItem('GUEST', JSON.stringify(esUnInvitado));
+        }
+        else {
+            esUnInvitado = false;
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */].esInvitado = esUnInvitado;
+            localStorage.setItem('GUEST', JSON.stringify(esUnInvitado));
+        }
         console.log(this.datosLogin);
         if (this.datosLogin.username != "" && this.datosLogin.contrasena != "") {
             this.servicioLogin.login(this.datosLogin.username, this.datosLogin.contrasena).subscribe(//no local
@@ -4482,7 +4880,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#overlayAviso {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAviso div.modalShow {\r\n  background-color: #f2dede ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #ebccd1;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoInfoExito {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoInfoExito div.modalShowInfoExito {\r\n  background-color: #dff0d8;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #d6e9c6;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\nbody {\r\n  height:100%;\r\n  margin:0;\r\n  padding:0;\r\n}\r\n\r\n.close {\r\n  color: #aaa;\r\n  float: right;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n  color: black;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n  background-color: #fefefe;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 100%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\nh4.alerta {\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh4.exito {\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh3.alerta {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh3.exito {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}", ""]);
+exports.push([module.i, "#overlayAviso {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAviso div.modalShow {\r\n  background-color: #f2dede ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #ebccd1;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoInfoExito {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoInfoExito div.modalShowInfoExito {\r\n  background-color: #dff0d8;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #d6e9c6;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoConBotones {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoConBotones div.modalShowConBotones {\r\n  background-color: #fcf8e3 ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #faebcc;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\nbody {\r\n  height:100%;\r\n  margin:0;\r\n  padding:0;\r\n}\r\n\r\n.close {\r\n  color: #aaa;\r\n  float: right;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n  color: black;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n  background-color: #fefefe;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 100%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\nh4.alerta {\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh4.exito {\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh4.advertencia {\r\n  margin: 0 0 10px;\r\n  color: #8a6d3b;\r\n}\r\n\r\nh3.alerta {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh3.exito {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh3.advertencia {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #8a6d3b;\r\n}\r\n\r\n/* Botones de si o no */\r\n\r\n.centered {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n\r\n.centered button,\r\n.centered button:focus\r\n{\r\n  background-color: #8a6d3b;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n}\r\n\r\n.centered button:hover.guardar,\r\n.centered button:visited,\r\n.centered button:active\r\n{\r\n  background-color: darkgreen ;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\n.centered button:hover.cancelar,\r\n.centered button:visited,\r\n.centered button:active\r\n{\r\n  background-color:  darkred ;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\n.input-group{\r\n  display:block !important;\r\n}", ""]);
 
 // exports
 
@@ -4495,7 +4893,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/popup-aviso/popup-aviso.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"overlayAviso\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br>\n      \n      <h3 class=\"alerta\">\n        Advertencia\n      </h3>  \n      \n      <br>  \n      <h4 class=\"alerta\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div id=\"overlayAvisoInfoExito\">\n  \n  <div class=\"modalShowInfoExito\">      \n      <span class=\"close\" (click)=\"cerrarPopUpExito()\">&times;</span><br>\n\n      \n      <h3 class=\"exito\">\n        Información\n      </h3>  \n      \n      <br>\n      <h4 class=\"exito\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>"
+module.exports = "<div id=\"overlayAviso\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br>\n      \n      <h3 class=\"alerta\">\n        Error\n      </h3>  \n      \n      <br>  \n      <h4 class=\"alerta\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div id=\"overlayAvisoInfoExito\">\n  \n  <div class=\"modalShowInfoExito\">      \n      <span class=\"close\" (click)=\"cerrarPopUpExito()\">&times;</span><br>\n\n      \n      <h3 class=\"exito\">\n        Información\n      </h3>  \n      \n      <br>\n      <h4 class=\"exito\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div id=\"overlayAvisoConBotones\">\n  \n  <div class=\"modalShowConBotones\">      \n      <span class=\"close\" (click)=\"cerrarPopUpBotones()\">&times;</span><br>\n\n      \n      <h3 class=\"advertencia\">\n        Advertencia\n      </h3>  \n      \n      <br>\n      <h4 class=\"advertencia\">          \n        ¿Está seguro que desea eliminar el elemento seleccionado?\n      </h4>\n      <br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"confirmacion()\">{{'POPUP.SI'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUpBotones()\">{{'POPUP.NO'| translate}}</button>\n      </div> \n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -4519,6 +4917,7 @@ var PopupAvisoComponent = /** @class */ (function () {
     function PopupAvisoComponent() {
         this.mostrar = false;
         this.cerroPop = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.confirmo = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
     PopupAvisoComponent.prototype.ngOnInit = function () {
     };
@@ -4550,6 +4949,25 @@ var PopupAvisoComponent = /** @class */ (function () {
         el = document.getElementById("overlayAvisoInfoExito");
         el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
     };
+    PopupAvisoComponent.prototype.mostrarPopBotones = function () {
+        console.log('mostrarPopBotones : entro a mostrarPopBotones');
+        var el;
+        el = document.getElementById("overlayAvisoConBotones");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    PopupAvisoComponent.prototype.cerrarPopUpBotones = function () {
+        console.log('cerrarPopUpBotones : entro a cerrarPopUpBotones');
+        var el;
+        el = document.getElementById("overlayAvisoConBotones");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
+    PopupAvisoComponent.prototype.confirmacion = function () {
+        console.log('confirmacion : entro a confirmacion');
+        this.confirmo.emit('Se confirmo');
+        var el;
+        el = document.getElementById("overlayAvisoConBotones");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])('mensaje'),
         __metadata("design:type", Object)
@@ -4558,6 +4976,10 @@ var PopupAvisoComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
     ], PopupAvisoComponent.prototype, "cerroPop", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
+    ], PopupAvisoComponent.prototype, "confirmo", void 0);
     PopupAvisoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-popup-aviso',

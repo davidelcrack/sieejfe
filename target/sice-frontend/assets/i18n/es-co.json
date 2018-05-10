@@ -101,5 +101,9 @@
     "CANCEL" : "Cancelar",
     "DETAIL" : "DETALLE EVENTO",
     "LIST" : "LISTA DE EVENTOS"
+  },
+  "POPUP" :{
+    "SI" : "Sí",
+    "NO" : "No"
   }
 }
