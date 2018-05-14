@@ -57,8 +57,7 @@ export class LoginComponent implements OnInit {
         response => {//no local
           console.log("USER",response);  //no local           
           if(response===200){ //no local
-            localStorage.setItem('TRADUJO', 'es-co');     
-            localStorage.setItem('USER', this.datosLogin.username);    
+            localStorage.setItem('TRADUJO', 'es-co');                  
             this.usuarioRegistrado(this.datosLogin.username, this.datosLogin.contrasena); //no local
             //localStorage.setItem('LOGGEADO', JSON.stringify(this.usuarioLog)); //si local
             //localStorage.setItem('ADMIN', JSON.stringify(true)); //si local
@@ -82,7 +81,8 @@ export class LoginComponent implements OnInit {
       
     this.servicioLogin.credencialesUsuario(username,password).subscribe(
       response => {          
-        this.usuarioLog=response;                             
+        this.usuarioLog=response;   
+        localStorage.setItem('USER', this.usuarioLog.nombre);                             
         console.log(this.usuarioLog);
         this.esAdmon=this.usuarioLog.administrador; //no local
         console.log(this.esAdmon);    
