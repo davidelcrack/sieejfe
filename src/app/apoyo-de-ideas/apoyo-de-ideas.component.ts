@@ -25,6 +25,13 @@ export class ApoyoDeIdeasComponent implements OnInit {
 
   campos = new FormControl();
   seleccionados = new Array();
+  etapaActual: any;
+
+  etapas = [
+    {id: 1, value: 'GESTACION', nombre: 'Gestación'},
+    {id: 2, value: 'PUESTA_MARCHA', nombre: 'Puesta en Marcha'},
+    {id: 3, value: 'DESARROLLO_INICIAL', nombre: 'Desarrollo Inicial'}
+  ];
 
   // listaCampos = [ 
   //   { id: 1, nombre :'Ciencia'}, { id: 2, nombre : 'Sistemas'}, { id: 3, nombre : 'Artes'}];
@@ -37,10 +44,12 @@ export class ApoyoDeIdeasComponent implements OnInit {
   @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
 
   enviarIdea(){    
+    debugger
     let idea ={
       etiquetas : this.seleccionados,
       nombre: this.solicitudIdea.titulo,
-      descripcion : this.solicitudIdea.descripcion
+      descripcion : this.solicitudIdea.descripcion,
+      etapa : this.etapaActual
     }
 
     this.apoyoIdeasService.enviar(idea).subscribe(

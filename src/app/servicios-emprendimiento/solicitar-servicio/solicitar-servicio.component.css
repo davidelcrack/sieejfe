@@ -86,3 +86,25 @@ input[type=submit] {
     color : #ffffff;
     border-color: #ffffff;  
 }
+
+/* aviso advertenvia */
+
+.textoPanel{
+    background-color: #fcf8e3 ;
+    border: 1px solid #888;
+    border: 2px solid #faebcc;
+    color: #8a6d3b;
+    min-height: 70px;
+    max-height: 600px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border-radius: 7px;
+  }
+  
+  p.labelPanel{
+    padding: 0px 90px !important;
+  }
+  
+  .margenTexto{
+    margin: 14px;
+  }
