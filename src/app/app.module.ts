@@ -92,6 +92,9 @@ import { ConfiguracionGeneralComponent } from './configuracion-general/configura
 import { ConfiguracionService } from './servicios/confGeneral/configuracion.service';
 import { SeguimientoIdeasComponent } from './apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component';
 import { InvitadoCrearComponent } from './invitado-crear/invitado-crear.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { MisIdeasComponent } from './perfil-usuario/mis-ideas/mis-ideas.component';
+import { MisEventosComponent } from './perfil-usuario/mis-eventos/mis-eventos.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -136,7 +139,10 @@ registerLocaleData(localeEsCo);
     AdministracionCorreosComponent,
     ConfiguracionGeneralComponent,
     SeguimientoIdeasComponent,
-    InvitadoCrearComponent
+    InvitadoCrearComponent,
+    PerfilUsuarioComponent,
+    MisIdeasComponent,
+    MisEventosComponent
   ],
   imports: [
     CommonModule,

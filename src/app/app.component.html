@@ -44,6 +44,7 @@
                 </ul>
             </li>
 
+            <li><a (click)="openTabs('perfilUsuario', null)">{{'ENTORNO.MIPERFIL'| translate}}</a></li>
 
             <li><a (click)="openTabs('aboutus', null)">{{'ENTORNO.QUIENES'| translate}}</a></li>
             
@@ -178,6 +179,10 @@
 
     <ng-template #seguimientoIdeasTab>
         <app-seguimiento-ideas></app-seguimiento-ideas>
+    </ng-template>
+
+    <ng-template #perfilUsuarioTab>
+        <app-perfil-usuario></app-perfil-usuario>
     </ng-template>
 
     <div class="social-icons">

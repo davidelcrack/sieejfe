@@ -1,0 +1,8 @@
+h2 {
+	color: #000066;
+}
+
+::ng-deep div.perfilMargen{
+    margin-left: 40px;
+    margin-right:40px;
+}

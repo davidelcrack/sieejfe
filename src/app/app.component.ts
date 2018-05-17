@@ -217,7 +217,8 @@ export class AppComponent {
   @ViewChild('admonCorreosTab') admonCorreosTemplate;
   @ViewChild('confGeneralTab') confGeneralTemplate;
   @ViewChild('seguimientoIdeasTab') seguimientoIdeasTemplate;
-  
+  @ViewChild('perfilUsuarioTab') perfilUsuarioTemplate;
+
   detalle : any;  
   openTabs(nombre : any , detalle : any){
 
@@ -270,7 +271,10 @@ export class AppComponent {
     }
     if(nombre=='seguimientoIdeas'){
       this.tabsComponent.openTab('seguimientoIdeas',this.seguimientoIdeasTemplate, {} ,true);
-    }    
+    }
+    if(nombre=='perfilUsuario'){
+      this.tabsComponent.openTab('perfilUsuario',this.perfilUsuarioTemplate, {} ,true);
+    }       
     
   }
 
