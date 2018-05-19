@@ -18,4 +18,9 @@ export class UsuarioService {
     .map((res: Response) => res.json());
   }
 
+  listarMisIdeas(){
+    return this.http.get(this.backendUrl + "listarIdeasPorUsuario", { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

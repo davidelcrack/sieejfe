@@ -49,7 +49,7 @@ export class ApoyoDeIdeasComponent implements OnInit {
       etiquetas : this.seleccionados,
       nombre: this.solicitudIdea.titulo,
       descripcion : this.solicitudIdea.descripcion,
-      etapa : this.etapaActual
+      etapa : this.etapaActual.nombre
     }
 
     this.apoyoIdeasService.enviar(idea).subscribe(
