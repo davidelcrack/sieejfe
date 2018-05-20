@@ -64,7 +64,7 @@ export class VerSolicitudesSeviciosComponent implements OnInit {
             nombre : element.nombre ,
             remitente : element.creador.nombre + ' '+ element.creador.apellidos,
             estado: element.activa,
-            fecha : fechaMostrar.getDate()+' - '+(fechaMostrar.getMonth()+1)+' - '+ fechaMostrar.getFullYear(),
+            fecha : fechaMostrar.getDate()+'/'+(fechaMostrar.getMonth()+1)+'/'+ fechaMostrar.getFullYear(),
             descripcion : element.descripcion
           };
           this.solicitudes.push(data);          

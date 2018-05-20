@@ -1,0 +1,15 @@
+mat-cell.true.mat-cell.cdk-column-Activa.mat-column-Activa.ng-star-inserted:before  { 
+    font-family: FontAwesome; 
+    font-size: 30px; 
+    display: inline-block; 
+    content: '\2714';
+    color : green;
+  }
+
+  mat-cell.false.mat-cell.cdk-column-Activa.mat-column-Activa.ng-star-inserted:before  { 
+    font-family: FontAwesome; 
+    font-size: 30px; 
+    display: inline-block; 
+    content: '\2716';
+    color : red;
+  }

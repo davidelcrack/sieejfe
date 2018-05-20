@@ -16,7 +16,7 @@ export class MisSolicitudesComponent implements OnInit {
    }
 
   misSolicitudesPerfil = new Array();
-  displayedColumns = ['id', 'Titulo', 'Etapa'];
+  displayedColumns = ['id', 'Nombre', 'Fecha', 'Activa'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -35,13 +35,15 @@ export class MisSolicitudesComponent implements OnInit {
 
         debugger
         
+        
         response.forEach(element => {
-          let fechaInicio = new Date(element.inicio);
-          let fechaFin = new Date(element.fin);
+          let fechaMostrar= new Date(element.fecha);
+          
           data = {
             id: element.id,
-            titulo: element.titulo,
-            etapa: element.etapa
+            nombre: element.nombre,
+            fecha: fechaMostrar.getDate()+'/'+(fechaMostrar.getMonth()+1)+'/'+ fechaMostrar.getFullYear(),
+            activa : element.activa
           };
           this.misSolicitudesPerfil.push(data);
         });

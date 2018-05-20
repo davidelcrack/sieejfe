@@ -33,8 +33,8 @@ export class ListadoEventosComponent implements OnInit {
       data ={
         id: element.id,
         titulo : element.titulo,
-        inicio  : fechaInicio.getDate()+' - '+(fechaInicio.getMonth()+1)+' - '+ fechaInicio.getFullYear(),
-        fin : fechaFin.getDate()+' - '+(fechaFin.getMonth()+1)+' - '+ fechaFin.getFullYear()
+        inicio  : fechaInicio.getDate()+'/'+(fechaInicio.getMonth()+1)+'/'+ fechaInicio.getFullYear(),
+        fin : fechaFin.getDate()+'/'+(fechaFin.getMonth()+1)+'/'+ fechaFin.getFullYear()
       };
       this.eventosLista.push(data);          
     });

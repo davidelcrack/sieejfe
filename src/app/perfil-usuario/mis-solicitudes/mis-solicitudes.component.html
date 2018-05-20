@@ -24,19 +24,25 @@
         </ng-container>
 
         <!-- Progress Column -->
-        <ng-container matColumnDef="Titulo">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Título </mat-header-cell>
+        <ng-container matColumnDef="Nombre">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
           <mat-cell *matCellDef="let row">
-            <a> {{row.titulo}} </a>
+            <a> {{row.nombre}} </a>
           </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="Etapa">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Etapa </mat-header-cell>
+        <ng-container matColumnDef="Fecha">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
           <mat-cell *matCellDef="let row">
-            <a> {{row.etapa}} </a>
+            <a> {{row.fecha}} </a>
           </mat-cell>
+        </ng-container>
+
+        <!-- Activa Column -->
+        <ng-container matColumnDef="Activa">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Activa </mat-header-cell>
+          <mat-cell class="{{row.activa}} mat-cell cdk-column-Activa mat-column-Activa" *matCellDef="let row"></mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
