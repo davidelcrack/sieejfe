@@ -23,4 +23,9 @@ export class UsuarioService {
     .map((res: Response) => res.json());
   }
 
+  listarMisSolicitudes(){
+    return this.http.get(this.backendUrl + "listarSolicitudesPorUsuario", { withCredentials: true })
+    .map((res: Response) => res.json());
+  }
+
 }

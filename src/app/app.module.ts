@@ -95,6 +95,7 @@ import { InvitadoCrearComponent } from './invitado-crear/invitado-crear.componen
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { MisIdeasComponent } from './perfil-usuario/mis-ideas/mis-ideas.component';
 import { MisEventosComponent } from './perfil-usuario/mis-eventos/mis-eventos.component';
+import { MisSolicitudesComponent } from './perfil-usuario/mis-solicitudes/mis-solicitudes.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -142,7 +143,8 @@ registerLocaleData(localeEsCo);
     InvitadoCrearComponent,
     PerfilUsuarioComponent,
     MisIdeasComponent,
-    MisEventosComponent
+    MisEventosComponent,
+    MisSolicitudesComponent
   ],
   imports: [
     CommonModule,
