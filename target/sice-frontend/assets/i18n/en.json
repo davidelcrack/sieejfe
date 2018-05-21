@@ -29,7 +29,8 @@
     "CONFGENERAL" : "General Configuration",
     "CONFIGURACION" : "Settings",
     "seguimientoIdeas" : "Check Ideas",
-    "CUENTANOS" : "Tell us your idea"
+    "CUENTANOS" : "Tell us your idea",
+    "MIPERFIL" : "My Profile"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur"
@@ -57,7 +58,8 @@
     "confGeneral" : "General Configuration",
     "configuracion" : "Settings",
     "seguimientoIdeas" : "Check Ideas",
-    "cuentanos" : "Tell us your idea"
+    "cuentanos" : "Tell us your idea",
+    "perfilUsuario" : "My Profile"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "University",

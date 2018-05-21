@@ -29,7 +29,8 @@
     "CONFGENERAL" : "Configuración General",
     "CONFIGURACION" : "Configuración",
     "seguimientoIdeas" : "Checkea Ideas",
-    "CUENTANOS" : "Cuentanos tu idea"
+    "CUENTANOS" : "Cuéntanos tu idea",
+    "MIPERFIL" : "Mi Perfil"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor"
@@ -57,7 +58,8 @@
     "confGeneral" : "Configuración General",
     "configuracion" : "Configuración",
     "seguimientoIdeas" : "Checkea Ideas",
-    "cuentanos" : "Cuentanos tu idea"
+    "cuentanos" : "Cuentanos tu Idea",
+    "perfilUsuario" : "Mi Perfil"
   },
   "ACORDEON" : {
     "UNIVERSIDAD" : "Universidades",
