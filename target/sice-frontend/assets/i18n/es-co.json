@@ -107,5 +107,14 @@
   "POPUP" :{
     "SI" : "Sí",
     "NO" : "No"
+  },
+  "TABLAS" :{    
+    "HEADERS" :{      
+      "FACULTAD" : "Facultad",
+      "CORREO" : "Correo",
+      "TITULO" : "Título",
+      "AUTOR" : "Autor",
+      "FASE" : "Fase"
+    }
   }
 }

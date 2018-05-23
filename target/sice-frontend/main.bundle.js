@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/administracion-correos/administracion-correos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<div class=\"CorreosMargen\">\n<h2>Administración de Correos</h2>\n\n<br><br>\n\n<a class=\"fa fa-plus-circle\" (click)=\"crearCorreo()\"></a>\n\n<div class=\"mat-app-background basic-container\">\n\n  <div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n    </mat-form-field>\n  </div>\n\n  <div class=\"example-container mat-elevation-z8\" >\n\n    <mat-table #tableAdmonCorreos [dataSource]=\"dataSource\" matSort>\n\n      <!-- ID Column -->\n      <ng-container matColumnDef=\"id\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\n      </ng-container>\n\n      <!-- Nombre Column -->\n      <ng-container matColumnDef=\"nombre\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Facultad </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n      </ng-container>\n      \n      <!-- Info Column -->\n      <ng-container matColumnDef=\"correo\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n      </ng-container>\n\n      <!-- Eliminar Column -->\n      <ng-container matColumnDef=\"eliminar\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"  (click)=\"eliminarCorreo(row)\"></mat-cell>\n      </ng-container>\n\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n      </mat-row>\n    </mat-table>\n\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  </div>\n\n</div>\n\n</div>\n\n<div id=\"overlayAdicionCorreos\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n      \n      <h3>AGREGAR CORREO</h3>   \n      \n      \n      <form class=\"form-horizontal\">\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\n          <div class=\"col-sm-10\">\n            <input type=\"text\" class=\"form-control\" id=\"nombreCorreoAdmon\" placeholder=\"Ingrese nombre\" name=\"nombreCorreoAdmon\"\n              [(ngModel)]=\"elCorreo.nombre\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"control-label col-sm-2\" for=\"pwd\">Correo</label>\n          <div class=\"col-sm-10\">          \n            <input type=\"text\" class=\"form-control\" id=\"elcorreoAdmon\" placeholder=\"Ingrese correo\" name=\"elcorreoAdmon\"\n              [(ngModel)]=\"elCorreo.correo\">\n          </div>\n        </div>        \n      </form>\n      <br><br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\n      </div> \n\n  </div>\n\n  \n</div>\n\n<app-popup-aviso #admonCorreosPopUp [mensaje]=\"mensajeMostrar\" (confirmo)=\"confirmoCierre($event)\" ></app-popup-aviso>"
+module.exports = "<br>\r\n<div class=\"CorreosMargen\">\r\n<h2>{{'ENTORNO.ADMONCORREOS'| translate}}</h2>\r\n\r\n<br><br>\r\n\r\n<a class=\"fa fa-plus-circle\" (click)=\"crearCorreo()\"></a>\r\n\r\n<div class=\"mat-app-background basic-container\">\r\n\r\n  <div class=\"example-header\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\r\n    </mat-form-field>\r\n  </div>\r\n\r\n  <div class=\"example-container mat-elevation-z8\" >\r\n\r\n    <mat-table #tableAdmonCorreos [dataSource]=\"dataSource\" matSort>\r\n\r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\r\n      </ng-container>\r\n\r\n      <!-- Nombre Column -->\r\n      <ng-container matColumnDef=\"nombre\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.FACULTAD'| translate}} </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\r\n      </ng-container>\r\n      \r\n      <!-- Info Column -->\r\n      <ng-container matColumnDef=\"correo\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.CORREO'| translate}} </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\r\n      </ng-container>\r\n\r\n      <!-- Eliminar Column -->\r\n      <ng-container matColumnDef=\"eliminar\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"  (click)=\"eliminarCorreo(row)\"></mat-cell>\r\n      </ng-container>\r\n\r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n<div id=\"overlayAdicionCorreos\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n      \r\n      <h3>AGREGAR CORREO</h3>   \r\n      \r\n      \r\n      <form class=\"form-horizontal\">\r\n        <div class=\"form-group\">\r\n          <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\r\n          <div class=\"col-sm-10\">\r\n            <input type=\"text\" class=\"form-control\" id=\"nombreCorreoAdmon\" placeholder=\"Ingrese nombre\" name=\"nombreCorreoAdmon\"\r\n              [(ngModel)]=\"elCorreo.nombre\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"control-label col-sm-2\" for=\"pwd\">Correo</label>\r\n          <div class=\"col-sm-10\">          \r\n            <input type=\"text\" class=\"form-control\" id=\"elcorreoAdmon\" placeholder=\"Ingrese correo\" name=\"elcorreoAdmon\"\r\n              [(ngModel)]=\"elCorreo.correo\">\r\n          </div>\r\n        </div>        \r\n      </form>\r\n      <br><br>\r\n\r\n      <div class=\"input-group centered\">\r\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n      </div> \r\n\r\n  </div>\r\n\r\n  \r\n</div>\r\n\r\n<app-popup-aviso #admonCorreosPopUp [mensaje]=\"mensajeMostrar\" (confirmo)=\"confirmoCierre($event)\" ></app-popup-aviso>"
 
 /***/ }),
 
@@ -138,9 +138,9 @@ var AdministracionCorreosComponent = /** @class */ (function () {
         });
     };
     AdministracionCorreosComponent.prototype.eliminarCorreo = function (row) {
-        this.mensajeMostrar = '¿Está seguro que desea eliminar el elemento seleccionado?';
+        this.mensajeMostrar = '¿Está seguro que desea eliminar el correo seleccionado?';
         this.row = row.id;
-        this.avisoPopUp.mostrarPopBotones();
+        __WEBPACK_IMPORTED_MODULE_4__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarBotones = true;
     };
     AdministracionCorreosComponent.prototype.confirmoCierre = function (e) {
         var _this = this;
@@ -205,7 +205,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/apoyo-de-ideas/apoyo-de-ideas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<br>\n<div class=\"apoyoMargen\">\n\n\n  <br><br>\n  <h2>Escribe tu Idea</h2>\n  <br>\n  <div class=\"colGrid2 textoPanel\" style=\"text-align:center\">\n    <p class=\"margenTexto mb-3 labelPanel\"> \n      Este espacio le permite dar a conocer su idea de emprendimiento, al seleccionar los campos de acción y fase en la que \n      cree se encuentra nuestro sistema enviará está información al administrador o mentor que mejor se acomode a estas preferencias \n      y por lo tanto pueda apoyarlo y brindarle asesoramiento.\n      </p>\n  </div>\n  <br>\n\n  <form>\n    <div class=\"forma\">\n\n      <mat-form-field>\n        <mat-select [(value)]=\"etapaActual\" placeholder=\"Seleccione una Etapa de Emprendimiento\">\n          <mat-option *ngFor=\"let etapa of etapas\" [value]=\"etapa\">\n            {{ etapa.nombre }}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-select [(value)]=\"seleccionados\" placeholder=\"Campos de Acción\" [formControl]=\"campos\" multiple>\n          <mat-option *ngFor=\"let campo of listaCampos\" [value]=\"campo\">{{campo.nombre}}</mat-option>\n        </mat-select>\n      </mat-form-field>          \n        \n      <input placeholder=\"Nombre\" #nombre maxlength=\"80\" [(ngModel)]=\"solicitudIdea.titulo\" name=\"Name\" required>\n            \n      <br><br>\n\n      <textarea placeholder=\"Mensaje\" #msn maxlength=\"300\" [(ngModel)]=\"solicitudIdea.descripcion\" name=\"Msn\" cols=\"25\"></textarea>\n    \n      <input (click)=\"enviarIdea()\" type=\"submit\" value=\"Enviar\">\n\n    </div>\n  </form>\n\n</div>\n\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" (cerroPop)=\"onCerrarNotify($event)\"></app-popup-aviso>"
+module.exports = "\r\n<br>\r\n<div class=\"apoyoMargen\">\r\n\r\n\r\n  <br><br>\r\n  <h2>{{'ENTORNO.CUENTANOS'| translate}}</h2>\r\n  <br>\r\n  <div class=\"colGrid2 textoPanel\" style=\"text-align:center\">\r\n    <p class=\"margenTexto mb-3 labelPanel\"> \r\n      Este espacio le permite dar a conocer su idea de emprendimiento, al seleccionar los campos de acción y fase en la que \r\n      cree se encuentra nuestro sistema enviará está información al administrador o mentor que mejor se acomode a estas preferencias \r\n      y por lo tanto pueda apoyarlo y brindarle asesoramiento.\r\n      </p>\r\n  </div>\r\n  <br>\r\n\r\n  <form>\r\n    <div class=\"forma\">\r\n\r\n      <mat-form-field>\r\n        <mat-select [(value)]=\"etapaActual\" placeholder=\"Seleccione una Etapa de Emprendimiento\">\r\n          <mat-option *ngFor=\"let etapa of etapas\" [value]=\"etapa\">\r\n            {{ etapa.nombre }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n\r\n      <mat-form-field>\r\n        <mat-select [(value)]=\"seleccionados\" placeholder=\"Campos de Acción\" [formControl]=\"campos\" multiple>\r\n          <mat-option *ngFor=\"let campo of listaCampos\" [value]=\"campo\">{{campo.nombre}}</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>          \r\n        \r\n      <input placeholder=\"Nombre\" #nombre maxlength=\"80\" [(ngModel)]=\"solicitudIdea.titulo\" name=\"Name\" required>\r\n            \r\n      <br><br>\r\n\r\n      <textarea placeholder=\"Mensaje\" #msn maxlength=\"300\" [(ngModel)]=\"solicitudIdea.descripcion\" name=\"Msn\" cols=\"25\"></textarea>\r\n    \r\n      <input (click)=\"enviarIdea()\" type=\"submit\" value=\"Enviar\">\r\n\r\n    </div>\r\n  </form>\r\n\r\n</div>\r\n\r\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" (cerroPop)=\"onCerrarNotify($event)\"></app-popup-aviso>"
 
 /***/ }),
 
@@ -271,7 +271,7 @@ var ApoyoDeIdeasComponent = /** @class */ (function () {
         });
     };
     ApoyoDeIdeasComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPopExito();
+        __WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarExito = true;
     };
     ApoyoDeIdeasComponent.prototype.onCerrarNotify = function (e) {
         console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
@@ -318,7 +318,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/apoyo-de-ideas/seguimiento-ideas/seguimiento-ideas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br><br>\n\n<div class=\"ServMargen\">\n\n  <br><br>\n  <h2>Ideas</h2>\n  <br><br>\n\n  <div class=\"mat-app-background basic-container\">\n\n    <div class=\"example-header\">\n      <mat-form-field>\n        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n      </mat-form-field>\n    </div>\n  \n    <div class=\"example-container mat-elevation-z8\" >\n  \n      <mat-table #tableSeguimientoIdeas [dataSource]=\"dataSource\" matSort>\n  \n        <!-- ID Column -->\n        <ng-container matColumnDef=\"titulo\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.titulo}} </mat-cell>\n        </ng-container>\n  \n        <!-- Remitente Column -->\n        <ng-container matColumnDef=\"autor\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.autor}} </mat-cell>\n        </ng-container>\n\n        <!-- Estado Column -->\n        <!-- <ng-container matColumnDef=\"estado\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n          <mat-cell class=\"{{row.estado}} mat-cell cdk-column-estado mat-column-estado\" *matCellDef=\"let row\"></mat-cell>\n        </ng-container> -->\n        \n        <!-- Fecha Column -->\n        <ng-container matColumnDef=\"correo\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n        </ng-container>\n  \n        <!-- Ver Column -->\n        <ng-container matColumnDef=\"ver\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n          <mat-cell class=\"{{row.estado}} mat-cell cdk-column-ver mat-column-ver\" *matCellDef=\"let row\"  (click)=\"abrirIdea(row)\"></mat-cell>\n        </ng-container>\n  \n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n        </mat-row>\n      </mat-table>\n  \n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>\n  \n  </div>\n\n\n  <div id=\"overlayDetalleDeIdea\">\n  \n    <div class=\"modalShow\">      \n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n        \n        <form>\n          <div class=\"forma\">\n\n            <h4>\n              Idea\n            </h4>\n\n            <input [disabled]=\"true\" class=\"formas\" placeholder=\"Nombre Idea\" #nombreIdeas maxlength=\"80\" [(ngModel)]=\"idea.titulo\" name=\"nombreIdeas\" required>\n                  \n            <br><br>\n      \n            <textarea [disabled]=\"true\" placeholder=\"Mensaje Idea\" #msnIdeas maxlength=\"300\" [(ngModel)]=\"idea.descripcion\" name=\"msnIdeas\" cols=\"25\"></textarea>\n\n            <!-- <h4 *ngIf=\"idea.estado\">\n              Respuesta\n            </h4> -->\n\n            <!-- *ngIf=\"idea.estado\"  -->\n            <!-- <textarea placeholder=\"Respuesta\" #msnRespuesta maxlength=\"300\" [(ngModel)]=\"respuesta\" name=\"msnRespuesta\" cols=\"25\"></textarea> -->\n          \n            <!-- *ngIf=\"idea.estado\"  -->\n            <!-- <input class=\"formas\" (click)=\"enviar()\" type=\"submit\" value=\"Responder\"> -->\n      \n          </div>\n        </form>        \n  \n        <br><br>\n    </div>\n  \n    \n  </div>\n\n\n\n</div>\n\n"
+module.exports = "<br><br>\n\n<div class=\"ServMargen\">\n\n  <br><br>\n  <h2>{{'ENTORNO.seguimientoIdeas'| translate}}</h2>\n  <br><br>\n\n  <div class=\"mat-app-background basic-container\">\n\n    <div class=\"example-header\">\n      <mat-form-field>\n        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\n      </mat-form-field>\n    </div>\n  \n    <div class=\"example-container mat-elevation-z8\" >\n  \n      <mat-table #tableSeguimientoIdeas [dataSource]=\"dataSource\" matSort>\n  \n        <!-- ID Column -->\n        <ng-container matColumnDef=\"titulo\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.TITULO'| translate}} </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.titulo}} </mat-cell>\n        </ng-container>\n  \n        <!-- Remitente Column -->\n        <ng-container matColumnDef=\"autor\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.AUTOR'| translate}} </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.autor}} </mat-cell>\n        </ng-container>\n        \n        <!-- Fase Column -->\n        <ng-container matColumnDef=\"fase\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.FASE'| translate}} </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.fase}} </mat-cell>\n        </ng-container>\n\n        <!-- Estado Column -->\n        <!-- <ng-container matColumnDef=\"estado\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n          <mat-cell class=\"{{row.estado}} mat-cell cdk-column-estado mat-column-estado\" *matCellDef=\"let row\"></mat-cell>\n        </ng-container> -->\n        \n        <!-- Fecha Column -->\n        <ng-container matColumnDef=\"correo\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLAS.HEADERS.CORREO'| translate}}</mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.correo}} </mat-cell>\n        </ng-container>\n  \n        <!-- Ver Column -->\n        <ng-container matColumnDef=\"ver\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n          <mat-cell class=\"{{row.estado}} mat-cell cdk-column-ver mat-column-ver\" *matCellDef=\"let row\"  (click)=\"abrirIdea(row)\"></mat-cell>\n        </ng-container>\n  \n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n        </mat-row>\n      </mat-table>\n  \n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>\n  \n  </div>\n\n\n  <div id=\"overlayDetalleDeIdea\">\n  \n    <div class=\"modalShow\">      \n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\n        \n        <form>\n          <div class=\"forma\">\n\n            <h4>\n              Idea\n            </h4>\n\n            <input [disabled]=\"true\" class=\"formas\" placeholder=\"Nombre Idea\" #nombreIdeas maxlength=\"80\" [(ngModel)]=\"idea.titulo\" name=\"nombreIdeas\" required>\n                  \n            <br><br>\n      \n            <textarea [disabled]=\"true\" placeholder=\"Mensaje Idea\" #msnIdeas maxlength=\"300\" [(ngModel)]=\"idea.descripcion\" name=\"msnIdeas\" cols=\"25\"></textarea>\n\n            <!-- <h4 *ngIf=\"idea.estado\">\n              Respuesta\n            </h4> -->\n\n            <!-- *ngIf=\"idea.estado\"  -->\n            <!-- <textarea placeholder=\"Respuesta\" #msnRespuesta maxlength=\"300\" [(ngModel)]=\"respuesta\" name=\"msnRespuesta\" cols=\"25\"></textarea> -->\n          \n            <!-- *ngIf=\"idea.estado\"  -->\n            <!-- <input class=\"formas\" (click)=\"enviar()\" type=\"submit\" value=\"Responder\"> -->\n      \n          </div>\n        </form>        \n  \n        <br><br>\n    </div>\n  \n    \n  </div>\n\n\n\n</div>\n\n"
 
 /***/ }),
 
@@ -346,7 +346,7 @@ var SeguimientoIdeasComponent = /** @class */ (function () {
     function SeguimientoIdeasComponent(apoyoIdeasService) {
         this.apoyoIdeasService = apoyoIdeasService;
         this.esAdmin = false;
-        this.displayedColumns = ['titulo', 'autor', 'correo', 'ver'];
+        this.displayedColumns = ['titulo', 'autor', 'fase', 'correo', 'ver'];
         this.ideas = new Array();
         this.idea = { id: -1, titulo: "", autor: ' ', correo: '', descripcion: "", etiquetas: null };
         this.respuesta = null;
@@ -379,7 +379,7 @@ var SeguimientoIdeasComponent = /** @class */ (function () {
                     id: element.id,
                     titulo: element.titulo,
                     autor: element.usuarioJaveriana.nombre + ' ' + element.usuarioJaveriana.apellidos,
-                    //estado: element.activa,
+                    fase: element.etapa,
                     correo: element.usuarioJaveriana.email,
                     descripcion: element.descripcion,
                     etiquetas: element.etiquetas
@@ -1372,7 +1372,7 @@ var ConfiguracionGeneralComponent = /** @class */ (function () {
         });
     };
     ConfiguracionGeneralComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPopExito();
+        __WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarExito = true;
     };
     ConfiguracionGeneralComponent.prototype.onCerrarNotify = function (e) {
         console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
@@ -2894,7 +2894,7 @@ var DetallesEventoComponent = /** @class */ (function () {
         }
     };
     DetallesEventoComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPop();
+        __WEBPACK_IMPORTED_MODULE_3__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrar = true;
     };
     DetallesEventoComponent.prototype.onNotifyInscribirse = function (e) {
         var _this = this;
@@ -2969,7 +2969,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/evento/evento.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<div class=\"calendarioMargen\">\r\n\r\n<div class=\"input-group\" style=\"float:right;\">\r\n  <a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirAdicionEvento() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"fa fa-list-ul\" (click)=\"abrirTodosEventos() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"{{misContactosSt}}\" (click)=\"mostrarMisEventos()\" ngbTooltip=\"{{mensajeTooTip}}\"></a>  \r\n</div>\r\n\r\n<br><br><br>\r\n<ng-template #modalContent let-close=\"close\">\r\n  <div class=\"modal-header\">\r\n    <h5 class=\"modal-title\">Event action occurred</h5>\r\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div>\r\n      Action:\r\n      <pre>{{ modalData?.action }}</pre>\r\n    </div>\r\n    <div>\r\n      Event:\r\n      <pre>{{ modalData?.event | json }}</pre>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">OK</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<div class=\"row text-center\">\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarPreviousView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.PREV'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-outline-secondary\"\r\n        mwlCalendarToday\r\n        [(viewDate)]=\"viewDate\">\r\n        {{'EVENTOS.HOY'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarNextView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.NEXT'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'es-CO' }}</h3>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'month'\"\r\n        [class.active]=\"view === 'month'\">\r\n        {{'EVENTOS.MES'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'week'\"\r\n        [class.active]=\"view === 'week'\">\r\n        {{'EVENTOS.WEEK'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'day'\"\r\n        [class.active]=\"view === 'day'\">\r\n        {{'EVENTOS.DAY'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n\r\n\r\n<div [ngSwitch]=\"view\">\r\n  <mwl-calendar-month-view\r\n    *ngSwitchCase=\"'month'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    [activeDayIsOpen]=\"activeDayIsOpen\"\r\n    (dayClicked)=\"dayClicked($event.day)\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-month-view>\r\n  <mwl-calendar-week-view\r\n    *ngSwitchCase=\"'week'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-week-view>\r\n  <mwl-calendar-day-view\r\n    *ngSwitchCase=\"'day'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-day-view>\r\n</div>\r\n\r\n<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->\r\n\r\n<div id=\"overlayEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n\r\n      <div *ngIf=\"accion==1\">\r\n        <h3>\r\n          {{'EVENTOS.EDIT'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==2\">\r\n        <h3>\r\n          {{'EVENTOS.CREATE'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==3\">\r\n        <h3>\r\n          {{'EVENTOS.LIST'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n        <!-- <button\r\n          class=\"btn btn-primary pull-right\"\r\n          (click)=\"addEvent()\">\r\n          Agregar\r\n        </button> -->\r\n        \r\n\r\n      <table class=\"table table-bordered\">\r\n\r\n        <thead>\r\n          <tr>\r\n            <th>{{'EVENTOS.NAME'| translate}}</th>     \r\n            <th>{{'EVENTOS.BEGIN'| translate}}</th>\r\n            <th>{{'EVENTOS.END'| translate}}</th>\r\n          </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          <tr *ngFor=\"let event of eventsEditar; let index = index\">\r\n            <td>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                [(ngModel)]=\"event.title\"\r\n                (ngModelChange)=\"cambio('titulo',event.title, 'STRING')\"\r\n                (keyup)=\"refresh.next()\">\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.start\"\r\n                (ngModelChange)=\"refresh.next(); cambio('inicio',event.start, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.end\"\r\n                (ngModelChange)=\"refresh.next(); cambio('fin',event.end, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n      \r\n      <label (click)=\"mostrarDetallesEdicion()\" for=\"mostrarDetallesMas\" class=\"{{masDetallesClass}}\">\r\n          <i class=\"fa fa-hand-o-down\"></i> Editar detalles\r\n      </label>\r\n\r\n      <br><br><br>\r\n\r\n      <div *ngIf=\"mostrarDetallesMas\">\r\n\r\n        <div class=\"input-group\" style=\"float:right;\">\r\n          <a class=\"fa fa-plus-circle\" (click)=\"anadirAtributo()\" ></a>        \r\n        </div>\r\n\r\n        <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Descripción</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"descripcionEventoJ\" placeholder=\"Ingrese descripción\" name=\"descripcionEventoJ\"\r\n                [(ngModel)]=\"descripcionEvento\" (ngModelChange)=\"cambio('descripcion',descripcionEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Requisitos</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"requisitosnEventoJ\" placeholder=\"Ingrese requisitos\" name=\"requisitosnEventoJ\"\r\n                [(ngModel)]=\"requisitosEvento\" (ngModelChange)=\"cambio('requisitos',requisitosEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Capacidad Máxima</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"capacidadEventoJ\" placeholder=\"Ingrese capacidad máxima\" name=\"capacidadEventoJ\"\r\n                [(ngModel)]=\"capacidadMaxima\" (ngModelChange)=\"cambio('capacidadMaxima',capacidadMaxima,'LONG')\">\r\n            </div>\r\n          </div>\r\n        </form>\r\n\r\n        <div *ngIf=\"accion==1\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\" (ngModelChange)=\"cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\" (ngModelChange)=\"cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n        <div *ngIf=\"accion==2\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n      </div>\r\n      \r\n        <br><br>\r\n        <div *ngIf=\"accion==2\">\r\n          <div class=\"input-group centered\">\r\n            <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n            <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n          </div> \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** -->\r\n\r\n<div id=\"overlayInformacionEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUpDetalle()\">&times;</span><br><br>\r\n      \r\n      <h4>\r\n        {{detalleEvento}}\r\n      </h4>  \r\n\r\n      <!-- <a *ngIf=\"!suscrito\" class=\"fa fa-bell\" (click)=\"suscribirse()\" >Suscribirse</a>\r\n      <a *ngIf=\"suscrito\" class=\"fa fa-check\" (click)=\"desuscribirse()\" >Suscrito</a> -->\r\n\r\n      <!-- *ngIf=\"validarFechaInscribir()\"  -->\r\n      <div style=\"float:right;\">\r\n        <label  id=\"labelInscripcionFa\" (click)=\"suscribirse()\" class=\"custom-inscribir\">\r\n          <i id=\"inscripcionFa\" class=\"fa fa-bell\"></i>\r\n        </label>\r\n      </div>  \r\n\r\n      <br><br>\r\n      <h5>Descripcion</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{descripcionEvento}}        \r\n      </h6>  \r\n      <br><br>\r\n      <h5>Requisitos</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{requisitosEvento}}\r\n      </h6>\r\n      <br><br>\r\n      <h5>Capacidad Máxima</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{capacidadMaxima}}\r\n      </h6>\r\n      <br><br>\r\n      <app-suscriptores></app-suscriptores>      \r\n\r\n    </div>\r\n</div>\r\n\r\n<!-- ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** -->\r\n\r\n\r\n<app-listado-eventos></app-listado-eventos>\r\n\r\n</div>\r\n\r\n<app-formulario-personalizado (guardo)=\"onNotifyInscribirse($event)\"></app-formulario-personalizado>\r\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" ></app-popup-aviso>"
+module.exports = "<br>\r\n<div class=\"calendarioMargen\">\r\n\r\n<div class=\"input-group\" style=\"float:right;\">\r\n  <a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"abrirAdicionEvento() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"fa fa-list-ul\" (click)=\"abrirTodosEventos() ; mostrarEventos=true;\" ></a>\r\n  <a class=\"{{misContactosSt}}\" (click)=\"mostrarMisEventos()\" ngbTooltip=\"{{mensajeTooTip}}\"></a>  \r\n</div>\r\n\r\n<br><br><br>\r\n<ng-template #modalContent let-close=\"close\">\r\n  <div class=\"modal-header\">\r\n    <h5 class=\"modal-title\">Event action occurred</h5>\r\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div>\r\n      Action:\r\n      <pre>{{ modalData?.action }}</pre>\r\n    </div>\r\n    <div>\r\n      Event:\r\n      <pre>{{ modalData?.event | json }}</pre>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">OK</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<div class=\"row text-center\">\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarPreviousView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.PREV'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-outline-secondary\"\r\n        mwlCalendarToday\r\n        [(viewDate)]=\"viewDate\">\r\n        {{'EVENTOS.HOY'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        mwlCalendarNextView\r\n        [view]=\"view\"\r\n        [(viewDate)]=\"viewDate\"\r\n        (viewDateChange)=\"activeDayIsOpen = false\">\r\n        {{'EVENTOS.NEXT'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'es-CO' }}</h3>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div class=\"btn-group\">\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'month'\"\r\n        [class.active]=\"view === 'month'\">\r\n        {{'EVENTOS.MES'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'week'\"\r\n        [class.active]=\"view === 'week'\">\r\n        {{'EVENTOS.WEEK'| translate}}\r\n      </div>\r\n      <div\r\n        class=\"btn btn-primary\"\r\n        (click)=\"view = 'day'\"\r\n        [class.active]=\"view === 'day'\">\r\n        {{'EVENTOS.DAY'| translate}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br>\r\n\r\n\r\n<div [ngSwitch]=\"view\">\r\n  <mwl-calendar-month-view\r\n    *ngSwitchCase=\"'month'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    [activeDayIsOpen]=\"activeDayIsOpen\"\r\n    (dayClicked)=\"dayClicked($event.day)\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-month-view>\r\n  <mwl-calendar-week-view\r\n    *ngSwitchCase=\"'week'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-week-view>\r\n  <mwl-calendar-day-view\r\n    *ngSwitchCase=\"'day'\"\r\n    [viewDate]=\"viewDate\"\r\n    [events]=\"events\"\r\n    [locale]=\"locale\"\r\n    [refresh]=\"refresh\"\r\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\r\n    (eventTimesChanged)=\"eventTimesChanged($event)\">\r\n  </mwl-calendar-day-view>\r\n</div>\r\n\r\n<!-- ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** EDICIÓNN Y ADICIÓN ********** -->\r\n\r\n<div id=\"overlayEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n\r\n      <div *ngIf=\"accion==1\">\r\n        <h3>\r\n          {{'EVENTOS.EDIT'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==2\">\r\n        <h3>\r\n          {{'EVENTOS.CREATE'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n\r\n      <div *ngIf=\"accion==3\">\r\n        <h3>\r\n          {{'EVENTOS.LIST'| translate}}\r\n          <div class=\"clearfix\"></div>\r\n        </h3>\r\n      </div>\r\n        <!-- <button\r\n          class=\"btn btn-primary pull-right\"\r\n          (click)=\"addEvent()\">\r\n          Agregar\r\n        </button> -->\r\n        \r\n\r\n      <table class=\"table table-bordered\">\r\n\r\n        <thead>\r\n          <tr>\r\n            <th>{{'EVENTOS.NAME'| translate}}</th>     \r\n            <th>{{'EVENTOS.BEGIN'| translate}}</th>\r\n            <th>{{'EVENTOS.END'| translate}}</th>\r\n          </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          <tr *ngFor=\"let event of eventsEditar; let index = index\">\r\n            <td>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                [(ngModel)]=\"event.title\"\r\n                (ngModelChange)=\"cambio('titulo',event.title, 'STRING')\"\r\n                (keyup)=\"refresh.next()\">\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.start\"\r\n                (ngModelChange)=\"refresh.next(); cambio('inicio',event.start, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n            <td>\r\n              <mwl-demo-utils-date-time-picker\r\n                [(ngModel)]=\"event.end\"\r\n                (ngModelChange)=\"refresh.next(); cambio('fin',event.end, 'FECHA')\"\r\n                placeholder=\"Not set\">\r\n              </mwl-demo-utils-date-time-picker>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n      \r\n      <label (click)=\"mostrarDetallesEdicion()\" for=\"mostrarDetallesMas\" class=\"{{masDetallesClass}}\">\r\n          <i class=\"fa fa-hand-o-down\"></i> Editar detalles\r\n      </label>\r\n\r\n      <br><br><br>\r\n\r\n      <div *ngIf=\"mostrarDetallesMas\">\r\n\r\n        <div class=\"input-group\" style=\"float:right;\">\r\n          <a class=\"fa fa-plus-circle\" (click)=\"anadirAtributo()\" ></a>        \r\n        </div>\r\n\r\n        <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Descripción</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"descripcionEventoJ\" placeholder=\"Ingrese descripción\" name=\"descripcionEventoJ\"\r\n                [(ngModel)]=\"descripcionEvento\" (ngModelChange)=\"cambio('descripcion',descripcionEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Lugar</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"lugarEventoJ\" placeholder=\"Ingrese LUGAR\" name=\"lugarEventoJ\"\r\n                [(ngModel)]=\"lugarEvento\" (ngModelChange)=\"cambio('lugar',lugarEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Requisitos</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"requisitosnEventoJ\" placeholder=\"Ingrese requisitos\" name=\"requisitosnEventoJ\"\r\n                [(ngModel)]=\"requisitosEvento\" (ngModelChange)=\"cambio('requisitos',requisitosEvento,'STRING')\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Capacidad Máxima</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"capacidadEventoJ\" placeholder=\"Ingrese capacidad máxima\" name=\"capacidadEventoJ\"\r\n                [(ngModel)]=\"capacidadMaxima\" (ngModelChange)=\"cambio('capacidadMaxima',capacidadMaxima,'LONG')\">\r\n            </div>\r\n          </div>\r\n        </form>\r\n\r\n        <div *ngIf=\"accion==1\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\" (ngModelChange)=\"cambioPersonalizado('nombre',personalizados.nombre,'STRING' ,personalizados.id)\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\" (ngModelChange)=\"cambioPersonalizado('descripcion',personalizados.descripcion,'STRING',personalizados.id)\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n        <div *ngIf=\"accion==2\">\r\n          <form class=\"form-horizontal\">\r\n            <div *ngFor=\"let personalizados of atributosPersonalizados; let i = index\">\r\n              <div class=\"form-group\">\r\n                <div class=\"col-sm-2\">\r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoLabel{{idActual}}{{i}}\" placeholder=\"Nombre\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.nombre\">\r\n                </div>\r\n                    <div class=\"col-sm-10\">          \r\n                  <input type=\"text\" class=\"form-control\" id=\"personalizadoInput{{idActual}}{{i}}\" placeholder=\"Ingrese descripción\" name=\"personalizadoLabel{{idActual}}{{i}}\"\r\n                    [(ngModel)]=\"personalizados.descripcion\">\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        </div>\r\n\r\n      </div>\r\n      \r\n        <br><br>\r\n        <div *ngIf=\"accion==2\">\r\n          <div class=\"input-group centered\">\r\n            <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n            <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n          </div> \r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<!-- ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** DETALLES ********** -->\r\n\r\n<div id=\"overlayInformacionEvento\">\r\n  \r\n  <div class=\"modalShow\">      \r\n      <span class=\"close\" (click)=\"cerrarPopUpDetalle()\">&times;</span><br><br>\r\n      \r\n      <h4>\r\n        {{detalleEvento}}\r\n      </h4>  \r\n\r\n      <!-- <a *ngIf=\"!suscrito\" class=\"fa fa-bell\" (click)=\"suscribirse()\" >Suscribirse</a>\r\n      <a *ngIf=\"suscrito\" class=\"fa fa-check\" (click)=\"desuscribirse()\" >Suscrito</a> -->\r\n\r\n      <!-- *ngIf=\"validarFechaInscribir()\"  -->\r\n      <div style=\"float:right;\">\r\n        <label  id=\"labelInscripcionFa\" (click)=\"suscribirse()\" class=\"custom-inscribir\">\r\n          <i id=\"inscripcionFa\" class=\"fa fa-bell\"></i>\r\n        </label>\r\n      </div>  \r\n\r\n      <br><br>\r\n      <h5>Descripcion</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{descripcionEvento}}        \r\n      </h6>  \r\n      <br><br>\r\n      <h5>Lugar</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{lugarEvento}}        \r\n      </h6>  \r\n      <br><br>\r\n      <h5>Requisitos</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{requisitosEvento}}\r\n      </h6>\r\n      <br><br>\r\n      <h5>Capacidad Máxima</h5>\r\n      <br><br>\r\n      <h6>          \r\n        {{capacidadMaxima}}\r\n      </h6>\r\n      <br><br>\r\n      <app-suscriptores></app-suscriptores>      \r\n\r\n    </div>\r\n</div>\r\n\r\n<!-- ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** LISTADO ********** -->\r\n\r\n\r\n<app-listado-eventos></app-listado-eventos>\r\n\r\n</div>\r\n\r\n<app-formulario-personalizado (guardo)=\"onNotifyInscribirse($event)\"></app-formulario-personalizado>\r\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" ></app-popup-aviso>"
 
 /***/ }),
 
@@ -3049,7 +3049,6 @@ var EventoComponent = /** @class */ (function () {
                 onClick: function (_a) {
                     var event = _a.event;
                     console.log(event);
-                    //this.handleEvent('Edited', event);
                     _this.abrirEdicionEvento(event.id);
                 }
             },
@@ -3057,8 +3056,6 @@ var EventoComponent = /** @class */ (function () {
                 label: '<i class="fa fa-fw fa-times"></i>',
                 onClick: function (_a) {
                     var event = _a.event;
-                    /*this.events = this.events.filter(iEvent => iEvent !== event);
-                    this.handleEvent('Deleted', event);*/
                     _this.eliminar(event.id);
                 }
             },
@@ -3067,7 +3064,6 @@ var EventoComponent = /** @class */ (function () {
                 onClick: function (_a) {
                     var event = _a.event;
                     console.log(event);
-                    //this.handleEvent('Edited', event);
                     _this.abrirDetalleEventos(event.id);
                 }
             }
@@ -3098,41 +3094,6 @@ var EventoComponent = /** @class */ (function () {
         if (!this.esAdmin) {
             this.actions = [];
         }
-        // data = {
-        //   id: 1,
-        //   start: subDays(startOfDay(new Date()), 1),
-        //   end: addDays(new Date(), 1),
-        //   title: 'Emprendimiento : El camino',
-        //   color: colors.blueJaverina,
-        //   actions: this.actions
-        // };
-        // this.events.push(data);
-        // data={
-        //   id: 2,
-        //   start: startOfDay(new Date()),
-        //   title: 'Evento sin fecha de finalización',
-        //   color: colors.yellowJaveriana,
-        //   actions: this.actions
-        // };
-        // this.events.push(data);
-        // data={
-        //   id: 3,
-        //   start: subDays(endOfMonth(new Date()), 3),
-        //   end: addDays(endOfMonth(new Date()), 3),
-        //   title: 'Charla Google',
-        //   color: colors.blue,
-        //   actions: this.actions
-        // };
-        // this.events.push(data);
-        // data={
-        //   id: 4,
-        //   start: addHours(startOfDay(new Date()), 2),
-        //   end: new Date(),
-        //   title: 'Hackaton 2018',
-        //   color: colors.yellowJaveriana,
-        //   actions: this.actions      
-        // };
-        // this.events.push(data);
     };
     EventoComponent.prototype.dayClicked = function (_a) {
         var date = _a.date, events = _a.events;
@@ -3196,6 +3157,7 @@ var EventoComponent = /** @class */ (function () {
             }));
             this.eventosTodos[index].descripcion = this.descripcionEvento;
             this.eventosTodos[index].requisitos = this.requisitosEvento;
+            this.eventosTodos[index].lugar = this.lugarEvento;
             if (this.capacidadMaxima != null) {
                 this.eventosTodos[index].capacidad_maxima = this.capacidadMaxima;
             }
@@ -3207,6 +3169,7 @@ var EventoComponent = /** @class */ (function () {
         this.descripcionEvento = null;
         this.requisitosEvento = null;
         this.capacidadMaxima = null;
+        this.lugarEvento = null;
         console.log('abrirEdicionEvento : entro a abrirEdicionEvento');
         console.log(this.events);
         var escogido = this.events.indexOf(this.events.find(function (element) {
@@ -3221,6 +3184,7 @@ var EventoComponent = /** @class */ (function () {
         }));
         this.descripcionEvento = this.eventosTodos[index].descripcion;
         this.requisitosEvento = this.eventosTodos[index].requisitos;
+        this.lugarEvento = this.eventosTodos[index].lugar;
         if (this.eventosTodos[index].capacidad_maxima == -1) {
             this.capacidadMaxima = null;
         }
@@ -3238,6 +3202,7 @@ var EventoComponent = /** @class */ (function () {
         this.descripcionEvento = null;
         this.requisitosEvento = null;
         this.capacidadMaxima = null;
+        this.lugarEvento = null;
         // let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
         // console.log(mensaje);
         // let observable = this.colaService.agregarACola(mensaje);
@@ -3301,7 +3266,7 @@ var EventoComponent = /** @class */ (function () {
             this.avisar();
             return false;
         }
-        if (this.descripcionEvento == null || this.capacidadMaxima == null || this.requisitosEvento == null) {
+        if (this.descripcionEvento == null || this.capacidadMaxima == null || this.requisitosEvento == null || this.lugarEvento == null) {
             this.mensajeMostrar = 'Debe llenar los detalles del evento';
             this.avisar();
             return false;
@@ -3324,6 +3289,7 @@ var EventoComponent = /** @class */ (function () {
             requisitos: this.requisitosEvento,
             descripcion: this.descripcionEvento,
             capacidad_maxima: this.capacidadMaxima,
+            lugar: this.lugarEvento,
             atrPersonalizados: this.atributosPersonalizados
         };
         eventoEnviar.push(data);
@@ -3361,6 +3327,7 @@ var EventoComponent = /** @class */ (function () {
         }));
         this.descripcionEvento = this.eventosTodos[indice].descripcion;
         this.requisitosEvento = this.eventosTodos[indice].requisitos;
+        this.lugarEvento = this.eventosTodos[indice].lugar;
         if (this.eventosTodos[indice].capacidad_maxima == -1) {
             this.capacidadMaxima = 'No se tiene un límite de capacidad';
         }
@@ -3459,7 +3426,7 @@ var EventoComponent = /** @class */ (function () {
         }
     };
     EventoComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPop();
+        __WEBPACK_IMPORTED_MODULE_10__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrar = true;
     };
     EventoComponent.prototype.mostrarMisEventos = function () {
         var _this = this;
@@ -4168,7 +4135,7 @@ var SuscriptoresComponent = /** @class */ (function () {
         });
     };
     SuscriptoresComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPopExito();
+        __WEBPACK_IMPORTED_MODULE_4__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarExito = true;
     };
     SuscriptoresComponent.prototype.onCerrarNotify = function (e) {
         console.log('Se cerro el pop up');
@@ -4484,7 +4451,7 @@ var InvitadoCrearComponent = /** @class */ (function () {
         this.cerrarPopUp();
     };
     InvitadoCrearComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPopExito();
+        __WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarExito = true;
     };
     InvitadoCrearComponent.prototype.onCerrarNotify = function (e) {
         console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
@@ -5321,7 +5288,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#overlayAviso {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAviso div.modalShow {\r\n  background-color: #f2dede ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #ebccd1;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoInfoExito {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoInfoExito div.modalShowInfoExito {\r\n  background-color: #dff0d8;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #d6e9c6;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoConBotones {\r\n  visibility: hidden;\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoConBotones div.modalShowConBotones {\r\n  background-color: #fcf8e3 ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #faebcc;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\nbody {\r\n  height:100%;\r\n  margin:0;\r\n  padding:0;\r\n}\r\n\r\n.close {\r\n  color: #aaa;\r\n  float: right;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n  color: black;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n  background-color: #fefefe;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 100%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\nh4.alerta {\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh4.exito {\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh4.advertencia {\r\n  margin: 0 0 10px;\r\n  color: #8a6d3b;\r\n}\r\n\r\nh3.alerta {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh3.exito {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh3.advertencia {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #8a6d3b;\r\n}\r\n\r\n/* Botones de si o no */\r\n\r\n.centered {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n\r\n.centered button,\r\n.centered button:focus\r\n{\r\n  background-color: #8a6d3b;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n}\r\n\r\n.centered button:hover.guardar,\r\n.centered button:visited,\r\n.centered button:active\r\n{\r\n  background-color: darkgreen ;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\n.centered button:hover.cancelar,\r\n.centered button:visited,\r\n.centered button:active\r\n{\r\n  background-color:  darkred ;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\n.input-group{\r\n  display:block !important;\r\n}", ""]);
+exports.push([module.i, "#overlayAviso {  \r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAviso div.modalShow {\r\n  background-color: #f2dede ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #ebccd1;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoInfoExito {  \r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoInfoExito div.modalShowInfoExito {\r\n  background-color: #dff0d8;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #d6e9c6;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\n#overlayAvisoConBotones {\r\n  /*position: absolute;*/\r\n  left: 0px;\r\n  top: 0px;\r\n  width:100%;\r\n  height:100%;\r\n  text-align:center;        \r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    \r\n}\r\n\r\n#overlayAvisoConBotones div.modalShowConBotones {\r\n  background-color: #fcf8e3 ;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 50%; /* Could be more or less, depending on screen size */\r\n  border: 2px solid #faebcc;\r\n  border-radius: 8px;\r\n  /* max-height: 800px;\r\n  overflow: scroll; */\r\n}\r\n\r\nbody {\r\n  height:100%;\r\n  margin:0;\r\n  padding:0;\r\n}\r\n\r\n.close {\r\n  color: #aaa;\r\n  float: right;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n  color: black;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n  background-color: #fefefe;\r\n  margin: 15% auto; /* 15% from the top and centered */\r\n  padding: 20px;\r\n  border: 1px solid #888;\r\n  width: 100%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\nh4.alerta {\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh4.exito {\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh4.advertencia {\r\n  margin: 0 0 10px;\r\n  color: #8a6d3b;\r\n}\r\n\r\nh3.alerta {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #a94442;\r\n}\r\n\r\nh3.exito {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #3c763d;\r\n}\r\n\r\nh3.advertencia {\r\n  font-weight: 700;\r\n  margin: 0 0 10px;\r\n  color: #8a6d3b;\r\n}\r\n\r\n/* Botones de si o no */\r\n\r\n.centered {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n\r\n.centered button,\r\n.centered button:focus\r\n{\r\n  background-color: #8a6d3b;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n}\r\n\r\n.centered button:hover.guardar,\r\n.centered button:visited,\r\n.centered button:active\r\n{\r\n  background-color: darkgreen ;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\n.centered button:hover.cancelar,\r\n.centered button:visited,\r\n.centered button:active\r\n{\r\n  background-color:  darkred ;\r\n  color : #ffffff;\r\n  border-color: #ffffff;  \r\n}\r\n\r\n.input-group{\r\n  display:block !important;\r\n}", ""]);
 
 // exports
 
@@ -5334,7 +5301,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/popup-aviso/popup-aviso.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"overlayAviso\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br>\n      \n      <h3 class=\"alerta\">\n        Error\n      </h3>  \n      \n      <br>  \n      <h4 class=\"alerta\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div id=\"overlayAvisoInfoExito\">\n  \n  <div class=\"modalShowInfoExito\">      \n      <span class=\"close\" (click)=\"cerrarPopUpExito()\">&times;</span><br>\n\n      \n      <h3 class=\"exito\">\n        Información\n      </h3>  \n      \n      <br>\n      <h4 class=\"exito\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div id=\"overlayAvisoConBotones\">\n  \n  <div class=\"modalShowConBotones\">      \n      <span class=\"close\" (click)=\"cerrarPopUpBotones()\">&times;</span><br>\n\n      \n      <h3 class=\"advertencia\">\n        Advertencia\n      </h3>  \n      \n      <br>\n      <h4 class=\"advertencia\">          \n        ¿Está seguro que desea eliminar el elemento seleccionado?\n      </h4>\n      <br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"confirmacion()\">{{'POPUP.SI'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUpBotones()\">{{'POPUP.NO'| translate}}</button>\n      </div> \n\n    </div>\n</div>"
+module.exports = "<div *ngIf=\"getStaticMostrarPopGeneral()\" id=\"overlayAviso\">\n  \n  <div class=\"modalShow\">      \n      <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br>\n      \n      <h3 class=\"alerta\">\n        Error\n      </h3>  \n      \n      <br>  \n      <h4 class=\"alerta\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div *ngIf=\"getStaticMostrarPopGeneralExito()\" id=\"overlayAvisoInfoExito\">\n  \n  <div class=\"modalShowInfoExito\">      \n      <span class=\"close\" (click)=\"cerrarPopUpExito()\">&times;</span><br>\n\n      \n      <h3 class=\"exito\">\n        Información\n      </h3>  \n      \n      <br>\n      <h4 class=\"exito\">          \n        {{mensaje}}\n      </h4>\n      <br>\n\n    </div>\n</div>\n\n<div *ngIf=\"getStaticMostrarPopGeneralBotones()\" id=\"overlayAvisoConBotones\">\n  \n  <div class=\"modalShowConBotones\">      \n      <span class=\"close\" (click)=\"cerrarPopUpBotones()\">&times;</span><br>\n\n      \n      <h3 class=\"advertencia\">\n        Advertencia\n      </h3>  \n      \n      <br>\n      <h4 class=\"advertencia\">          \n        ¿Está seguro que desea eliminar el elemento seleccionado?\n      </h4>\n      <br>\n\n      <div class=\"input-group centered\">\n        <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"confirmacion()\">{{'POPUP.SI'| translate}}</button>       \n        <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUpBotones()\">{{'POPUP.NO'| translate}}</button>\n      </div> \n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -5360,55 +5327,42 @@ var PopupAvisoComponent = /** @class */ (function () {
         this.cerroPop = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.confirmo = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
+    PopupAvisoComponent_1 = PopupAvisoComponent;
     PopupAvisoComponent.prototype.ngOnInit = function () {
+    };
+    PopupAvisoComponent.prototype.getStaticMostrarPopGeneral = function () {
+        return PopupAvisoComponent_1.mostrar;
+    };
+    PopupAvisoComponent.prototype.getStaticMostrarPopGeneralExito = function () {
+        return PopupAvisoComponent_1.mostrarExito;
+    };
+    PopupAvisoComponent.prototype.getStaticMostrarPopGeneralBotones = function () {
+        return PopupAvisoComponent_1.mostrarBotones;
     };
     PopupAvisoComponent.prototype.ngOnChanges = function (changes) {
         console.log(changes);
     };
-    PopupAvisoComponent.prototype.mostrarPop = function () {
-        console.log('mostrarPop : entro a mostrarPop');
-        var el;
-        el = document.getElementById("overlayAviso");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-    };
     PopupAvisoComponent.prototype.cerrarPopUp = function () {
         console.log('cerrarPopUp : entro a cerrarPopUp');
-        var el;
-        el = document.getElementById("overlayAviso");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-    };
-    PopupAvisoComponent.prototype.mostrarPopExito = function () {
-        console.log('mostrarPopExito : entro a mostrarPopExito');
-        var el;
-        el = document.getElementById("overlayAvisoInfoExito");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+        PopupAvisoComponent_1.mostrar = false;
     };
     PopupAvisoComponent.prototype.cerrarPopUpExito = function () {
         console.log('cerrarPopUp : entro a cerrarPopUp');
         this.cerroPop.emit('Cerro');
-        var el;
-        el = document.getElementById("overlayAvisoInfoExito");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-    };
-    PopupAvisoComponent.prototype.mostrarPopBotones = function () {
-        console.log('mostrarPopBotones : entro a mostrarPopBotones');
-        var el;
-        el = document.getElementById("overlayAvisoConBotones");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+        PopupAvisoComponent_1.mostrarExito = false;
     };
     PopupAvisoComponent.prototype.cerrarPopUpBotones = function () {
         console.log('cerrarPopUpBotones : entro a cerrarPopUpBotones');
-        var el;
-        el = document.getElementById("overlayAvisoConBotones");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+        PopupAvisoComponent_1.mostrarBotones = false;
     };
     PopupAvisoComponent.prototype.confirmacion = function () {
         console.log('confirmacion : entro a confirmacion');
         this.confirmo.emit('Se confirmo');
-        var el;
-        el = document.getElementById("overlayAvisoConBotones");
-        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+        PopupAvisoComponent_1.mostrarBotones = false;
     };
+    PopupAvisoComponent.mostrar = false;
+    PopupAvisoComponent.mostrarExito = false;
+    PopupAvisoComponent.mostrarBotones = false;
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])('mensaje'),
         __metadata("design:type", Object)
@@ -5421,7 +5375,7 @@ var PopupAvisoComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
     ], PopupAvisoComponent.prototype, "confirmo", void 0);
-    PopupAvisoComponent = __decorate([
+    PopupAvisoComponent = PopupAvisoComponent_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-popup-aviso',
             template: __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.html"),
@@ -5430,6 +5384,7 @@ var PopupAvisoComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], PopupAvisoComponent);
     return PopupAvisoComponent;
+    var PopupAvisoComponent_1;
 }());
 
 
@@ -5601,7 +5556,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h2 {\r\n\tcolor: #000066;\r\n}\r\n\r\n#overlayServiciosEmprendimiento {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n  }\r\n\r\n#overlayServiciosEmprendimiento div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n  }\r\n\r\n.centered {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n\r\n.centered button,\r\n    .centered button:focus\r\n    {\r\n      background-color: #000066;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n      margin-left: 5px;\r\n      margin-right: 5px;\r\n    }\r\n\r\n.centered button:hover.guardar,\r\n    .centered button:visited,\r\n    .centered button:active\r\n    {\r\n      background-color: green ;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n    }\r\n\r\n.centered button:hover.cancelar,\r\n    .centered button:visited,\r\n    .centered button:active\r\n    {\r\n      background-color:  red ;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n    }\r\n\r\n::ng-deep div.ServMargen{\r\n        margin-left: 40px;\r\n        margin-right:40px;\r\n      }\r\n\r\nbody {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n.close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 80%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\na.fa.fa-plus-circle{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 45px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.mat-cell.cdk-column-editar.mat-column-editar.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F589';\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.mat-cell.cdk-column-informacion.mat-column-informacion.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F50D';\r\n    cursor: pointer;\r\n  }", ""]);
+exports.push([module.i, "h2 {\r\n\tcolor: #000066;\r\n}\r\n\r\n#overlayServiciosEmprendimiento {\r\n    visibility: hidden;\r\n    /*position: absolute;*/\r\n    left: 0px;\r\n    top: 0px;\r\n    width:100%;\r\n    height:100%;\r\n    text-align:center;        \r\n    position: fixed; /* Stay in place */\r\n    z-index: 1; /* Sit on top */\r\n    overflow: auto; /* Enable scroll if needed */\r\n    background-color: rgb(0,0,0); /* Fallback color */\r\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    \r\n  }\r\n\r\n#overlayServiciosEmprendimiento div.modalShow {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 50%; /* Could be more or less, depending on screen size */\r\n    border: 2px solid #000066;\r\n    border-radius: 8px;\r\n  }\r\n\r\n.centered {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n  }\r\n\r\n.centered button,\r\n    .centered button:focus\r\n    {\r\n      background-color: #000066;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n      margin-left: 5px;\r\n      margin-right: 5px;\r\n    }\r\n\r\n.centered button:hover.guardar,\r\n    .centered button:visited,\r\n    .centered button:active\r\n    {\r\n      background-color: green ;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n    }\r\n\r\n.centered button:hover.cancelar,\r\n    .centered button:visited,\r\n    .centered button:active\r\n    {\r\n      background-color:  red ;\r\n      color : #ffffff;\r\n      border-color: #ffffff;  \r\n    }\r\n\r\n::ng-deep div.ServMargen{\r\n        margin-left: 40px;\r\n        margin-right:40px;\r\n      }\r\n\r\nbody {\r\n    height:100%;\r\n    margin:0;\r\n    padding:0;\r\n}\r\n\r\n.close {\r\n    color: #aaa;\r\n    float: right;\r\n    font-size: 28px;\r\n    font-weight: bold;\r\n}\r\n\r\n.close:hover,\r\n.close:focus {\r\n    color: black;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.modal-content {\r\n    background-color: #fefefe;\r\n    margin: 15% auto; /* 15% from the top and centered */\r\n    padding: 20px;\r\n    border: 1px solid #888;\r\n    width: 80%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\na.fa.fa-plus-circle{\r\n    float:right; \r\n    border-color : #FFCC00;\r\n    font-size: 45px;\r\n    color: #FFCC00;\r\n    margin-left: 30px;\r\n    margin-right: 30px;\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.mat-cell.cdk-column-editar.mat-column-editar.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F589';\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.mat-cell.cdk-column-informacion.mat-column-informacion.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\1F50D';\r\n    cursor: pointer;\r\n  }\r\n\r\nmat-cell.mat-cell.cdk-column-eliminar.mat-column-eliminar.ng-star-inserted:before  { \r\n    font-family: FontAwesome; \r\n    font-size: 30px; \r\n    display: inline-block; \r\n    content: '\\F1F8';\r\n    cursor: pointer;\r\n    color : darkred\r\n  }", ""]);
 
 // exports
 
@@ -5614,7 +5569,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/servicios-emprendimiento/servicios-emprendimiento.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\r\n<div class=\"ServMargen\">\r\n<h2>Servicios</h2>\r\n\r\n<br><br>\r\n\r\n<a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"editarServicio(undefined)\" ></a>\r\n\r\n<div class=\"mat-app-background basic-container\">\r\n\r\n  <div class=\"example-header\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\r\n    </mat-form-field>\r\n  </div>\r\n\r\n  <div class=\"example-container mat-elevation-z8\" >\r\n\r\n    <mat-table #tableServiciosEmp [dataSource]=\"dataSource\" matSort>\r\n\r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\r\n      </ng-container>\r\n\r\n      <!-- Nombre Column -->\r\n      <ng-container matColumnDef=\"nombre\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\r\n      </ng-container>\r\n      \r\n      <!-- Info Column -->\r\n      <ng-container matColumnDef=\"informacion\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"  (click)=\"abrirInformacion(row)\"></mat-cell>\r\n      </ng-container>\r\n\r\n      <!-- Editar Column -->\r\n      <ng-container *ngIf=\"esAdmin\" matColumnDef=\"editar\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"  (click)=\"editarServicio(row)\"></mat-cell>\r\n      </ng-container>\r\n\r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- EDICION POP UP -->\r\n\r\n<div id=\"overlayServiciosEmprendimiento\">\r\n  \r\n    <div class=\"modalShow\">      \r\n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n        \r\n        <div *ngIf=\"edita==0\">\r\n          <h3>Adición Servicio</h3>   \r\n        </div>\r\n        <div *ngIf=\"edita==1\">\r\n          <h3>Edición Servicio : {{servicio.nombre}}</h3>   \r\n        </div>\r\n        \r\n        <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\r\n            <div class=\"col-sm-10\">\r\n              <input type=\"text\" class=\"form-control\" id=\"nombreServicio\" placeholder=\"Ingrese nombre\" name=\"nombreServicio\"\r\n                [(ngModel)]=\"servicio.nombre\" (ngModelChange)=\"cambio('nombre',servicio.nombre, 'STRING', servicio.id)\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Link</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"urlEnlaceSer\" placeholder=\"Ingrese link\" name=\"urlEnlaceSer\"\r\n                [(ngModel)]=\"servicio.link\" (ngModelChange)=\"cambio('url',servicio.link,'STRING', servicio.id)\">\r\n            </div>\r\n          </div>\r\n        </form>\r\n  \r\n        <div *ngIf=\"edita==0\" class=\"input-group centered\">\r\n          <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n          <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n        </div>\r\n  \r\n        <br><br>\r\n    </div>\r\n  \r\n    \r\n  </div>\r\n\r\n</div>"
+module.exports = "<br>\r\n<div class=\"ServMargen\">\r\n<h2>Servicios</h2>\r\n\r\n<br><br>\r\n\r\n<a *ngIf=\"esAdmin\" class=\"fa fa-plus-circle\" (click)=\"editarServicio(undefined)\" ></a>\r\n\r\n<div class=\"mat-app-background basic-container\">\r\n\r\n  <div class=\"example-header\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtro\">\r\n    </mat-form-field>\r\n  </div>\r\n\r\n  <div class=\"example-container mat-elevation-z8\" >\r\n\r\n    <mat-table #tableServiciosEmp [dataSource]=\"dataSource\" matSort>\r\n\r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.id}} </mat-cell>\r\n      </ng-container>\r\n\r\n      <!-- Nombre Column -->\r\n      <ng-container matColumnDef=\"nombre\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Servicio </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\r\n      </ng-container>\r\n      \r\n      <!-- Info Column -->\r\n      <ng-container matColumnDef=\"informacion\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"  (click)=\"abrirInformacion(row)\"></mat-cell>\r\n      </ng-container>\r\n\r\n      <!-- Editar Column -->\r\n      <ng-container *ngIf=\"esAdmin\" matColumnDef=\"editar\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"  (click)=\"editarServicio(row)\"></mat-cell>\r\n      </ng-container>\r\n      \r\n      <!-- Editar Column -->\r\n      <ng-container *ngIf=\"esAdmin\" matColumnDef=\"eliminar\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"  (click)=\"eliminarServicio(row)\"></mat-cell>\r\n      </ng-container>\r\n\r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!-- EDICION POP UP -->\r\n\r\n<div id=\"overlayServiciosEmprendimiento\">\r\n  \r\n    <div class=\"modalShow\">      \r\n        <span class=\"close\" (click)=\"cerrarPopUp()\">&times;</span><br><br>\r\n        \r\n        <div *ngIf=\"edita==0\">\r\n          <h3>Adición Servicio</h3>   \r\n        </div>\r\n        <div *ngIf=\"edita==1\">\r\n          <h3>Edición Servicio : {{servicio.nombre}}</h3>   \r\n        </div>\r\n        \r\n        <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"email\">Nombre</label>\r\n            <div class=\"col-sm-10\">\r\n              <input type=\"text\" class=\"form-control\" id=\"nombreServicio\" placeholder=\"Ingrese nombre\" name=\"nombreServicio\"\r\n                [(ngModel)]=\"servicio.nombre\" (ngModelChange)=\"cambio('nombre',servicio.nombre, 'STRING', servicio.id)\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label class=\"control-label col-sm-2\" for=\"pwd\">Link</label>\r\n            <div class=\"col-sm-10\">          \r\n              <input type=\"text\" class=\"form-control\" id=\"urlEnlaceSer\" placeholder=\"Ingrese link\" name=\"urlEnlaceSer\"\r\n                [(ngModel)]=\"servicio.link\" (ngModelChange)=\"cambio('url',servicio.link,'STRING', servicio.id)\">\r\n            </div>\r\n          </div>\r\n        </form>\r\n  \r\n        <div *ngIf=\"edita==0\" class=\"input-group centered\">\r\n          <button  class=\"btn btn-info btn-lg guardar\" type=\"button\" (click)=\"guardarCambios()\">{{'EVENTOS.SAVE'| translate}}</button>       \r\n          <button  class=\"btn btn-info btn-lg cancelar\" type=\"button\" (click)=\"cerrarPopUp()\">{{'EVENTOS.CANCEL'| translate}}</button>\r\n        </div>\r\n  \r\n        <br><br>\r\n    </div>\r\n  \r\n    \r\n  </div>\r\n\r\n</div>\r\n\r\n<app-popup-aviso [mensaje]=\"mensajeMostrar\" (confirmo)=\"confirmoCierre($event)\" ></app-popup-aviso>"
 
 /***/ }),
 
@@ -5629,6 +5584,7 @@ module.exports = "<br>\r\n<div class=\"ServMargen\">\r\n<h2>Servicios</h2>\r\n\r
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modelo_servicioEmprendimiento_servicioEmprendimiento_model__ = __webpack_require__("../../../../../src/app/modelo/servicioEmprendimiento/servicioEmprendimiento.model.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__servicios_serviciosDeEmprendimiento_emprendimiento_services_service__ = __webpack_require__("../../../../../src/app/servicios/serviciosDeEmprendimiento/emprendimiento-services.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__servicios_cola_cola_service__ = __webpack_require__("../../../../../src/app/servicios/cola/cola.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__ = __webpack_require__("../../../../../src/app/popup-aviso/popup-aviso.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5644,6 +5600,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ServiciosEmprendimientoComponent = /** @class */ (function () {
     function ServiciosEmprendimientoComponent(directorioService, elementRef, emprendimientoServicesService, colaService) {
         this.directorioService = directorioService;
@@ -5651,18 +5608,35 @@ var ServiciosEmprendimientoComponent = /** @class */ (function () {
         this.emprendimientoServicesService = emprendimientoServicesService;
         this.colaService = colaService;
         this.esAdmin = false;
-        this.displayedColumns = ['id', 'nombre', 'informacion', 'editar'];
+        this.displayedColumns = ['id', 'nombre', 'informacion', 'editar', 'eliminar'];
         this.servicios = new Array();
         this.servicio = new __WEBPACK_IMPORTED_MODULE_3__modelo_servicioEmprendimiento_servicioEmprendimiento_model__["a" /* ServicioEmprendimiento */]();
         this.edita = 0;
+        this.row = -1;
         this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["D" /* MatTableDataSource */](this.servicios);
     }
     ServiciosEmprendimientoComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this.esAdmin = JSON.parse(localStorage.getItem('ADMIN'));
         if (!this.esAdmin) {
             this.displayedColumns = ['id', 'nombre', 'informacion'];
         }
+        this.obtenerServicios();
+        // let data : ServicioEmprendimiento;
+        // data ={
+        //   id : 1,
+        //   nombre : 'Ayuda',      
+        //   link : 'www.javeriana.edu.co'
+        // };
+        // this.servicios.push(data);
+        // data ={
+        //   id : 2,
+        //   nombre : 'Emprendimiento',      
+        //   link : 'www.javeriana.edu.co'
+        // };
+        // this.servicios.push(data);    
+    };
+    ServiciosEmprendimientoComponent.prototype.obtenerServicios = function () {
+        var _this = this;
         this.servicios = [];
         this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["D" /* MatTableDataSource */](this.servicios);
         var data;
@@ -5685,19 +5659,6 @@ var ServiciosEmprendimientoComponent = /** @class */ (function () {
         }, function (error) {
             console.log("**obtenerSuscritos***" + error);
         });
-        // let data : ServicioEmprendimiento;
-        // data ={
-        //   id : 1,
-        //   nombre : 'Ayuda',      
-        //   link : 'www.javeriana.edu.co'
-        // };
-        // this.servicios.push(data);
-        // data ={
-        //   id : 2,
-        //   nombre : 'Emprendimiento',      
-        //   link : 'www.javeriana.edu.co'
-        // };
-        // this.servicios.push(data);    
     };
     ServiciosEmprendimientoComponent.prototype.ngAfterViewInit = function () {
         this.dataSource.paginator = this.paginator;
@@ -5768,6 +5729,25 @@ var ServiciosEmprendimientoComponent = /** @class */ (function () {
             });
         }
     };
+    ServiciosEmprendimientoComponent.prototype.eliminarServicio = function (row) {
+        this.mensajeMostrar = '¿Está seguro que desea eliminar el servicio seleccionado?';
+        this.row = row.id;
+        __WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarBotones = true;
+    };
+    ServiciosEmprendimientoComponent.prototype.confirmoCierre = function (e) {
+        var _this = this;
+        var mensaje = { id: this.row, accion: 'eliminar', clase: 'Servicio', atributo: 'ok', valor: 'ok', prioridad: true, tipoDato: 'STRING' };
+        console.log(mensaje);
+        var observable = this.colaService.agregarACola(mensaje);
+        if (observable) {
+            observable.subscribe(function (response) {
+                console.log(response);
+                _this.obtenerServicios();
+            }, function (error) {
+                console.log("Error al elminar servicio");
+            });
+        }
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
@@ -5776,6 +5756,10 @@ var ServiciosEmprendimientoComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["A" /* MatSort */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["A" /* MatSort */])
     ], ServiciosEmprendimientoComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_6__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */])
+    ], ServiciosEmprendimientoComponent.prototype, "avisoPopUp", void 0);
     ServiciosEmprendimientoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-servicios-emprendimiento',
@@ -5860,7 +5844,7 @@ var SolicitarServicioComponent = /** @class */ (function () {
         });
     };
     SolicitarServicioComponent.prototype.avisar = function () {
-        this.avisoPopUp.mostrarPopExito();
+        __WEBPACK_IMPORTED_MODULE_2__popup_aviso_popup_aviso_component__["a" /* PopupAvisoComponent */].mostrarExito = true;
     };
     SolicitarServicioComponent.prototype.onCerrarNotify = function (e) {
         console.log('onNotifyPopUp : entro a onNotifyPopUp', e);
