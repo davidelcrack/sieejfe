@@ -112,7 +112,7 @@ export class AdministracionCorreosComponent implements OnInit {
   eliminarCorreo(row : any){
     this.mensajeMostrar= '¿Está seguro que desea eliminar el elemento seleccionado?'
     this.row=row.id;
-    this.avisoPopUp.mostrarPopBotones();
+    PopupAvisoComponent.mostrarBotones=true;
   }
 
   confirmoCierre(e){    

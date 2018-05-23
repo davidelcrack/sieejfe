@@ -336,7 +336,7 @@ export class InvitadoCrearComponent implements OnInit {
   mensajeMostrar : any = "Se ha creado el evento satisfactoriamente";
   @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
   avisar(){
-    this.avisoPopUp.mostrarPopExito();
+    PopupAvisoComponent.mostrarExito=true;
   }
 
   onCerrarNotify(e){

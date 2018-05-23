@@ -604,7 +604,7 @@ export class EventoComponent implements OnInit {
   mensajeMostrar : any;
   @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
   avisar(){
-    this.avisoPopUp.mostrarPop();
+    PopupAvisoComponent.mostrar=true;
   }
 
   misContactosSt: any = "fa fa-address-book" ;

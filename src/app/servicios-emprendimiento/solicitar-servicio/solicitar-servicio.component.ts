@@ -36,7 +36,7 @@ export class SolicitarServicioComponent implements OnInit {
   }
 
   avisar(){
-    this.avisoPopUp.mostrarPopExito();    
+    PopupAvisoComponent.mostrarExito=true;    
   }
 
   onCerrarNotify(e){

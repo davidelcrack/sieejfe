@@ -8,11 +8,24 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class PopupAvisoComponent implements OnInit , OnChanges {
 
+  static mostrar : boolean=false;
+  static mostrarExito: boolean=false;
+  static mostrarBotones: boolean=false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  getStaticMostrarPopGeneral() {
+    return PopupAvisoComponent.mostrar;
+  }
+
+  getStaticMostrarPopGeneralExito() {
+    return PopupAvisoComponent.mostrarExito;
+  }
+  getStaticMostrarPopGeneralBotones() {
+    return PopupAvisoComponent.mostrarBotones;
+  }
   @Input('mensaje')mensaje;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -21,57 +34,30 @@ export class PopupAvisoComponent implements OnInit , OnChanges {
 
   mostrar=false;
 
-  mostrarPop(){
-    console.log('mostrarPop : entro a mostrarPop');    
-    let el : any;
-    el = document.getElementById("overlayAviso");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-  }
-
   @Output() cerroPop : EventEmitter<any> = new EventEmitter <any>();  
   cerrarPopUp(){    
     console.log('cerrarPopUp : entro a cerrarPopUp');    
-    let el : any;
-    el = document.getElementById("overlayAviso");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    PopupAvisoComponent.mostrar=false;
   }
 
-  mostrarPopExito(){
-    console.log('mostrarPopExito : entro a mostrarPopExito');        
-    let el : any;
-    el = document.getElementById("overlayAvisoInfoExito");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-  }
+
 
   cerrarPopUpExito(){
     console.log('cerrarPopUp : entro a cerrarPopUp');   
     this.cerroPop.emit('Cerro'); 
-    let el : any;
-    el = document.getElementById("overlayAvisoInfoExito");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
-  }
-
-  mostrarPopBotones(){
-    console.log('mostrarPopBotones : entro a mostrarPopBotones');        
-    let el : any;
-    el = document.getElementById("overlayAvisoConBotones");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    PopupAvisoComponent.mostrarExito=false;
   }
 
   cerrarPopUpBotones(){
     console.log('cerrarPopUpBotones : entro a cerrarPopUpBotones');       
-    let el : any;
-    el = document.getElementById("overlayAvisoConBotones");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    PopupAvisoComponent.mostrarBotones=false;
   }
 
   @Output() confirmo : EventEmitter<any> = new EventEmitter <any>();  
   confirmacion(){
     console.log('confirmacion : entro a confirmacion');   
     this.confirmo.emit('Se confirmo'); 
-    let el : any;
-    el = document.getElementById("overlayAvisoConBotones");
-    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    PopupAvisoComponent.mostrarBotones=false;
   }
 
 }

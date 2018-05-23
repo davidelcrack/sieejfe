@@ -137,7 +137,7 @@ export class DetallesEventoComponent implements OnInit {
 
   @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
   avisar(){
-    this.avisoPopUp.mostrarPop();
+    PopupAvisoComponent.mostrar=true;
   }
 
   onNotifyInscribirse(e){

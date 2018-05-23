@@ -1,4 +1,4 @@
-<div id="overlayAviso">
+<div *ngIf="getStaticMostrarPopGeneral()" id="overlayAviso">
   
   <div class="modalShow">      
       <span class="close" (click)="cerrarPopUp()">&times;</span><br>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div id="overlayAvisoInfoExito">
+<div *ngIf="getStaticMostrarPopGeneralExito()" id="overlayAvisoInfoExito">
   
   <div class="modalShowInfoExito">      
       <span class="close" (click)="cerrarPopUpExito()">&times;</span><br>
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<div id="overlayAvisoConBotones">
+<div *ngIf="getStaticMostrarPopGeneralBotones()" id="overlayAvisoConBotones">
   
   <div class="modalShowConBotones">      
       <span class="close" (click)="cerrarPopUpBotones()">&times;</span><br>

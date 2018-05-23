@@ -203,7 +203,7 @@ export class SuscriptoresComponent implements OnInit {
   @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
 
   avisar(){
-    this.avisoPopUp.mostrarPopExito();    
+    PopupAvisoComponent.mostrarExito=true;
   }
 
   onCerrarNotify(e){
