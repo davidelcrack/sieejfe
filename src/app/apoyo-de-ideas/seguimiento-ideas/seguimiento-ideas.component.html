@@ -3,7 +3,7 @@
 <div class="ServMargen">
 
   <br><br>
-  <h2>Ideas</h2>
+  <h2>{{'ENTORNO.seguimientoIdeas'| translate}}</h2>
   <br><br>
 
   <div class="mat-app-background basic-container">
@@ -20,19 +20,19 @@
   
         <!-- ID Column -->
         <ng-container matColumnDef="titulo">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.TITULO'| translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.titulo}} </mat-cell>
         </ng-container>
   
         <!-- Remitente Column -->
         <ng-container matColumnDef="autor">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.AUTOR'| translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.autor}} </mat-cell>
         </ng-container>
         
         <!-- Fase Column -->
         <ng-container matColumnDef="fase">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Fase </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'TABLAS.HEADERS.FASE'| translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.fase}} </mat-cell>
         </ng-container>
 
@@ -44,7 +44,7 @@
         
         <!-- Fecha Column -->
         <ng-container matColumnDef="correo">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>{{'TABLAS.HEADERS.CORREO'| translate}}</mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.correo}} </mat-cell>
         </ng-container>
   
