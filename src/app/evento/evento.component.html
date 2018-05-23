@@ -212,6 +212,13 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Lugar</label>
+            <div class="col-sm-10">          
+              <input type="text" class="form-control" id="lugarEventoJ" placeholder="Ingrese LUGAR" name="lugarEventoJ"
+                [(ngModel)]="lugarEvento" (ngModelChange)="cambio('lugar',lugarEvento,'STRING')">
+            </div>
+          </div>
+          <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Requisitos</label>
             <div class="col-sm-10">          
               <input type="text" class="form-control" id="requisitosnEventoJ" placeholder="Ingrese requisitos" name="requisitosnEventoJ"
@@ -300,6 +307,12 @@
       <br><br>
       <h6>          
         {{descripcionEvento}}        
+      </h6>  
+      <br><br>
+      <h5>Lugar</h5>
+      <br><br>
+      <h6>          
+        {{lugarEvento}}        
       </h6>  
       <br><br>
       <h5>Requisitos</h5>

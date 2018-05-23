@@ -41,6 +41,12 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
         <mat-cell *matCellDef="let row"  (click)="editarServicio(row)"></mat-cell>
       </ng-container>
+      
+      <!-- Editar Column -->
+      <ng-container *ngIf="esAdmin" matColumnDef="eliminar">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row"  (click)="eliminarServicio(row)"></mat-cell>
+      </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">
@@ -95,3 +101,5 @@
   </div>
 
 </div>
+
+<app-popup-aviso [mensaje]="mensajeMostrar" (confirmo)="confirmoCierre($event)" ></app-popup-aviso>

@@ -4,6 +4,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ServicioEmprendimiento } from '../modelo/servicioEmprendimiento/servicioEmprendimiento.model';
 import { EmprendimientoServicesService } from '../servicios/serviciosDeEmprendimiento/emprendimiento-services.service';
 import { ColaService } from '../servicios/cola/cola.service';
+import { PopupAvisoComponent } from '../popup-aviso/popup-aviso.component';
 
 @Component({
   selector: 'app-servicios-emprendimiento',
@@ -32,6 +33,34 @@ export class ServiciosEmprendimientoComponent implements OnInit {
       this.displayedColumns = ['id', 'nombre', 'informacion'];
     }
 
+    this.obtenerServicios();
+    
+  
+
+    // let data : ServicioEmprendimiento;
+    // data ={
+    //   id : 1,
+    //   nombre : 'Ayuda',      
+    //   link : 'www.javeriana.edu.co'
+    // };
+    // this.servicios.push(data);
+    // data ={
+    //   id : 2,
+    //   nombre : 'Emprendimiento',      
+    //   link : 'www.javeriana.edu.co'
+    // };
+    // this.servicios.push(data);    
+  }
+  
+  displayedColumns = ['id', 'nombre', 'informacion' , 'editar', 'eliminar'];
+  dataSource: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  servicios = new Array();
+
+  obtenerServicios(){
     this.servicios=[];
     this.dataSource = new MatTableDataSource(this.servicios);
     let data : any;
@@ -58,30 +87,7 @@ export class ServiciosEmprendimientoComponent implements OnInit {
       }      
     );
 
-  
-
-    // let data : ServicioEmprendimiento;
-    // data ={
-    //   id : 1,
-    //   nombre : 'Ayuda',      
-    //   link : 'www.javeriana.edu.co'
-    // };
-    // this.servicios.push(data);
-    // data ={
-    //   id : 2,
-    //   nombre : 'Emprendimiento',      
-    //   link : 'www.javeriana.edu.co'
-    // };
-    // this.servicios.push(data);    
   }
-  
-  displayedColumns = ['id', 'nombre', 'informacion' , 'editar'];
-  dataSource: MatTableDataSource<any>;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  servicios = new Array();
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -168,5 +174,34 @@ export class ServiciosEmprendimientoComponent implements OnInit {
     
 
   }
+
+  mensajeMostrar : any;
+  row : any = -1;
+  @ViewChild(PopupAvisoComponent) avisoPopUp: PopupAvisoComponent;
+  
+  eliminarServicio(row : any){
+    this.mensajeMostrar= '¿Está seguro que desea eliminar el servicio seleccionado?'
+    this.row=row.id;
+    PopupAvisoComponent.mostrarBotones=true;
+  }
+
+  confirmoCierre(e){    
+    let mensaje = { id: this.row  , accion: 'eliminar' , clase: 'Servicio', atributo: 'ok' , valor: 'ok' , prioridad: true, tipoDato: 'STRING' }
+    
+    console.log(mensaje);
+
+    let observable = this.colaService.agregarACola(mensaje);
+
+    if (observable) {
+      observable.subscribe(response => {
+        console.log(response)            
+        this.obtenerServicios();
+      },
+        error => {
+          console.log("Error al elminar servicio");
+        });
+    }
+  }
+
 
 }

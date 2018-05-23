@@ -121,3 +121,12 @@ a.fa.fa-plus-circle{
     content: '\1F50D';
     cursor: pointer;
   }
+
+  mat-cell.mat-cell.cdk-column-eliminar.mat-column-eliminar.ng-star-inserted:before  { 
+    font-family: FontAwesome; 
+    font-size: 30px; 
+    display: inline-block; 
+    content: '\f1f8';
+    cursor: pointer;
+    color : darkred
+  }

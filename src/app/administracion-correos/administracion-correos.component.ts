@@ -110,7 +110,7 @@ export class AdministracionCorreosComponent implements OnInit {
   @ViewChild('admonCorreosPopUp') avisoPopUp: PopupAvisoComponent;
   
   eliminarCorreo(row : any){
-    this.mensajeMostrar= '¿Está seguro que desea eliminar el elemento seleccionado?'
+    this.mensajeMostrar= '¿Está seguro que desea eliminar el correo seleccionado?'
     this.row=row.id;
     PopupAvisoComponent.mostrarBotones=true;
   }

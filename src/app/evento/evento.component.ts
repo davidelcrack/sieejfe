@@ -85,46 +85,7 @@ export class EventoComponent implements OnInit {
 
     if(!this.esAdmin){
       this.actions=[];
-    }   
-    
-    // data = {
-    //   id: 1,
-    //   start: subDays(startOfDay(new Date()), 1),
-    //   end: addDays(new Date(), 1),
-    //   title: 'Emprendimiento : El camino',
-    //   color: colors.blueJaverina,
-    //   actions: this.actions
-    // };
-    // this.events.push(data);
-
-    // data={
-    //   id: 2,
-    //   start: startOfDay(new Date()),
-    //   title: 'Evento sin fecha de finalización',
-    //   color: colors.yellowJaveriana,
-    //   actions: this.actions
-    // };
-    // this.events.push(data);
-    
-    // data={
-    //   id: 3,
-    //   start: subDays(endOfMonth(new Date()), 3),
-    //   end: addDays(endOfMonth(new Date()), 3),
-    //   title: 'Charla Google',
-    //   color: colors.blue,
-    //   actions: this.actions
-    // };
-    // this.events.push(data);
-
-    // data={
-    //   id: 4,
-    //   start: addHours(startOfDay(new Date()), 2),
-    //   end: new Date(),
-    //   title: 'Hackaton 2018',
-    //   color: colors.yellowJaveriana,
-    //   actions: this.actions      
-    // };
-    // this.events.push(data);
+    }       
 
   }
 
@@ -145,6 +106,7 @@ export class EventoComponent implements OnInit {
   eventosTodos = new Array();
   detalleEvento : any;
   
+  lugarEvento : any;
   requisitosEvento : any;  
   descripcionEvento : any;
   capacidadMaxima : any;
@@ -165,24 +127,20 @@ export class EventoComponent implements OnInit {
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        console.log(event);
-        //this.handleEvent('Edited', event);
+        console.log(event);        
         this.abrirEdicionEvento(event.id);
       }
     },
     {
       label: '<i class="fa fa-fw fa-times"></i>',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        /*this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent('Deleted', event);*/
+      onClick: ({ event }: { event: CalendarEvent }): void => {        
         this.eliminar(event.id);
       }
     },
     {
       label: '<i class="fa fa-plus-square"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        console.log(event);
-        //this.handleEvent('Edited', event);
+        console.log(event);        
         this.abrirDetalleEventos(event.id);
       }
     }
@@ -270,6 +228,7 @@ export class EventoComponent implements OnInit {
 
       this.eventosTodos[index].descripcion=this.descripcionEvento;
       this.eventosTodos[index].requisitos=this.requisitosEvento;
+      this.eventosTodos[index].lugar=this.lugarEvento;
       if(this.capacidadMaxima != null){
         this.eventosTodos[index].capacidad_maxima=this.capacidadMaxima;
       }
@@ -286,7 +245,7 @@ export class EventoComponent implements OnInit {
   /* ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** EDITAR ********** */
 
   abrirEdicionEvento(id : any){
-    this.accion=1; this.descripcionEvento=null; this.requisitosEvento=null; this.capacidadMaxima=null;
+    this.accion=1; this.descripcionEvento=null; this.requisitosEvento=null; this.capacidadMaxima=null; this.lugarEvento=null;
     console.log('abrirEdicionEvento : entro a abrirEdicionEvento');
     console.log(this.events);
     let escogido = this.events.indexOf(this.events.find(function(element) {
@@ -304,6 +263,7 @@ export class EventoComponent implements OnInit {
 
     this.descripcionEvento=this.eventosTodos[index].descripcion;
     this.requisitosEvento=this.eventosTodos[index].requisitos;
+    this.lugarEvento=this.eventosTodos[index].lugar;
 
     if(this.eventosTodos[index].capacidad_maxima == -1){
       this.capacidadMaxima=null;
@@ -325,7 +285,7 @@ export class EventoComponent implements OnInit {
     console.log('abrirAdicionEvento : entro a abrirAdicionEvento');
     this.accion=2;
     this.eventsEditar=[];
-    this.descripcionEvento=null; this.requisitosEvento=null; this.capacidadMaxima=null;
+    this.descripcionEvento=null; this.requisitosEvento=null; this.capacidadMaxima=null; this.lugarEvento=null;
 
     // let mensaje = { id: 0  , accion: 'crearEvento' , prioridad: true, valor: 'ok'}
     // console.log(mensaje);
@@ -403,7 +363,7 @@ export class EventoComponent implements OnInit {
       this.avisar();
       return false;
     }     
-    if(this.descripcionEvento==null || this.capacidadMaxima==null || this.requisitosEvento==null){
+    if(this.descripcionEvento==null || this.capacidadMaxima==null || this.requisitosEvento==null || this.lugarEvento==null){
       this.mensajeMostrar='Debe llenar los detalles del evento';
       this.avisar();
       return false;
@@ -428,6 +388,7 @@ export class EventoComponent implements OnInit {
       requisitos: this.requisitosEvento,
       descripcion: this.descripcionEvento,
       capacidad_maxima: this.capacidadMaxima,
+      lugar: this.lugarEvento,
       atrPersonalizados : this.atributosPersonalizados
     };
 
@@ -482,6 +443,7 @@ export class EventoComponent implements OnInit {
     
     this.descripcionEvento=this.eventosTodos[indice].descripcion;
     this.requisitosEvento=this.eventosTodos[indice].requisitos;
+    this.lugarEvento=this.eventosTodos[indice].lugar;
     if(this.eventosTodos[indice].capacidad_maxima == -1){
       this.capacidadMaxima='No se tiene un límite de capacidad';
     }else{

@@ -29,6 +29,12 @@
           <mat-header-cell *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.autor}} </mat-cell>
         </ng-container>
+        
+        <!-- Fase Column -->
+        <ng-container matColumnDef="fase">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Fase </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.fase}} </mat-cell>
+        </ng-container>
 
         <!-- Estado Column -->
         <!-- <ng-container matColumnDef="estado">

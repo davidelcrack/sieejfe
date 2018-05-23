@@ -22,7 +22,7 @@ export class SeguimientoIdeasComponent implements OnInit {
     this.pedirIdeas(0);       
   }
 
-  displayedColumns = ['titulo', 'autor', 'correo' ,'ver'];
+  displayedColumns = ['titulo', 'autor', 'fase' , 'correo' ,'ver'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -59,7 +59,7 @@ export class SeguimientoIdeasComponent implements OnInit {
             id: element.id,
             titulo : element.titulo ,
             autor : element.usuarioJaveriana.nombre + ' '+ element.usuarioJaveriana.apellidos,
-            //estado: element.activa,
+            fase : element.etapa,
             correo : element.usuarioJaveriana.email,
             descripcion : element.descripcion,
             etiquetas : element.etiquetas
