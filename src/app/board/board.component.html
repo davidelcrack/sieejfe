@@ -1,9 +1,9 @@
 <ngb-carousel>
   <ng-template *ngFor="let imagenMostrar of [1,2,3]" ngbSlide>
-    <img src="../../assets/images/banner/ImagenJav{{imagenMostrar}}.jpg" alt="Slide {{imagenMostrar}}" (click)="clickImagen('servicioEmprendimiento')">
+    <img src="../../assets/images/banner/ImagenJav{{imagenMostrar}}.jpg" alt="Slide {{imagenMostrar}}" (click)="clickImagen(imagenMostrar)">
     <div class="carousel-caption">
-      <h3>Titulo Slide {{imagenMostrar}}</h3>
-      <p>Texto con formato en el slide {{imagenMostrar}}.</p>
+      <h3>{{'IMAGENESBOARD.'+panelImagenes[imagenMostrar-1].titulo | translate}}</h3>
+      <p>{{'IMAGENESBOARD.'+panelImagenes[imagenMostrar-1].descripcion | translate}}</p>
     </div>
   </ng-template>
 </ngb-carousel>
@@ -17,14 +17,12 @@
 <div class="colGrid1" style="text-align:center">
   <div class="recuadroGrande">
     <h2 class="textoRecuadro">
-      <span class="section-heading-upper">Ecosistema Javeriano</span>
-      <span class="section-heading-lower">de Emprendimiento</span>
+      <span class="section-heading-upper">{{'BOARD.ECOSISTEMA'| translate}}</span>
+      <span class="section-heading-lower">{{'BOARD.EMPRENDIMIENTO'| translate}}</span>
     </h2>
     <br>
     <p class="mb-3">
-      El EJE es una plataforma dirigido a los emprendedores de la Pontificia Univerisada Javeriana (sede Bogotá) que entrega información
-      actualizada de los principales eventos y actividades asociadas con el tema del emprendimiento que se desarrollan en
-      la universidad
+      {{'BOARD.RECUADROSICE2'| translate}}
     </p>
   </div>
 </div>
@@ -38,51 +36,25 @@
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
-        </ng-container>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <ng-container>
-          <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
-        </ng-container>
-      </div>
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <ng-container>
-          <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
-        </ng-container>
-      </div>
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <ng-container>
-          <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
-        </ng-container>
-      </div>
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <ng-container>
-          <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
     </div>
@@ -90,25 +62,51 @@
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
       <div class="col-xs-3 col-sm-3 col-md-3">
         <ng-container>
           <img src="../../assets/images/banner/silueta.jpg">
-          <a class="acordeonButton labelAcordeon">Nombre y Apellido</a>
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
+        </ng-container>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
+        </ng-container>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <ng-container>
+          <img src="../../assets/images/banner/silueta.jpg">
+          <a class="acordeonButton labelAcordeon">{{'BOARD.NOMBRES'| translate}}</a>
         </ng-container>
       </div>
     </div>
@@ -130,15 +128,8 @@
     </div>
     <div class="colGrid2 textoPanel" style="display: table;">
         <p class="margenTexto mb-3 labelPanel"> 
-          El Centro Ático, la Facultad de Ingeniería, la Facultad de Estudios Ambientales y
-          Rurales de la Pontificia Universidad Javeriana y el EL TIEMPO Casa Editorial,
-          invitan a participar en la Hackathón “Reinventa, Realiza y Respira” que tiene
-          como fin promover el encuentro, la experimentación y la creación interdisciplinar
-          entre los participantes, quienes durante 24 horas continuas resolverán el reto
-          propuesto para el encuentro.
-          Con el apoyo de la Vicerrectoría del Medio Universitario y la Vicerrectoría
-          Académica, de la Pontificia Universidad Javeriana.
-          </p>
+          {{'PROMO.promo1'| translate}}
+        </p>
     </div>
     <br><br><br><br><br><br>
   </div>

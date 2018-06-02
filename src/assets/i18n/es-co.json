@@ -33,7 +33,11 @@
     "MIPERFIL" : "Mi Perfil"
   },
   "BOARD": {
-    "EMPRENDEDOR": "Bienvenido Emprendedor"
+    "EMPRENDEDOR": "Bienvenido Emprendedor",
+    "RECUADROSICE2" :"SICE2 es una plataforma dirigido a los emprendedores de la Pontificia Univerisada Javeriana (sede Bogotá) que entrega información actualizada de los principales eventos y actividades asociadas con el tema del emprendimiento que se desarrollan en la universidad",
+    "ECOSISTEMA" : "Ecosistema Javeriano",
+    "EMPRENDIMIENTO" : "de Emprendimiento",
+    "NOMBRES" : "Nombre y Apellido"
   },
   "TABS" : {
     "CONTEXT" : {
@@ -116,5 +120,16 @@
       "AUTOR" : "Autor",
       "FASE" : "Fase"
     }
+  },
+  "IMAGENESBOARD" :{
+    "titulo1" : "Eventos",
+    "descripcion1" : "Enterate de los últimos eventos",
+    "titulo2" : "Relacionamiento",
+    "descripcion2" : "Explora dominios para apoyar tu emprendimiento",
+    "titulo3" : "Servicios",
+    "descripcion3" : "Conoce los servicios que te ofrecemos"
+  },
+  "PROMO":{
+    "promo1" : "El Centro Ático, la Facultad de Ingeniería, la Facultad de Estudios Ambientales y Rurales de la Pontificia Universidad Javeriana y el EL TIEMPO Casa Editorial, invitan a participar en la Hackathón “Reinventa, Realiza y Respira” que tiene como fin promover el encuentro, la experimentación y la creación interdisciplinar entre los participantes, quienes durante 24 horas continuas resolverán el reto propuesto para el encuentro. Con el apoyo de la Vicerrectoría del Medio Universitario y la Vicerrectoría Académica, de la Pontificia Universidad Javeriana."
   }
 }

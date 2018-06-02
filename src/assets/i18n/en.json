@@ -33,7 +33,11 @@
     "MIPERFIL" : "My Profile"
   },
   "BOARD": {
-    "EMPRENDEDOR": "Welcome Entrepreneur"
+    "EMPRENDEDOR": "Welcome Entrepreneur",
+    "RECUADROSICE2" : "SICE2 is a platform aimed at entrepreneurs of the Pontificia Universidad Javeriana (Bogota headquarters) that provides updated information on the main events and activities with the theme of entrepreneurship that takes place at the university",
+    "ECOSISTEMA" : "Javeriana Ecosystem",
+    "EMPRENDIMIENTO" : "of Entrepreneurship",
+    "NOMBRES" : "Name and Surname"
   },
   "TABS" : {
     "CONTEXT" : {
@@ -116,5 +120,17 @@
       "AUTOR" : "Author",
       "FASE" : "Phase"
     }
-  }  
+  },
+  "IMAGENESBOARD" :{
+    "titulo1" : "Events",
+    "descripcion1" : "Find out about the latest events",
+    "titulo2" : "Relationship",
+    "descripcion2" : "Explore domains to support your venture",
+    "titulo3" : "Services",
+    "descripcion3" : "Know the services we offer you"
+  },
+  "PROMO":{
+    "promo1" : "Centro Ático, the Faculty of Engineering, the Faculty of Environmental and Rural Studies of the Pontificia Universidad Javeriana and the EL TIME Casa Editorial, invite you to participate in the Hackathon 'Reinvent, Realize and Breathe' that aims to promote the meeting, the experimentation and interdisciplinary creation among the participants, who during 24 continuous hours will solve the proposed challenge for the meeting. With the support of the Vice Presidency of the University Environment and the Academic Vice-rectory, of the Pontificia Universidad Javeriana."
+  }
+
 }
