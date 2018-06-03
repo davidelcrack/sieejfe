@@ -30,7 +30,8 @@
     "CONFIGURACION" : "Configuración",
     "seguimientoIdeas" : "Checkea Ideas",
     "CUENTANOS" : "Cuéntanos tu idea",
-    "MIPERFIL" : "Mi Perfil"
+    "MIPERFIL" : "Mi Perfil",
+    "FILTRO" : "Filtrar"
   },
   "BOARD": {
     "EMPRENDEDOR": "Bienvenido Emprendedor",
@@ -86,7 +87,8 @@
     "INSTITUCIONES" : "Universidades e intituciones",
     "REDES" : "Redes",
     "TECNOLOGICOS" : "Tecnológicos",
-    "AUSJAL" : "Asociación de Universidades Confiadas a la Compañía de Jesús"
+    "AUSJAL" : "Asociación de Universidades Confiadas a la Compañía de Jesús",
+    "INFO" : "Este espacio es solo informativo y la Pontificia Universidad Javeriana no se hace responsable por cualquier consecuencia derivada del ingreso a los dominios presentados a continuación."
   },
   "EVENTOS" : {
     "ADD" : "Agregar Evento",
@@ -131,5 +133,59 @@
   },
   "PROMO":{
     "promo1" : "El Centro Ático, la Facultad de Ingeniería, la Facultad de Estudios Ambientales y Rurales de la Pontificia Universidad Javeriana y el EL TIEMPO Casa Editorial, invitan a participar en la Hackathón “Reinventa, Realiza y Respira” que tiene como fin promover el encuentro, la experimentación y la creación interdisciplinar entre los participantes, quienes durante 24 horas continuas resolverán el reto propuesto para el encuentro. Con el apoyo de la Vicerrectoría del Medio Universitario y la Vicerrectoría Académica, de la Pontificia Universidad Javeriana."
+  },
+  "SERVICIOS" : {
+    "SERVICIO" : "Servicio",
+    "TODAS" : "Todas",
+    "RESOLVER" : "Por Resolver",
+    "RESUELTAS" : "Resueltas",
+    "NOMBRE" : "Nombre",
+    "REMIT" : "Remitente",
+    "ESTADO" : "Estado",
+    "FECHA" : "Fecha"
+  },
+  "CONFGENERAL" : {
+    "ACCION" : "Campos de Acción",
+    "CAMPO" : "Selecciona Tu Campo De Acción",
+    "SEND" : "Enviar",
+    "Artes" : "Artes",
+    "Ciencias" : "Ciencias",
+    "Ingeniería" : "Ingeniería",
+    "Música" : "Música",
+    "Lenguajes" : "Lenguajes",
+    "Sociedad" : "Lenguajes",    
+    "Filosofía" : "Filosofía",
+    "Matemáticas" : "Matemáticas",
+    "Redes Sociales" : "Redes Sociales",
+    "Deportes" : "Deportes",
+    "Aprendizaje" : "Aprendizaje",
+    "Financiero" : "Financiero",
+    "Física" : "Física"
+  },
+  "MIPERFIL" : {
+    "IDEAS" : "Mis Ideas",
+    "TITULO" : "Título",
+    "ETAPA" : "Etapa",
+    "EVENTOS" : "Mis Eventos",    
+    "INICIO" : "Inicio",
+    "FIN" : "Fin",
+    "SOLICITUD" : "Mis Solicitudes",
+    "NOMBRE" : "Nombre",
+    "FECHA" : "Fecha",
+    "ACTIVA" : "Activa"
+  },
+  "ENLACES" : {
+    "NOMBRE" : "Nombre"
+  },
+  "SOLICITARSERVICIO" : {
+    "INFO" : "Este espacio le permite solicitar un servicio que usted cree puede aportar a su formación como emprendedor. Un administrador revisará la solicitud y dará respuesta.",
+    "SEND" : "Enviar",
+    "NOMBRE" : "Nombre",
+    "MENSAJE" : "Mensaje"
+  },
+  "CUENTANOS" : {
+    "INFO" : "Este espacio le permite dar a conocer su idea de emprendimiento, al seleccionar los campos de acción y fase en la que cree se encuentra nuestro sistema enviará está información al administrador o mentor que mejor se acomode a estas preferencias y por lo tanto pueda apoyarlo y brindarle asesoramiento.",
+    "SELECTETAPA" : "Seleccione una Etapa de Emprendimiento",
+    "SEND" : "Enviar"
   }
 }

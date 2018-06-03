@@ -8,10 +8,8 @@
   <br>
   <div class="colGrid2 textoPanel" style="text-align:center">
     <p class="margenTexto mb-3 labelPanel"> 
-      Este espacio le permite dar a conocer su idea de emprendimiento, al seleccionar los campos de acción y fase en la que 
-      cree se encuentra nuestro sistema enviará está información al administrador o mentor que mejor se acomode a estas preferencias 
-      y por lo tanto pueda apoyarlo y brindarle asesoramiento.
-      </p>
+      {{'CUENTANOS.INFO'| translate}}
+    </p>
   </div>
   <br>
 
@@ -19,7 +17,7 @@
     <div class="forma">
 
       <mat-form-field>
-        <mat-select [(value)]="etapaActual" placeholder="Seleccione una Etapa de Emprendimiento">
+        <mat-select [(value)]="etapaActual" placeholder="{{'CUENTANOS.SELECTETAPA'| translate}}">
           <mat-option *ngFor="let etapa of etapas" [value]="etapa">
             {{ etapa.nombre }}
           </mat-option>
@@ -27,18 +25,18 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select [(value)]="seleccionados" placeholder="Campos de Acción" [formControl]="campos" multiple>
-          <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{campo.nombre}}</mat-option>
+        <mat-select [(value)]="seleccionados" placeholder="{{'CONFGENERAL.ACCION' | translate}}" [formControl]="campos" multiple>
+          <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{'CONFGENERAL.'+campo.nombre | translate}}</mat-option>
         </mat-select>
       </mat-form-field>          
         
-      <input placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="solicitudIdea.titulo" name="Name" required>
+      <input placeholder="{{'SOLICITARSERVICIO.NOMBRE' | translate}}" #nombre maxlength="80" [(ngModel)]="solicitudIdea.titulo" name="Name" required>
             
       <br><br>
 
-      <textarea placeholder="Mensaje" #msn maxlength="300" [(ngModel)]="solicitudIdea.descripcion" name="Msn" cols="25"></textarea>
+      <textarea placeholder="{{'SOLICITARSERVICIO.MENSAJE' | translate}}" #msn maxlength="300" [(ngModel)]="solicitudIdea.descripcion" name="Msn" cols="25"></textarea>
     
-      <input (click)="enviarIdea()" type="submit" value="Enviar">
+      <input (click)="enviarIdea()" type="submit" value="{{'CUENTANOS.SEND'| translate}}">
 
     </div>
   </form>

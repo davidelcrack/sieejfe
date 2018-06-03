@@ -1,5 +1,5 @@
 <div>
-  <h3>Mis Solicitudes</h3>
+  <h3>{{'MIPERFIL.SOLICITUD' | translate}}</h3>
 
   <br>
 
@@ -7,7 +7,7 @@
 
     <div class="example-header">
       <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'ENTORNO.FILTRO' | translate}}">
       </mat-form-field>
     </div>
 
@@ -25,7 +25,7 @@
 
         <!-- Progress Column -->
         <ng-container matColumnDef="Nombre">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'MIPERFIL.NOMBRE' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <a> {{row.nombre}} </a>
           </mat-cell>
@@ -33,7 +33,7 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="Fecha">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'MIPERFIL.FECHA' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <a> {{row.fecha}} </a>
           </mat-cell>
@@ -41,7 +41,7 @@
 
         <!-- Activa Column -->
         <ng-container matColumnDef="Activa">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Activa </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'MIPERFIL.ACTIVA' | translate}} </mat-header-cell>
           <mat-cell class="{{row.activa}} mat-cell cdk-column-Activa mat-column-Activa" *matCellDef="let row"></mat-cell>
         </ng-container>
 

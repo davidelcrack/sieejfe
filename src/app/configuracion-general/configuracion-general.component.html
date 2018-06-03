@@ -3,19 +3,19 @@
 
 
   <br><br>
-  <h2>Selecciona Tu Campo De Acción</h2>
+  <h2>{{'CONFGENERAL.CAMPO'| translate}}</h2>
   <br><br>
 
   <form>
     <div class="forma">
 
       <mat-form-field>
-        <mat-select [compareWith]="compareObjects" [(ngModel)]="seleccionados" placeholder="Campos de Acción" [formControl]="campos" multiple>
-          <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{campo.nombre}}</mat-option>
+        <mat-select [compareWith]="compareObjects" [(ngModel)]="seleccionados" placeholder="{{'CONFGENERAL.ACCION' | translate}}" [formControl]="campos" multiple>
+          <mat-option *ngFor="let campo of listaCampos" [value]="campo">{{'CONFGENERAL.'+campo.nombre | translate}}</mat-option>
         </mat-select>
       </mat-form-field>             
     
-      <input (click)="enviarEtiquetas()" type="submit" value="Enviar">
+      <input (click)="enviarEtiquetas()" type="submit" value="{{'CONFGENERAL.SEND'| translate}}">
 
     </div>
   </form>

@@ -6,13 +6,13 @@
     <div class="col-md-4">
       <div class="btn-group">
         <div id="botonTodasSolicitudesAdmin" class="btn btn-outline-primary" (click)="pedirSolicitudes(0)">
-          Todas
+          {{'SERVICIOS.TODAS'| translate}}
         </div>
         <div id="botonPorResolverSolicitudesAdmin" class="btn btn-primary" (click)="pedirSolicitudes(1)">
-          Por Resolver
+          {{'SERVICIOS.RESOLVER'| translate}}
         </div>
         <div id="botonResueltasSolicitudesAdmin" class="btn btn-primary" (click)="pedirSolicitudes(2)">
-          Resueltas
+          {{'SERVICIOS.RESUELTAS'| translate}}
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
 
     <div class="example-header">
       <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'ENTORNO.FILTRO'| translate}}">
       </mat-form-field>
     </div>
   
@@ -34,25 +34,25 @@
   
         <!-- ID Column -->
         <ng-container matColumnDef="nombre">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'SERVICIOS.NOMBRE'| translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
         </ng-container>
   
         <!-- Remitente Column -->
         <ng-container matColumnDef="remitente">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Remitente </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'SERVICIOS.REMIT'| translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.remitente}} </mat-cell>
         </ng-container>
 
         <!-- Estado Column -->
         <ng-container matColumnDef="estado">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'SERVICIOS.ESTADO'| translate}} </mat-header-cell>
           <mat-cell class="{{row.estado}} mat-cell cdk-column-estado mat-column-estado" *matCellDef="let row"></mat-cell>
         </ng-container>
         
         <!-- Fecha Column -->
         <ng-container matColumnDef="fecha">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>{{'SERVICIOS.FECHA'| translate}}</mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.fecha}} </mat-cell>
         </ng-container>
   

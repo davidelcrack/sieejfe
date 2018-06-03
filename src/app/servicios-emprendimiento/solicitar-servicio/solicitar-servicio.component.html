@@ -2,25 +2,24 @@
 <div class="tablaMargen">
   
   <br><br>
-  <h2>Solicitar Servicio</h2>
+  <h2>{{'ENTORNO.SOLICITARSERVICIO' | translate}}</h2>
   <br>
   <div class="colGrid2 textoPanel" style="text-align:center">
     <p class="margenTexto mb-3 labelPanel"> 
-      Este espacio le permite solicitar un servicio que usted cree puede aportar a su formación como
-      emprendedor. Un administrador revisará la solicitud y dará respuesta. 
-      </p>
+      {{'SOLICITARSERVICIO.INFO' | translate}}
+    </p>
   </div>
   <br>
   <form>
     <div class="forma">
         
-      <input placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="solicitudPojo.nombre" name="Name" required>
+      <input placeholder="{{'SOLICITARSERVICIO.NOMBRE' | translate}}" #nombre maxlength="80" [(ngModel)]="solicitudPojo.nombre" name="Name" required>
             
       <br><br>
 
-      <textarea placeholder="Mensaje" #msn maxlength="300" [(ngModel)]="solicitudPojo.descripcion" name="Msn" cols="25"></textarea>
+      <textarea placeholder="{{'SOLICITARSERVICIO.MENSAJE' | translate}}" #msn maxlength="300" [(ngModel)]="solicitudPojo.descripcion" name="Msn" cols="25"></textarea>
     
-      <input (click)="solicitarServicio()" type="submit" value="Enviar">
+      <input (click)="solicitarServicio()" type="submit" value="{{'SOLICITARSERVICIO.SEND' | translate}}">
 
     </div>
   </form>

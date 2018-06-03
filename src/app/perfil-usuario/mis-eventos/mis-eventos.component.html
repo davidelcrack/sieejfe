@@ -1,5 +1,5 @@
 <div>
-  <h3>Mis Eventos</h3>
+  <h3>{{'MIPERFIL.EVENTOS' | translate}}</h3>
 
   <br>
 
@@ -7,7 +7,7 @@
 
     <div class="example-header">
       <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'ENTORNO.FILTRO' | translate}}">
       </mat-form-field>
     </div>
 
@@ -25,7 +25,7 @@
 
         <!-- Progress Column -->
         <ng-container matColumnDef="Titulo">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'MIPERFIL.TITULO' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <a> {{row.titulo}} </a>
           </mat-cell>
@@ -33,7 +33,7 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="Inicio">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Inicio </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'MIPERFIL.INICIO' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <a> {{row.inicio}} </a>
           </mat-cell>
@@ -41,7 +41,7 @@
 
         <!-- Info Column -->
         <ng-container matColumnDef="Fin">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Fin </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'MIPERFIL.FIN' | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row">
             <a> {{row.fin}} </a>
           </mat-cell>

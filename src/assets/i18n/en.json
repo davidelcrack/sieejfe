@@ -20,7 +20,7 @@
     "RELACIONAMIENTO" : "Relationship",
     "ADMINISTRACION" : "Administration",
     "UNIVERSIDAD" : "College",
-    "QUIENES" : "About Us?",
+    "QUIENES" : "Links of Interest",
     "OFERTASERVICIOS" : "Services Offered",
     "SOLICITARSERVICIO" : "Request Services",
     "RESPONDERSOLICITUDES" : "Reply Requests",
@@ -30,7 +30,8 @@
     "CONFIGURACION" : "Settings",
     "seguimientoIdeas" : "Check Ideas",
     "CUENTANOS" : "Tell us your idea",
-    "MIPERFIL" : "My Profile"
+    "MIPERFIL" : "My Profile",
+    "FILTRO" : "Filter"
   },
   "BOARD": {
     "EMPRENDEDOR": "Welcome Entrepreneur",
@@ -53,7 +54,7 @@
     "Directorio"  : "Relationship",
     "Universidad" : "University",
     "Servicios" : "Services",
-    "aboutus" : "Web Links",
+    "aboutus" : "Links of Interest",
     "solicitarServicio" : "Request Service",
     "solicitudesServicio" : "Reply Requests",
     "detalleEvento" : "Join Us!",
@@ -86,7 +87,8 @@
     "INSTITUCIONES" : "Universities and institutions",
     "REDES" : "Networks",
     "TECNOLOGICOS" : "Technological",
-    "AUSJAL" : "Association of Universities Entrusted to the Society of Jesus"
+    "AUSJAL" : "Association of Universities Entrusted to the Society of Jesus",
+    "INFO" : "This space is only informative and the Pontificia Universidad Javeriana is not responsible for any consequence derived from the entry to the domains presented below."
   },
   "EVENTOS" : {
     "ADD" : "Add Event",
@@ -131,6 +133,59 @@
   },
   "PROMO":{
     "promo1" : "Centro Ático, the Faculty of Engineering, the Faculty of Environmental and Rural Studies of the Pontificia Universidad Javeriana and the EL TIME Casa Editorial, invite you to participate in the Hackathon 'Reinvent, Realize and Breathe' that aims to promote the meeting, the experimentation and interdisciplinary creation among the participants, who during 24 continuous hours will solve the proposed challenge for the meeting. With the support of the Vice Presidency of the University Environment and the Academic Vice-rectory, of the Pontificia Universidad Javeriana."
+  },
+  "SERVICIOS" : {
+    "SERVICIO" : "Service",
+    "TODAS" : "All",
+    "RESOLVER" : "To be solved",
+    "RESUELTAS" : "Resolved",
+    "NOMBRE" : "Name",
+    "REMIT" : "Sender",
+    "ESTADO" : "State",
+    "FECHA" : "Date"
+  },
+  "CONFGENERAL" : {
+    "ACCION" : "Action Field",
+    "CAMPO" : "Select Your Action Field",
+    "SEND" : "Send",
+    "Artes" : "Arts",
+    "Ciencias" : "Science",
+    "Ingeniería" : "Engineering",
+    "Música" : "Music",
+    "Lenguajes" : "Languages",
+    "Sociedad" : "Society",    
+    "Filosofía" : "Philosophy",
+    "Matemáticas" : "Mathematics",
+    "Redes Sociales" : "Social Networks",
+    "Deportes" : "Sports",
+    "Aprendizaje" : "Learning",
+    "Financiero" : "Financial",
+    "Física" : "Physics"
+  },
+  "MIPERFIL" : {
+    "IDEAS" : "My Ideas",
+    "TITULO" : "Title",
+    "ETAPA" : "Phase",
+    "EVENTOS" : "My Events",    
+    "INICIO" : "Start",
+    "FIN" : "End",
+    "SOLICITUD" : "My Requests",
+    "NOMBRE" : "Name",
+    "FECHA" : "Date",
+    "ACTIVA" : "Active"
+  },
+  "ENLACES" : {
+    "NOMBRE" : "Name"
+  },
+  "SOLICITARSERVICIO" : {
+    "INFO" : "This space allows you to request a service that you believe you can contribute to your training as an entrepreneur. An administrator will review the request and respond.",
+    "SEND" : "Send",
+    "NOMBRE" : "Name",
+    "MENSAJE" : "Message"
+  },
+  "CUENTANOS" : {
+    "INFO" : "This space allows you to publicize your idea of entrepreneurship, by selecting the fields of action and phase in which you believe our system will send this information to the administrator or mentor that best suits these preferences and so I can both support him and advise him.",
+    "SELECTETAPA" : "Select a Phase of Entrepreneurship",
+    "SEND" : "Send"
   }
-
 }

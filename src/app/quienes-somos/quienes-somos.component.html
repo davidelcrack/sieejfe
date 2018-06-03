@@ -12,7 +12,7 @@
 </p> -->
 <br>
 
-<h2>Enlaces de Interés</h2>
+<h2>{{'ENTORNO.QUIENES' | translate}}</h2>
 <br>
 
 <a *ngIf="esAdmin" class="fa fa-plus-circle" (click)="agregarEnlace(undefined)" ></a>
@@ -21,7 +21,7 @@
 
   <div class="example-header">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'ENTORNO.FILTRO' | translate}}">
     </mat-form-field>
   </div>
 
@@ -31,7 +31,7 @@
 
       <!-- Nombre Column -->
       <ng-container matColumnDef="Nombre">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{'ENLACES.NOMBRE' | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row" (click)="prueba(row)"> {{row.name}} </mat-cell>
       </ng-container>
 
@@ -68,7 +68,7 @@
       
       <form class="form-horizontal">
         <div class="form-group">
-          <label class="control-label col-sm-2" for="email">Nombre</label>
+          <label class="control-label col-sm-2" for="email">{{'ENLACES.NOMBRE'| translate}}</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="nombreEnlace" placeholder="Ingrese nombre" name="nombreEnlace"
               [(ngModel)]="enlace.name" (ngModelChange)="cambio('nombre',enlace.name, 'STRING')">
