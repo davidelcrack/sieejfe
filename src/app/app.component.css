@@ -236,6 +236,23 @@ ul.dropMioJaja li a{
     display: block;
 }
 
+footer {
+    position:fixed;
+    bottom:0;    
+    width:100%;
+    height:30px;
+    background:lightgrey;    
+    z-index:+1;
+}
+footer:before {
+    content:"SICE2 2018. Basado en la tesis doctoral de Efrain Ortiz PhD";
+    font-size:12px;
+    position:absolute;
+    width:100%;    
+    line-height:30px;
+    text-align:center;    
+    color:dimgrey;    
+}
 .dropdownNav:before {
     content: "";
     position: absolute;
